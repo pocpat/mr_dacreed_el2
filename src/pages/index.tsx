@@ -2,8 +2,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "~/utils/api";
-import { SignIn } from "@clerk/nextjs";
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+// import { SignIn } from "@clerk/nextjs";
+// import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -20,7 +20,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#083344] to-[#2dd4bf]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            <span className="text-[hsl(113,65%,60%)]">DACREED</span> Test App
+            <span className="text-[hsl(158,100%,33%)]">DACREED</span> Test App
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
@@ -39,12 +39,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            {/* <AuthShowcase /> */}
-            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton />}
               {user.isSignedIn && <SignOutButton />}
-              {/* <SignInButton/> */}
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
