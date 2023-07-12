@@ -2,8 +2,8 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "~/utils/api";
-// import { SignIn } from "@clerk/nextjs";
-// import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
@@ -28,21 +28,21 @@ export default function Home() {
               href="https://create.t3.gg/en/usage/first-steps"
               target="_blank"
             >
-              <h3 className="text-2xl font-bold">JP Prototype One</h3>
+              <h3 className="text-2xl font-bold">ADMIN</h3>
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
               href="https://create.t3.gg/en/introduction"
               target="_blank"
             >
-              <h3 className="text-2xl font-bold">EL Prototype One</h3>
+              <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton />}
               {user.isSignedIn && <SignOutButton />}
-            </div> */}
+            </div>
           </div>
         </div>
       </main>
