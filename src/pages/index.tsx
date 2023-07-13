@@ -2,13 +2,13 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "~/utils/api";
-import { SignIn } from "@clerk/nextjs";
-import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+// import { SignIn } from "@clerk/nextjs";
+// import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 
 export default function Home() {
   const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  const user = useUser();
-  console.log(user);
+  // const user = useUser();
+  // console.log(user);
 
   return (
     <>
@@ -39,10 +39,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton />}
               {user.isSignedIn && <SignOutButton />}
-            </div>
+            </div> */}
           </div>
         </div>
       </main>
