@@ -12,7 +12,7 @@ import { withClerkMiddleware } from "@clerk/nextjs/server";
 import { log } from "console";
 import { NextResponse } from "next/server";
 export default withClerkMiddleware((req) => {
-    console.log("middleware running");
+    // console.log("middleware running");
   return NextResponse.next();
 });
 // Stop Middleware running on static files

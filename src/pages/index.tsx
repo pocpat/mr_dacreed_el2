@@ -4,13 +4,13 @@ import Link from "next/link";
 import { api } from "~/utils/api";
 // import { SignIn } from "@clerk/nextjs";
 // import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import LE from "./api/library_EL"
-import TextEditor from "../../components/TextEditor";
+import LJE from "./pageLibrary"
 
 export default function Home() {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   // const user = useUser();
   // console.log(user);
+
 
   return (
     <>
@@ -35,13 +35,12 @@ export default function Home() {
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
               // href="https://create.t3.gg/en/introduction"
-              href="./library_EL"
+              href="./pageLibrary"
               target="_blank"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link>
           </div>
-         <TextEditor/>
           <div className="flex flex-col items-center gap-2">
             {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton />}
