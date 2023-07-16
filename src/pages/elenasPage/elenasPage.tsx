@@ -8,7 +8,7 @@ const elenasPage = () => {
     <h1>Elenas Components</h1>
 <TextEditor/>
 
-{/* <TextWave/> */}
+<TextWave/>
 
 
    </div>

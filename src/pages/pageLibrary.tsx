@@ -28,14 +28,14 @@ export default function JPLibrary() {
               href="./jonosPage/jonosPage"
               target="_blank"
             >
-              <h3 className="text-2xl font-bold">Jono's Library</h3>
+              <h3 className="text-2xl font-bold">Jonos Library</h3>
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-              href="/components/elenasComponents/eComponents"
+              href="/elenasPage/elenasPage"
               target="_blank"
             >
-              <h3 className="text-2xl font-bold">Elena's Library</h3>
+              <h3 className="text-2xl font-bold">Elenas Library</h3>
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2"></div>
@@ -64,7 +64,7 @@ export default function JPLibrary() {
 //         </Link>
 //         <Link
 //           className="flex max-w-xs flex-col gap-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 p-4 text-white hover:bg-white/20"
-//           href="/components/elenasComponents/eComponents"
+//          href="/elenasPage/elenasPage"
 //           target="_blank"
 //         >
 //           <h3 className="text-2xl font-bold">ELENA</h3>
