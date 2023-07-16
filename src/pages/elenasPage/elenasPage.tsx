@@ -5,7 +5,7 @@ import TextWave from '../components/elenasComponents/TextWave'
 const elenasPage = () => {
   return (
     <div>
-    <h1>Elena's Components</h1>
+    <h1>Elenas Components</h1>
 <TextEditor/>
 
 {/* <TextWave/> */}
