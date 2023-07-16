@@ -13,11 +13,18 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <ClerkProvider {...pageProps}>
       <Component {...pageProps} />
-      </ClerkProvider>
     </SessionProvider>
   );
 };
 
 export default api.withTRPC(MyApp);
+
+// I have commented out the below which slots into the above return( ) but trying something else with pages.  Keep the below.
+// return (
+//   <SessionProvider session={session}>
+//     <ClerkProvider {...pageProps}>
+//     <Component {...pageProps} />
+//     </ClerkProvider>
+//   </SessionProvider>
+// );
