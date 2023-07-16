@@ -1,6 +1,5 @@
 import { z } from "zod";
 import Link from "next/link";
-import {eComponents} from "@/components/elenasComponents/eComponents";
 
 export default function LJE() {
   return (
@@ -16,7 +15,8 @@ export default function LJE() {
         </Link>
         <Link
           className="flex max-w-xs flex-col gap-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 p-4 text-white hover:bg-white/20"
-          href="/components/elenasComponents/eComponents"
+          // href="/components/elenasComponents/eComponents"
+          href="/elenasPage/elenasPage"
           target="_blank"
         >
           <h3 className="text-2xl font-bold">ELENA</h3>
