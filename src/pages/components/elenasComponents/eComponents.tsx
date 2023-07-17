@@ -3,7 +3,7 @@ import TextEditor from "./TextEditor";
 const eComponents = () => {
   return (
     <div>
-     <h1>Elena's Components</h1>
+     <h1>Elenas Components</h1>
 <TextEditor/>
 
 
