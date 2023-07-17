@@ -1,14 +1,18 @@
+
+
+
 import React from "react";
 const TextWave = (): JSX.Element => {
   const maintext = "TEST WAVY WORDS TO SEE IT WIGGLES PROPERLY";
   const chars = maintext.split("");
   return (
     <div>
-      <h2 className="flex items-center justify-center bg-transparent min-w-100vh relative tracking-widest">
+      <h2 className="flex items-center justify-center bg-transparent min-w-100vh relative tracking-widest animate-text-in">
         {chars.map((char, i) => (
           <span
             key={i}
-            className="animate-custom-bounce"
+            className="
+            animate-custom-bounce"
             style={{ animationDelay: `${i * 0.05}s` }}
           >
             {char}
