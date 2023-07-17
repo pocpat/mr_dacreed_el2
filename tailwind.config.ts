@@ -1,4 +1,4 @@
-import { Config } from "tailwindcss";
+import { type Config } from "tailwindcss";
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -25,6 +25,7 @@ const config: Config = {
         "text-in": "textin 6s forwards",
       },
     },
+    // plugins:[require("@tailwindcss/typography"), require("daisyui")],
   },
 
   plugins: [],
