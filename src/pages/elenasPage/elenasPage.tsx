@@ -9,6 +9,7 @@ const elenasPage = () => {
 <TextEditor/>
 <p className="text-pink-500">need to figure out how to start and to end with the wavy shape</p>
 <TextWave />
+<br></br>
 <Bird/>
 
 
