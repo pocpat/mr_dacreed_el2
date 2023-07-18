@@ -4,7 +4,8 @@ import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import '../styles/globals.css';
+import "../styles/globals.css";
+import { User } from "@clerk/nextjs/dist/types/server";
 // import '../components/custom-quill.css';
 
 const MyApp: AppType<{ session: Session | null }> = ({
@@ -12,19 +13,15 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
+    // <SessionProvider session={session}>
+    //   <Component {...pageProps} />
+    // </SessionProvider>
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <ClerkProvider {...pageProps}>
+        <Component {...pageProps} />
+      </ClerkProvider>
     </SessionProvider>
   );
 };
 
 export default api.withTRPC(MyApp);
-
-// I have commented out the below which slots into the above return( ) but trying something else with pages.  Keep the below.
-// return (
-//   <SessionProvider session={session}>
-//     <ClerkProvider {...pageProps}>
-//     <Component {...pageProps} />
-//     </ClerkProvider>
-//   </SessionProvider>
-// );

@@ -2,14 +2,14 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { api } from "~/utils/api";
-// import { SignIn } from "@clerk/nextjs";
-// import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
+import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
 import LJE from "./pageLibrary";
 
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  // const user = useUser();
-  // console.log(user);
+  const user = useUser();
+  console.log(user);
 
   return (
     <>
@@ -20,13 +20,15 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#042f2e] to-[#94a3b8]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+          {/* <div>{user.isSignedIn && <span>Welcome back ...</span>}</div> */}
+
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             <span
               className="larger-font text-[hsl(158,100%,33%)]"
               style={{ fontSize: "100px" }}
             >
               DACREED
-            </span>{" "}
+            </span>
             Test App
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
@@ -47,10 +49,10 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton />}
               {user.isSignedIn && <SignOutButton />}
-            </div> */}
+            </div>
           </div>
         </div>
       </main>
@@ -61,10 +63,10 @@ export default function Home() {
 // function AuthShowcase() {
 //   const { data: sessionData } = useSession();
 
-// const { data: secretMessage } = api.library.getSecretMessage.useQuery(
-//   undefined, // no input
-//   { enabled: sessionData?.user !== undefined }
-// );
+//   const { data: secretMessage } = api.library.getSecretMessage.useQuery(
+//     undefined, // no input
+//     { enabled: sessionData?.user !== undefined }
+//   );
 
 //   return (
 //     <div className="flex flex-col items-center justify-center gap-4">

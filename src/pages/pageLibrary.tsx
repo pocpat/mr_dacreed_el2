@@ -20,7 +20,7 @@ export default function JPLibrary() {
               style={{ fontSize: "150px" }}
             >
               DACREED
-            </span>{" "}
+            </span>
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
@@ -44,32 +44,3 @@ export default function JPLibrary() {
     </div>
   );
 }
-
-// *************************************************************ELENAS PAGE CODE BELOW************************************************************()
-// import { z } from "zod";
-// import Link from "next/link";
-// // import {eComponents} from "@/components/elenasComponents/eComponents";
-
-// export default function LJE() {
-//   return (
-//     <div className="flex max-w-xs flex-col gap-4">
-//       <h1>Library made by: </h1>
-//       <div className="flex max-w-xs flex-row gap-4">
-//         <Link
-//           className="flex max-w-xs flex-col gap-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 p-4 text-white hover:bg-white/20"
-//           href="./jonosPage/jonosPage"
-//           target="_blank"
-//         >
-//           <h3 className="text-2xl font-bold">JONO</h3>
-//         </Link>
-//         <Link
-//           className="flex max-w-xs flex-col gap-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 p-4 text-white hover:bg-white/20"
-//          href="/elenasPage/elenasPage"
-//           target="_blank"
-//         >
-//           <h3 className="text-2xl font-bold">ELENA</h3>
-//         </Link>
-//       </div>
-//     </div>
-//   );
-// }
