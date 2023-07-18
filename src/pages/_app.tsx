@@ -3,28 +3,22 @@ import { SessionProvider } from "next-auth/react";
 import { type AppType } from "next/app";
 import { api } from "~/utils/api";
 import "~/styles/globals.css";
+import "../styles/globals.css";
+
 import { ClerkProvider } from "@clerk/nextjs";
-import '../styles/globals.css';
-// import '../components/custom-quill.css';
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
+  console.log(process.env.NEXT_PUBLIC_CLERK_FRONTEND_API);
   return (
     <SessionProvider session={session}>
-      <Component {...pageProps} />
+      <ClerkProvider {...pageProps}>
+        <Component {...pageProps} />
+      </ClerkProvider>
     </SessionProvider>
   );
 };
 
 export default api.withTRPC(MyApp);
-
-// I have commented out the below which slots into the above return( ) but trying something else with pages.  Keep the below.
-// return (
-//   <SessionProvider session={session}>
-//     <ClerkProvider {...pageProps}>
-//     <Component {...pageProps} />
-//     </ClerkProvider>
-//   </SessionProvider>
-// );

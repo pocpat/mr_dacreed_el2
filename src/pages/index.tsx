@@ -1,18 +1,10 @@
-import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
-import { api } from "~/utils/api";
 import { UserButton } from "@clerk/nextjs";
 import { SignIn } from "@clerk/nextjs";
 import { SignUp } from "@clerk/nextjs";
-// import { SignInButton, SignOutButton, useUser } from "@clerk/nextjs";
-import LJE from "./pageLibrary";
 
 export default function Home() {
-  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
-  // const user = useUser();
-  // console.log(user);
-
   return (
     <>
       <Head>
