@@ -22,23 +22,3 @@ const config = {
 
 export default config;
 
-//=================> V2 <================================
-// await import('./src/env.mjs');
-
-// const config = {
-//   reactStrictMode: true,
-//   i18n: {
-//     locales: ['en'],
-//     defaultLocale: 'en',
-//   },
-//   async rewrites() {
-//     return [
-//       {
-//         source: '/api/:path*',
-//         destination: '/api/auth/:path*',
-//       },
-//     ];
-//   },
-// };
-
-// export default config;
