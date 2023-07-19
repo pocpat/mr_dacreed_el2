@@ -1,8 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
-import { SignIn } from "@clerk/nextjs";
-import { SignUp } from "@clerk/nextjs";
+import { SignIn, SignUp, SignOutButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
@@ -27,15 +26,13 @@ export default function Home() {
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
               href="https://create.t3.gg/en/usage/first-steps"
-              target="_blank"
             >
               <h3 className="text-2xl font-bold">ADMIN</h3>
             </Link>
             <Link
               className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
               // href="https://create.t3.gg/en/introduction"
-              href="./pageLibrary"
-              target="_blank"
+              href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link>
@@ -45,8 +42,10 @@ export default function Home() {
               {!user.isSignedIn && <SignInButton />}
               {user.isSignedIn && <SignOutButton />}
             </div> */}
-            <SignIn/>
-            <SignUp/>
+            <h1>sign in </h1>
+             <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+             <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" />
+             <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" />
             <UserButton afterSignOutUrl="/"/>
           </div>
         </div>

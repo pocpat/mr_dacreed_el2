@@ -1,7 +1,7 @@
 import React from 'react'
-import TextEditor from '../../components/elenasComponents/TextEditor'
-import TextWave from '../../components/elenasComponents/TextWave'
-import Bird from '../../components/elenasComponents/Bird'
+ import TextEditor from './../../components/elenasComponents/TextEditor'
+import TextWave from './../../components/elenasComponents/TextWave'
+import Bird from './../../components/elenasComponents/Bird'
 const elenasPage = () => {
   return (
     <div>
