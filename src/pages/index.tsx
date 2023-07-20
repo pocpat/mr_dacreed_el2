@@ -1,10 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
-import { SignIn, SignUp } from "@clerk/nextjs";
-import { SignInButton } from "@clerk/nextjs";
+import { SignIn, SignUp, useUser, SignInButton,  SignOutButton } from "@clerk/nextjs";
 
 export default function Home() {
+  const user = useUser();
   return (
     <>
       <Head>
@@ -40,19 +39,13 @@ export default function Home() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
-              {!user.isSignedIn && <SignInButton />}
+            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+              {!user.isSignedIn && <SignInButton mode="modal"/>}
               {user.isSignedIn && <SignOutButton />}
-            </div> */}
-            <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
-            <div>
-              {/* <SignInButton /> */}
-              <SignInButton mode="modal">
-                <button className="btn">Sign in</button>
-              </SignInButton>
+         </div>
+            <div> 
             </div>
 
-            {/* <UserButton afterSignOutUrl="/"/> */}
           </div>
         </div>
       </main>
