@@ -5,15 +5,17 @@ import {
   } from "~/server/api/trpc";
 
   export const topicRouter = createTRPCRouter({
-    getAll: protectedProcedure.query(({ ctx })  => {
+    getAll: protectedProcedure
+    .input(z.object({ userId: z.string() })
+    .query(({ ctx })  => {
         return ctx.prisma.topic.findMany({
             where: {
-                userId:  ctx.session.user.id,
+               userId: ctx.session.user.id,
             },
          } );
       }),
 create: protectedProcedure
-    .input(z.object({ name: z.string() }))
+    .input(z.object({ title: z.string() }))
     .mutation(({ ctx, input }) => {
         return ctx.prisma.topic.create({
             data: {
