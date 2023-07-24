@@ -8,10 +8,9 @@ const admin = () => {
 
 <Header />
 <div className='
-// flex flex-row items-center justify-center 
-grid grid-flow-row-dense grid-cols-3 grid-rows-3
+flex flex-row items-center justify-center 
 
-'><h1>CREATE    REVIEW    APPROVE</h1></div>
+'><h1>CREATE         REVIEW          APPROVE</h1></div>
 
 
 
