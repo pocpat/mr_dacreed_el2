@@ -6,8 +6,15 @@ const admin = () => {
     <>
 
 <Header />
-<div><h1>ADMIN PAGE</h1></div>
+<div><h1>CREATE    REVIEW    APPROVE</h1></div>
 
+
+<div className="flex flex-row items-center justify-center gap-12 px-4 py-16 ">
+
+<section className="flex flex-col items-center justify-center gap-12 px-4 py-16 "></section>
+<section className="flex flex-col items-center justify-center gap-12 px-4 py-16 "></section>
+<section className="flex flex-col items-center justify-center gap-12 px-4 py-16 "></section>
+</div>
     
     </>
   )

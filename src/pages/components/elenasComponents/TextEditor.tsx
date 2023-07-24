@@ -36,6 +36,7 @@ const TextEditor = () => {
   };
   return (
     <div>
+      <h2 className='bg-primary-content font-bold text-neutral-500'>text edditor</h2>
       <ReactQuill 
       modules = {editorModule}
       theme = "snow"

@@ -7,6 +7,8 @@ const TextWave = (): JSX.Element => {
   const chars = maintext.split("");
   return (
     <div>
+      <h2 className='bg-primary-content font-bold text-neutral-500'>text wave for front page</h2>
+      <h4 className="text-pink-500"> need to figure out how to start and to end with the wavy shape</h4>
       <h2 className="flex items-center justify-center bg-transparent min-w-100vh relative tracking-widest animate-text-in">
         {chars.map((char, i) => (
           <span
