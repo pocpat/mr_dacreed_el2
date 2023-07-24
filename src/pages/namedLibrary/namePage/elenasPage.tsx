@@ -4,7 +4,7 @@ import TextWave from "./../../components/elenasComponents/TextWave";
 import Bird from "./../../components/elenasComponents/Bird";
 import Link from "next/link";
 import Buttons1 from "./../../components/elenasComponents/Buttons1";
-import { Textarea } from "~/pages/components/elenasComponents/Textarea";
+import Textarea from "~/pages/components/elenasComponents/Textarea";
 import SmallStaff from "~/pages/components/elenasComponents/smallStaff";
 const elenasPage = () => {
   return (
@@ -20,10 +20,9 @@ const elenasPage = () => {
       <Bird />
       <br></br>
       <Buttons1 />
-      <Textarea/> 
-      <SmallStaff/>
+      <Textarea />
+      <SmallStaff />
     </div>
-
   );
 };
 
