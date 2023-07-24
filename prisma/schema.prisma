@@ -90,3 +90,19 @@ model Note {
     topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
     topicId   String
 }
+
+// model UserPrisma {
+//   id    Int     @id @default(autoincrement())
+//   email String  @unique
+//   name  String?
+//   posts PostPrisma[]
+// }
+
+// model PostPrisma {
+//   id        Int     @id @default(autoincrement())
+//   title     String
+//   content   String?
+//   published Boolean @default(false)
+//   author    UserPrisma    @relation(fields: [authorId], references: [id])
+//   authorId  Int
+// }
