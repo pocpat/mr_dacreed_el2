@@ -1,9 +1,23 @@
 import Head from "next/head";
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
-import { SignIn, SignUp, SignInButton } from "@clerk/nextjs";
+import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
+import { type NextPage } from "next";
+import { useSession } from "next-auth/react";
+// import { useUser } from "@clerk/nextjs";
+// import { createReactQueryHooks } from '@trpc/react';
+// import superjson from 'superjson';
 
-export default function Home() {
+// const trpc = createReactQueryHooks({
+//   transformer: superjson,
+//   // ...
+// });
+
+// const { useQuery } = trpc;
+
+
+
+const Home: NextPage = () => {
+  const user = useUser();
   return (
     <>
       <Head>
@@ -12,8 +26,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
+        {/* <Header /> */}
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem] drop-shadow-md">            <span
+          <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
+            {" "}
+            <span
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
             >
@@ -23,57 +40,80 @@ export default function Home() {
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg- bg-[#7ebfb3] p-4 text-white hover:bg-white/50 drop-shadow-md"
-              href="/admin/admin"
+              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
+              href="admin/admin"
             >
               <h3 className="text-2xl font-bold">ADMIN</h3>
             </Link>
             <Link
-              className="flex max-w-xs flex-col gap-4 rounded-xl bg- bg-[#7ebfb3] p-4 text-white hover:bg-white/50 drop-shadow-md"
-              // href="https://create.t3.gg/en/introduction"
+              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            {/* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
-              {!user.isSignedIn && <SignInButton />}
+            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+              {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
-            </div> */}
-             <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
-             <div>
-             <SignInButton/>
-             </div>
-             
-            {/* <UserButton afterSignOutUrl="/"/> */}
+            </div>
+            <div></div>
           </div>
         </div>
       </main>
     </>
   );
-}
+};
 
-// function AuthShowcase() {
+ export default Home;
+
+const AuthShowcase: React.FC = () => {
+  const { user } = useUser();
+  if (user) {
+    return (
+      <div>
+        <p>Hello, {user.fullName}</p>
+        <SignOutButton />
+      </div>
+    );
+  }
+  return (
+    <div>
+      <p>Not signed in</p>
+      <SignInButton />
+    </div>
+  );
+};
+
+// const Content: React.FC = () => {
 //   const { data: sessionData } = useSession();
-
-  // const { data: secretMessage } = api.library.getSecretMessage.useQuery(
-  //   undefined, // no input
-  //   { enabled: sessionData?.user !== undefined }
-  // );
+//   // Assuming you have the useQuery hook from the TRPC API library
+//   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useUser(
+//     undefined,
+//     {
+//       enabled: !!sessionData?.id,
+//     }
+//   );
 
 //   return (
-//     <div className="flex flex-col items-center justify-center gap-4">
-//       <p className="text-center text-2xl text-white">
-//         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
-//         {/* {secretMessage && <span> - {secretMessage}</span>} */}
-//       </p>
-//       <button
-//         className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
-//         onClick={sessionData ? () => void signOut() : () => void signIn()}
-//       >
-//         {sessionData ? "Sign out" : "Sign in"}
-//       </button>
+//     <div>
+//       {/* {topics ? (
+//         topics.map((topic) => (
+//           <div key={topic.id}>
+//             <h3>{topic.title}</h3>
+//             <p>{topic.description}</p>
+//           </div>
+//         ))
+//       ) : (
+//         <p>Loading...</p>
+//       )} */}
+//       {JSON.stringify(topics)}
 //     </div>
 //   );
-// }
+// };
+
+
+export { 
+  AuthShowcase, 
+  // Content 
+};
