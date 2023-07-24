@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
-import { useQuery } from "@clerk/nextjs";
-import { createReactQueryHooks } from '@trpc/react';
-import superjson from 'superjson';
+// import { useUser } from "@clerk/nextjs";
+// import { createReactQueryHooks } from '@trpc/react';
+// import superjson from 'superjson';
 
 // const trpc = createReactQueryHooks({
 //   transformer: superjson,
@@ -85,32 +85,35 @@ const AuthShowcase: React.FC = () => {
   );
 };
 
-const Content: React.FC = () => {
-  const { data: sessionData } = useSession();
-  // Assuming you have the useQuery hook from the TRPC API library
-  const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
-    undefined,
-    {
-      enabled: !!sessionData?.id,
-    }
-  );
+// const Content: React.FC = () => {
+//   const { data: sessionData } = useSession();
+//   // Assuming you have the useQuery hook from the TRPC API library
+//   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useUser(
+//     undefined,
+//     {
+//       enabled: !!sessionData?.id,
+//     }
+//   );
 
-  return (
-    <div>
-      {/* {topics ? (
-        topics.map((topic) => (
-          <div key={topic.id}>
-            <h3>{topic.title}</h3>
-            <p>{topic.description}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )} */}
-      {JSON.stringify(topics)}
-    </div>
-  );
+//   return (
+//     <div>
+//       {/* {topics ? (
+//         topics.map((topic) => (
+//           <div key={topic.id}>
+//             <h3>{topic.title}</h3>
+//             <p>{topic.description}</p>
+//           </div>
+//         ))
+//       ) : (
+//         <p>Loading...</p>
+//       )} */}
+//       {JSON.stringify(topics)}
+//     </div>
+//   );
+// };
+
+
+export { 
+  AuthShowcase, 
+  // Content 
 };
-
-
-export { AuthShowcase, Content };
