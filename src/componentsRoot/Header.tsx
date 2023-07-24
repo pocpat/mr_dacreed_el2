@@ -1,6 +1,4 @@
-// import { signIn, signOut } from "@clerk/nextjs";   
 import { useUser } from '@clerk/nextjs';
-// import { profile } from 'console';
 import {  SignInButton,SignOutButton } from '@clerk/nextjs';
 
 
