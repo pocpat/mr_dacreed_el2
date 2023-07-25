@@ -4,12 +4,17 @@ import dynamic from 'next/dynamic';
 
 
 
+
 const ReactQuill = dynamic(
   () => import('react-quill'),
   { ssr: false }
 );
 
-const TextEditor = ({ content }) => {
+interface TextEditorProps {
+  content: string; 
+}
+
+const TextEditor: React.FC<TextEditorProps> = ({ content }) => {
   const [value, setValue] = useState ('');
 
 
