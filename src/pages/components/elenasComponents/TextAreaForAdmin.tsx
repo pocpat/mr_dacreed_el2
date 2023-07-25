@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const TextAreaFrorAdmin = () => {
   return (
@@ -9,4 +9,4 @@ const TextAreaFrorAdmin = () => {
   )
 }
 
-export default TextAreaFrorAdmin
+export default TextAreaFrorAdmin;
