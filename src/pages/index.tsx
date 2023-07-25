@@ -34,11 +34,17 @@ const Home: NextPage = () => {
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
             >
-              DACREED
+              WELCOME
             </span>{" "}
             Test App
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
+            <Link
+              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
+              href="input/input"
+            >
+              <h3 className="text-2xl font-bold">INPUT</h3>
+            </Link>
             <Link
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="admin/admin"
@@ -84,36 +90,6 @@ const AuthShowcase: React.FC = () => {
     </div>
   );
 };
-
-// const Content: React.FC = () => {
-//   const { data: sessionData } = useSession();
-//   // Assuming you have the useQuery hook from the TRPC API library
-//   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useUser(
-//     undefined,
-//     {
-//       enabled: !!sessionData?.id,
-//     }
-//   );
-
-//   return (
-//     <div>
-//       {/* {topics ? (
-//         topics.map((topic) => (
-//           <div key={topic.id}>
-//             <h3>{topic.title}</h3>
-//             <p>{topic.description}</p>
-//           </div>
-//         ))
-//       ) : (
-//         <p>Loading...</p>
-//       )} */}
-//       {JSON.stringify(topics)}
-//     </div>
-//   );
-// };
-
-
 export { 
   AuthShowcase, 
-  // Content 
 };
