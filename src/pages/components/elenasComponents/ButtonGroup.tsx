@@ -4,14 +4,7 @@ import React from "react";
 interface ButtonGroupProps {
   onSelect: (content: string) => void;
 }
-
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
-  // const [isMultipleChoiceClicked, setMultipleChoiceClicked] = React.useState(false);
-  // const [isOpenEndedClicked, setOpenEndedClicked] = React.useState(false);
-  // const [isDragDropClicked, setDragDropClicked] = React.useState(false);
-  // const [isTrueFalseClicked, setTrueFalseClicked] = React.useState(false);
-  // const [isSequenceClicked, setSequenceClicked] = React.useState(false);
-  // const [isMultimediaClicked, setMultimediaClicked] = React.useState(false);
 
   return (
     <>
@@ -22,6 +15,36 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
           onSelect(content);
         }}>
           Multiple Choice
+        </button>
+        <button className="btn" onClick={() => {
+          const content = 'Open-Ended'; 
+          onSelect(content);
+        }}>
+          Open-Ended
+        </button>
+        <button className="btn" onClick={() => {
+          const content = ' Drag/Drop'; 
+          onSelect(content);
+        }}>
+          Drag/Drop
+        </button>
+        <button className="btn" onClick={() => {
+          const content = 'True/False'; 
+          onSelect(content);
+        }}>
+          True/False
+        </button>
+        <button className="btn" onClick={() => {
+          const content = 'Sequence'; 
+          onSelect(content);
+        }}>
+          Sequence
+        </button>
+        <button className="btn" onClick={() => {
+          const content = 'Multimedia'; 
+          onSelect(content);
+        }}>
+          Multimedia
         </button>
       </div>
       </div>
