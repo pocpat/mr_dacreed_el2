@@ -24,7 +24,7 @@ flex flex-row items-center justify-center
     <TextAreaForAdmin />
     </section>
     <section className="p-4 px-1 bg-cyan-400 rounded-md flex items-center justify-center col-span-1">Right
-    <ButtonGroup />
+    {/* <ButtonGroup /> */}
     </section>
   </div>
 </div>

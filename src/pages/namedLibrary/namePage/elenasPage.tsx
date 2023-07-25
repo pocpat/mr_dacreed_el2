@@ -14,7 +14,7 @@ const elenasPage = () => {
       <Link href="/">Link to Home Page</Link>
 
       <br />
-      <TextEditor />
+      <TextEditor content={""} />
       <TextWave />
       <br></br>
       <Bird />

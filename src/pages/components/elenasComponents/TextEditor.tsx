@@ -1,17 +1,27 @@
-import React, {useState} from 'react';
-// import {ReactQuill} from 'react-quill';
+import React, {useState, useEffect} from 'react';
 import "react-quill/dist/quill.snow.css";
 import dynamic from 'next/dynamic';
 
-// import "./custom-quill.css"
+
+
 
 const ReactQuill = dynamic(
   () => import('react-quill'),
   { ssr: false }
 );
 
-const TextEditor = () => {
+interface TextEditorProps {
+  content: string; 
+}
+
+const TextEditor: React.FC<TextEditorProps> = ({ content }) => {
   const [value, setValue] = useState ('');
+
+
+  useEffect(() => {
+    setValue(content);
+  }, [content]);
+
   const toolbarOptions = [
     ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
   ['blockquote', 'code-block'],
