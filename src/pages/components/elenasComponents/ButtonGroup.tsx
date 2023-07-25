@@ -1,17 +1,42 @@
 import React from "react";
 
-const ButtonGroup = () => {
-  const [isMultipleChoiceClicked, setMultipleChoiceClicked] = React.useState(false);
-  const [isOpenEndedClicked, setOpenEndedClicked] = React.useState(false);
-  const [isDragDropClicked, setDragDropClicked] = React.useState(false);
-  const [isTrueFalseClicked, setTrueFalseClicked] = React.useState(false);
-  const [isSequenceClicked, setSequenceClicked] = React.useState(false);
-  const [isMultimediaClicked, setMultimediaClicked] = React.useState(false);
+
+interface ButtonGroupProps {
+  onSelect: (content: string) => void;
+}
+
+const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
+  // const [isMultipleChoiceClicked, setMultipleChoiceClicked] = React.useState(false);
+  // const [isOpenEndedClicked, setOpenEndedClicked] = React.useState(false);
+  // const [isDragDropClicked, setDragDropClicked] = React.useState(false);
+  // const [isTrueFalseClicked, setTrueFalseClicked] = React.useState(false);
+  // const [isSequenceClicked, setSequenceClicked] = React.useState(false);
+  // const [isMultimediaClicked, setMultimediaClicked] = React.useState(false);
 
   return (
     <>
       <div className="btn-group btn-group-vertical">
-        <button className="btn" onClick={() => setMultipleChoiceClicked(!isMultipleChoiceClicked)}>
+      <div className="btn-group btn-group-vertical">
+        <button className="btn" onClick={() => {
+          const content = 'Multiple Choice'; // Change this to the desired content for this button
+          onSelect(content);
+        }}>
+          Multiple Choice
+        </button>
+      </div>
+      </div>
+    </>
+  );
+};
+
+export default ButtonGroup;
+
+
+
+
+
+// ==============================================================
+        {/* <button className="btn" onClick={() => setMultipleChoiceClicked(!isMultipleChoiceClicked)}>
           Multiple Choice
         </button>
         {isMultipleChoiceClicked && <div>Multiple Choice</div>}
@@ -39,11 +64,4 @@ const ButtonGroup = () => {
         <button className="btn" onClick={() => setMultimediaClicked(!isMultimediaClicked)}>
           Multimedia
         </button>
-        {isMultimediaClicked && <div>Multimedia</div>}
-      </div>
-    </>
-  );
-};
-
-export default ButtonGroup;
-
+        {isMultimediaClicked && <div>Multimedia</div>} */}
