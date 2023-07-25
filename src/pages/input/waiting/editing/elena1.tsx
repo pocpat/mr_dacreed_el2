@@ -1,8 +1,7 @@
-// import { Content } from 'next/font/google'
 import React from 'react'
 import { Header } from '~/componentsRoot/Header'
-import TextAreaForAdmin from '../components/elenasComponents/TextAreaForAdmin'
-import ButtonGroup from '../components/elenasComponents/ButtonGroup'
+import TextAreaForAdmin from '../../../components/elenasComponents/TextAreaForAdmin'
+import ButtonGroup from '../../../components/elenasComponents/ButtonGroup'
 
 const admin = () => {
   return (
@@ -29,13 +28,7 @@ flex flex-row items-center justify-center
   </div>
 </div>
 
-
-
-
-
-
-
-    </>
+</>
   )
 }
 
