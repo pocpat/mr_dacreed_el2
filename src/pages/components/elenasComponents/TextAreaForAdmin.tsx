@@ -4,7 +4,7 @@ const TextAreaFrorAdmin = () => {
   return (
     <textarea
     placeholder="Bio"
-    className="textarea-bordered textarea textarea-lg w-full max-w-xs"
+    className="textarea-bordered textarea textarea-lg w-full max-w-xl"
   ></textarea>
   )
 }
