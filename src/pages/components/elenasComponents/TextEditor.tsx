@@ -43,13 +43,8 @@ const TextEditor: React.FC<TextEditorProps> = ({ content }) => {
         text edditor
       </h2>
       <ReactQuill modules={editorModule} theme="snow" value={value} />
-      <style jsx>{`
-        /* Apply styles to the code blocks in the Quill editor */
-        .ql-snow .ql-editor pre.ql-syntax {
-          @apply bg-blue-900 text-white; // Tailwind utility classes for background color and text color
-          overflow: visible;
-        }
-      `}</style>
+
+      
     </div>
   );
 };
