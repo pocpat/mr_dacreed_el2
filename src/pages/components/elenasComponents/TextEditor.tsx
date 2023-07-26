@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "react-quill/dist/quill.snow.css";
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
@@ -8,8 +8,11 @@ interface TextEditorProps {
   content: string;
 }
 
+
+
 const TextEditor: React.FC<TextEditorProps> = ({ content }) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState ('');
+
 
   useEffect(() => {
     setValue(content);
