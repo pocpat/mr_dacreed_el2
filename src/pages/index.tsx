@@ -2,19 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
-import { useSession } from "next-auth/react";
-// import { useUser } from "@clerk/nextjs";
-// import { createReactQueryHooks } from '@trpc/react';
-// import superjson from 'superjson';
-
-// const trpc = createReactQueryHooks({
-//   transformer: superjson,
-//   // ...
-// });
-
-// const { useQuery } = trpc;
-
-
+// import { useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
   const user = useUser();
@@ -45,12 +33,7 @@ const Home: NextPage = () => {
             >
               <h3 className="text-2xl font-bold">INPUT</h3>
             </Link>
-            <Link
-              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
-              href="admin/admin"
-            >
-              <h3 className="text-2xl font-bold">ADMIN</h3>
-            </Link>
+
             <Link
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
@@ -71,7 +54,7 @@ const Home: NextPage = () => {
   );
 };
 
- export default Home;
+export default Home;
 
 const AuthShowcase: React.FC = () => {
   const { user } = useUser();
@@ -90,6 +73,4 @@ const AuthShowcase: React.FC = () => {
     </div>
   );
 };
-export { 
-  AuthShowcase, 
-};
+export { AuthShowcase };

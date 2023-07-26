@@ -1,52 +1,69 @@
 import React from "react";
 
-
 interface ButtonGroupProps {
   onSelect: (content: string) => void;
 }
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
-
   return (
     <>
-      <div className="btn-group btn-group-vertical">
-      <div className="btn-group btn-group-vertical">
-        <button className="btn" onClick={() => {
-          const content = 'Multiple Choice'; // Change this to the desired content for this button
-          onSelect(content);
-        }}>
+      <div className="flex flex-col justify-center items-center ">
+        <p>Question Type</p>
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = "Multiple Choice"; // Change this to the desired content for this button
+            onSelect(content);
+          }}
+        >
           Multiple Choice
         </button>
-        <button className="btn" onClick={() => {
-          const content = 'Open-Ended'; 
-          onSelect(content);
-        }}>
+
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = "Open-Ended";
+            onSelect(content);
+          }}
+        >
           Open-Ended
         </button>
-        <button className="btn" onClick={() => {
-          const content = ' Drag/Drop'; 
-          onSelect(content);
-        }}>
+
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = " Drag/Drop";
+            onSelect(content);
+          }}
+        >
           Drag/Drop
         </button>
-        <button className="btn" onClick={() => {
-          const content = 'True/False'; 
-          onSelect(content);
-        }}>
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = "True/False";
+            onSelect(content);
+          }}
+        >
           True/False
         </button>
-        <button className="btn" onClick={() => {
-          const content = 'Sequence'; 
-          onSelect(content);
-        }}>
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = "Sequence";
+            onSelect(content);
+          }}
+        >
           Sequence
         </button>
-        <button className="btn" onClick={() => {
-          const content = 'Multimedia'; 
-          onSelect(content);
-        }}>
+        <button
+          className="btn m-2 w-40 drop-shadow-md"
+          onClick={() => {
+            const content = "Multimedia";
+            onSelect(content);
+          }}
+        >
           Multimedia
         </button>
-      </div>
       </div>
     </>
   );
@@ -54,12 +71,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
 
 export default ButtonGroup;
 
-
-
-
-
 // ==============================================================
-        {/* <button className="btn" onClick={() => setMultipleChoiceClicked(!isMultipleChoiceClicked)}>
+{
+  /* <button className="btn" onClick={() => setMultipleChoiceClicked(!isMultipleChoiceClicked)}>
           Multiple Choice
         </button>
         {isMultipleChoiceClicked && <div>Multiple Choice</div>}
@@ -87,4 +101,5 @@ export default ButtonGroup;
         <button className="btn" onClick={() => setMultimediaClicked(!isMultimediaClicked)}>
           Multimedia
         </button>
-        {isMultimediaClicked && <div>Multimedia</div>} */}
+        {isMultimediaClicked && <div>Multimedia</div>} */
+}
