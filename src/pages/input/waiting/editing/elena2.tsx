@@ -4,7 +4,7 @@ import { Header } from "~/componentsRoot/Header";
 import ButtonGroup from "../../../components/elenasComponents/ButtonGroup";
 import TextEditor from "~/pages/components/elenasComponents/TextEditor";
 import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
-const Admin = () => {
+const AdminTwo = () => {
   const [selectedButtonContent, setSelectedButtonContent] = useState("");
 
   const handleButtonSelection = (content: string) => {
@@ -105,4 +105,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminTwo;

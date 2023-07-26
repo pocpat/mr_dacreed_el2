@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
+
 import { useSession } from "next-auth/react";
 // import { useUser } from "@clerk/nextjs";
 // import { createReactQueryHooks } from '@trpc/react';
@@ -42,12 +43,7 @@ const Home: NextPage = () => {
             >
               <h3 className="text-2xl font-bold">INPUT</h3>
             </Link>
-            <Link
-              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
-              href="admin/admin"
-            >
-              <h3 className="text-2xl font-bold">ADMIN</h3>
-            </Link>
+
             <Link
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
