@@ -34,7 +34,6 @@ const Home: NextPage = () => {
             >
               WELCOME
             </span>{" "}
-            Test App
           </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
@@ -56,7 +55,9 @@ const Home: NextPage = () => {
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
-            <div></div>
+            <div className="m-8">
+              <AuthShowcase />
+            </div>
           </div>
         </div>
       </main>
@@ -71,8 +72,7 @@ const AuthShowcase: React.FC = () => {
   if (user) {
     return (
       <div>
-        <p>Hello, {user.fullName}</p>
-        <SignOutButton />
+        <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
