@@ -1,91 +1,211 @@
+import React, { useState } from "react";
+import "daisyui/dist/full.css";
+import { Header } from "~/componentsRoot/Header";
+// import TextAreaForAdmin from '../../../components/elenasComponents/TextAreaForAdmin'
+import ButtonGroup from "../../../components/elenasComponents/ButtonGroup";
+import TextEditor from "~/pages/components/elenasComponents/TextEditor";
+import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
+
+const Elena2 = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedButtonContent, setSelectedButtonContent] = useState("");
+
+  const handleButtonSelection = (content: string) => {
+    setSelectedButtonContent(content);
+  };
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      <Header />
+
+      <div
+        style={{
+          position: "relative",
+          backgroundColor: "transparent",
+          transition: "backdrop-filter 0.3s, background-color 0.3s",
+        }}
+        className={`page-container ${isOpen ? "modal-open" : ""}`}
+      >
+        {/* button final screen preview */}
+        <label htmlFor="my_modal_7" className="btn ">
+          Open Modal
+        </label>
+
+        {/* 3 rounded buttons */}
+        <div className="flex flex-row items-center justify-center ">
+          <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
+            <h3>Create</h3>
+          </button>
+          <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
+            <h3>REVIEW</h3>
+          </button>
+          <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
+            <h3>APPROVE</h3>
+          </button>
+        </div>
+
+        {/* modal */}
+        <input
+          type="checkbox"
+          id="my_modal_7"
+          className="modal-toggle  m-0 p-0"
+          defaultChecked={isOpen}
+        />
+        <div className={`modal ${isOpen ? "modal-open" : ""}`}>
+          <div
+            className="border-white-500 modal-box rounded-md border"
+            style={{ padding: "0.25rem" }}
+          >
+            <div className="flex items-center justify-center bg-green-500 px-4 py-2 text-xl text-white selection:rounded-t-md ">
+              <h3>Screen Preview</h3>
+              <button className="modal-close" onClick={closeModal}>
+                x
+              </button>
+            </div>
+            <section className="m-0 flex  items-center rounded-b-md  bg-gray-400">
+              <p className="py-4">This modal works with a hidden checkbox!</p>
+            </section>
+          </div>
+          <label
+            className="modal-backdrop"
+            htmlFor="my_modal_7"
+            onClick={closeModal}
+          ></label>
+        </div>
+      </div>
+
+      <div className="p-8">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
+          <section className="col-span-1 flex flex-col items-center justify-center rounded-md bg-gray-100 p-4 px-1">
+            <ButtonsQ onSelect={handleButtonSelection} />
+
+            <button className="btn-outline btn-circle btn my-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                  transform="rotate(90 12 12)"
+                />
+              </svg>
+            </button>
+          </section>
+          <section className="col-span-2 flex grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4">
+            <TextEditor content={selectedButtonContent} />
+            {/* here is the place for exchangable components. each button opens its own component in this area respectively*/}
+
+
+          </section>
+
+          <section
+            className="col-span-1 flex flex-col items-center   justify-center rounded-md bg-gray-100 p-4 px-1 "
+          >
+            <ButtonGroup onSelect={handleButtonSelection} />
+            <button className="btn-outline btn-circle btn my-10">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                  transform="rotate(90 12 12)"
+                />
+              </svg>
+            </button>
+          </section>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Elena2;
+
+// two modals don't work. no visable errors in console.
+
 // import React, { useState } from "react";
 // import { Header } from "~/componentsRoot/Header";
 // // import TextAreaForAdmin from '../../../components/elenasComponents/TextAreaForAdmin'
 // import ButtonGroup from "../../../components/elenasComponents/ButtonGroup";
 // import TextEditor from "~/pages/components/elenasComponents/TextEditor";
 // import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
-// const Admin = () => {
+
+// const AdminTwo = () => {
 //   const [selectedButtonContent, setSelectedButtonContent] = useState("");
+//   const [isOpen, setIsOpen] = useState(false);
 
 //   const handleButtonSelection = (content: string) => {
 //     setSelectedButtonContent(content);
 //   };
+
+//   function openModal(key: string) {
+//     setIsOpen(true);
+//     const modalElement = document.getElementById(
+//       key
+//     ) as HTMLDialogElement | null;
+//     if (modalElement) {
+//       modalElement.showModal();
+//       document.body.setAttribute("style", "overflow: hidden;");
+//       const dialogContent = modalElement.children[0] as HTMLElement;
+//       dialogContent.scrollTop = 0;
+//       dialogContent.classList.remove("opacity-0");
+//       dialogContent.classList.add("opacity-100");
+//     }
+//   }
 //   return (
 //     <>
 //       <Header />
-//       {/* 3 rounded buttons */}
-//       <div className="flex flex-row items-center justify-center ">
-//         <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
-//           <h3>Create</h3>
+//       {/* buttons final screen preview */}
+//       <div className="absolute top-0 mt-7 flex h-full w-full items-start justify-center">
+//         <button
+//           type="button"
+//           onClick={() => openModal("mymodalcentered")}
+//           className="mr-3 rounded bg-blue-500 px-4 py-2 text-white"
+//         >
+//           Open Modal Centered
 //         </button>
-//         <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
-//           <h3>REVIEW</h3>
-//         </button>
-//         <button className="btn m-6 flex h-16 w-16 items-center justify-center rounded-full p-7 drop-shadow-md">
-//           <h3>APPROVE</h3>
+//         <button
+//           type="button"
+//           onClick={() => openModal("mymodaltop")}
+//           className="rounded bg-blue-500 px-4 py-2 text-white"
+//         >
+//           Open Modal Top
 //         </button>
 //       </div>
-
+//       {/* 3 rounded buttons */}
+//       <div className="flex flex-row items-center justify-center ">
+//         <button className="btn m-6 flex h-2 w-2 items-center justify-center rounded-full p-7 drop-shadow-md"></button>
+//         <button className="btn m-6 flex h-2 w-2 items-center justify-center rounded-full p-7 drop-shadow-md"></button>
+//         <button className="btn m-6 flex h-2 w-2 items-center justify-center rounded-full p-7 drop-shadow-md"></button>
+//       </div>
 
 //       <div className="p-8">
 //         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
-//           <section
-//             className="col-span-1 flex
-//   flex-col items-center
-//      justify-center rounded-md bg-gray-100 p-4 px-1"
-//           >
+//           <section className="col-span-1 flex flex-col items-center justify-center rounded-md bg-gray-100 p-4 px-1">
 //             <ButtonsQ onSelect={handleButtonSelection} />
-
-//             <button className="btn-outline btn-circle btn my-10">
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 className="h-6 w-6"
-//                 fill="none"
-//                 viewBox="0 0 24 24"
-//                 stroke="currentColor"
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2"
-//                   d="M6 18L18 6M6 6l12 12"
-//                   transform="rotate(90 12 12)"
-//                 />
-//               </svg>
-//             </button>
 //           </section>
-//           <section
-//             className="col-span-2
-//      flex 
-//      grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4"
-//           >
+//           <section className="col-span-2 flex  grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4">
 //             <TextEditor content={selectedButtonContent} />
 //             {/* <TextAreaForAdmin /> */}
 //           </section>
-//           <section
-//             className="col-span-1 flex flex-col
-
-//     items-center  
-//     justify-center rounded-md bg-gray-100 p-4 px-1 "
-//           >
+//           <section className="col-span-1 flex flex-col items-center   justify-center rounded-md bg-gray-100 p-4 px-1 ">
 //             <ButtonGroup onSelect={handleButtonSelection} />
-//             <button className="btn-outline btn-circle btn my-10">
-//               <svg
-//                 xmlns="http://www.w3.org/2000/svg"
-//                 className="h-6 w-6"
-//                 fill="none"
-//                 viewBox="0 0 24 24"
-//                 stroke="currentColor"
-//               >
-//                 <path
-//                   strokeLinecap="round"
-//                   strokeLinejoin="round"
-//                   strokeWidth="2"
-//                   d="M6 18L18 6M6 6l12 12"
-//                   transform="rotate(90 12 12)"
-//                 />
-//               </svg>
-//             </button>
 //           </section>
 //         </div>
 //       </div>
@@ -95,9 +215,6 @@
 //           <h3>Back</h3>
 //         </button>
 //         <button className="btn m-6 flex h-8 w-28 items-center justify-center rounded-full p-1 drop-shadow-md">
-//           <h3>save</h3>
-//         </button>
-//         <button className="btn m-6 flex h-8 w-28 items-center justify-center rounded-full p-1 drop-shadow-md">
 //           <h3>next</h3>
 //         </button>
 //       </div>
@@ -105,4 +222,5 @@
 //   );
 // };
 
-// export default Admin;
+// export default AdminTwo;
+
