@@ -21,6 +21,7 @@ const Modal2 = () => {
 
     // Clean up the event listener when the component unmounts
     return () => {
+      // const modal: ModalInterface = useMemo(() => new Modal($modalElement.current, modalOptions), [modalOptions]);
       if ($buttonElement.current) {
         $buttonElement.current.removeEventListener("click", () => {
           if ($modalElement.current) {
@@ -29,6 +30,7 @@ const Modal2 = () => {
         });
       }
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const modalOptions: ModalOptions = useMemo(() => ({
