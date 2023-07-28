@@ -72,7 +72,9 @@ const AuthShowcase: React.FC = () => {
   if (user) {
     return (
       <div>
-        <h1>Hi {user.fullName}, welcome back.</h1>
+        <h1 className="text-2xl font-extrabold tracking-tight text-cyan-800	 drop-shadow-md">
+          Hi {user.fullName}, welcome back.
+        </h1>
       </div>
     );
   }
