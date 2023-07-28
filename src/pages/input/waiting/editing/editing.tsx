@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const editing = () => {
   return (
+
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
       <div>
         <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
@@ -40,6 +41,7 @@ const editing = () => {
         </Link>
       </div>
     </main>
+
   );
 };
 
