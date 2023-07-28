@@ -11,14 +11,9 @@ const MainView = () => {
       <div className="w-70vw bg-black-400 container m-4 rounded-xl">
         <JPTextEditor />
         <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
+        <div className="container h-80 bg-slate-300">
+          <span>TEST DIV FOR onClick rendering</span>
+        </div>
       </div>
       <div className="container m-4 flex w-40 flex-col justify-start rounded-xl bg-black">
         <span className="text-1 text-center font-bold tracking-tight text-white">
