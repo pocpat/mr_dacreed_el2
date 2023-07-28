@@ -1,10 +1,8 @@
 import React from "react";
-import ModalTest1 from "~/pages/components/jpComponents/ModalTest1";
-
 const jonosPage2 = () => {
   return (
     <div>
-      <ModalTest1 />
+      <h1>PLACEHOLDER</h1>
     </div>
   );
 };
