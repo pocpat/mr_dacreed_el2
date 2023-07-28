@@ -9,14 +9,18 @@ import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
 // import { api } from "~/utils/api";
 import TopNav from "~/pages/components/jpComponents/TopNav";
 
-export default function jonosPage() {
+export default function JonosPage() {
+  const { user } = useUser();
   return (
     <div>
-      <Header />
       <main className="flex min-h-screen flex-col items-center justify-start bg-gradient-to-b from-[#09090b] to-[#d4d4d8]">
         <div>
           <div>
             <TopNav />
+            <div className="p-2 text-3xl font-bold text-white">
+              {" "}
+              {user?.firstName ? `User logged in: ${user.firstName}` : ""}
+            </div>
           </div>
           <div>
             <MainView />

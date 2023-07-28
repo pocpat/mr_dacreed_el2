@@ -2,58 +2,18 @@ import Link from "next/link";
 import React from "react";
 import TextEditor from "../elenasComponents/TextEditor";
 import JPTextEditor from "./JPTextEditor";
+import SideMenu from "./SideMenu";
 
 const MainView = () => {
   return (
     <div className="flex flex-row justify-evenly bg-white p-2">
-      <div className="container m-4 flex w-40 flex-col justify-start rounded-xl bg-black">
-        <Link
-          href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
-          aria-current="page"
-        >
-          Question 1
-        </Link>
-        <Link
-          href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
-          aria-current="page"
-        >
-          Question 2
-        </Link>
-        <Link
-          href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
-          aria-current="page"
-        >
-          Question 3
-        </Link>
-        <Link
-          href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
-          aria-current="page"
-        >
-          Question 4
-        </Link>
-        <Link
-          href="/"
-          className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
-          aria-current="page"
-        >
-          Question 5
-        </Link>
-      </div>
+      <SideMenu />
       <div className="w-70vw bg-black-400 container m-4 rounded-xl">
         <JPTextEditor />
         <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
-        <JPTextEditor />
-        <br />
+        <div className="container h-80 bg-slate-300">
+          <span>TEST DIV FOR onClick rendering</span>
+        </div>
       </div>
       <div className="container m-4 flex w-40 flex-col justify-start rounded-xl bg-black">
         <span className="text-1 text-center font-bold tracking-tight text-white">
