@@ -6,7 +6,11 @@ import Link from "next/link";
 import Buttons1 from "./../../components/elenasComponents/Buttons1";
 import Textarea from "~/pages/components/elenasComponents/Textarea";
 import SmallStaff from "~/pages/components/elenasComponents/smallStaff";
+// import AccordionMiddle from "~/pages/components/elenasComponents/AccordionMiddle";
+
+
 const elenasPage = () => {
+
   return (
     <div className="bg-sky-100">
       <h1>Elenas Components</h1>
@@ -22,6 +26,8 @@ const elenasPage = () => {
       <Buttons1 />
       <Textarea />
       <SmallStaff />
+{/* <AccordionMiddle /> */}
+
     </div>
   );
 };

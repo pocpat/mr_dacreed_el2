@@ -1,19 +1,30 @@
 import React, { useState } from "react";
 import "daisyui/dist/full.css";
 import { Header } from "~/componentsRoot/Header";
-// import TextAreaForAdmin from '../../../components/elenasComponents/TextAreaForAdmin'
 import ButtonGroup from "../../../components/elenasComponents/ButtonGroup";
-import TextEditor from "~/pages/components/elenasComponents/TextEditor";
 import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
-import Q from "../../../components/elenasComponents/Qtemplate";
+import Qtemplate from "../../../components/elenasComponents/Qtemplate";
 
 const Elena2 = () => {
+  const [qStrings, setQStrings] = useState({
+    title: "",
+    subheading: "",
+    description: "",
+  });
+  const fillQtemplateInputs = (
+    title: string,
+    subheading: string,
+    description: string
+  ) => {
+    setQStrings({ title, subheading, description });
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedButtonContent, setSelectedButtonContent] = useState("");
-
+  const [isQtemplateVisible, setIsQtemplateVisible] = useState(false); 
   const handleButtonSelection = (content: string) => {
     setSelectedButtonContent(content);
-  };
+    setIsQtemplateVisible(true); 
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -78,12 +89,25 @@ const Elena2 = () => {
         </div>
       </div>
 
+      {/* Left Q buttons panel */}
       <div className="p-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
           <section className="col-span-1 flex flex-col items-center justify-center rounded-md bg-gray-100 p-4 px-1">
-            <ButtonsQ onSelect={handleButtonSelection} />
-
-            <button className="btn-outline btn-circle btn my-10">
+            {/* B Step 3  */}
+            <ButtonsQ
+              onSelect={(content) => {
+                handleButtonSelection(content);
+                fillQtemplateInputs(
+                  `Title ${content}`,
+                  `Sub-heading ${content}`,
+                  `Description ${content}`
+                );
+              }}
+            />
+            <button
+              className="btn-outline btn-circle btn my-10"
+              onClick={() => setIsQtemplateVisible(false)} // A Add this to close Qtemplate on click
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -101,16 +125,23 @@ const Elena2 = () => {
               </svg>
             </button>
           </section>
+          {/* Middle part */}
           <section className="col-span-2 flex grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4">
-<Q />
-
+            {isQtemplateVisible && <Qtemplate qStrings={qStrings} />}
+        
           </section>
 
-          <section
-            className="col-span-1 flex flex-col items-center   justify-center rounded-md bg-gray-100 p-4 px-1 "
-          >
-            <ButtonGroup onSelect={handleButtonSelection} />
-            <button className="btn-outline btn-circle btn my-10">
+          <section className="col-span-1 flex flex-col items-center   justify-center rounded-md bg-gray-100 p-4 px-1 ">
+            <ButtonGroup
+              onSelect={(content) => {
+                handleButtonSelection(content);
+                fillQtemplateInputs(`Title ${content}`, `Sub-heading ${content}`, `Description ${content}`);
+              }}
+            />
+            <button
+              className="btn-outline btn-circle btn my-10"
+              onClick={() => setIsQtemplateVisible(false)} 
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -135,4 +166,3 @@ const Elena2 = () => {
 };
 
 export default Elena2;
-
