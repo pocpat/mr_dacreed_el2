@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { useUser } from "@clerk/nextjs";
+import JpModal from "./JpModal";
 
 const SideMenu = () => {
   const { user } = useUser();
@@ -16,11 +17,11 @@ const SideMenu = () => {
       </div>
 
       <Link
-        href="/"
+        href="#"
         className="m-2 rounded-md bg-sky-500/75 px-5 py-5 text-sm font-medium text-white hover:bg-sky-400/50"
         aria-current="page"
       >
-        Question1
+        Focus Heading
       </Link>
       <Link
         href="/"
@@ -48,3 +49,24 @@ const SideMenu = () => {
 };
 
 export default SideMenu;
+
+// import { useState } from 'react';
+// import RenderedComponent from '../components/RenderedComponent';
+
+// const IndexPage = () => {
+//   const [showComponent, setShowComponent] = useState(false);
+
+//   const handleClick = () => {
+//     setShowComponent(true);
+//   };
+
+//   return (
+//     <div>
+//       <h1>Next.js Button Example</h1>
+//       <button onClick={handleClick}>Click Me</button>
+//       {showComponent && <RenderedComponent />}
+//     </div>
+//   );
+// };
+
+// export default IndexPage;
