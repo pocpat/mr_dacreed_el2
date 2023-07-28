@@ -24,11 +24,18 @@ const Elena2 = () => {
   const [isQtemplateVisible, setIsQtemplateVisible] = useState(false); 
   const handleButtonSelection = (content: string) => {
     setSelectedButtonContent(content);
-    setIsQtemplateVisible(true); 
+    setIsQtemplateVisible(true);
+  }; 
   const closeModal = () => {
     setIsOpen(false);
   };
 
+  const handleInputChange = (field: string, value: string) => {
+    setQStrings((prevQStrings) => ({
+      ...prevQStrings,
+      [field]: value,
+    }));
+  };
   return (
     <>
       <Header />
@@ -127,7 +134,8 @@ const Elena2 = () => {
           </section>
           {/* Middle part */}
           <section className="col-span-2 flex grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4">
-            {isQtemplateVisible && <Qtemplate qStrings={qStrings} />}
+            {isQtemplateVisible && <Qtemplate qStrings={qStrings} onInputChange={handleInputChange}
+           />}
         
           </section>
 

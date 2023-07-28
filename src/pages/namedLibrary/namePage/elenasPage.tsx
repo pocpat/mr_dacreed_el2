@@ -6,7 +6,6 @@ import Link from "next/link";
 import Buttons1 from "./../../components/elenasComponents/Buttons1";
 import Textarea from "~/pages/components/elenasComponents/Textarea";
 import SmallStaff from "~/pages/components/elenasComponents/smallStaff";
-// import AccordionMiddle from "~/pages/components/elenasComponents/AccordionMiddle";
 
 
 const elenasPage = () => {
@@ -26,7 +25,6 @@ const elenasPage = () => {
       <Buttons1 />
       <Textarea />
       <SmallStaff />
-{/* <AccordionMiddle /> */}
 
     </div>
   );
