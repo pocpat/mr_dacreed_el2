@@ -9,7 +9,7 @@ interface QtemplateProps {
   onInputChange: (field: string, value: string) => void;
 }
 
-const Qtemplate: React.FC<QtemplateProps> = ({ qStrings, onInputChange }) => {
+const Qtemplate: React.FC<QtemplateProps> = ( {qStrings, onInputChange} ) => {
   return (
     <>
       <div 
@@ -19,7 +19,7 @@ const Qtemplate: React.FC<QtemplateProps> = ({ qStrings, onInputChange }) => {
         <h1>Title</h1>
         <input
           type="text"
-          value={qStrings.title}
+          value={qStrings?.title}
           onChange={(e) => onInputChange("title", e.target.value)}
           // className="m-2 p-2 rounded-md"
           className="textarea-bordered textarea textarea-xs w-full m-4"
@@ -30,7 +30,7 @@ const Qtemplate: React.FC<QtemplateProps> = ({ qStrings, onInputChange }) => {
         <h1>Sub-heading</h1> 
         <input
           type="text"
-          value={qStrings.subheading}
+          value={qStrings?.subheading}
           onChange={(e) => onInputChange("subheading", e.target.value)}
           className="textarea-bordered textarea textarea-xs w-full m-4"
           placeholder="Sub-heading"
@@ -38,7 +38,7 @@ const Qtemplate: React.FC<QtemplateProps> = ({ qStrings, onInputChange }) => {
 
         <h1>Description</h1>
         <textarea
-          value={qStrings.description}
+          value={qStrings?.description}
           onChange={(e) => onInputChange("description", e.target.value)}
           className="textarea-bordered textarea textarea-md w-full m-4"
           placeholder="Description"

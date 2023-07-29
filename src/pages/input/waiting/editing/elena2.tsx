@@ -6,7 +6,7 @@ import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
 import Qtemplate from "../../../components/elenasComponents/Qtemplate";
 
 const Elena2 = () => {
-  const [qStrings, setQStrings] = useState({
+  const [qStrings, setQStrings] = useState({ 
     title: "",
     subheading: "",
     description: "",
