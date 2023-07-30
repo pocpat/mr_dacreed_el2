@@ -39,7 +39,6 @@ export default function JPLibrary() {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-          
             <Link href="/">Link to Home Page</Link>
           </div>
         </div>
