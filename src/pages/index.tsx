@@ -33,9 +33,8 @@ const Home: NextPage = () => {
               style={{ fontSize: "100px" }}
             >
               WELCOME
-
             </span>
- </h1>
+          </h1>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
             <Link
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
@@ -52,17 +51,13 @@ const Home: NextPage = () => {
             </Link>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="m-8">
-              <AuthShowcase />
-            </div>
             <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
-<div className="m-8">
+            <div className="m-8">
               <AuthShowcase />
             </div>
-
           </div>
         </div>
       </main>
@@ -78,13 +73,17 @@ const AuthShowcase: React.FC = () => {
     return (
       <div className="text-2xl font-bold text-white">
         <h1>Hi {user.fullName}, welcome back.</h1>
-
       </div>
     );
   }
   return (
     <div>
-      <p>Apologies you are not signed in:</p>
+      <p
+        className="text-2xl font-bold text-white
+      "
+      >
+        There are no current users signed in.
+      </p>
     </div>
   );
 };
