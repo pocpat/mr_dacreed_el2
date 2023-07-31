@@ -78,10 +78,7 @@ const AuthShowcase: React.FC = () => {
   }
   return (
     <div>
-      <p
-        className="text-2xl font-bold text-white
-      "
-      >
+      <p className="text-2xl font-bold text-white">
         There are no current users signed in.
       </p>
     </div>
