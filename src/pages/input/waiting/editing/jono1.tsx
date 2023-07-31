@@ -4,7 +4,7 @@ import MainView from "~/pages/components/jpComponents/MainView";
 import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
 import TopNav from "~/pages/components/jpComponents/TopNav";
 
-const jono1 = () => {
+const Jono1 = () => {
   const { user } = useUser();
   return (
     <div>
@@ -29,4 +29,4 @@ const jono1 = () => {
   );
 };
 
-export default jono1;
+export default Jono1;
