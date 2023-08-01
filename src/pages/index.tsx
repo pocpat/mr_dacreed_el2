@@ -2,7 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
-
+import { Header } from "../componentsRoot/Header";
+import { api } from "../utils/api";
 import { useSession } from "next-auth/react";
 // import { useUser } from "@clerk/nextjs";
 // import { createReactQueryHooks } from '@trpc/react';
@@ -27,7 +28,7 @@ const Home: NextPage = () => {
         {/* <Header /> */}
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
-            {" "}
+            <Content />
             <span
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
@@ -85,3 +86,37 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
+
+// print data from DB
+const Content: React.FC = () => {
+  const { data: sessionData } = useSession();
+  const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
+    undefined, //no input
+    {
+      enabled: sessionData?.user != undefined,
+    }
+  );
+  const createTopic = api.topic.create.useMutation({});
+  return (
+    <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
+      <div className="px-2">
+        <input
+        type="text"
+        placeholder="New Topic"
+        className="input-bordered input input-sm w-full"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            createTopic.mutate({
+             
+                title: e.currentTarget.value,
+            
+            });
+            e.currentTarget.value = "";
+          }
+        }}
+        />
+      </div>
+      <div className="col-span-3"></div>
+    </div>
+  );
+};
