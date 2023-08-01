@@ -3,11 +3,11 @@ import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { Header } from "../componentsRoot/Header";
-import { api } from "../utils/api";
+import { api, type RouterOutputs } from "../utils/api";
 import { useSession } from "next-auth/react";
-// import { useUser } from "@clerk/nextjs";
+import { useState } from "react";
 // import { createReactQueryHooks } from '@trpc/react';
-// import superjson from 'superjson';
+import superjson from 'superjson';
 
 // const trpc = createReactQueryHooks({
 //   transformer: superjson,
@@ -21,14 +21,13 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Dacreed Prototyping</title>
+        <h1>Dacreed Prototyping</h1>
         <link rel="icon" href="/birdFP.png" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
         {/* <Header /> */}
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
-            <Content />
             <span
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
@@ -59,6 +58,10 @@ const Home: NextPage = () => {
             <div className="m-8">
               <AuthShowcase />
             </div>
+            <div>
+              {" "}
+              <Content />
+            </div>
           </div>
         </div>
       </main>
@@ -88,35 +91,37 @@ const AuthShowcase: React.FC = () => {
 export { AuthShowcase };
 
 // print data from DB
+type Topic = RouterOutputs["topic"]["getAll"][0];
+
 const Content: React.FC = () => {
-  const { data: sessionData } = useSession();
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+
   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
-    undefined, //no input
+    undefined, // no input
     {
-      enabled: sessionData?.user != undefined,
+      onSuccess: (data) => {
+        setSelectedTopic(selectedTopic ?? data[0] ?? null);
+      },
     }
   );
-  const createTopic = api.topic.create.useMutation({});
   return (
-    <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
-      <div className="px-2">
+    <div className="mx-5 mt-5 grid grid-cols-4 gap-2 ">
+      <div className="px-2 ">
+        <div className="divider"></div>
         <input
-        type="text"
-        placeholder="New Topic"
-        className="input-bordered input input-sm w-full"
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            createTopic.mutate({
-             
+          type="text"
+          placeholder="New Topic"
+          className="input-bordered input input-sm w-full"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createTopic.mutate({
                 title: e.currentTarget.value,
-            
-            });
-            e.currentTarget.value = "";
-          }
-        }}
+              });
+              e.currentTarget.value = "";
+            }
+          }}
         />
       </div>
-      <div className="col-span-3"></div>
     </div>
   );
 };
