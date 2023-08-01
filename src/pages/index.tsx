@@ -114,10 +114,10 @@ const Content: React.FC = () => {
           className="input-bordered input input-sm w-full"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
-              createTopic.mutate({
-                title: e.currentTarget.value,
-              });
-              e.currentTarget.value = "";
+              // createTopic.mutate({
+              //   title: e.currentTarget.value,
+              // });
+              e.currentTarget.value += "A";
             }
           }}
         />
