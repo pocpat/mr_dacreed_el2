@@ -1,4 +1,3 @@
-
 import { z } from "zod";
 
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
@@ -7,25 +6,63 @@ export const topicRouter = createTRPCRouter({
   getAll: publicProcedure.query(({ ctx }) => {   // protectedProcedure
     return ctx.prisma.topic.findMany({
       where: {
-        userId: "clkswcf8j0000dg1km8pz49zq",
+        userId:  ctx.session.user.id,                               // "clkswcf8j0000dg1km8pz49zq",
         // ctx.session.user.id,
       },
     });
-  }),
-
+  });
   create: publicProcedure   // protectedProcedure
-    .input(z.object({ title: z.string() }))
-    .mutation(({ ctx, input }) => {
-      console.log(ctx.session); 
-      return ctx.prisma.topic.create({
-        data: {
-          title: input.title,
-          userId: "clkswcf8j0000dg1km8pz49zq",
-                // ctx.session.user.id,
-        },
-      });
-    }),
-});
+      .input(z.object({ title: z.string() }))
+      .mutation(({ ctx, input }) => {
+        console.log(ctx.session); 
+        return ctx.prisma.topic.create({
+          data: {
+            title: input.title,
+            userId: ctx.session.user.id,                         //"clkswcf8j0000dg1km8pz49zq",
+                  // ctx.session.user.id,
+          },
+        });
+      }),
+  })
+  .merge("topic.", topicRouter)
+  .createContext(({ req }) => {
+    return {
+      prisma,
+      session: req.session,
+    };
+  });
+
+
+
+// import { z } from "zod";
+
+// import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+
+// export const topicRouter = createTRPCRouter({
+//   getAll: publicProcedure.query(({ ctx }) => {   // protectedProcedure
+//     return ctx.prisma.topic.findMany({
+//       where: {
+//         userId:  ctx.session.user.id,                               // "clkswcf8j0000dg1km8pz49zq",
+//         // ctx.session.user.id,
+//       },
+//     });
+    
+//   }),
+ 
+
+//   create: publicProcedure   // protectedProcedure
+//     .input(z.object({ title: z.string() }))
+//     .mutation(({ ctx, input }) => {
+//       console.log(ctx.session); 
+//       return ctx.prisma.topic.create({
+//         data: {
+//           title: input.title,
+//           userId: ctx.session.user.id,                         //"clkswcf8j0000dg1km8pz49zq",
+//                 // ctx.session.user.id,
+//         },
+//       });
+//     }),
+// });
 
 
 

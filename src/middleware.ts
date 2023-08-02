@@ -12,7 +12,4 @@ export const config = {
   // ignoredRoutes: ["/((?!api|trpc))(_next|.+\..+)(.*)"]
 };
 
-
-
-
 //   ignoredRoutes: ["/((?!api|trpc))(_next|.+\..+)(.*)", "/api/auth/_log"]

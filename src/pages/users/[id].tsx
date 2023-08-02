@@ -1,5 +1,5 @@
 import { useSession } from "next-auth/react";
-// import { SignIn } from "~/componentsRoot/SignIn";
+import  {SignIn}  from "~/componentsRoot/SignIn";
 import { getServerAuthSession } from "~/server/auth";
 import { type GetServerSideProps } from "next";
 
