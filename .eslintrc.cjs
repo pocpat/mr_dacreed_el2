@@ -29,6 +29,9 @@ const config = {
       },
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    // Note: you must disable the base rule as it can report incorrect errors
+  "require-await": "off",
+  "@typescript-eslint/require-await": "error"
   },
 };
 

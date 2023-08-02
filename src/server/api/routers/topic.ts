@@ -3,13 +3,16 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const topicRouter = createTRPCRouter({
-  getAll: publicProcedure.query(({ ctx }) => { 
-    return ctx.prisma.topic.findMany({
-      where: {
-        userId:  ctx.auth?.userId,                               // "clkswcf8j0000dg1km8pz49zq",
-       
-      },
-    });
+  getAll: publicProcedure.query(({ ctx }) => {
+    if (ctx.auth?.userId) {
+      return ctx.prisma.topic.findMany({
+        where: {
+          userId: ctx.auth.userId,
+        },
+      });
+    } else {
+      console.log("User not authenticated. => ctx.auth.userId is null <=");
+    }
   }),
   create: protectedProcedure  
       .input(z.object({ title: z.string() }))
@@ -24,38 +27,17 @@ export const topicRouter = createTRPCRouter({
         });
       }),
   });
+  
 
+// ================>  handle the case where ctx.auth.userId is null <================
+// 1 return an empty array to indicate that no topics were found for the given user:
+// return [];
 
+// 2 throw an error to indicate that the user is not authenticated:
+// throw new TRPCError({ code: "UNAUTHORIZED" });
 
-// import { z } from "zod";
-
-// import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
-
-// export const topicRouter = createTRPCRouter({
-//   getAll: publicProcedure.query(({ ctx }) => {   // protectedProcedure
-//     return ctx.prisma.topic.findMany({
-//       where: {
-//         userId:  ctx.session.user.id,                               // "clkswcf8j0000dg1km8pz49zq",
-//         // ctx.session.user.id,
-//       },
-//     });
-    
-//   }),
- 
-
-//   create: publicProcedure   // protectedProcedure
-//     .input(z.object({ title: z.string() }))
-//     .mutation(({ ctx, input }) => {
-//       console.log(ctx.session); 
-//       return ctx.prisma.topic.create({
-//         data: {
-//           title: input.title,
-//           userId: ctx.session.user.id,                         //"clkswcf8j0000dg1km8pz49zq",
-//                 // ctx.session.user.id,
-//         },
-//       });
-//     }),
-// });
+// 3 return all topics, regardless of the user:
+// return ctx.prisma.topic.findMany();
 
 
 
@@ -75,66 +57,6 @@ export const topicRouter = createTRPCRouter({
 
 
 
-
-
-
-
-
-
-//  with authorization
-// import { z } from "zod";
-// import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
-
-
-// export const topicRouter = createTRPCRouter({
-//   getAll: protectedProcedure.query(({ ctx }) => {
-//     return ctx.prisma.topic.findMany({
-//       where: {
-//         userId: ctx.session.user.id,
-//       },
-//     });
-//   }),
-
-// create: protectedProcedure
-// .input(z.object({ title: z.string() }))
-// .mutation(({ ctx, input }) => {
-//   return ctx.prisma.topic.create({
-//     data: {
-//       title: input.title,
-//       userId: ctx.session.user.id,
-//     },
-//   });
-// }),
-// });     publicProcedure
-
-
-
-// without authorization
-// import { z } from "zod";
-// import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
-
-// export const topicRouter = createTRPCRouter({
-//     hello: publicProcedure
-//     .input(z.object({ text: z.string() }))
-//     .query(({ input }) => {
-//         return {
-//         greeting: `Hello ${input.text}`,
-//         };
-//     }),
-//   getAll: publicProcedure.query(({ ctx }) => {
-//     console.log("ctx.prisma.topic.findMany()", ctx.prisma.topic.findMany());
-//     return ctx.prisma.topic.findMany();
-//   }),
-
-//   create: publicProcedure.mutation(({ ctx, input }) => {
-//     return ctx.prisma.topic.create({
-//       data: {
-//         title: input.title,
-//         userId: ctx.session.user.id,
-//       },
-//     });
-//   }),
-// });
 
 
 
