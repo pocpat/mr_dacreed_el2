@@ -3,33 +3,26 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const topicRouter = createTRPCRouter({
-  getAll: publicProcedure.query(({ ctx }) => {   // protectedProcedure
+  getAll: publicProcedure.query(({ ctx }) => { 
     return ctx.prisma.topic.findMany({
       where: {
-        userId:  ctx.session.user.id,                               // "clkswcf8j0000dg1km8pz49zq",
-        // ctx.session.user.id,
+        userId:  ctx.auth?.userId,                               // "clkswcf8j0000dg1km8pz49zq",
+       
       },
     });
-  });
-  create: publicProcedure   // protectedProcedure
+  }),
+  create: protectedProcedure  
       .input(z.object({ title: z.string() }))
       .mutation(({ ctx, input }) => {
-        console.log(ctx.session); 
+        console.log(ctx.auth); 
         return ctx.prisma.topic.create({
           data: {
             title: input.title,
-            userId: ctx.session.user.id,                         //"clkswcf8j0000dg1km8pz49zq",
-                  // ctx.session.user.id,
+            userId: ctx.auth.userId,                         //"clkswcf8j0000dg1km8pz49zq",
+                 
           },
         });
       }),
-  })
-  .merge("topic.", topicRouter)
-  .createContext(({ req }) => {
-    return {
-      prisma,
-      session: req.session,
-    };
   });
 
 

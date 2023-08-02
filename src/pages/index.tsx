@@ -97,14 +97,13 @@ export { AuthShowcase };
 type Topic = RouterOutputs["topic"]["getAll"][0];
 
 const Content: React.FC = () => {
-  const { data: sessionData } = useSession();
+  
 
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
 
   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
     undefined, // no input
     {
-      enabled: sessionData?.user !== undefined,
       onSuccess: (data) => {
         setSelectedTopic(selectedTopic ?? data[0] ?? null);
       },
@@ -117,26 +116,6 @@ const Content: React.FC = () => {
     },
   });
 
-  const { data: notes, refetch: refetchNotes } = api.note.getAll.useQuery(
-    {
-      topicId: selectedTopic?.id ?? "",
-    },
-    {
-      enabled: sessionData?.user !== undefined && selectedTopic !== null,
-    }
-  );
-
-  const createNote = api.note.create.useMutation({
-    onSuccess: () => {
-      void refetchNotes();
-    },
-  });
-
-  const deleteNote = api.note.delete.useMutation({
-    onSuccess: () => {
-      void refetchNotes();
-    },
-  });
 
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
@@ -173,17 +152,17 @@ const Content: React.FC = () => {
       </div>
       <div className="col-span-3">
         <div>
-          {notes?.map((note) => (
+          {/* {notes?.map((note) => (
             <div key={note.id} className="mt-5">
               <NoteCard
                 note={note}
                 onDelete={() => void deleteNote.mutate({ id: note.id })}
               />
             </div>
-          ))}
+          ))} */}
         </div>
 
-        <NoteEditor
+        {/* <NoteEditor
           onSave={({ title, content }) => {
             void createNote.mutate({
               title,
@@ -191,7 +170,7 @@ const Content: React.FC = () => {
               topicId: selectedTopic?.id ?? "",
             });
           }}
-        />
+        /> */}
       </div>
     </div>
   );

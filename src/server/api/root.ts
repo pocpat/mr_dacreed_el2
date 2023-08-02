@@ -11,14 +11,7 @@ const prisma = new PrismaClient()
 export const appRouter = createTRPCRouter({
   library: libraryRouter,
   topic: topicRouter,
-})
-  .merge("topic.", topicRouter)
-  .createContext(({ req }) => {
-    return {
-      prisma,
-      session: req.session,
-    };
-  }) as AppRouter;
+});
 
 
 
