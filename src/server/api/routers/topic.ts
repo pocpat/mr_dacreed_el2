@@ -1,24 +1,27 @@
 
 import { z } from "zod";
 
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const topicRouter = createTRPCRouter({
-  getAll: protectedProcedure.query(({ ctx }) => {
+  getAll: publicProcedure.query(({ ctx }) => {   // protectedProcedure
     return ctx.prisma.topic.findMany({
       where: {
-        userId: ctx.session.user.id,
+        userId: "clkswcf8j0000dg1km8pz49zq",
+        // ctx.session.user.id,
       },
     });
   }),
 
-  create: protectedProcedure
+  create: publicProcedure   // protectedProcedure
     .input(z.object({ title: z.string() }))
     .mutation(({ ctx, input }) => {
+      console.log(ctx.session); 
       return ctx.prisma.topic.create({
         data: {
           title: input.title,
-          userId: ctx.session.user.id,
+          userId: "clkswcf8j0000dg1km8pz49zq",
+                // ctx.session.user.id,
         },
       });
     }),
