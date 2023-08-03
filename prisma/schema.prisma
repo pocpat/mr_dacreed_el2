@@ -12,6 +12,7 @@ datasource db {
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
     url      = env("DATABASE_URL")
+     directUrl = env("DIRECT_URL")
 }
 
 model Example {
@@ -76,7 +77,7 @@ model Topic {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     title      String
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user      User     @relation(fields: [userId], references: [id])
     userId    String
     notes     Note[]
 }
@@ -86,7 +87,7 @@ model Note {
     updatedAt DateTime @updatedAt
     title      String
     content    String
-    topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+    topic      Topic    @relation(fields: [topicId], references: [id])
     topicId   String
 }
 
@@ -104,4 +105,24 @@ model Note {
 //   published Boolean @default(false)
 //   author    UserPrisma    @relation(fields: [authorId], references: [id])
 //   authorId  Int
+// }
+
+//  onDelete:Cascade is deleted in the above model
+// model Topic {
+//     id        String   @id @default(cuid())
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+//     title      String
+//     user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+//     userId    String
+//     notes     Note[]
+// }
+// model Note {
+//     id        String   @id @default(cuid())
+//     createdAt DateTime @default(now())
+//     updatedAt DateTime @updatedAt
+//     title      String
+//     content    String
+//     topic      Topic    @relation(fields: [topicId], references: [id], onDelete: Cascade)
+//     topicId   String
 // }
