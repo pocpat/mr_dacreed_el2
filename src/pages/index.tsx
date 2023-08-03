@@ -4,20 +4,7 @@ import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { Header } from "../componentsRoot/Header";
 import { api, type RouterOutputs } from "../utils/api";
-import { useSession } from "next-auth/react";
 import { useState } from "react";
-// import { createReactQueryHooks } from '@trpc/react';
-// import superjson from 'superjson';
-import { NoteCard } from "~/componentsRoot/NoteCard";
-import { NoteEditor } from "~/componentsRoot/NoteEditor";
-
-// const trpc = createReactQueryHooks({
-//   transformer: superjson,
-//   // ...
-// });
-
-// const { useQuery } = trpc;
-
 const Home: NextPage = () => {
   const user = useUser();
   return (
@@ -94,18 +81,28 @@ const AuthShowcase: React.FC = () => {
 export { AuthShowcase };
 
 // print data from DB
-type Topic = RouterOutputs["topic"]["getAll"][0];
+// type Topic = RouterOutputs["topic"]["getAll"] extends Array<infer T> ? T : never;
+// previouse line is replaced with the next one:
+
+type Topic = {
+  id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  title: string;
+  userId: string;
+};
 
 const Content: React.FC = () => {
-  
-
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
-
   const { data: topics, refetch: refetchTopics } = api.topic.getAll.useQuery(
     undefined, // no input
     {
       onSuccess: (data) => {
-        setSelectedTopic(selectedTopic ?? data[0] ?? null);
+        if (data && data.length > 0 && data[0]) {
+          setSelectedTopic(data[0]);
+        } else {
+          setSelectedTopic(null);
+        }
       },
     }
   );
@@ -115,7 +112,6 @@ const Content: React.FC = () => {
       void refetchTopics();
     },
   });
-
 
   return (
     <div className="mx-5 mt-5 grid grid-cols-4 gap-2">
@@ -151,26 +147,8 @@ const Content: React.FC = () => {
         />
       </div>
       <div className="col-span-3">
-        <div>
-          {/* {notes?.map((note) => (
-            <div key={note.id} className="mt-5">
-              <NoteCard
-                note={note}
-                onDelete={() => void deleteNote.mutate({ id: note.id })}
-              />
-            </div>
-          ))} */}
-        </div>
-
-        {/* <NoteEditor
-          onSave={({ title, content }) => {
-            void createNote.mutate({
-              title,
-              content,
-              topicId: selectedTopic?.id ?? "",
-            });
-          }}
-        /> */}
+        {/* Content goes here */}
+        {selectedTopic && <div>Selected topic: {selectedTopic.title}</div>}
       </div>
     </div>
   );
