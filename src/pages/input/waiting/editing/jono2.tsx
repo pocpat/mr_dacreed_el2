@@ -1,13 +1,11 @@
 import React from "react";
 
-const jono2 = () => {
+const Jono2 = () => {
   return (
     <div>
-
       <h1>Placeholder2</h1>
-
     </div>
   );
 };
 
-export default jono2;
+export default Jono2;
