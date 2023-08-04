@@ -1,13 +1,15 @@
 // https://flowbite.com/docs/components/accordion/
 import React from 'react'
-import { Accordion } from 'flowbite';
+import { Accordion, AccordionItem } from 'flowbite';
 import 'flowbite';
-// const accordionItems: {
+import HeaderBody from './HeaderBody';
+// const AccordionItems: {
 //   id: string;
 //   triggerEl: Element | null;
 //   targetEl: Element | null;
 //   active: boolean;
-// }[] = [];
+// }
+// [] = [];
 // const accordion = new Accordion(accordionItems, options);
 
 // create an array of objects with the id, trigger element (eg. button), and the content element
@@ -37,15 +39,15 @@ const options = {
   alwaysOpen: true,
   activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
   inactiveClasses: 'text-gray-500 dark:text-gray-400',
-  onOpen: (item) => {
+  onOpen: (item:AccordionItem) => {
       console.log('accordion item has been shown');
       console.log(item);
   },
-  onClose: (item) => {
+  onClose: (item:AccordionItem) => {
       console.log('accordion item has been hidden');
       console.log(item);
   },
-  onToggle: (item) => {
+  onToggle: (item:AccordionItem) => {
       console.log('accordion item has been toggled');
       console.log(item);
   },
@@ -71,6 +73,7 @@ const AccordionMiddle = () => {
       <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
       <p className="mb-2 text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
       <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p>
+      <HeaderBody />
       {/* <!-- Nested accordion --> */}
       <div id="accordion-nested-collapse" data-accordion="collapse">
         <h2 id="accordion-nested-collapse-heading-1">
