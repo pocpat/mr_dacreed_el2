@@ -1,6 +1,6 @@
 // https://flowbite.com/docs/components/accordion/
 import React from 'react'
-// import { Accordion } from 'flowbite';
+import { Accordion } from 'flowbite';
 import 'flowbite';
 // const accordionItems: {
 //   id: string;
@@ -50,6 +50,8 @@ const options = {
       console.log(item);
   },
 };
+
+
 
 const AccordionMiddle = () => {
   return (
