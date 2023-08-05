@@ -10,7 +10,6 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <h1>Dacreed Prototyping</h1>
         <link rel="icon" href="/birdFP.png" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
@@ -49,7 +48,7 @@ const Home: NextPage = () => {
             </div>
             <div>
               {" "}
-              <Header/>
+              <Header />
               <Content />
             </div>
           </div>
