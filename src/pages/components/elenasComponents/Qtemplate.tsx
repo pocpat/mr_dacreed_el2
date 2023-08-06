@@ -26,7 +26,7 @@ const Qtemplate: React.FC<QtemplateProps> = ( {qStrings, onInputChange} ) => {
           
           placeholder="Title"
         />
-
+HeaderB
         <h1>Sub-heading</h1> 
         <input
           type="text"
