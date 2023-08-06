@@ -57,7 +57,7 @@ const options = {
 
 const AccordionMiddle = () => {
   return (
-    <div>AccordionMiddle
+    <div>AccordionMiddle + 5 icons
         
 <div id="accordion-collapse" data-accordion="collapse">
   <h2 id="accordion-collapse-heading-1">
@@ -70,9 +70,9 @@ const AccordionMiddle = () => {
   </h2>
   <div id="accordion-collapse-body-1" className="hidden" aria-labelledby="accordion-collapse-heading-1">
     <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
+      {/* <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
       <p className="mb-2 text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-      <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p>
+      <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p> */}
       <HeaderBody />
       {/* <!-- Nested accordion --> */}
       <div id="accordion-nested-collapse" data-accordion="collapse">
