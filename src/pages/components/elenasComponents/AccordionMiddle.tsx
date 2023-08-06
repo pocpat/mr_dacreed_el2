@@ -1,5 +1,5 @@
 // https://flowbite.com/docs/components/accordion/
-import React from 'react'
+import React, { useState } from 'react'
 import { Accordion, AccordionItem } from 'flowbite';
 import 'flowbite';
 import HeaderBody from './HeaderBody';
@@ -35,6 +35,11 @@ import HeaderBody from './HeaderBody';
 // ];
 
 // // options with default values
+
+
+
+
+
 const options = {
   alwaysOpen: true,
   activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
@@ -55,7 +60,26 @@ const options = {
 
 
 
-const AccordionMiddle = () => {
+const AccordionMiddle: React.FC = () => {
+  // ===> headerBody Props  <====
+  const [hbStrings, setHbStrings] = useState({
+    hbTitle: '',
+    hbSubheading: '',
+    hbDescription: '',
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setHbStrings((prevHbStrings) => ({
+      ...prevHbStrings,
+      [field]: value,
+    }));
+  };
+
+
+
+
+
+
   return (
     <div>AccordionMiddle
         
@@ -73,8 +97,7 @@ const AccordionMiddle = () => {
       <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
       <p className="mb-2 text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
       <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p>
-      <HeaderBody />
-      {/* <!-- Nested accordion --> */}
+      <HeaderBody hbStrings={hbStrings} onInputChange={handleInputChange} />      {/* <!-- Nested accordion --> */}
       <div id="accordion-nested-collapse" data-accordion="collapse">
         <h2 id="accordion-nested-collapse-heading-1">
           <button type="button" className="flex items-center justify-between w-full p-5 rounded-t-xl font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-1" aria-expanded="false" aria-controls="accordion-nested-collapse-body-1">

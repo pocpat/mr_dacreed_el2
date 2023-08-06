@@ -1,125 +1,220 @@
-import React, { useState, useEffect } from "react";
-import TextEditor from "./TextEditor";
-import Quill, { DeltaStatic } from "quill";
-import hljs from "highlight.js";
+import React from 'react'
 
-const HeaderBody = () => {
-  const [charsLeft, setCharsLeft] = useState([150, 150, 260]);
-  const [showTextEditor, setShowTextEditor] = useState(false);
-  const [textAreaValue, setTextAreaValue] = useState("");
-
-  useEffect(() => {
-    const textareas = document.querySelectorAll("textarea");
-    textareas.forEach((textarea, index) => {
-      if (textarea) {
-        const maxLength = parseInt(textarea.getAttribute("maxlength") || "0");
-
-        textarea.addEventListener("input", (event) => {
-          const target = event.currentTarget as HTMLTextAreaElement;
-          const currentLength = target.value.length;
-          setCharsLeft((charsLeft) => {
-            const newCharsLeft = [...charsLeft];
-            newCharsLeft[index] = maxLength - currentLength;
-            return newCharsLeft;
-          });
-        });
-      }
-    });
-  }, []);
-
-  const handleIconClick = () => {
-    setShowTextEditor(true);
+interface HbProps {
+      hbStrings: {
+      hbTitle: string;
+      hbSubheading: string;
+      hbDescription: string;
   };
+  onInputChange: (field: string, value: string) => void;
+}
 
+
+
+const HeaderBody: React.FC<HbProps> = ({hbStrings, onInputChange}) => {
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onInputChange('hbTitle', e.target.value);
+  };
   return (
     <>
-      <div
-        className="border-box flex flex-col items-center justify-start bg-gray-400 p-4 "
-        style={{ width: "100%", height: "100vh" }}
+      <div 
+      // className="flex flex-col justify-start items-center border-box bg-gray-400 p-4" 
+      // style={{ width: "100%", height: '100vh' }}
       >
-        {/* Title */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text font-semibold">Title</span>
-            {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
+        <h1>Title</h1>
+        <input
+          type="text"
+          value={hbStrings?.hbTitle}
+          onChange={handleTitleChange}
+          // className="m-2 p-2 rounded-md"
+          className="textarea-bordered textarea textarea-xs w-full m-4"
+          
+          placeholder="Title"
+        />
+        </div>
+    </>
+  )
+}
 
-          <textarea
-            value={textAreaValue}
-            onChange={(e) => setTextAreaValue(e.target.value)}
+export default HeaderBody
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from "react";
+
+// interface HeaderBodyProps {
+//     hbStrings: {
+//     hbtitle: string;
+//     hbsubheading: string;
+//     hbdescription: string;
+//   };
+//   onInputChange: (field: string, value: string) => void;
+// }
+
+// const HeaderBody
+// : React.FC<HeaderBodyProps> 
+// = ( 
+  // {hbStrings, onInputChange}
+  //  ) => {
+  // const [charsLeft, setCharsLeft] = useState([150, 150, 260]);
+  // const [titleValue, setTitleValue] = useState("");
+  // const [subheadingValue, setSubheadingValue] = useState("");
+  // const [descriptionValue, setDescriptionValue] = useState("");
+
+
+
+  // useEffect(() => {
+  //   const textareas = document.querySelectorAll("textarea");
+  //   textareas.forEach((textarea, index) => {
+  //     if (textarea) {
+  //       const maxLength = parseInt(textarea.getAttribute("maxlength") || "0");
+
+  //       textarea.addEventListener("input", (event) => {
+  //         const target = event.currentTarget as HTMLTextAreaElement;
+  //         const currentLength = target.value.length;
+  //         setCharsLeft((charsLeft) => {
+  //           const newCharsLeft = [...charsLeft];
+  //           newCharsLeft[index] = maxLength - currentLength;
+  //           return newCharsLeft;
+  //         });
+  //       });
+  //     }
+  //   });
+  // }, []);
+
+
+  // return (
+  //   <>
+  //     <div
+        // className="border-box flex flex-col items-center justify-start bg-gray-400 p-4 "
+        // style={{ width: "100%", height: "100vh" }}
+      // >
+        {/* Title */}
+        {/* <div className="form-control w-full"> */}
+          {/* <label className="label">
+            <span className="label-text font-semibold">Title</span>
+          </label>
+          <input
+          type="text"
+          value={hbStrings?.hbtitle}
+          onChange={(e) => onInputChange("title", e.target.value)} */}
+          {/* // className="m-2 p-2 rounded-md"
+          // className="textarea-bordered textarea textarea-xs w-full m-4"
+          // maxLength={150}
+          // placeholder="Title here"
+          // className="textarea-bordered textarea textarea-xs w-full rounded-sm shadow-md"
+          // style={{ width: "100%" }}
+          
+          // placeholder="Title"
+        /> */}
+          {/* <textarea
+            value={titleValue}
+            onChange={(e) => {
+              setTitleValue(e.target.value);
+            }}
             maxLength={150}
             placeholder="Title here"
             className="textarea-bordered textarea textarea-xs w-full rounded-sm shadow-md"
             style={{ width: "100%" }}
-          ></textarea>
-          {/* editing icon */}
-          <button
-            className="absolute right-0 top-0 m-2"
-            onClick={handleIconClick}
-          >
-            📝
-          </button>
-          {showTextEditor && (
-            <div className="fixed left-0 top-0 z-10 h-full w-full bg-white p-4">
-              <TextEditor content={textAreaValue} />
-              <button onClick={() => setShowTextEditor(false)}>Close</button>
-            </div>
-          )}
-          <label className="label">
+            readOnly={false}
+          ></textarea> */}
+
+          {/* <label className="label">
             <span className="label-text-alt">
-              Characters left: {charsLeft[0]}{" "}
-            </span>
+              Characters left: */}
+               {/* {charsLeft[0]} */}
+            {/* </span>
             <span className="label-text-alt">Re-generate</span>
-          </label>
-          {/* Quill editor container */}
-          <div id="editor-container"></div>
-        </div>
+          </label> */}
+        {/* </div> */}
+
+
+
+
 
         {/* Sub-heading */}
-        <div className="form-control w-full">
+        {/* <div className="form-control w-full">
           <label className="label">
             <span className="label-text font-semibold">Sub-heading</span>
             {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
+          {/* </label>
 
           <textarea
-            value={textAreaValue}
-            onChange={(e) => setTextAreaValue(e.target.value)}
+            value={subheadingValue}
+            onChange={(e) => setSubheadingValue(e.target.value)}
             maxLength={150}
             placeholder="Sub-heading here"
             className="textarea-bordered textarea textarea-xs w-full  rounded-sm shadow-md"
+            readOnly={false}
           ></textarea>
           <label className="label">
             <span className="label-text-alt">
-              Characters left: {charsLeft[1]}{" "}
+              Characters left: {charsLeft[1]}
             </span>
             <span className="label-text-alt">Re-generate</span>
           </label>
-        </div>
+        </div> */}
+
+
+
+
 
         {/* Description */}
-        <div className="form-control w-full">
+        {/* <div className="form-control w-full">
           <label className="label">
             <span className="label-text font-semibold">Description</span>
             {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
-          <textarea
-            value={textAreaValue}
-            onChange={(e) => setTextAreaValue(e.target.value)}
-            maxLength={260}
-            className="textarea-bordered textarea h-24 w-full rounded-sm shadow-md"
-            placeholder="Description"
-          ></textarea>
-          <label className="label">
-            <span className="label-text-alt">
-              Characters left: {charsLeft[2]}{" "}
-            </span>
-            <span className="label-text-alt">Re-generate</span>
-          </label>
-        </div>
-      </div>
-    </>
-  );
-};
+        {/* //   </label>
+        //   <textarea */}
+        {/* //     value={descriptionValue}
+        //     onChange={(e) => setDescriptionValue(e.target.value)}
+        //     maxLength={260}
+        //     className="textarea-bordered textarea h-24 w-full rounded-sm shadow-md"
+        //     placeholder="Description"
+        //     readOnly={false}
+        //   ></textarea>
+        //   <label className="label">
+        //     <span className="label-text-alt">
+        //       Characters left: {charsLeft[2]}
+        //     </span>
+        //     <span className="label-text-alt">Re-generate</span>
+        //   </label>
+        // </div> */}
 
-export default HeaderBody;
+
+
+
+//       </div>
+//     </>
+//   );
+// };
+
+// export default HeaderBody;
