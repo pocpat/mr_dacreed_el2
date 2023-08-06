@@ -2,32 +2,19 @@ import Head from "next/head";
 import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
-
-import { useSession } from "next-auth/react";
-// import { useUser } from "@clerk/nextjs";
-// import { createReactQueryHooks } from '@trpc/react';
-// import superjson from 'superjson';
-
-// const trpc = createReactQueryHooks({
-//   transformer: superjson,
-//   // ...
-// });
-
-// const { useQuery } = trpc;
+import { Header } from "../componentsRoot/Header";
 
 const Home: NextPage = () => {
   const user = useUser();
   return (
     <>
       <Head>
-        <title>Dacreed Prototyping</title>
         <link rel="icon" href="/birdFP.png" />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
         {/* <Header /> */}
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
-            {" "}
             <span
               className="larger-font text-[#194759]"
               style={{ fontSize: "100px" }}
@@ -57,6 +44,10 @@ const Home: NextPage = () => {
             </div>
             <div className="m-8">
               <AuthShowcase />
+            </div>
+            <div>
+              {" "}
+              <Header />
             </div>
           </div>
         </div>
