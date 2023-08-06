@@ -1,16 +1,18 @@
 // https://flowbite.com/docs/components/accordion/
 import React from 'react'
-import { Accordion } from 'flowbite';
+import { Accordion, AccordionItem } from 'flowbite';
 import 'flowbite';
-// const accordionItems: {
+import HeaderBody from './HeaderBody';
+// const AccordionItems: {
 //   id: string;
 //   triggerEl: Element | null;
 //   targetEl: Element | null;
 //   active: boolean;
-// }[] = [];
+// }
+// [] = [];
 // const accordion = new Accordion(accordionItems, options);
 
-// // create an array of objects with the id, trigger element (eg. button), and the content element
+// create an array of objects with the id, trigger element (eg. button), and the content element
 // const accordionItems = [
 //   {
 //       id: 'accordion-example-heading-1',
@@ -33,23 +35,25 @@ import 'flowbite';
 // ];
 
 // // options with default values
-// const options = {
-//   alwaysOpen: true,
-//   activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-//   inactiveClasses: 'text-gray-500 dark:text-gray-400',
-//   onOpen: (item) => {
-//       console.log('accordion item has been shown');
-//       console.log(item);
-//   },
-//   onClose: (item) => {
-//       console.log('accordion item has been hidden');
-//       console.log(item);
-//   },
-//   onToggle: (item) => {
-//       console.log('accordion item has been toggled');
-//       console.log(item);
-//   },
-// };
+const options = {
+  alwaysOpen: true,
+  activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
+  inactiveClasses: 'text-gray-500 dark:text-gray-400',
+  onOpen: (item:AccordionItem) => {
+      console.log('accordion item has been shown');
+      console.log(item);
+  },
+  onClose: (item:AccordionItem) => {
+      console.log('accordion item has been hidden');
+      console.log(item);
+  },
+  onToggle: (item:AccordionItem) => {
+      console.log('accordion item has been toggled');
+      console.log(item);
+  },
+};
+
+
 
 const AccordionMiddle = () => {
   return (
@@ -58,9 +62,9 @@ const AccordionMiddle = () => {
 <div id="accordion-collapse" data-accordion="collapse">
   <h2 id="accordion-collapse-heading-1">
     <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-      <span>What is Flowbite?</span>
+      <span>Header</span>
       <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
       </svg>
     </button>
   </h2>
@@ -69,13 +73,14 @@ const AccordionMiddle = () => {
       <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
       <p className="mb-2 text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
       <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p>
+      <HeaderBody />
       {/* <!-- Nested accordion --> */}
       <div id="accordion-nested-collapse" data-accordion="collapse">
         <h2 id="accordion-nested-collapse-heading-1">
           <button type="button" className="flex items-center justify-between w-full p-5 rounded-t-xl font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-1" aria-expanded="false" aria-controls="accordion-nested-collapse-body-1">
-            <span>Open source</span>
+            <span>Q 1</span>
            <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
             </svg>
           </button>
         </h2>
@@ -86,9 +91,9 @@ const AccordionMiddle = () => {
         </div>
         <h2 id="accordion-nested-collapse-heading-2">
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-2" aria-expanded="false" aria-controls="accordion-nested-collapse-body-2">
-            <span>Architecture</span>
+            <span>Q 2</span>
             <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
             </svg>
           </button>
         </h2>
@@ -99,9 +104,9 @@ const AccordionMiddle = () => {
         </div>
         <h2 id="accordion-nested-collapse-heading-3">
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-3" aria-expanded="false" aria-controls="accordion-nested-collapse-body-3">
-            <span>Can I use both?</span>
+            <span>Q 3</span>
             <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
             </svg>
           </button>
         </h2>
@@ -121,9 +126,9 @@ const AccordionMiddle = () => {
   </div>
   <h2 id="accordion-collapse-heading-2">
     <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-      <span>Is there a Figma file available?</span>
+      <span>Footer</span>
       <svg data-accordion-icon className="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
+        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5 5 1 1 5"/>
       </svg>
     </button>
   </h2>
