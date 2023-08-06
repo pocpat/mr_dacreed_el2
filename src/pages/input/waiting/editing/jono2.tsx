@@ -4,6 +4,7 @@ import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import { api, type RouterOutputs } from "~/utils/api";
+import JPButtonRender from "~/pages/components/jpComponents/JPButtonRender";
 
 const Jono2 = () => {
   const { user } = useUser();
@@ -28,24 +29,9 @@ const Jono2 = () => {
             <div>
               <Content />
             </div>
-            <div className="mb-4 flex h-96 flex-col items-center justify-center rounded-lg bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
-              <div className="flex flex-row bg-white p-6">
-                <button className="delay-50 m-2 flex max-w-xs flex-col gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]">
-                  BUTTON ONE
-                </button>
-                <button className="delay-50 m-2 flex max-w-xs flex-col gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]">
-                  BUTTON TWO
-                </button>
-                <button className="delay-50 m-2 flex max-w-xs flex-col gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]">
-                  BUTTON THREE
-                </button>
-                <button className="delay-50 m-2 flex max-w-xs flex-col gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]">
-                  BUTTON FOUR
-                </button>
-                <button className="delay-50 m-2 flex max-w-xs flex-col gap-4 rounded-xl bg-[#0284c7] p-4 text-white text-white drop-shadow-md transition duration-100 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-[#082f49]">
-                  BUTTON FIVE
-                </button>
-              </div>
+
+            <div>
+              <JPButtonRender />
             </div>
           </div>
           <div className="relative flex h-20 items-center justify-center bg-gray-600">

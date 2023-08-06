@@ -10,6 +10,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <link rel="icon" href="/birdFP.png" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
         {/* <Header /> */}
@@ -44,10 +48,6 @@ const Home: NextPage = () => {
             </div>
             <div className="m-8">
               <AuthShowcase />
-            </div>
-            <div>
-              {" "}
-              <Header />
             </div>
           </div>
         </div>
