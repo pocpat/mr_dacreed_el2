@@ -29,7 +29,6 @@ const Jono2 = () => {
             <div>
               <Content />
             </div>
-
             <div>
               <JPButtonRender />
             </div>
