@@ -22,8 +22,6 @@ model Example {
 }
 
 
-
-// ============================================
 model TestString {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -32,10 +30,10 @@ model TestString {
     userId    String
     user      User     @relation(fields: [userId], references: [id])
 }
-//  ============================================
 
-
-
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String
+}
 
 model Library {
     id        String   @id @default(cuid())
@@ -80,6 +78,7 @@ model User {
     sessions      Session[]
     topics        Topic[]
     testString     TestString[]
+
 }
 
 model VerificationToken {

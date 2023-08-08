@@ -3,12 +3,15 @@ import { createTRPCRouter } from "~/server/api/trpc";
 import { topicRouter } from "./routers/topic";
 import {PostapiRouter} from "./routers/POSTAPI";
 
+
 /**
  * This is the primary router for your server.
  *
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
+  testString: testStringRouter,
+  example: exampleRouter,
   library: libraryRouter,
   topic: topicRouter,
   POSTAPI: PostapiRouter
