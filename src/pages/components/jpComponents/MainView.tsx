@@ -8,11 +8,12 @@ const MainView = () => {
   return (
     <div className="flex flex-row justify-evenly bg-white p-2">
       <SideMenu />
+
       <div className="w-70vw bg-black-400 container m-4 rounded-xl">
         <JPTextEditor />
         <br />
-        <div className="container h-80 bg-slate-300">
-          <span>TEST DIV FOR onClick rendering</span>
+        <div>
+          <h1>Placeholder.</h1>
         </div>
       </div>
       <div className="container m-4 flex w-40 flex-col justify-start rounded-xl bg-black">

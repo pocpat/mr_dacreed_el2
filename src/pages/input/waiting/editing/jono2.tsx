@@ -5,6 +5,7 @@ import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import { api, type RouterOutputs } from "~/utils/api";
 import JPButtonRender from "~/pages/components/jpComponents/JPButtonRender";
+import Link from "next/link";
 
 const Jono2 = () => {
   const { user } = useUser();
@@ -26,6 +27,7 @@ const Jono2 = () => {
                 ""
               )}
             </div>
+
             <div>
               <Content />
             </div>
@@ -69,6 +71,7 @@ const Content: React.FC = () => {
 
   const createTopic = api.topic.create.useMutation({
     onSuccess: () => {
+      console.log("We think its going to db");
       void refetchTopics();
     },
   });
