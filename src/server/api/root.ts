@@ -2,10 +2,8 @@ import { libraryRouter } from "~/server/api/routers/library";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { topicRouter } from "./routers/topic";
 import { PrismaClient } from '@prisma/client'
-import { PostAPIRouter } from "./routers/PostAPI";
 import { exampleRouter } from "./routers/example";
 import { testStringRouter } from "./routers/testString";
-
 
 const prisma = new PrismaClient()
 /**
@@ -18,7 +16,6 @@ export const appRouter = createTRPCRouter({
   example: exampleRouter,
   library: libraryRouter,
   topic: topicRouter,
-  postAPI: PostAPIRouter,
 });
 
 
