@@ -1,11 +1,9 @@
 import { libraryRouter } from "~/server/api/routers/library";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { topicRouter } from "./routers/topic";
-import { PrismaClient } from '@prisma/client'
-import { exampleRouter } from "./routers/example";
-import { testStringRouter } from "./routers/testString";
+import {PostapiRouter} from "./routers/POSTAPI";
 
-const prisma = new PrismaClient()
+
 /**
  * This is the primary router for your server.
  *
@@ -16,6 +14,7 @@ export const appRouter = createTRPCRouter({
   example: exampleRouter,
   library: libraryRouter,
   topic: topicRouter,
+  POSTAPI: PostapiRouter
 });
 
 
