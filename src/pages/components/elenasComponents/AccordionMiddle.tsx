@@ -1,61 +1,69 @@
-// https://flowbite.com/docs/components/accordion/
-import React from 'react'
-import { Accordion, AccordionItem } from 'flowbite';
+import React, { useEffect } from 'react';
+// import { Accordion, type AccordionInterface, type AccordionItem, type AccordionOptions } from 'flowbite';
+import { type AccordionOptions, type AccordionItem, type AccordionInterface, Accordion } from "flowbite";
 import 'flowbite';
 import HeaderBody from './HeaderBody';
-// const AccordionItems: {
-//   id: string;
-//   triggerEl: Element | null;
-//   targetEl: Element | null;
-//   active: boolean;
-// }
-// [] = [];
-// const accordion = new Accordion(accordionItems, options);
-
-// create an array of objects with the id, trigger element (eg. button), and the content element
-// const accordionItems = [
-//   {
-//       id: 'accordion-example-heading-1',
-//       triggerEl: document.querySelector('#accordion-example-heading-1'),
-//       targetEl: document.querySelector('#accordion-example-body-1'),
-//       active: true
-//   },
-//   {
-//       id: 'accordion-example-heading-2',
-//       triggerEl: document.querySelector('#accordion-example-heading-2'),
-//       targetEl: document.querySelector('#accordion-example-body-2'),
-//       active: false
-//   },
-//   {
-//       id: 'accordion-example-heading-3',
-//       triggerEl: document.querySelector('#accordion-example-heading-3'),
-//       targetEl: document.querySelector('#accordion-example-body-3'),
-//       active: false
-//   }
-// ];
-
-// // options with default values
-const options = {
-  alwaysOpen: true,
-  activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-  inactiveClasses: 'text-gray-500 dark:text-gray-400',
-  onOpen: (item:AccordionItem) => {
-      console.log('accordion item has been shown');
-      console.log(item);
-  },
-  onClose: (item:AccordionItem) => {
-      console.log('accordion item has been hidden');
-      console.log(item);
-  },
-  onToggle: (item:AccordionItem) => {
-      console.log('accordion item has been toggled');
-      console.log(item);
-  },
-};
-
-
+import Question1 from './Question1';
 
 const AccordionMiddle = () => {
+  useEffect(() => {
+    //  multiple items based on data from DB 
+    
+    // const data = [/* data from your database */];
+    // const accordionItems: AccordionItem[] = data.map((item, index) => ({
+    //   id: `accordion-item-${index}`,
+    //   triggerEl: document.querySelector(`#accordion-item-${index}-trigger`) as HTMLElement,
+    //   targetEl: document.querySelector(`#accordion-item-${index}-target`) as HTMLElement,
+    //   active: index === 0, // set the first item to be active by default
+    // }));
+
+
+    // 3 cards create
+    const accordionItems: AccordionItem[] = [
+      {
+        id: 'accordion-example-heading-1',
+        triggerEl: document.querySelector('#accordion-example-heading-1') as HTMLElement,
+        targetEl: document.querySelector('#accordion-example-body-1') as HTMLElement,
+        active: true,
+      },
+      {
+        id: 'accordion-example-heading-2',
+        triggerEl: document.querySelector('#accordion-example-heading-2') as HTMLElement,
+        targetEl: document.querySelector('#accordion-example-body-2') as HTMLElement,
+        active: false,
+      },
+      {
+        id: 'accordion-example-heading-3',
+        triggerEl: document.querySelector('#accordion-example-heading-3') as HTMLElement,
+        targetEl: document.querySelector('#accordion-example-body-3') as HTMLElement,
+      },
+    ];
+
+    const options: AccordionOptions = {
+      alwaysOpen: true,
+      activeClasses: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
+      inactiveClasses: 'text-gray-500 dark:text-gray-400',
+      onOpen: (accordion: AccordionInterface, item: AccordionItem) => {
+        console.log('accordion item has been shown');
+        console.log(item);
+      },
+      onClose: (accordion: AccordionInterface, item: AccordionItem) => {
+        console.log('accordion item has been hidden');
+        console.log(item);
+      },
+      onToggle: (accordion: AccordionInterface, item: AccordionItem) => {
+        console.log('accordion item has been toggled');
+        console.log(item);
+      },
+    };
+
+
+    // // Cleanup the accordion instance when the component unmounts
+    return () => {
+      console.log ('the last return');
+    };
+  }, []); // Empty dependency array ensures this effect runs only once, similar to componentDidMount
+
   return (
     <div>AccordionMiddle + 5 icons
         
@@ -70,12 +78,12 @@ const AccordionMiddle = () => {
   </h2>
   <div id="accordion-collapse-body-1" className="hidden" aria-labelledby="accordion-collapse-heading-1">
     <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-      {/* <p className="mb-2 text-gray-500 dark:text-gray-400">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-      <p className="mb-2 text-gray-500 dark:text-gray-400">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" className="text-blue-600 dark:text-blue-500 hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-      <p className="mb-4 text-gray-500 dark:text-gray-400">What are the differences between Flowbite and Tailwind UI?</p> */}
       <HeaderBody />
       {/* <!-- Nested accordion --> */}
       <div id="accordion-nested-collapse" data-accordion="collapse">
+       
+       
+       
         <h2 id="accordion-nested-collapse-heading-1">
           <button type="button" className="flex items-center justify-between w-full p-5 rounded-t-xl font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-1" aria-expanded="false" aria-controls="accordion-nested-collapse-body-1">
             <span>Q 1</span>
@@ -86,9 +94,29 @@ const AccordionMiddle = () => {
         </h2>
         <div id="accordion-nested-collapse-body-1" className="hidden" aria-labelledby="accordion-nested-collapse-heading-1">
           <div className="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product.</p>
+            {/* <p className="text-gray-500 dark:text-gray-400">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product.</p> */}
+            {/* <ul className="menu rounded-box w-56 bg-base-100 p-2">
+          {topics?.map((topic) => (
+            <li key={topic.id}>
+              <a
+                href="#"
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  setSelectedTopic(topic);
+                }}
+              >
+                {topic.title}
+              </a>
+            </li>
+          ))}
+        </ul> */}
+        <Question1 />
           </div>
         </div>
+
+
+
+
         <h2 id="accordion-nested-collapse-heading-2">
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-2" aria-expanded="false" aria-controls="accordion-nested-collapse-body-2">
             <span>Q 2</span>
@@ -102,6 +130,10 @@ const AccordionMiddle = () => {
             <p className="text-gray-500 dark:text-gray-400">Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
           </div>
         </div>
+
+
+
+
         <h2 id="accordion-nested-collapse-heading-3">
           <button type="button" className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-nested-collapse-body-3" aria-expanded="false" aria-controls="accordion-nested-collapse-body-3">
             <span>Q 3</span>
@@ -145,3 +177,21 @@ const AccordionMiddle = () => {
 }
 
 export default AccordionMiddle
+
+
+
+
+// create an accordion with multiple items based on data from your database, you can do so by dynamically generating the accordionItems array
+
+
+// const data = [/* data from your database */];
+// const accordionItems: AccordionItem[] = data.map((item, index) => ({
+//   id: `accordion-item-${index}`,
+//   triggerEl: document.querySelector(`#accordion-item-${index}-trigger`) as HTMLElement,
+//   targetEl: document.querySelector(`#accordion-item-${index}-target`) as HTMLElement,
+//   active: index === 0, // set the first item to be active by default
+// }));
+// const options: AccordionOptions = {
+//   // ...
+// };
+// const accordion: AccordionInterface = new Accordion(accordionItems, options);

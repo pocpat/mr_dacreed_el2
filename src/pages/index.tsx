@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { Header } from "../componentsRoot/Header";
-
 const Home: NextPage = () => {
   const user = useUser();
   return (
@@ -49,6 +48,10 @@ const Home: NextPage = () => {
             <div className="m-8">
               <AuthShowcase />
             </div>
+
+            <div>
+              <Header/>
+            </div>
           </div>
         </div>
       </main>
@@ -76,3 +79,4 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
+
