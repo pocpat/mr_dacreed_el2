@@ -15,10 +15,11 @@ const Input2: React.FC<Input2Props> = ({type, placeholder, onChange, name }) => 
       <input
         type={type}
         placeholder={placeholder }
-        className="input-bordered input w-full max-w-xs m-2"
+        className="input-bordered input w-full max-w-xs m-2 rounded-sm shadow-inner-md"
         name={name}
         onChange={onChange}
-      />
+      /> 
+      <input type="checkbox" checked="checked" className="checkbox" />
     </div>
   );
 };

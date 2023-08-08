@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const HeaderBody = () => {
   const [charsLeft, setCharsLeft] = useState([150, 150, 260]);
-  const [showTextEditor, setShowTextEditor] = useState(false);
+  // const [showTextEditor, setShowTextEditor] = useState(false);
   const [textAreaValue, setTextAreaValue] = useState(["", "", ""]);
 
   const processTextAreaInput = (
