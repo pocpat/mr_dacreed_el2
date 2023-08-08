@@ -28,7 +28,6 @@ model CourseQuestion {
     user      User     @relation(fields: [userId], references: [id])
 }
 
-
 model Example {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -43,10 +42,6 @@ model TestString {
     testInput String
     userId    String
     user      User     @relation(fields: [userId], references: [id])
-}
-
-    user      User     @relation(fields: [userId], references: [id])
-    userId    String
 }
 
 model Library {
