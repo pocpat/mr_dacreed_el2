@@ -1,6 +1,7 @@
 import { useUser } from "@clerk/nextjs";
 import MainView from "~/pages/components/jpComponents/MainView";
 import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
+import Link from "next/link";
 
 import TopNav from "~/pages/components/jpComponents/TopNav";
 
@@ -16,6 +17,12 @@ export default function JonosPage() {
               {" "}
               {user?.firstName ? `User logged in: ${user.firstName}` : ""}
             </div>
+            <Link
+              className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#6b7280] p-4 text-white drop-shadow-md hover:bg-white/50"
+              href="/namedLibrary/namePage/jonosPage2"
+            >
+              <h3 className="text-2xl font-bold">Test Input Page:</h3>
+            </Link>
           </div>
           <div>
             <MainView />
