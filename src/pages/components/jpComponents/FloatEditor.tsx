@@ -3,7 +3,7 @@ import React from "react";
 const FloatEditor = () => {
   return (
     <div>
-      <h1>CURRENTLY A WORK IN PROGRESS.</h1>
+      <h1>Test page for input</h1>
     </div>
   );
 };
