@@ -21,11 +21,16 @@ model Example {
     updatedAt DateTime @updatedAt
 }
 
+
 model TestString {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     testInput String
+    userId    String
+    user      User     @relation(fields: [userId], references: [id])
+}
+
     user      User     @relation(fields: [userId], references: [id])
     userId    String
 }
@@ -72,7 +77,8 @@ model User {
     accounts      Account[]
     sessions      Session[]
     topics        Topic[]
-    testString    TestString[]
+    testString     TestString[]
+
 }
 
 model VerificationToken {
