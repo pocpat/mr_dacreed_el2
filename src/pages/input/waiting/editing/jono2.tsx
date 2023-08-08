@@ -86,7 +86,7 @@ const Content: React.FC = () => {
         )}
       </div>
       <div className="col-span-3">
-        {/* <ul className="menu m-2 rounded-lg border-2 p-4">
+        <ul className="menu m-2 rounded-lg border-2 p-4">
           {topics?.map((topic) => (
             <li key={topic.id}>
               <a
@@ -100,7 +100,7 @@ const Content: React.FC = () => {
               </a>
             </li>
           ))}
-        </ul> */}
+        </ul>
       </div>
       <div className="divider"></div>
       <input
