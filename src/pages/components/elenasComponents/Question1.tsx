@@ -6,14 +6,16 @@ import ButtonAdd from "./ButtonAdd";
 import ListComponent from "./ListComponent";
 
 const Question1: React.FC = () => {
-  const [components, setComponents] = useState(["1"]);
+  const [components, setComponents] = useState<string[]>(["1", "2"]);
 const [componentNames, setComponentNames] = useState<string[]>(['3','4','5']);
  
 
 function addComponent() {
   if (componentNames.length > 0) {
-    setComponents([...components, componentNames[0]]);
-    componentNames.splice(0, 1);
+    // setComponents([...components, componentNames[0]]);
+    // componentNames.splice(0, 1);
+    const firstComponentName = componentNames.shift();
+    setComponents([...components, firstComponentName]);
   } else {
     window.alert("No more components to add");
   }
@@ -27,15 +29,18 @@ function addComponent() {
   };
 
   return (
-    <div>
-      <div style={{ backgroundColor: "#B9CCC8" }}>
+    <div style={{ backgroundColor: "#B9CCC8" }}>
+{/* question  */}
+      <div className="p-2" >
         <InputQuestion
           placeholder="question"
           type="text"
           // onChange={getaddAnswerData}
           name="answer1"
         />
-        <div className="grid grid-cols-2 gap-4 ">
+{/* answers */}
+<div >
+        <div className="grid grid-cols-2 gap-4 newAnswersPlaceholder">
           <div>
             <InputAnswer
               placeholder="answer 1"
@@ -52,7 +57,7 @@ function addComponent() {
               name="answer2"
             />
           </div>
-          <div className="newAnswersPlaceholder">
+          {/* <div className="newAnswersPlaceholder"> */}
             {components.map((item: string, i: number) => (
               <ListComponent
                 key={i}
@@ -60,8 +65,14 @@ function addComponent() {
               />
             ))}
 
-            <ButtonAdd onClick={addComponent} text="Call Component" />
-          </div>
+
+          {/* </div> */}
+       
+        </div>
+        </div>
+        <ButtonAdd onClick={addComponent} text="Call Component" />
+{/* labels  delete , re-generate*/}
+        <div>
           <label className="label">
             <span className="label-text pl-2 font-semibold">Delete</span>
           </label>
@@ -69,7 +80,10 @@ function addComponent() {
             <span className="label-text-alt"></span>
             <span className="label-text-alt font-semibold">Re-generate</span>
           </label>
-        </div>
+          </div>
+
+
+
       </div>
     </div>
   );
