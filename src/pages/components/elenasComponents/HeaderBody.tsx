@@ -30,7 +30,7 @@ const HeaderBody = () => {
   return (
     <>
       <div
-        className="border-box flex flex-col items-center justify-start bg-gray-400 p-4 "
+        className="border-box flex flex-col items-center justify-start bg-gray-200 p-4 "
         style={{ width: "100%", height: "100vh" }}
       >
  {/* Title */}
@@ -45,7 +45,7 @@ const HeaderBody = () => {
             onChange={(e) => processTextAreaInput(0, 150, e)}
             maxLength={150}
             placeholder="Title here"
-            className="shadow-inner-md textarea-bordered textarea textarea-xs w-full rounded-sm"
+            className="shadow-md textarea-bordered textarea textarea-xs w-full rounded-sm"
             style={{ width: "100%" }}
             // z-index='-1'
             // readOnly= {false}
