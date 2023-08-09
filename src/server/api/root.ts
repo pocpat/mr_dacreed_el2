@@ -1,7 +1,8 @@
 import { libraryRouter } from "~/server/api/routers/library";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { topicRouter } from "./routers/topic";
-import {PostapiRouter} from "./routers/POSTAPI";
+import { testStringRouter } from "./routers/testString";
+import { exampleRouter } from "./routers/example";
 
 
 /**
@@ -14,7 +15,6 @@ export const appRouter = createTRPCRouter({
   example: exampleRouter,
   library: libraryRouter,
   topic: topicRouter,
-  POSTAPI: PostapiRouter
 });
 
 

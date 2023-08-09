@@ -15,19 +15,6 @@ datasource db {
      directUrl = env("DIRECT_URL")
 }
 
-model CourseQuestion {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    question  String
-    answer1   String
-    answer2   String
-    answer3   String
-    answer4   String
-    userId    String
-    user      User     @relation(fields: [userId], references: [id])
-}
-
 model Example {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
