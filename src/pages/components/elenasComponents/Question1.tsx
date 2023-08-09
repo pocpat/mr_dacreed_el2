@@ -1,12 +1,10 @@
 import React from "react";
 import { type NextPage } from "next";
 import Input2 from "./input2";
-import { api  } from '~/utils/api';
+import { api } from "~/utils/api";
 
 const Question1: React.FC = () => {
   const [input2, setInput2] = React.useState({});
-
-
 
   // const hello = api.example.hello.useQuery({text: "from tRPC"});
   const getInput2Data = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -14,15 +12,11 @@ const Question1: React.FC = () => {
     const u = { [name]: value };
     setInput2((prev) => ({ ...prev, ...u }));
     const mutation = api.POSTAPI.createTestString.useMutation();
-    mutation.mutate({testInput: value} );
+    mutation.mutate({ testInput: value });
   };
   const sendInput2 = () => {
-
-
-
-
-  console.log(input2);
-    };
+    console.log(input2);
+  };
   return (
     <div>
       <Input2
@@ -55,10 +49,9 @@ const Question1: React.FC = () => {
         onChange={getInput2Data}
         name="answer4"
       />
-      <button 
-      className="btn"
-      onClick={sendInput2}
-      >ADD DATA</button>
+      <button className="btn ml-2 mt-2" onClick={sendInput2}>
+        ADD DATA
+      </button>
     </div>
   );
 };
