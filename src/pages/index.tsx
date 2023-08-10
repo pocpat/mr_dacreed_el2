@@ -48,10 +48,6 @@ const Home: NextPage = () => {
             <div className="m-8">
               <AuthShowcase />
             </div>
-
-            <div>
-              <Header/>
-            </div>
           </div>
         </div>
       </main>
@@ -79,4 +75,3 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
-
