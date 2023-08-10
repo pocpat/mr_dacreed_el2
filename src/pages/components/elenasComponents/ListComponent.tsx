@@ -10,13 +10,6 @@ const ListComponent = (props: { text: string | number | boolean | React.ReactEle
 
 export default ListComponent;
 
-// import React from "react";
-
-// const ListComponent = ({ text }) => {
-//   return <div>{text}</div>;
-// };
-
-// export default ListComponent;
 
 
 

@@ -6,20 +6,33 @@ import ButtonAdd from "./ButtonAdd";
 import ListComponent from "./ListComponent";
 
 const Question1: React.FC = () => {
-  const [components, setComponents] = useState<string[]>(["1", "2"]);
-const [componentNames, setComponentNames] = useState<string[]>(['3','4','5']);
+  const [components, setComponents] = useState<string[]>([]);
+const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answer 4','answer 5']);
  
 
-function addComponent() {
+// function addComponent() {
+//   if (componentNames.length > 0) {
+//     // setComponents([...components, componentNames[0]]);
+//     // componentNames.splice(0, 1);
+//     const firstComponentName = componentNames.shift();
+//     setComponents([...components, firstComponentName]);
+//   } else {
+//     window.alert("No more components to add");
+//   }
+// }
+
+function addNewAnswer() {
   if (componentNames.length > 0) {
-    // setComponents([...components, componentNames[0]]);
-    // componentNames.splice(0, 1);
-    const firstComponentName = componentNames.shift();
-    setComponents([...components, firstComponentName]);
+    setComponents([...components, componentNames[0]]);
+    componentNames.splice(0, 1);
+    // const firstComponentName = componentNames.shift();
+    // setComponents([...components, firstComponentName]);
   } else {
     window.alert("No more components to add");
   }
 }
+
+
 
   const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -36,7 +49,7 @@ function addComponent() {
           placeholder="question"
           type="text"
           // onChange={getaddAnswerData}
-          name="answer1"
+          name="question"
         />
 {/* answers */}
 <div >
@@ -47,6 +60,7 @@ function addComponent() {
               type="text"
               // onChange={getaddAnswerData}
               name="answer1"
+              text="answer 1"
             />
           </div>
           <div>
@@ -55,14 +69,23 @@ function addComponent() {
               type="text"
               // onChange={getaddAnswerData}
               name="answer2"
+              text="answer 2"
             />
           </div>
           {/* <div className="newAnswersPlaceholder"> */}
             {components.map((item: string, i: number) => (
-              <ListComponent
-                key={i}
-                text={item}
-              />
+              // <ListComponent
+              //   key={i}
+              //   text={item}
+              // />
+              <InputAnswer
+              placeholder={item}
+              type="text"
+              key={i}
+              // onChange={getaddAnswerData}
+              name="answer1"
+              text={item}
+            />
             ))}
 
 
@@ -70,7 +93,7 @@ function addComponent() {
        
         </div>
         </div>
-        <ButtonAdd onClick={addComponent} text="Call Component" />
+        <ButtonAdd onClick={addNewAnswer} text="Add a new answer" />
 {/* labels  delete , re-generate*/}
         <div>
           <label className="label">
@@ -92,7 +115,4 @@ function addComponent() {
 
 
 export default Question1;
-// function setAddAnswer(_arg0: (prev: { [key: string]: any }) => any) {
-//   throw new Error("Function not implemented.");
-// }
 

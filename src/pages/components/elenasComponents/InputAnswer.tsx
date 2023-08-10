@@ -5,6 +5,7 @@ interface InputAnswerProps {
   name?: string;
   id?: string;
   type: string;
+  text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const InputAnswer: React.FC<InputAnswerProps> = ({

@@ -7,7 +7,6 @@ const ButtonAdd = (props: { onClick: React.MouseEventHandler<HTMLButtonElement> 
         className="AddButton btn ml-2 w-20 rounded-sm"
         onClick={props.onClick}
       >
-        ADD MORE
         {props.text}
       </button>
     </div>
