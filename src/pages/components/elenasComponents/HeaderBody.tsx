@@ -31,7 +31,8 @@ const HeaderBody = () => {
     <>
       <div
         className="border-box flex flex-col items-center justify-start bg-gray-200 p-4 "
-        style={{ width: "100%", height: "100vh" }}
+        style={{ width: "100%", height: "100vh", backgroundColor: "#B9CCC8" }}
+        
       >
  {/* Title */}
         <div className="form-control w-full">

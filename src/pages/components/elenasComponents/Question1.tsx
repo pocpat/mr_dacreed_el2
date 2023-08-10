@@ -20,20 +20,17 @@ const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answ
 //     window.alert("No more components to add");
 //   }
 // }
-
-function addNewAnswer() {
-  if (componentNames.length > 0) {
+//if (componentNames.length > 0 && componentNames[0]) {
+  function addNewAnswer() {
+  if (componentNames.length > 0 && componentNames[0]) {
     setComponents([...components, componentNames[0]]);
-    componentNames.splice(0, 1);
+    componentNames.splice( 0,1);
     // const firstComponentName = componentNames.shift();
     // setComponents([...components, firstComponentName]);
   } else {
-    window.alert("No more components to add");
+    window.alert("No more answers to add");
   }
 }
-
-
-
   const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const u = { [name]: value };
@@ -44,7 +41,7 @@ function addNewAnswer() {
   return (
     <div style={{ backgroundColor: "#B9CCC8" }}>
 {/* question  */}
-      <div className="p-2" >
+      <div className="p-0 m-0" >
         <InputQuestion
           placeholder="question"
           type="text"
