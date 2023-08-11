@@ -25,6 +25,8 @@ type CourseHeader = {
 
 const CourseHeaderInput: React.FC = () => {
   const [selectedTitle, setSelectedTitle] = useState<CourseHeader | null>(null);
+
+  // *********************Refteching topics for display*****************************
   const { data: courseHeaders, refetch: refetchTopics } =
     api.courseHeader.getAll.useQuery(undefined, {
       onSuccess: (data) => {

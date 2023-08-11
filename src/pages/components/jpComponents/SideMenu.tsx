@@ -90,24 +90,3 @@ const SideMenu = () => {
 };
 
 export default SideMenu;
-
-// import { useState } from 'react';
-// import RenderedComponent from '../components/RenderedComponent';
-
-// const IndexPage = () => {
-//   const [showComponent, setShowComponent] = useState(false);
-
-//   const handleClick = () => {
-//     setShowComponent(true);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Next.js Button Example</h1>
-//       <button onClick={handleClick}>Click Me</button>
-//       {showComponent && <RenderedComponent />}
-//     </div>
-//   );
-// };
-
-// export default IndexPage;
