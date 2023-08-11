@@ -51,15 +51,17 @@ const Home: NextPage = () => {
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
             </Link> */}
+
+
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
-            {/* <div className="m-8">
-              <AuthShowcase />
-            </div> */}
+            <div className="m-8">
+              {/* <AuthShowcase /> */}
+            </div>
           </div>
         </div>
         <FooterMain/>
