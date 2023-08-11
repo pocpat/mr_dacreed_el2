@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import FooterBird from "../../componentsRoot/FooterBird";
-import Modal4 from "../components/elenasComponents/Modal4";
+import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from '@headlessui/react'
 
 const Input = () => {
@@ -55,9 +55,6 @@ const Input = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        I will fade in and out
-     
-
         <Fragment>
 
           <Modal4
