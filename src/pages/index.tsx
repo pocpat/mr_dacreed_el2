@@ -3,9 +3,9 @@ import Link from "next/link";
 import { useUser, SignInButton, SignOutButton } from "@clerk/nextjs";
 import { type NextPage } from "next";
 import { Header } from "../componentsRoot/Header";
-import  Bird  from "~/pages/components/elenasComponents/Bird";
+import  Bird  from "~/componentsRoot/Bird";
 import Image from 'next/image'
-import  FooterMain  from "~/pages/components/elenasComponents/FooterMain";
+import  FooterMain  from "~/componentsRoot/FooterMain";
 
 
 
@@ -27,6 +27,7 @@ const Home: NextPage = () => {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </Head>
+      <Header />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           {/* logo */}
