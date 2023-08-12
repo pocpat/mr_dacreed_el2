@@ -1,120 +1,129 @@
 import React, { useState } from "react";
+import { api } from "~/utils/api";
 
 const HeaderBody = () => {
-  const [charsLeft, setCharsLeft] = useState([150, 150, 260]);
-  // const [showTextEditor, setShowTextEditor] = useState(false);
-  const [textAreaValue, setTextAreaValue] = useState(["", "", ""]);
-
-  const processTextAreaInput = (
-    index: number,
-    maxLength: number,
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setTextAreaValue((textAreaValue) => {
-      textAreaValue[index] = event.target.value;
-      return textAreaValue;
-    });
-
-    const currentLength = event.target.value.length;
-    setCharsLeft((charsLeft) => {
-      const newCharsLeft = [...charsLeft];
-      newCharsLeft[index] = maxLength - currentLength;
-      return newCharsLeft;
-    });
-  };
-
-  // const handleIconClick = () => {
-  //   setShowTextEditor(true);
-  // };
-
   return (
     <>
       <div
-        className="border-box flex flex-col items-center justify-start bg-gray-200 p-4 "
-        style={{ width: "100%", height: "100vh", backgroundColor: "#B9CCC8" }}
-        
+        className="border-box flex flex-col bg-gray-400 p-4 "
+        style={{ width: "100%", height: "100vh" }}
       >
- {/* Title */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text font-semibold">Title</span>
-            {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
-
-          <textarea
-            value={textAreaValue[0]}
-            onChange={(e) => processTextAreaInput(0, 150, e)}
-            maxLength={150}
-            placeholder="Title here"
-            className="shadow-md textarea-bordered textarea textarea-xs w-full rounded-sm"
-            style={{ width: "100%" }}
-            // z-index='-1'
-            // readOnly= {false}
-          ></textarea>
-
-          {/* labels */}
-          <label className="label">
-            <span className="label-text-alt">
-              Characters left: {charsLeft[0]}
-            </span>
-            <span className="label-text-alt">Re-generate</span>
-          </label>
-        </div>
-
- {/* Sub-heading */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text font-semibold">Sub-heading</span>
-            {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
-
-          <textarea
-            value={textAreaValue[1]}
-            onChange={(e) => processTextAreaInput(1, 150, e)}
-            maxLength={150}
-            placeholder="Sub-heading here"
-            className="textarea-bordered textarea textarea-xs w-full rounded-sm shadow-md"
-            style={{ width: "100%" }}
-
-          ></textarea>
-          {/* labels */}
-          <label className="label">
-            <span className="label-text-alt">
-              Characters left: {charsLeft[1]}
-            </span>
-            <span className="label-text-alt">Re-generate</span>
-          </label>
-        </div>
-
-{/* Description */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text font-semibold">Description</span>
-            {/* <span className="label-text-alt">Alt label</span> */}
-          </label>
-
-          <textarea
-            value={textAreaValue[2]}
-            onChange={(e) => processTextAreaInput(2, 150, e)}
-            maxLength={150}
-            placeholder="Description here"
-            className="textarea-bordered textarea  h-48 w-full rounded-sm shadow-md"
-            style={{ width: "100%" }}
-          ></textarea>
-
-          {/* labels */}
-          <label className="label">
-            <span className="label-text-alt">
-              Characters left: {charsLeft[2]}
-            </span>
-            <span className="label-text-alt">Re-generate</span>
-          </label>
-        </div>
-
-        
+        <CourseHeaderInput />
       </div>
     </>
   );
 };
 
 export default HeaderBody;
+
+type CourseHeader = {
+  id: string;
+  title: string;
+  subHeading: string;
+  description: string;
+};
+
+const CourseHeaderInput: React.FC = () => {
+  const [selectedTitle, setSelectedTitle] = useState<CourseHeader | null>(null);
+  const { data: courseHeaders, refetch: refetchTopics } =
+    api.courseHeader.getAll.useQuery(undefined, {
+      onSuccess: (data) => {
+        if (data && data.length > 0 && data[0]) {
+          setSelectedTitle(data[0]);
+        } else {
+          setSelectedTitle(null);
+        }
+      },
+    });
+
+  const createCourseHeader = api.courseHeader.create.useMutation({
+    onSuccess: () => {
+      console.log("We think its going to db");
+      void refetchTopics();
+    },
+  });
+
+  return (
+    <div className="mb-4 mt-4 flex w-full flex-col items-start justify-items-start rounded border-slate-100 bg-white p-4">
+      <div className="m-2 flex w-full flex-col p-2">
+        {/* INPUT FOR TITLE */}
+        <input
+          type="text"
+          placeholder="Title goes here"
+          className="input-bordered input input-sm m-2 h-12 w-auto"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createCourseHeader.mutate({
+                title: e.currentTarget.value,
+                subHeading: "",
+                description: "",
+              });
+              e.currentTarget.value = "";
+            }
+          }}
+        />
+        {/* INPUT FOR SUB HEADING */}
+        <input
+          type="text"
+          placeholder="Sub-heading goes here:"
+          className="input-bordered input input-sm m-2 h-12 w-auto"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createCourseHeader.mutate({
+                title: "",
+                subHeading: e.currentTarget.value,
+                description: "",
+              });
+              e.currentTarget.value = "";
+            }
+          }}
+        />
+        {/* INPUT FOR DESCRIPTION */}
+        <input
+          type="text"
+          placeholder="Description goes here:"
+          className="input-bordered input input-sm m-2 h-12 w-auto"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createCourseHeader.mutate({
+                title: "",
+                subHeading: "",
+                description: e.currentTarget.value,
+              });
+              e.currentTarget.value = "";
+            }
+          }}
+        />
+      </div>
+      <div>
+        <div className="ml-6">
+          <div className="bg-slate-400 p-2">
+            {courseHeaders?.map((courseHeader) => {
+              if (courseHeader.title) {
+                return <div key={courseHeader.id}>{courseHeader.title}</div>;
+              }
+            })}
+          </div>
+          <div className="border-solid border-black bg-slate-300 p-2">
+            {courseHeaders?.map((courseHeader) => {
+              if (courseHeader.subHeading) {
+                return (
+                  <div key={courseHeader.id}>{courseHeader.subHeading}</div>
+                );
+              }
+            })}
+          </div>
+          <div className="border-solid border-black bg-slate-200 p-2">
+            {courseHeaders?.map((courseHeader) => {
+              if (courseHeader.description) {
+                return (
+                  <div key={courseHeader.id}>{courseHeader.description}</div>
+                );
+              }
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
