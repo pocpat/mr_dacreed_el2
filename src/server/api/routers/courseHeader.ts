@@ -14,6 +14,7 @@ export const courseHeaderRouter = createTRPCRouter({
             });
           } else {
             console.log("User not authenticated. => ctx.auth.userId is null <=");
+            return [];
           }
         }),
     
@@ -31,5 +32,4 @@ export const courseHeaderRouter = createTRPCRouter({
             //"clkswcf8j0000dg1km8pz49zq",                 
           },
         });
-      }),
-    });
+      })});
