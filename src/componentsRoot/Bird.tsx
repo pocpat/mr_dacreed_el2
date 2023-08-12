@@ -3,7 +3,7 @@ import React from "react";
 const Bird = () => {
   return (
     <div>
-      <img src="/birdFP.png" alt="" className="h-10 animate-bird-in " />
+      <img src="/welcome_logo_3.png" alt="logo" className="h-30 animate-bird-in " />
     </div>
   );
 };

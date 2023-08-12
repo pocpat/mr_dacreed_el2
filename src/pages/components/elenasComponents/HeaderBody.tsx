@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const HeaderBody = () => {
   const [charsLeft, setCharsLeft] = useState([150, 150, 260]);
-  const [showTextEditor, setShowTextEditor] = useState(false);
+  // const [showTextEditor, setShowTextEditor] = useState(false);
   const [textAreaValue, setTextAreaValue] = useState(["", "", ""]);
 
   const processTextAreaInput = (
@@ -30,8 +30,9 @@ const HeaderBody = () => {
   return (
     <>
       <div
-        className="border-box flex flex-col items-center justify-start bg-gray-400 p-4 "
-        style={{ width: "100%", height: "100vh" }}
+        className="border-box flex flex-col items-center justify-start bg-gray-200 p-4 "
+        style={{ width: "100%", height: "100vh", backgroundColor: "#B9CCC8" }}
+        
       >
  {/* Title */}
         <div className="form-control w-full">
@@ -45,7 +46,7 @@ const HeaderBody = () => {
             onChange={(e) => processTextAreaInput(0, 150, e)}
             maxLength={150}
             placeholder="Title here"
-            className="shadow-inner-md textarea-bordered textarea textarea-xs w-full rounded-sm"
+            className="shadow-md textarea-bordered textarea textarea-xs w-full rounded-sm"
             style={{ width: "100%" }}
             // z-index='-1'
             // readOnly= {false}

@@ -1,9 +1,13 @@
-import { type Config } from "tailwindcss";
+ import { type Config } from "tailwindcss";
+
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'image': "url('/bg_1.jpg')",
+      },
       keyframes: {
         customBounce: {
           "0%": { transform: "translateY(50px)" },
@@ -11,8 +15,8 @@ const config: Config = {
           "100%": { transform: "translateY(20px)" },
         },
         birdin: {
-          "0%": { transform: "translateX(-100px)" },
-          "100%": { transform: "translateX(500px)" },
+          "0%": { transform: "translateX(-400%)" },
+          "100%": { transform: "translateX(0%)" },
         },
         textin: {
           "0%": { transform: "translateX(-700px)" },
@@ -24,7 +28,9 @@ const config: Config = {
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
       },
+
     },
+    darkMode: 'class',
   },
 
   plugins: [require('daisyui'),require('flowbite/plugin'),],
