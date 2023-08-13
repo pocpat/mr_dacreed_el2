@@ -125,7 +125,7 @@ const input = () => {
             Draft courses:
           </span>
         </div>
-        <div className="h-96 w-1/2 rounded-lg bg-[#6f98ac] p-4">
+        <div className="h-96 w-1/2 rounded-lg bg-gradient-to-r from-cyan-900 to-cyan-500 p-4 text-white">
           <h1>This is where i shall have the list of draft courses:</h1>
         </div>
       </main>
