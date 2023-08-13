@@ -5,7 +5,7 @@ export const Header = () => {
   const { user } = useUser();
 
   return (
-    <div className="relative flex h-20 items-center justify-center bg-gray-600">
+    <div className="relative flex h-20 items-center justify-center  bg-[#0F5475]">
       <div className="flex-1 pl-5 text-3xl font-bold">
         {user?.firstName ? `Hello ${user.firstName}` : ""}
       </div>

@@ -1,3 +1,4 @@
+
 import { libraryRouter } from "~/server/api/routers/library";
 import { createTRPCRouter } from "~/server/api/trpc";
 import { topicRouter } from "./routers/topic";
@@ -9,7 +10,6 @@ import { courseHeaderRouter } from "./routers/courseHeader";
 export const appRouter = createTRPCRouter({
   courseHeader: courseHeaderRouter,
   testString: testStringRouter,
-  example: exampleRouter,
   library: libraryRouter,
   topic: topicRouter,
 });

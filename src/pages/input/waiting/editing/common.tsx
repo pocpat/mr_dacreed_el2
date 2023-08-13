@@ -6,7 +6,7 @@ const Common = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div className="pl-10 pr-10">
         <AccordionMiddle />
       </div>
     </div>

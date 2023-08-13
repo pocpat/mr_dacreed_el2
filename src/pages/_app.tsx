@@ -12,7 +12,7 @@ const MyApp: AppType= ({
   console.log(process.env.NEXT_PUBLIC_CLERK_FRONTEND_API);
   return (
       <ClerkProvider {...pageProps}>
-        <Component {...pageProps} />
+        <Component {...pageProps}  />
       </ClerkProvider>
   );
 };
