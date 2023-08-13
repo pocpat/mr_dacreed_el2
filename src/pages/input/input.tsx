@@ -3,12 +3,15 @@ import Link from "next/link";
 import FooterBird from "../../componentsRoot/FooterBird";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from '@headlessui/react'
+import Image from "next/image";
+
 
 const Input = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
+       <Image src="/bg_loading.png" alt="bg input" layout="fill" objectFit="cover" />
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#4f7369] to-[#A7F2E4]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]">
@@ -42,7 +45,9 @@ const Input = () => {
             <h3 className="text-2xl font-bold">WAITING</h3>
           </Link>
         </div>
-        <div>    <FooterBird /></div>
+        <div className="z-0 m-8">
+              <FooterBird />
+            </div>
       </main>
       <div>
        
