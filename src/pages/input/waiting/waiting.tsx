@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Loading1 from "~/pages/components/elenasComponents/Loading1";
 
 const waiting = () => {
   return (
@@ -23,7 +24,9 @@ const waiting = () => {
           type="file"
           className="file-input-bordered file-input-accent file-input w-full max-w-xs"
         />
-        <div></div>
+        <div>
+          <Loading1 />
+        </div>
       </main>
     </div>
   );
