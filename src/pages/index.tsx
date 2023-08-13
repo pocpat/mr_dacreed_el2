@@ -19,6 +19,7 @@ const Home: NextPage = () => {
  alt="bg"
  layout="fill"
  objectFit="cover"
+ className="z-0"
  />
       <Head>
       
@@ -54,8 +55,8 @@ const Home: NextPage = () => {
 
 
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
+          <div className="flex flex-col items-center gap-2 ">
+            <div className="bg- flex max-w-xs flex-col items-center file:gap-4 rounded-full bg-[#0F5475] p-4 text-white drop-shadow-md hover:bg-white/20 normal-case w-48">
               {!user.isSignedIn && <SignInButton mode="modal" />}
               {user.isSignedIn && <SignOutButton />}
             </div>
