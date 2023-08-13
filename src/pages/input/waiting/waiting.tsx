@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Loading1 from "~/pages/components/elenasComponents/Loading1";
 
 const waiting = () => {
   return (
@@ -12,6 +13,7 @@ const waiting = () => {
           >
             WAITING PAGE
           </span>
+          <Loading1/> 
         </h1>
         <Link
           className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"

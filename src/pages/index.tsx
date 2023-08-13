@@ -45,12 +45,12 @@ const Home: NextPage = () => {
               <h3 className="text-2xl font-bold">Next</h3>
             </Link>
 
-            {/* <Link
+            <Link
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
-            </Link> */}
+            </Link>
 
 
           </div>
@@ -60,11 +60,11 @@ const Home: NextPage = () => {
               {user.isSignedIn && <SignOutButton />}
             </div>
             <div className="m-8">
-              {/* <AuthShowcase /> */}
+              <AuthShowcase />
             </div>
           </div>
         </div>
-        <FooterMain/>
+        {/* <FooterMain/> */}
       </main>
       
     </>
