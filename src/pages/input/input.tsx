@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
 import TopNav from "../components/jpComponents/TopNav";
 import { useUser } from "@clerk/nextjs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { api } from "~/utils/api";
 
 const input = () => {
   const { user } = useUser();
@@ -19,34 +20,15 @@ const input = () => {
           <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
             <div className="p-41 flex flex-row items-center justify-items-center">
               <div className="w-3/5">
-                <div className="flex w-4/5 flex-col items-start justify-center">
-                  <span className="font-color-[#b91c1c] m-2 font-extrabold">
-                    Course Title:
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="Course title:"
-                    className="input-bordered input input-sm m-1 w-2/3 shadow-xl"
-                  />
-                </div>
-                <div className="my-2 flex w-3/4 flex-col items-start justify-center">
-                  <span className="font-color-[#b91c1c] m-2 font-extrabold">
-                    Course description:
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="Course description:"
-                    className="input-bordered input input-sm m-1 w-full shadow-xl"
-                  />
-                </div>
+                <CourseForm />
                 <div className="flex w-3/4 flex-row items-center justify-between">
                   <button
                     onClick={() => {
                       setModalOpen(false);
                     }}
-                    className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+                    className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
                   >
-                    SAVE TO DRAFT
+                    BACK
                   </button>
                   <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
                     CONT TO COURSE
@@ -132,7 +114,7 @@ const input = () => {
           </span>
         </div>
         <div className="h-96 w-1/2 rounded-lg bg-gradient-to-r from-cyan-900 to-cyan-500 p-4 text-white">
-          <h1>This is where i shall have the list of draft courses:</h1>
+          <DraftCourses />
         </div>
       </main>
     </div>
@@ -159,3 +141,88 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
+
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+const CourseForm: React.FC = () => {
+  const [courseTitle, setCourseTitle] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const { mutate: createCourse } = api.newCourse.create.useMutation({
+    onSuccess: () => {
+      // console.log(
+      //   `This should be posting to the db with course title: ${courseTitle}`
+      // );
+      // void refetchTopics();
+    },
+  });
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    await createCourse({ title: courseTitle, description: courseDescription });
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <label className="font-color-[#b91c1c] font-extrabold">
+        <span className="ml-1">Title:</span>
+        <br />
+        <input
+          className="input-bordered input input-sm w-2/3 shadow-xl"
+          type="text"
+          value={courseTitle}
+          onChange={(e) => setCourseTitle(e.target.value)}
+        />
+      </label>
+      <label className="font-color-[#b91c1c] font-extrabold">
+        <span className="ml-1">Description:</span>
+        <br />
+        <input
+          className="input-bordered input input-sm w-2/3 shadow-xl"
+          type="text"
+          value={courseDescription}
+          onChange={(e) => setCourseDescription(e.target.value)}
+        />
+      </label>
+      <input
+        className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+        type="submit"
+        value="SAVE DRAFT"
+      />
+    </form>
+  );
+};
+
+const DraftCourses: React.FC = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const { data: newCourses, refetch: refetchTopics } =
+    api.newCourse.getCourses.useQuery(undefined, {
+      onSuccess: (data) => {
+        if (data && data.length > 0) {
+          setCourses(data);
+        } else {
+          setCourses([]);
+        }
+      },
+    });
+
+  return (
+    <div>
+      {courses?.map((course: Course) => (
+        <div
+          key={course.id}
+          className="m-2 w-full rounded border-solid bg-white text-black"
+        >
+          <h2 className="font-extrabold">{course.title}</h2>
+          <p>{course.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+};

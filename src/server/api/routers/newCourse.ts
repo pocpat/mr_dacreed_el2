@@ -4,7 +4,7 @@ import {
 } from "~/server/api/trpc";
 
 export const newCourseRouter = createTRPCRouter({
-    getAll: publicProcedure.query(({ ctx }) => {
+    getCourses: publicProcedure.query(({ ctx }) => {
         if (ctx.auth?.userId) {
             return ctx.prisma.course.findMany({
               where: {

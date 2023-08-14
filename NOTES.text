@@ -3,7 +3,7 @@ PRISMA CLIENT STUFF
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
-*******************************THIS IS CODE FROM HEADERbODY COMPONENT***********************
+*******************************THIS IS CODE FROM HEADERBODY COMPONENT***********************
  <div className="form-control w-full">
           <label className="label">
             <span className="label-text font-semibold">Title</span>
@@ -80,3 +80,26 @@ const prisma = new PrismaClient()
           ))}
         </ul>
       </div>
+
+
+      *******************************Input page modal info********************************
+      <div className="flex w-4/5 flex-col items-start justify-center">
+                  <span className="font-color-[#b91c1c] m-2 font-extrabold">
+                    Course Title:
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Course title:"
+                    className="input-bordered input input-sm m-1 w-2/3 shadow-xl"
+                  />
+                </div>
+                <div className="my-2 flex w-3/4 flex-col items-start justify-center">
+                  <span className="font-color-[#b91c1c] m-2 font-extrabold">
+                    Course description:
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Course description:"
+                    className="input-bordered input input-sm m-1 w-full shadow-xl"
+                  />
+                </div>

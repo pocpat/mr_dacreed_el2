@@ -138,7 +138,7 @@ export default Jono2;
 // };
 
 type Course = {
-  courseId: string;
+  id: string;
   title: string;
   description: string;
   userId: string;
