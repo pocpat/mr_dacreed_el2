@@ -5,8 +5,8 @@ const HeaderBody = () => {
   return (
     <>
       <div
-        className="border-box flex flex-col bg-gray-400 p-4 "
-        style={{ width: "100%", height: "100vh" }}
+        className="border-box flex flex-col  p-4 "
+        style={{ width: "100%", height: "100%" , backgroundColor: "#B9CCC8"}}
       >
         <CourseHeaderInput />
       </div>
