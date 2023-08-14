@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
-// import { Accordion, type AccordionInterface, type AccordionItem, type AccordionOptions } from 'flowbite';
 import {
   type AccordionOptions,
   type AccordionItem,
   type AccordionInterface,
-  Accordion,
+  // Accordion,
 } from "flowbite";
 import "flowbite";
 import HeaderBody from "./HeaderBody";
@@ -55,24 +54,24 @@ const AccordionMiddle = () => {
       },
     ];
 
-    const options: AccordionOptions = {
-      alwaysOpen: true,
-      activeClasses:
-        "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
-      inactiveClasses: "text-gray-500 dark:text-gray-400",
-      onOpen: (accordion: AccordionInterface, item: AccordionItem) => {
-        console.log("accordion item has been shown");
-        console.log(item);
-      },
-      onClose: (accordion: AccordionInterface, item: AccordionItem) => {
-        console.log("accordion item has been hidden");
-        console.log(item);
-      },
-      onToggle: (accordion: AccordionInterface, item: AccordionItem) => {
-        console.log("accordion item has been toggled");
-        console.log(item);
-      },
-    };
+    // const options: AccordionOptions = {
+    //   alwaysOpen: true,
+    //   activeClasses:
+    //     "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
+    //   inactiveClasses: "text-gray-500 dark:text-gray-400",
+    //   onOpen: (accordion: AccordionInterface, item: AccordionItem) => {
+    //     console.log("accordion item has been shown");
+    //     console.log(item);
+    //   },
+    //   onClose: (accordion: AccordionInterface, item: AccordionItem) => {
+    //     console.log("accordion item has been hidden");
+    //     console.log(item);
+    //   },
+    //   onToggle: (accordion: AccordionInterface, item: AccordionItem) => {
+    //     console.log("accordion item has been toggled");
+    //     console.log(item);
+    //   },
+    // };
 
     // // Cleanup the accordion instance when the component unmounts
     return () => {

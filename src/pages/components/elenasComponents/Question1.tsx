@@ -3,7 +3,8 @@ import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
-import ListComponent from "./ListComponent";
+// import ListComponent from "./ListComponent";
+import { useUser } from "@clerk/nextjs";
 
 const Question1: React.FC = () => {
   const [components, setComponents] = useState<string[]>([]);
