@@ -7,6 +7,7 @@ type Modal4Props = {
 };
 
 const Modal4: React.FC<Modal4Props> = ({ isVisible, onClose, children }) => {
+
   if (!isVisible) return null;
   const handleClose = () => {
     onClose();
@@ -15,6 +16,7 @@ const Modal4: React.FC<Modal4Props> = ({ isVisible, onClose, children }) => {
   const handleInnerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
+
 
   return (
     <div
@@ -29,12 +31,12 @@ const Modal4: React.FC<Modal4Props> = ({ isVisible, onClose, children }) => {
         >
           X
         </button> */}
-        <div className="flex h-[300px] flex-col items-center  justify-center rounded-lg bg-white ">
+
+        <div className="flex h-[300px] flex-col items-center justify-center rounded-lg bg-white ">
           {children}
         </div>
       </div>
     </div>
   );
 };
-
 export default Modal4;

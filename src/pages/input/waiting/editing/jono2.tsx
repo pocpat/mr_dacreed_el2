@@ -146,6 +146,7 @@ type Course = {
   updatedAt: Date;
 };
 
+
 const CourseForm: React.FC = () => {
   const [courseTitle, setCourseTitle] = useState("");
   const [courseDescription, setCourseDescription] = useState("");

@@ -29,9 +29,9 @@ const CourseHeaderInput: React.FC = () => {
   // *********************Refteching topics for display*****************************
   const { data: courseHeaders, refetch: refetchTopics } =
     api.courseHeader.getAll.useQuery(undefined, {
-      onSuccess: (data) => {
+      onSuccess: (data:CourseHeader[]) => {
         if (data && data.length > 0 && data[0]) {
-          setSelectedTitle(data[0]);
+          setSelectedTitle(data[0] );
         } else {
           setSelectedTitle(null);
         }
@@ -100,7 +100,7 @@ const CourseHeaderInput: React.FC = () => {
       <div>
         <div className="ml-6">
           <div className="bg-slate-400 p-2">
-            {courseHeaders?.map((courseHeader) => {
+            {courseHeaders?.map((courseHeader: { title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; id: React.Key | null | undefined; }) => {
               if (courseHeader.title) {
                 return <div key={courseHeader.id}>{courseHeader.title}</div>;
               }

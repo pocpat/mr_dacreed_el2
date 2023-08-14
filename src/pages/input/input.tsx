@@ -1,3 +1,4 @@
+
 import React from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
@@ -386,3 +387,4 @@ const DraftCourses: React.FC = () => {
     </div>
   );
 };
+

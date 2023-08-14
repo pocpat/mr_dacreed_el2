@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const FooterBird = () => {
   return (
     <div className="z-10 mr-2 flex flex-row text-gray-800">
@@ -17,8 +18,10 @@ const FooterBird = () => {
         solutions for people
       </h1>
       <img src="/birdM_1.png" className="ml-2 h-8 w-8" />
+
     </div>
   );
 };
 
 export default FooterBird;
+
