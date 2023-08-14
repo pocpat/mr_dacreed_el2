@@ -113,7 +113,7 @@ const Input = () => {
             Draft courses:
           </span>
         </div>
-        <div className="h-96 w-1/2 rounded-lg bg-gradient-to-r from-cyan-900 to-cyan-500 p-4 text-white">
+        <div className="h-auto w-3/4 rounded-lg bg-gradient-to-r from-cyan-900 to-cyan-500 p-4 text-white">
           <DraftCourses />
         </div>
       </main>
@@ -217,7 +217,7 @@ const DraftCourses: React.FC = () => {
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-          className="m-2 w-full rounded border-solid bg-white text-black"
+          className="w-7/8 m-2 rounded border-solid bg-white p-4 text-black"
         >
           <h2 className="font-extrabold">{course.title}</h2>
           <p>{course.description}</p>
