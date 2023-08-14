@@ -3,6 +3,8 @@ import {
   createTRPCRouter,protectedProcedure, publicProcedure,
 } from "~/server/api/trpc";
 
+// API END POINTS
+
 export const courseHeaderRouter = createTRPCRouter({
     // GET ALL 
     getAll: publicProcedure.query(({ ctx }) => {
