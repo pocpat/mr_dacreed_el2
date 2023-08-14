@@ -113,6 +113,12 @@ const input = () => {
           >
             <h3 className="text-2xl font-bold">Upload:</h3>
           </Link>
+          <Link
+            className="mr-2 flex w-40 flex-col items-center justify-center gap-4 rounded-xl bg-[#0f5475] p-4 text-white drop-shadow-md hover:bg-cyan-600/50"
+            href="/input/waiting/editing/editing"
+          >
+            <h3 className="text-2xl font-bold">EDITING</h3>
+          </Link>
         </div>
         <div>
           <input type="file" className="file-input-bordered file-input mt-4" />
