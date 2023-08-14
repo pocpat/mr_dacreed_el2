@@ -5,6 +5,29 @@ import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
 import { useUser } from "@clerk/nextjs";
+import { PrismaClient } from '@prisma/client'
+import { prisma } from "~/server/db";
+
+
+
+
+// =============> new user create <=========`
+
+// const newUser = await prisma.user.create({
+
+//   data: {
+//     name:   'Boris',             // user?.firstName,
+//     email:  'boris@prisma.io',   //user?.emailAddresses[0].emailAddress,
+//   },
+// });
+
+
+
+// const users = await prisma.user.findMany()
+
+//==================================================
+
+
 
 const Question1: React.FC = () => {
   const [components, setComponents] = useState<string[]>([]);
@@ -20,10 +43,10 @@ const { user } = useUser();
     window.alert("No more answers to add");
   }
 }
-  const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    const u = { [name]: value };
-  };
+  // const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = event.target;
+  //   const u = { [name]: value };
+  // };
  // <div className="p-0 m-0 className= "shadow-inner shadow-xl"" >
    
   return (

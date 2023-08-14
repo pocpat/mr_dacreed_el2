@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -6,8 +6,9 @@ import {
 } from "@material-tailwind/react";
 import HeaderBody from "./HeaderBody";
 import Question1 from "./Question1";
+import { set } from "zod";
 
-function Icon({ id, open }) {
+function Icon({ id, open }: { id: number; open: number }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
