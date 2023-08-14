@@ -32,6 +32,7 @@ const Home: NextPage = () => {
             <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
           </div>
 
+
           {/*     buttons   */}
           <div className="flex  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
             <div className="flex flex-row items-center justify-center gap-2 ">
@@ -46,10 +47,14 @@ const Home: NextPage = () => {
               {/* </Link> */}
 
               {/* <Link
+
+            <Link
+
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
+
             </Link> */}
               {/* </div> */}
               <div className="flex flex-col items-center gap-2 ">
@@ -68,6 +73,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+
       </main>
     </>
   );

@@ -1,10 +1,12 @@
 /* loading1.module.css */
 
 /* Global styles */
+
 .loading1-container {
     box-sizing: border-box;
     outline: none;
   }
+
 
 /* Variables */
 .bgColor {
@@ -24,7 +26,9 @@
 }
 
 /* Body styles */
+
 .loading1-body {
+
   background: var(--bgColor);
   font: 14px/1 'Open Sans', helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;

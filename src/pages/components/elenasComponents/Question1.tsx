@@ -34,8 +34,8 @@ const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answ
   const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const u = { [name]: value };
-    const mutation = api.POSTAPI.createTestString.useMutation();
-    mutation.mutate({ testInput: value });
+    // const mutation = api.POSTAPI.createTestString.useMutation();
+    // mutation.mutate({ testInput: value });
   };
 
   return (
