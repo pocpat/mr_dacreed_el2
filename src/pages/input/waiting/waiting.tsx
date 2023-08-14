@@ -13,7 +13,7 @@ const waiting = () => {
           >
             WAITING PAGE
           </span>
-          <Loading1/> 
+          {/* <Loading1/>  */}
         </h1>
         <Link
           className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
@@ -26,7 +26,7 @@ const waiting = () => {
           className="file-input-bordered file-input-accent file-input w-full max-w-xs"
         />
         <div>
-          <Loading1 />
+          {/* <Loading1 /> */}
         </div>
       </main>
     </div>
