@@ -9,25 +9,13 @@ import { useUser } from "@clerk/nextjs";
 const Question1: React.FC = () => {
   const [components, setComponents] = useState<string[]>([]);
 const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answer 4','answer 5']);
- 
+const { user } = useUser();
 
-// function addComponent() {
-//   if (componentNames.length > 0) {
-//     // setComponents([...components, componentNames[0]]);
-//     // componentNames.splice(0, 1);
-//     const firstComponentName = componentNames.shift();
-//     setComponents([...components, firstComponentName]);
-//   } else {
-//     window.alert("No more components to add");
-//   }
-// }
-//if (componentNames.length > 0 && componentNames[0]) {
+
   function addNewAnswer() {
   if (componentNames.length > 0 && componentNames[0]) {
     setComponents([...components, componentNames[0]]);
     componentNames.splice( 0,1);
-    // const firstComponentName = componentNames.shift();
-    // setComponents([...components, firstComponentName]);
   } else {
     window.alert("No more answers to add");
   }
@@ -35,8 +23,6 @@ const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answ
   const getaddAnswerData = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     const u = { [name]: value };
-    // const mutation = api.POSTAPI.createTestString.useMutation();
-    // mutation.mutate({ testInput: value });
   };
 
   return (
@@ -113,4 +99,90 @@ const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answ
 
 
 export default Question1;
+
+// Question1
+type CourseQuestion = {
+  id: string;
+  question: string;
+  answer1: string;
+  answer2: string;
+  answer3: string;
+  answer4: string;
+};
+
+const CourseQuestionInput: React.FC =  () => {
+  const [selectedInput, setSelectedInput] = useState<CourseQuestion | null>(null);
+  const { data: courseQuestions, refetch: refetchTopics } =
+  api.courseQuestion.getAll.useQuery(undefined, {
+    onSuccess: (data:CourseQuestion[]) => {
+      if (data && data.length > 0 && data[0]) {
+        setSelectedInput(data[0] );
+      } else {
+        setSelectedInput(null);
+      }
+    },
+  });
+ const createCourseQuestion = api.courseQuestion.create.useMutation({
+    onSuccess: () => {
+      console.log("Create courseQuestion is going to db");
+      void refetchTopics();
+    },
+  });
+  return (
+    <div className="mb-4 mt-4 flex w-full flex-col items-start justify-items-start rounded border-slate-100 bg-white p-4">
+      <div className="m-2 flex w-full flex-col p-2">
+        {/* INPUT FOR question */}
+        <input
+          type="text"
+          placeholder="test api question
+          "
+          className="input-bordered input input-sm m-2 h-12 w-auto"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              createCourseQuestion.mutate({
+                question: e.currentTarget.value,
+                answer1: "",
+                answer2: "",
+                answer3: "",
+                answer4: "",
+                // userId: user.id
+              });
+              e.currentTarget.value = "";
+            }
+          }}
+        />
+
+      </div>
+      <div>
+        <div className="ml-6">
+          <div className="bg-slate-400 p-2">
+            {courseQuestions?.map((courseQuestion: { question: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; id: React.Key | null | undefined; }) => {
+              if (courseQuestion.question) {
+                return <div key={courseQuestion.id}>{courseQuestion.question}</div>;
+              }
+            })}
+          </div>
+          <div className="border-solid border-black bg-slate-300 p-2">
+            {courseQuestions?.map((courseQuestion) => {
+              if (courseQuestion.answer1) {
+                return (
+                  <div key={courseQuestion.id}>{courseQuestion.answer1}</div>
+                );
+              }
+            })}
+          </div>
+          <div className="border-solid border-black bg-slate-200 p-2">
+            {courseQuestions?.map((courseQuestion) => {
+              if (courseQuestion.answer2) {
+                return (
+                  <div key={courseQuestion.id}>{courseQuestion.answer2}</div>
+                );
+              }
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 

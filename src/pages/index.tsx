@@ -46,7 +46,7 @@ const Home: NextPage = () => {
               </a>
               {/* </Link> */}
 
-              {/* <Link
+              {/* <Link*/}
 
             <Link
 
@@ -55,7 +55,7 @@ const Home: NextPage = () => {
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
 
-            </Link> */}
+            </Link> 
               {/* </div> */}
               <div className="flex flex-col items-center gap-2 ">
                 <div

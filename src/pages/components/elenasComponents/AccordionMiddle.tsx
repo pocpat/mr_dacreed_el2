@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import {
+  Accordion,
   type AccordionOptions,
   type AccordionItem,
   type AccordionInterface,
