@@ -62,7 +62,8 @@ const AccordionMiddle2 = () => {
           Question
         </AccordionHeader>
         <br />
-        <AccordionBody>
+        <AccordionBody 
+          className="rounded-5xl  content-center justify-center bg-[#BDFDFDF]  ">
           <Question1 />
         </AccordionBody>
       </Accordion>

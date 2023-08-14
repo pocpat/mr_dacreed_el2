@@ -16,7 +16,7 @@ const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, na
       <input
         type={type}
         placeholder={placeholder }
-        className="input-bordered input w-full  m-2 rounded-sm shadow-inner-sm "
+        className="input-bordered input w-full  m-2 rounded-sm shadow-inner shadow-md "
         // className="shadow-inner shadow-sm m-2 mt-1 p-2 w-full rounded-sm"
 
         name={name}

@@ -24,27 +24,30 @@ const { user } = useUser();
     const { name, value } = event.target;
     const u = { [name]: value };
   };
-
+ // <div className="p-0 m-0 className= "shadow-inner shadow-xl"" >
+   
   return (
-    <div style={{ backgroundColor: "#B9CCC8" }}>
+    <div style={{ backgroundColor: "#DFDFDF" }}>
 {/* question  */}
-      <div className="p-0 m-0" >
+      <div className="p-0 m-0 " >
         <InputQuestion
           placeholder="question"
           type="text"
           // onChange={getaddAnswerData}
           name="question"
+          
         />
 {/* answers */}
 <div >
-        <div className="grid grid-cols-2 gap-4 newAnswersPlaceholder">
-          <div>
+        <div className="grid grid-cols-2 gap-4 newAnswersPlaceholder ">
+          <div >
             <InputAnswer
               placeholder="answer 1"
               type="text"
               // onChange={getaddAnswerData}
               name="answer1"
               text="answer 1"
+              
             />
           </div>
           <div>
@@ -76,7 +79,7 @@ const { user } = useUser();
           {/* </div> */}
        
         </div>
-        </div>
+        </div >
         <ButtonAdd onClick={addNewAnswer} text="Add a new answer" />
 {/* labels  delete , re-generate*/}
         <div>
@@ -130,7 +133,7 @@ const CourseQuestionInput: React.FC =  () => {
   });
   return (
     <div className="mb-4 mt-4 flex w-full flex-col items-start justify-items-start rounded border-slate-100 bg-white p-4">
-      <div className="m-2 flex w-full flex-col p-2">
+      <div className="m-2 flex w-full flex-col p-2 ">
         {/* INPUT FOR question */}
         <input
           type="text"

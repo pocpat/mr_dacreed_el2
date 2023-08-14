@@ -16,18 +16,17 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
 }) => {
   return (
     <div>
-      <div className="flex flex-row items-center ">
+      <div className="flex flex-row items-center  ">
         <input
           type={type}
           placeholder={placeholder}
-          className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner "
-          // className="shadow-inner shadow-md m-2 mt-1 p-2 w-full rounded-sm"
+          className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner shadow-md "
           name={name}
           onChange={onChange}
         />
         <input
           type="checkbox"
-          className="form-control checkbox h-12 w-12 rounded-sm"
+          className="form-control checkbox h-12 w-12 rounded-sm shadow-inner shadow-md "
         />
       </div>
     </div>

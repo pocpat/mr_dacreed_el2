@@ -4,7 +4,7 @@ const ButtonAdd = (props: { onClick: React.MouseEventHandler<HTMLButtonElement> 
   return (
     <div>
       <button
-        className="AddButton btn ml-2 w-20 rounded-sm"
+        className="AddButton btn ml-2 w-20 rounded-sm shadow-inner shadow-md"
         onClick={props.onClick}
       >
         {props.text}
