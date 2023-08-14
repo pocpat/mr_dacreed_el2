@@ -6,7 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { useState, useEffect } from "react";
 import { api } from "~/utils/api";
 
-const input = () => {
+const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
   const handleModal = () => {
@@ -121,7 +121,7 @@ const input = () => {
   );
 };
 
-export default input;
+export default Input;
 
 const AuthShowcase: React.FC = () => {
   const { user } = useUser();
@@ -163,9 +163,9 @@ const CourseForm: React.FC = () => {
     },
   });
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    await createCourse({ title: courseTitle, description: courseDescription });
+    createCourse({ title: courseTitle, description: courseDescription });
   };
 
   return (

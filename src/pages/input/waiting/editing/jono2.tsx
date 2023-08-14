@@ -158,9 +158,9 @@ const CourseForm: React.FC = () => {
     },
   });
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    await createCourse({ title: courseTitle, description: courseDescription });
+    createCourse({ title: courseTitle, description: courseDescription });
   };
 
   return (
