@@ -18,6 +18,8 @@ model Example {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
+
 model Course {
     id          String   @id @default(cuid())
     title       String
@@ -27,6 +29,7 @@ model Course {
     updatedAt   DateTime @updatedAt
     user        User     @relation(fields: [userId], references: [id])
 }
+
 model CourseHeader {
     id          String   @id @default(cuid())
     createdAt   DateTime @default(now())
@@ -44,6 +47,7 @@ model CourseQuestion {
     question  String
     answer1   String
     answer2   String
+
     answer3   String?
     answer4   String?
     answer5   String?

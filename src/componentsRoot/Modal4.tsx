@@ -9,7 +9,7 @@ type Modal4Props = {
 const Modal4: React.FC<Modal4Props> = ({ isVisible, onClose, children }) => {
 
   if (!isVisible) return null;
-const handleClose = () => {
+  const handleClose = () => {
     onClose();
   };
 
@@ -19,9 +19,10 @@ const handleClose = () => {
 
 
   return (
-    <div className="z-10 fixed left-0 top-0 flex h-full w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-    onClick={handleClose}
-    id="wrapper"
+    <div
+      className="fixed left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+      onClick={handleClose}
+      id="wrapper"
     >
       <div className=" flex w-[600px]  flex-col" onClick={handleInnerClick}>
         {/* <button
@@ -30,12 +31,12 @@ const handleClose = () => {
         >
           X
         </button> */}
-        <div className="flex flex-col items-center justify-center  rounded-lg bg-white h-[300px] ">
+
+        <div className="flex h-[300px] flex-col items-center justify-center rounded-lg bg-white ">
           {children}
         </div>
       </div>
     </div>
   );
 };
-
 export default Modal4;

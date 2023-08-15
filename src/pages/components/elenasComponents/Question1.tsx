@@ -117,4 +117,3 @@ const QAForm: React.FC = () => {
     </form>
   );
 };
-

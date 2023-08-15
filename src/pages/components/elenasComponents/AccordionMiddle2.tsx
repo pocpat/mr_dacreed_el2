@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -6,7 +6,6 @@ import {
 } from "@material-tailwind/react";
 import HeaderBody from "./HeaderBody";
 import Question1 from "./Question1";
-import { set } from "zod";
 
 function Icon({ id, open }: { id: number; open: number }) {
   return (
@@ -37,34 +36,26 @@ const AccordionMiddle2 = () => {
 
   return (
     <>
-      <Accordion
-        open={open === 1}
-        icon={<Icon  id={1} open={open} />}
-     
-      >
+      <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl  content-center justify-center bg-[#B9CCC8]  border-8 border-[#B9CCC8] "
+          className="rounded-5xl  content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
           onClick={() => handleOpen(1)}
-
         >
           Header
         </AccordionHeader>
-        <AccordionBody
-        className="rounded-5xl  content-center justify-center bg-[#F0F2F3]  "
-        >
+        <AccordionBody className="rounded-5xl  content-center justify-center bg-[#F0F2F3]  ">
           <HeaderBody />
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl  content-center justify-center bg-[#B9CCC8]  border-8 border-[#B9CCC8] "
+          className="rounded-5xl  content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
           onClick={() => handleOpen(2)}
         >
           Question
         </AccordionHeader>
         <br />
-        <AccordionBody 
-          className="rounded-5xl  content-center justify-center bg-[#BDFDFDF]  ">
+        <AccordionBody className="rounded-5xl  content-center justify-center bg-[#BDFDFDF]  ">
           <Question1 />
         </AccordionBody>
       </Accordion>
