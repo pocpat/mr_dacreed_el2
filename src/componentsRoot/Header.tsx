@@ -5,25 +5,20 @@ export const Header = () => {
   const { user } = useUser();
 
   return (
-    <div className="relative flex h-20 items-center justify-center">
-      <div className="w-3/4 pl-5 text-3xl font-bold text-[#0F5475]">
+    <div className="relative mx-8 my-4 flex h-20 items-center justify-between">
+      <div className="flex h-20 w-3/4 items-center justify-start pl-5 text-3xl font-bold text-[#0F5475]">
         {user?.firstName ? `Hi ${user.firstName}, welcome back.` : ""}
       </div>
-      <div className="flex-none gap-2 bg-white">
-        <div className="dropdown-end dropdown w-full">
+      <div className="mr-3 flex h-20 w-20">
+        <div className="flex h-20 w-20 items-center justify-center">
           {user?.firstName ? (
-            <label
-              tabIndex={0}
-              className="btn-ghost btn-circle avatar btn "
-              onClick={() => void SignOutButton}
-            >
-              <div className="w-4/6 bg-white">
-                <img
-                  src={user.profileImageUrl ?? ""}
-                  alt={user?.firstName ?? ""}
-                />
-              </div>
-            </label>
+            <div className="w-full">
+              <img
+                className="rounded-full border-solid"
+                src={user.profileImageUrl ?? ""}
+                alt={user?.firstName ?? ""}
+              />
+            </div>
           ) : (
             <button
               className="btn-ghost rounded-btn btn-sm btn"

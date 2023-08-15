@@ -1,4 +1,3 @@
-
 import React from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
@@ -374,17 +373,19 @@ const DraftCourses: React.FC = () => {
     });
 
   return (
-    <div>
+    <div className="flex flex-col">
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-          className="w-7/8 m-2 rounded border-solid bg-white p-4 text-black"
+          className="w-7/8 m-2 flex flex-col rounded border-solid bg-white p-4 text-black"
         >
           <h2 className="font-extrabold">{course.title}</h2>
           <p>{course.description}</p>
+          <button className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50">
+            Edit Course
+          </button>
         </div>
       ))}
     </div>
   );
 };
-
