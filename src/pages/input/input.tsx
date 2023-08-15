@@ -9,7 +9,6 @@ import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";
 import FooterBird from "~/componentsRoot/FooterBird";
 
-
 const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
@@ -284,35 +283,109 @@ const Input = () => {
 
 export default Input;
 
-//  1st Modal
-{
-  /* <div className="relative flex-auto p-4" data-te-modal-body-ref>
-            
-Modal body text goes here.
-</div>
- */
-}
-{
-  /* <!--Modal footer--> */
-}
-//    <div
-// className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-// <button
-//   type="button"
-//   className="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-//   data-te-modal-dismiss
-//   data-te-ripple-init
-//   data-te-ripple-color="light"
-//   onClick = {() => setShowModal(false)}
-// >
-//   Close
-// </button>
-// <button
-//   type="button"
-//   className="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-//   data-te-ripple-init
-//   data-te-ripple-color="light"
-// >
-//   Save changes
-// </button>
-// </div>
+const AuthShowcase: React.FC = () => {
+  const { user } = useUser();
+  if (user) {
+    return (
+      <div className="text-2xl font-bold text-white">
+        <h1>Hi {user.fullName}, welcome back.</h1>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <p className="text-2xl font-bold text-white">
+        There are no current users signed in.
+      </p>
+    </div>
+  );
+};
+export { AuthShowcase };
+
+type Course = {
+  id: string;
+  title: string;
+  description: string;
+  userId: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+const CourseForm: React.FC = () => {
+  const [courseTitle, setCourseTitle] = useState("");
+  const [courseDescription, setCourseDescription] = useState("");
+  const { mutate: createCourse } = api.newCourse.create.useMutation({
+    onSuccess: () => {
+      // console.log(
+      //   `This should be posting to the db with course title: ${courseTitle}`
+      // );
+      // void refetchTopics();
+    },
+  });
+
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    createCourse({ title: courseTitle, description: courseDescription });
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+      <label className="font-color-[#b91c1c] font-extrabold">
+        <span className="ml-1">Title:</span>
+        <br />
+        <input
+          className="input-bordered input input-sm w-2/3 shadow-xl"
+          type="text"
+          value={courseTitle}
+          onChange={(e) => setCourseTitle(e.target.value)}
+        />
+      </label>
+      <label className="font-color-[#b91c1c] font-extrabold">
+        <span className="ml-1">Description:</span>
+        <br />
+        <input
+          className="input-bordered input input-sm w-2/3 shadow-xl"
+          type="text"
+          value={courseDescription}
+          onChange={(e) => setCourseDescription(e.target.value)}
+        />
+      </label>
+      <input
+        className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+        type="submit"
+        value="SAVE DRAFT"
+      />
+    </form>
+  );
+};
+
+const DraftCourses: React.FC = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+  const { data: newCourses, refetch: refetchTopics } =
+    api.newCourse.getCourses.useQuery(undefined, {
+      onSuccess: (data) => {
+        if (data && data.length > 0) {
+          setCourses(data);
+        } else {
+          setCourses([]);
+        }
+      },
+    });
+
+  return (
+    <div className="flex flex-col">
+      {courses?.map((course: Course) => (
+        <div
+          key={course.id}
+          className="w-7/8 m-2 flex flex-col rounded border-solid bg-white p-4 text-black"
+        >
+          <h2 className="font-extrabold">{course.title}</h2>
+          <p>{course.description}</p>
+          <button className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50">
+            Edit Course
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+};
