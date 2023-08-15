@@ -7,6 +7,7 @@ interface InputQuestion {
     name?: string;
     id?: string;
     type: string;
+    value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, name }) => {
