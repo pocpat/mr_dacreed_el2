@@ -30,7 +30,9 @@ export const courseQuestionRouter = createTRPCRouter({
             answer1: input.answer1,
             answer2: input.answer2,
             answer3: input.answer3,
-            answer4: input.answer4
+            answer4: input.answer4,
+            // answer5: input.answer5,
+            // answer6: input.answer6
             //"clkswcf8j0000dg1km8pz49zq",                 
           },
         });

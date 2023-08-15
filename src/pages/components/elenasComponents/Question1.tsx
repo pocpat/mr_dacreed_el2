@@ -5,8 +5,8 @@ import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
 import { useUser } from "@clerk/nextjs";
-import { PrismaClient } from '@prisma/client'
-import { prisma } from "~/server/db";
+// import { PrismaClient } from '@prisma/client'
+// import { prisma } from "~/server/db";
 
 
 
@@ -31,7 +31,7 @@ import { prisma } from "~/server/db";
 
 const Question1: React.FC = () => {
   const [components, setComponents] = useState<string[]>([]);
-const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answer 4','answer 5']);
+const [componentNames, setComponentNames] = useState<string[]>(['answer 3','answer 4','answer 5','answer 6']);
 const { user } = useUser();
 
 
@@ -47,7 +47,7 @@ const { user } = useUser();
   //   const { name, value } = event.target;
   //   const u = { [name]: value };
   // };
- // <div className="p-0 m-0 className= "shadow-inner shadow-xl"" >
+
    
   return (
     <div style={{ backgroundColor: "#DFDFDF" }}>
