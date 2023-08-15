@@ -26,10 +26,10 @@ export const courseQuestionRouter = createTRPCRouter({
         question: z.string(),
         answer1: z.string(),
         answer2: z.string(),
-        answer3: z.string(),
-        answer4: z.string(),
-        answer5: z.string(),
-        answer6: z.string(),
+        answer3: z.string().optional(),
+        answer4: z.string().optional(),
+        answer5: z.string().optional(),
+        answer6: z.string().optional(),
       })
     )
 
