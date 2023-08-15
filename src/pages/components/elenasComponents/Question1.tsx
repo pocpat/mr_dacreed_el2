@@ -3,6 +3,7 @@ import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
+import e from "express";
 //import { response } from "express";
 // import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
@@ -55,6 +56,7 @@ const QAForm: React.FC = () => {
   ]);
 
   function addNewAnswer() {
+
     if (componentNames.length > 0 && componentNames[0]) {
       setComponents([...components, componentNames[0]]);
       setAnswerValues([...answerValues, ""]);
@@ -65,10 +67,10 @@ const QAForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div style={{ backgroundColor: "#DFDFDF" }}>
+    <form onSubmit={handleSubmit} >
+      <div   >
         {/* question */}
-        <div>
+        <div >
           <InputQuestion
             placeholder="question"
             type="text"
@@ -77,7 +79,7 @@ const QAForm: React.FC = () => {
           />
         </div>
         {/* answers */}
-        <div>
+        <div >
           <div className="newAnswersPlaceholder grid grid-cols-2 gap-4 ">
             {answerValues.map((value, i) => (
               <InputAnswer
