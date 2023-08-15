@@ -51,6 +51,8 @@ model CourseQuestion {
     answer2   String
     answer3   String
     answer4   String
+    answer5   String
+    answer6   String
     userId    String
     user      User     @relation(fields: [userId], references: [id])
 }
