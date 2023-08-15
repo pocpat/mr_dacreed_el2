@@ -22,10 +22,10 @@ export const courseQuestionRouter = createTRPCRouter({
         question: z.string(),
         answer1: z.string(),
         answer2: z.string(),
-        answer3: z.string().optional(),
-        answer4: z.string().optional(),
-        answer5: z.string().optional(),
-        answer6: z.string().optional(),
+        answer3: z.string(),
+        answer4: z.string(),
+        answer5: z.string(),
+        answer6: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -34,10 +34,10 @@ export const courseQuestionRouter = createTRPCRouter({
           question: input.question,
           answer1: input.answer1,
           answer2: input.answer2,
-          answer3: input.answer3  ?? " ",
-          answer4: input.answer4  ?? " ",
-          answer5: input.answer5  ?? " ",
-          answer6: input.answer6  ?? " ",
+          answer3: input.answer3,
+          answer4: input.answer4,
+          answer5: input.answer5,
+          answer6: input.answer6,
           userId: ctx.auth.userId,
         },
       });

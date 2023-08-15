@@ -3,7 +3,7 @@ import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
-import { response } from "express";
+//import { response } from "express";
 // import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
 
@@ -19,17 +19,6 @@ const Question1: React.FC = () => {
 
 export default Question1;
 
-type CourseQuestion = {
-  id: string;
-  question: string;
-  answer1: string;
-  answer2: string;
-  answer3: string;
-  answer4: string;
-  answer5: string;
-  answer6: string;
-  userId: string;
-};
 
 const QAForm: React.FC = () => {
   const [question, setQuestion] = useState("");
@@ -37,16 +26,23 @@ const QAForm: React.FC = () => {
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
+
+    const newQuestionToCreate = {
+      question: question,
+      answer1: answerValues[0]?? "",
+      answer2: answerValues[1]?? "",
+      answer3: answerValues[2]?? "",
+      answer4: answerValues[3]?? "",
+      answer5: answerValues[4]?? "",
+      answer6: answerValues[5]?? "",
+    };
+
     e.preventDefault();
-    const requestData: Partial<CourseQuestion> = { question };
-    for (let idx = 0; idx < answerValues.length; idx++) {
-      if (answerValues[idx]) {
-        requestData[`answer${idx + 1}` as keyof CourseQuestion] = answerValues[idx];
-      }
-    }
+
     try {
-      const createResponse = await createQuestion(requestData);
+      // TODO: validate the response from `createQuestion()` call and show error message if needed
+      createQuestion(newQuestionToCreate);
     } catch (error) {}
   };
 
