@@ -35,7 +35,7 @@ const AccordionMiddle2 = () => {
     setOpen(open === value ? 0 : value);
 
   return (
-    <>
+    <div  >
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
           className="rounded-5xl  content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
@@ -59,7 +59,7 @@ const AccordionMiddle2 = () => {
           <Question1 />
         </AccordionBody>
       </Accordion>
-    </>
+    </div>
   );
 };
 export default AccordionMiddle2;

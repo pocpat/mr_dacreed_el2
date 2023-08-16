@@ -6,6 +6,41 @@ import {
   publicProcedure,
 } from "~/server/api/trpc";
 
+
+// courseQuestion = cq  for shorter names
+// const cqUpdateSchema = z.object({
+//   id: z.number(),
+//   question: z.string(),
+//   answer1: z.string(),
+//   answer2: z.string(),
+//   answer3: z.string(),
+//   answer4: z.string(),
+//   answer5: z.string(),
+//   answer6: z.string(),
+// });
+
+// const idSchema = z.object({
+//   id: z.string(),
+// });
+// const userIdSchema = z.object({
+//   userId: z.string(),
+// });
+
+// const cqDeleteSchema = z.object({
+//   id: z.number(),
+// });
+
+// const cqCreateSchema = z.object({
+//   question: z.string(),
+//   answer1: z.string(),
+//   answer2: z.string(),
+//   answer3: z.string(),
+//   answer4: z.string(),
+//   answer5: z.string(),
+//   answer6: z.string(),
+// });
+
+
 export const courseQuestionRouter = createTRPCRouter({
   getCourses: publicProcedure.query(({ ctx }) => {
     if (ctx.auth?.userId) {
@@ -16,6 +51,14 @@ export const courseQuestionRouter = createTRPCRouter({
       console.log("User not authenticated. => ctx.auth.userId is null <=");
     }
   }),
+  getOneQuestion: publicProcedure.query(({ ctx }) => {
+    if (ctx.auth?.userId) {
+      return ctx.prisma.courseQuestion.findFirst({
+        where: { userId: ctx.auth.userId },
+      });
+    } else {
+      console.log("User not authenticated. => ctx.auth.userId is null <=");
+    }
   create: protectedProcedure
     .input(
       z.object({
