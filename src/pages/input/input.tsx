@@ -34,9 +34,13 @@ const Input = () => {
                   >
                     BACK
                   </button>
-                  <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
+
+                  <Link
+                    href="/input/waiting/editing/common"
+                    className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+                  >
                     CONT TO COURSE
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="flex h-auto w-2/5 items-center justify-center">
@@ -381,9 +385,12 @@ const DraftCourses: React.FC = () => {
         >
           <h2 className="font-extrabold">{course.title}</h2>
           <p>{course.description}</p>
-          <button className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50">
+          <Link
+            href="/input/waiting/editing/editing"
+            className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50"
+          >
             Edit Course
-          </button>
+          </Link>
         </div>
       ))}
     </div>
