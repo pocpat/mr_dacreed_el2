@@ -39,7 +39,7 @@ const Input = () => {
                     href="/input/waiting/editing/common"
                     className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
                   >
-                    CONT TO COURSE
+                    CONT TO COURSE:
                   </Link>
                 </div>
               </div>
