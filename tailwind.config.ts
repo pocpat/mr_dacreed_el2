@@ -2,7 +2,7 @@
 
 
 const config: Config = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
     extend: {
       backgroundImage: {
@@ -16,8 +16,8 @@ const config: Config = {
           "100%": { transform: "translateY(20px)" },
         },
         birdin: {
-          "0%": { transform: "translateX(-400%)" },
-          "100%": { transform: "translateX(0%)" },
+          "0%": { transform: "translateX(-200%)" },
+          "100%": { transform: "translateX(calc((100vw - 200px) / 2.5))" },
         },
         textin: {
           "0%": { transform: "translateX(-700px)" },
