@@ -25,7 +25,13 @@ const Input = () => {
             <div className="p-41 flex flex-row items-center justify-items-center">
               <div className="w-3/5">
                 <CourseForm />
-                <div className="flex w-3/4 flex-row items-center justify-between">
+                <div className="flex w-3/4 flex-col items-start justify-between">
+                  <Link
+                    href="/input/waiting/editing/common"
+                    className="mt-4 w-auto rounded-md bg-sky-500/75 px-2 py-2 text-white hover:bg-sky-400/50"
+                  >
+                    CONT TO COURSE:
+                  </Link>
                   <button
                     onClick={() => {
                       setModalOpen(false);
@@ -33,9 +39,6 @@ const Input = () => {
                     className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
                   >
                     BACK
-                  </button>
-                  <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
-                    CONT TO COURSE
                   </button>
                 </div>
               </div>
@@ -351,7 +354,7 @@ const CourseForm: React.FC = () => {
         />
       </label>
       <input
-        className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+        className="mt-4 w-2/3 rounded-md bg-sky-500/75 p-2 text-white hover:bg-sky-400/50"
         type="submit"
         value="SAVE DRAFT"
       />
@@ -360,6 +363,7 @@ const CourseForm: React.FC = () => {
 };
 
 const DraftCourses: React.FC = () => {
+  const { user } = useUser();
   const [courses, setCourses] = useState<Course[]>([]);
   const { data: newCourses, refetch: refetchTopics } =
     api.newCourse.getCourses.useQuery(undefined, {
@@ -381,9 +385,13 @@ const DraftCourses: React.FC = () => {
         >
           <h2 className="font-extrabold">{course.title}</h2>
           <p>{course.description}</p>
-          <button className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50">
+          <span>Course created by {user?.fullName}</span>
+          <Link
+            href="/input/waiting/editing/editing"
+            className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50"
+          >
             Edit Course
-          </button>
+          </Link>
         </div>
       ))}
     </div>

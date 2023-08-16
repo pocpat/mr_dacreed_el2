@@ -39,12 +39,23 @@ const CourseHeaderInput2: React.FC = () => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    createCourseHeader2({
-      title: title,
-      subHeading: subHeading,
-      description: description,
-    });
-    resetForm();
+
+    if (
+      title.trim() === "" ||
+      subHeading.trim() === "" ||
+      description.trim() === ""
+    ) {
+      alert(
+        `Sorry, all fields need to be filled so that we can save this to the database for you.`
+      );
+    } else {
+      createCourseHeader2({
+        title: title,
+        subHeading: subHeading,
+        description: description,
+      });
+      resetForm();
+    }
   };
 
   return (

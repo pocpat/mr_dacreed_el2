@@ -53,7 +53,7 @@ const AccordionMiddle2 = () => {
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl  content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
+          className="rounded-5xl content-center justify-center border-4 bg-header-image3 bg-cover bg-left-bottom bg-no-repeat font-bold text-[#1A3A50]"
           onClick={() => handleOpen(2)}
         >
           Question
