@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
+
 // import { Accordion, type AccordionInterface, type AccordionItem, type AccordionOptions } from 'flowbite';
 import {
   type AccordionOptions,
   type AccordionItem,
   type AccordionInterface,
   Accordion,
+
 } from "flowbite";
 import "flowbite";
 import HeaderBody from "./HeaderBody";
@@ -55,6 +57,7 @@ const AccordionMiddle = () => {
       },
     ];
 
+
     const options: AccordionOptions = {
       alwaysOpen: true,
       activeClasses:
@@ -73,6 +76,7 @@ const AccordionMiddle = () => {
         console.log(item);
       },
     };
+
 
     // // Cleanup the accordion instance when the component unmounts
     return () => {
@@ -112,13 +116,17 @@ const AccordionMiddle = () => {
           </button>
         </h2>
         <div
+
           id="accordion-collapse-body-1"
           className="hidden"
+
           aria-labelledby="accordion-collapse-heading-1 "
           style={{ backgroundColor: "#B9CCC8" }}
         >
           <div className="border border-b-0 border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-900">
             <HeaderBody />
+
+
             {/* <!-- Nested accordion --> */}
             <div id="accordion-nested-collapse" data-accordion="collapse">
               <h2 id="accordion-nested-collapse-heading-1">
@@ -264,6 +272,7 @@ const AccordionMiddle = () => {
               </div>
             </div>
             {/* <!-- End: Nested accordion --> */}
+
           </div>
         </div>
         <h2 id="accordion-collapse-heading-2">
