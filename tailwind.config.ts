@@ -4,6 +4,13 @@
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
+    colors: {
+      'accenttext': '#1E425C',
+      'tertiary': '#0F5475',
+      'secondary': '#B9CCC8',
+      'secondarylight': '#F0F6F5',
+      'primarytext': '#FAFAFA',
+    },
     extend: {
       backgroundImage: {
         'image': "url('/bg_1.jpg')",

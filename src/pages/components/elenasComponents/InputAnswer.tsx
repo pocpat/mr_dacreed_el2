@@ -21,17 +21,19 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   return (
     <div>
       <div className="flex flex-col ">
-      <div className="flex flex-row items-center jastify-between ">
+      <span className="ml-3 mt-0 font-bold text-accenttext">Answer</span>
+      <div className="flex flex-row items-center stretch flex-start ">
+       
         <input
           type={type}
           placeholder={placeholder}
-          className="newAnswer input-bordered input m-2 w-100 rounded-sm shadow-inner shadow-md "
+          className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner  "
           name={name}
           onChange={onChange}
         />
         <input
           type="checkbox"
-          className="form-control checkbox h-12 w-12 rounded-sm shadow-inner shadow-md "
+          className="form-control checkbox h-12 w-12 rounded-sm shadow-inner "
         />
         </div>
          <span className="ml-3 mt-0">Characters left: {charsLeft}</span>

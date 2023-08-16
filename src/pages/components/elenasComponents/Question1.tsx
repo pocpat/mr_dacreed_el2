@@ -5,6 +5,7 @@ import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
 import e from "express";
 import { type } from "os";
+import UploadImgs from "~/componentsRoot/UploadImgs";
 //import { response } from "express";
 // import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
@@ -22,8 +23,7 @@ type questionSection = {
 const Question1: React.FC = () => {
 
   return (
-    <div style={{ backgroundColor: "#B9CCC8" }}>
-      <h1>Placeholder</h1>
+    <div style={{ backgroundColor: "#B9CCC8" }} >
       <QAForm />
     </div>
   );
@@ -94,7 +94,8 @@ const QAForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} >
+    <form onSubmit={handleSubmit} className="m-0">
+      <span className="ml-3  font-bold text-accenttext">Question 1</span>
       <div   >
         {/* question */}
         <div >
@@ -103,8 +104,10 @@ const QAForm: React.FC = () => {
             type="text"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+            charsLeft={150 - question.length}
           />
         </div>
+       
      {/* answers */}
      <div>
      <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
@@ -129,7 +132,7 @@ const QAForm: React.FC = () => {
             <button
               type="button"
               onClick={() => removeAnswer(i)}
-              className="mt-2 text-black-500"
+              className="mt-2 pr-20 text-black-500"
             >
               Delete
             </button>
@@ -167,9 +170,9 @@ const QAForm: React.FC = () => {
             ))}
           </div> */}
         </div>
-        <ButtonAdd onClick={addNewAnswer} text="Add a new answer" />
+        {/* <ButtonAdd onClick={addNewAnswer} text="Add a new answer" /> */}
         {/* labels delete , re-generate*/}
-        <div>
+        {/* <div>
           <label className="label">
             <span className="label-text pl-2 font-semibold">Delete</span>
           </label>
@@ -177,18 +180,20 @@ const QAForm: React.FC = () => {
             <span className="label-text-alt"></span>
             <span className="label-text-alt font-semibold">Re-generate</span>
           </label>
-        </div>
+        </div> */}
         <input
           className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
           type="submit"
           value="Create Q&A"
         />
       </div>
-      <div className="dropdown dropdown-top">
-  <label tabIndex={0} className="btn m-1">ADD</label>
-  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-    <li><a>New Answer</a></li>
-    <li><a>Item 2</a></li>
+      <div className="dropdown dropdown-top w-82 flex content-center justify-center rounded-sm">
+  <label tabIndex={0} className="btn m-1 rounded-sm">ADD</label>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  ">
+    <li><a onClick={addNewAnswer}> new answer </a></li>
+    <li> <UploadImgs/>media</li>
+    <li><a>commentary</a></li>
+    <li><a>guidance</a></li>
   </ul>
 </div>
     </form>
