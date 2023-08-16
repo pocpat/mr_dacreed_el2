@@ -7,6 +7,7 @@ const config: Config = {
     extend: {
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
+        'header-image' : "url(/BackgroundImage2.png)",
       },
       keyframes: {
         customBounce: {
