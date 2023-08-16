@@ -8,6 +8,8 @@ const config: Config = {
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
         'header-image' : "url(/BackgroundImage2.png)",
+        'header-image3' : "url(/BackgroundImage3.png)",
+
       },
       keyframes: {
         customBounce: {
