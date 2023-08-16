@@ -71,10 +71,26 @@ const QAForm: React.FC = () => {
     if (componentNames.length > 0 && componentNames[0]) {
       setComponents([...components, componentNames[0]]);
       setAnswerValues([...answerValues, ""]);
-      componentNames.splice(0, 1);
+      // componentNames.splice(0, 1);
+      setComponentNames(componentNames.slice(1));
     } else {
       window.alert("No more answers to add");
     }
+  }
+
+  function removeAnswer(index: number) {
+    const newComponents = [...components];
+    newComponents.splice(index, 1);
+
+    const newAnswerValues = [...answerValues];
+    newAnswerValues.splice(index, 1);
+
+    setComponents(newComponents);
+    setAnswerValues(newAnswerValues);
+
+    const newComponentNames = [...componentNames];
+    newComponentNames.push(`answer ${componentNames.length + 1}`);
+    setComponentNames(newComponentNames);
   }
 
   return (
@@ -89,22 +105,30 @@ const QAForm: React.FC = () => {
             onChange={(e) => setQuestion(e.target.value)}
           />
         </div>
-        {/* answers */}
-        <div >
-          <div className="newAnswersPlaceholder grid grid-cols-2 gap-4 ">
+     {/* answers */}
+     <div>
+          <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
             {answerValues.map((value, i) => (
-              <InputAnswer
-                placeholder={`answer ${i + 1}`}
-                type="text"
-                key={i}
-                onChange={(e) => {
-                  const newAnswerValues = [...answerValues];
-                  newAnswerValues[i] = e.target.value;
-                  setAnswerValues(newAnswerValues);
-                }}
-                value={value}
-                text={`answer ${i + 1}`}
-              />
+              <div key={i} className="flex">
+                <InputAnswer
+                  placeholder={`answer ${i + 1}`}
+                  type="text"
+                  onChange={(e) => {
+                    const newAnswerValues = [...answerValues];
+                    newAnswerValues[i] = e.target.value;
+                    setAnswerValues(newAnswerValues);
+                  }}
+                  value={value}
+                  text={`answer ${i + 1}`}
+                />
+                 <button
+                  type="button"
+                  onClick={() => removeAnswer(i)}
+                  className="ml-2 text-red-500"
+                >
+                  Remove
+                </button>
+              </div>
             ))}
           </div>
         </div>
