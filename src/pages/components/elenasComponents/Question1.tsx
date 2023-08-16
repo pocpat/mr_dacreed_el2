@@ -107,9 +107,42 @@ const QAForm: React.FC = () => {
         </div>
      {/* answers */}
      <div>
-          <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
+     <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
+    {answerValues.map((value, i) => (
+      <div key={i} className="flex flex-col w-full">
+        <div className="relative">
+          <div  >
+            <InputAnswer
+              placeholder={`answer ${i + 1}`}
+              type="text"
+              onChange={(e) => {
+                const newAnswerValues = [...answerValues];
+                newAnswerValues[i] = e.target.value;
+                setAnswerValues(newAnswerValues);
+              }}
+              value={value}
+              text={`answer ${i + 1}`}
+              charsLeft={150 - value.length}
+            />
+          </div>
+          <div className="absolute bottom-0 right-0">
+            <button
+              type="button"
+              onClick={() => removeAnswer(i)}
+              className="mt-2 text-black-500"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    ))}
+</div>
+ 
+          {/* <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
             {answerValues.map((value, i) => (
               <div key={i} className="flex">
+                <div>
                 <InputAnswer
                   placeholder={`answer ${i + 1}`}
                   type="text"
@@ -120,17 +153,19 @@ const QAForm: React.FC = () => {
                   }}
                   value={value}
                   text={`answer ${i + 1}`}
+                  charsLeft={150 - value.length}
                 />
                  <button
                   type="button"
                   onClick={() => removeAnswer(i)}
-                  className="ml-2 text-red-500"
+                  className="ml-2 text-black-500 "
                 >
-                  Remove
+                  Delete
                 </button>
+                </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
         <ButtonAdd onClick={addNewAnswer} text="Add a new answer" />
         {/* labels delete , re-generate*/}
@@ -149,6 +184,13 @@ const QAForm: React.FC = () => {
           value="Create Q&A"
         />
       </div>
+      <div className="dropdown dropdown-top">
+  <label tabIndex={0} className="btn m-1">ADD</label>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a>New Answer</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div>
     </form>
   );
 };
