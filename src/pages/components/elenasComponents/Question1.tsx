@@ -4,9 +4,20 @@ import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 import ButtonAdd from "./ButtonAdd";
 import e from "express";
+import { type } from "os";
 //import { response } from "express";
 // import ButtonAdd from "./ButtonAdd";
 // import ListComponent from "./ListComponent";
+
+type questionSection = {
+  question: string;
+  answer1: string;
+  answer2: string;
+  answer3: string;
+  answer4: string;
+  answer5: string;
+  answer6: string;
+};
 
 const Question1: React.FC = () => {
 

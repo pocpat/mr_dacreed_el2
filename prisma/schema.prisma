@@ -51,6 +51,20 @@ model CourseQuestion {
     userId    String
     user      User     @relation(fields: [userId], references: [id])
 }
+model QuestionSection {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    question  String
+    answer1   String
+    answer2   String
+    answer3   String?
+    answer4   String?
+    answer5   String?
+    answer6   String?
+    userId    String
+    user      User     @relation(fields: [userId], references: [id])
+}
 model TestString {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -101,6 +115,7 @@ model User {
     courseQuestions CourseQuestion[]
     CourseHeaders   CourseHeader[]
     course          Course[]
+    questionSection QuestionSection[]
 }
 model VerificationToken {
     identifier String
