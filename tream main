@@ -1,0 +1,11 @@
+[33mcommit 7c68b30b68dc276b559eb9aa57361d4e4d3c01bf[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32melenaCommon6[m[33m)[m
+Author: Elena Kroupkin <pocoat@gmail.com>
+Date:   Fri Aug 18 00:26:26 2023 +1200
+
+    prepare Waiting page bg
+
+[33mcommit ef28847c4b84a9ef606843656be96592e8a5834f[m[33m ([m[1;31morigin/elenaCommon6[m[33m)[m
+Author: Elena Kroupkin <pocoat@gmail.com>
+Date:   Thu Aug 17 18:13:15 2023 +1200
+
+    fix button alignment
