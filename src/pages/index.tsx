@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
       </Head>
-      {/* <Header /> */}
+      <Header />
       <main className="flex min-h-screen flex-col items-center justify-center  ">
         <div className="m-0 flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
           {/* logo */}

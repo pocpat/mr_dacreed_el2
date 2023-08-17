@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
-import ButtonAdd from "./ButtonAdd";
-import e from "express";
-import { type } from "os";
-import UploadImgs from "~/componentsRoot/UploadImgs";
-//import { response } from "express";
 // import ButtonAdd from "./ButtonAdd";
-// import ListComponent from "./ListComponent";
+// import e from "express";
+// import { type } from "os";
+import UploadImgs from "~/componentsRoot/UploadImgs";
+import Modal4 from "~/componentsRoot/Modal4";
+
+
 
 type questionSection = {
   question: string;
@@ -35,6 +35,9 @@ export default Question1;
 const QAForm: React.FC = () => {
   const [question, setQuestion] = useState("");
   const [answerValues, setAnswerValues] = useState<string[]>(["", ""]);
+const [isModal4Open, setIsModal4Open] = useState(false);
+
+
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
 
@@ -191,11 +194,19 @@ const QAForm: React.FC = () => {
   <label tabIndex={0} className="btn m-1 rounded-sm">ADD</label>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  ">
     <li><a onClick={addNewAnswer}> new answer </a></li>
-    <li> <UploadImgs/>media</li>
+    <li> 
+    <a onClick={() => setIsModal4Open(true)}>media</a> {/* Open modal on media click */}       </li>
     <li><a>commentary</a></li>
     <li><a>guidance</a></li>
   </ul>
 </div>
+{isModal4Open && (
+        <Modal4 onClose={() => setIsModal4Open(false)} isVisible={true} >
+          <UploadImgs />
+        </Modal4>
+      )}
     </form>
+
   );
+
 };

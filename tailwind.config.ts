@@ -12,6 +12,9 @@ const config: Config = {
       'primarytext': '#FAFAFA',
     },
     extend: {
+      boxShadow: {
+        'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+      },
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
       },

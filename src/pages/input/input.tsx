@@ -30,11 +30,11 @@ const Input = () => {
                     onClick={() => {
                       setModalOpen(false);
                     }}
-                    className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
                   >
                     BACK
                   </button>
-                  <button className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50">
+                  <button className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white">
                     CONT TO COURSE
                   </button>
                 </div>
@@ -202,80 +202,115 @@ const Input = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFAFA] to-[#b7ccd6] p-6">
-      <main className="flex flex-col items-center justify-center">
-        {/* <h1 className="font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]"> */}
+    <div className="min-h-screen ">
+      <div className="bg-[url('/bg_loading.png')]  bg-auto  bg-center bg-no-repeat ">
+        <Header />
 
-        <div>
-          <div className="my-6 flex flex-col items-center">
-            <span
-              className="bg-gradient-to-r from-cyan-900 to-cyan-500 bg-clip-text font-extrabold text-transparent"
-              style={{ fontSize: "70px" }}
-            >
-              Welcome to your course creation {user?.firstName}.
-            </span>
-            <br></br>
-            <br></br>
-            <span
-              className="bg-gradient-to-r from-cyan-900 to-cyan-600 bg-clip-text font-extrabold text-transparent"
-              style={{ fontSize: "30px" }}
-            >
-              How would you like to proceed today?
-            </span>
+        <main className="z-2 flex flex-col items-center justify-center">
+          {/* <h1 className="font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]"> */}
+
+          <div>
+            <div className="my-6 flex flex-col ">
+              <a href="../" className=" absolute left-20 ">
+                <svg
+                  className="inline-block w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 19.5L8.25 12l7.5-7.5"
+                  />
+                </svg>
+                Back
+              </a>
+            </div>
           </div>
+
+          <section className="   w-3/4 ">
+            <h1 className="left-0 mb-10  text-5xl">Create Courses</h1>
+            <div className=" flex flex-row  items-center  justify-center">
+              {/*  new buttons setup */}
+              <div className="rounded-xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-lg">
+                <div className="   rounded-xl border-solid border-accenttext ">
+                  <a
+                    aria-current="page"
+                    className="h-30 m-0 flex w-48 justify-center rounded-xl  border-solid border-accenttext  bg-primarytext p-4 text-accenttext drop-shadow-lg first-letter:items-center"
+                    href="#"
+                    onClick={handleModal}
+                  >
+                    <h3 className="text-2xl font-bold">New Course</h3>
+                  </a>
+                  {modalOpen && <CourseCreationModal />}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-lg">
+                <div className="   rounded-xl border-solid border-accenttext ">
+                  <a
+                    aria-current="page"
+                    className="h-30 m-0 flex w-48 justify-center rounded-xl  border-solid border-accenttext  bg-primarytext p-4 text-accenttext drop-shadow-lg first-letter:items-center"
+                    href="#"
+                    onClick={() => setShowModal(true)}
+                  >
+                    <h3 className="text-2xl font-bold">Upload docs:</h3>
+                  </a>
+                  {showModal && <CourseInputModal />}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-lg">
+                <div className="   rounded-xl border-solid border-accenttext ">
+                  <a
+                    aria-current="page"
+                    className="h-30 m-0 flex w-48 justify-center rounded-xl  border-solid border-accenttext  bg-primarytext p-4 text-accenttext drop-shadow-lg first-letter:items-center"
+                    href="#"
+                    onClick={() => setShowModal(true)}
+                  >
+                    <h3 className="text-2xl font-bold">AI generated:</h3>
+                  </a>
+                  {showModal && <CourseInputModal />}
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-lg">
+                <div className="   rounded-xl border-solid border-accenttext ">
+                  <Link
+                    className="h-30 m-0 flex w-48 justify-center rounded-xl  border-solid border-accenttext  bg-primarytext p-4 text-accenttext drop-shadow-lg first-letter:items-center"
+                    href="/input/waiting/editing/editing"
+                  >
+                    <h3 className="text-2xl font-bold">Cont...</h3>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div>
+              <input
+                type="file"
+                className="file-input file-input-bordered mt-4"
+              />
+            </div>
+            <div className="my-4">
+              <span
+                className="larger-font font-extrabold text-[#21292D]"
+                style={{ fontSize: "30px" }}
+              >
+                Draft courses:
+              </span>
+            </div>
+            <div className="from-cyan-900 to-cyan-500 h-auto w-3/4 rounded-lg bg-gradient-to-r p-4 text-white">
+              <DraftCourses />
+            </div>
+          </section>
+        </main>
+        <div className="mt-4 flex justify-center">
+          <FooterBird />
         </div>
-        <div className="flex flex-row">
-          <a
-            aria-current="page"
-            className="mr-2 flex w-48 flex-col items-center justify-center gap-4 rounded-xl bg-[#0f5475] p-4 text-white drop-shadow-md hover:bg-cyan-600/50"
-            href="#"
-            onClick={handleModal}
-          >
-            <h3 className="text-2xl font-bold">Create:</h3>
-          </a>
-          {modalOpen && <CourseCreationModal />}
-          <a
-            aria-current="page"
-            className="mr-2 flex w-48 flex-col items-center justify-center gap-4 rounded-xl bg-[#0f5475] p-4 text-white drop-shadow-md hover:bg-cyan-600/50"
-            href="#"
-            onClick={() => setShowModal(true)}
-          >
-            <h3 className="text-2xl font-bold">Upload docs:</h3>
-          </a>
-          {showModal && <CourseInputModal />}
-          <a
-            aria-current="page"
-            className="mr-2 flex w-48 flex-col items-center justify-center gap-4 rounded-xl bg-[#0f5475] p-4 text-white drop-shadow-md hover:bg-cyan-600/50"
-            href="#"
-            onClick={() => setShowModal(true)}
-          >
-            <h3 className="text-2xl font-bold">AI generated:</h3>
-          </a>
-          {showModal && <CourseInputModal />}
-          <Link
-            className="mr-2 flex w-48 flex-col items-center justify-center gap-4 rounded-xl bg-[#0f5475] p-4 text-white drop-shadow-md hover:bg-cyan-600/50"
-            href="/input/waiting/editing/editing"
-          >
-            <h3 className="text-2xl font-bold">Cont...</h3>
-          </Link>
-        </div>
-        <div>
-          <input type="file" className="file-input-bordered file-input mt-4" />
-        </div>
-        <div className="my-4">
-          <span
-            className="larger-font font-extrabold text-[#21292D]"
-            style={{ fontSize: "30px" }}
-          >
-            Draft courses:
-          </span>
-        </div>
-        <div className="h-auto w-3/4 rounded-lg bg-gradient-to-r from-cyan-900 to-cyan-500 p-4 text-white">
-          <DraftCourses />
-        </div>
-      </main>
-      <div className="mt-4 flex justify-center">
-        <FooterBird />
       </div>
     </div>
   );
@@ -334,7 +369,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Title:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseTitle}
           onChange={(e) => setCourseTitle(e.target.value)}
@@ -344,14 +379,14 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Description:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseDescription}
           onChange={(e) => setCourseDescription(e.target.value)}
         />
       </label>
       <input
-        className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+        className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
         type="submit"
         value="SAVE DRAFT"
       />
@@ -381,7 +416,7 @@ const DraftCourses: React.FC = () => {
         >
           <h2 className="font-extrabold">{course.title}</h2>
           <p>{course.description}</p>
-          <button className="mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md hover:bg-cyan-600/50">
+          <button className="hover:bg-cyan-600/50 mt-4 flex w-28 justify-center rounded-xl bg-[#0f5475] p-1 text-white drop-shadow-md">
             Edit Course
           </button>
         </div>
