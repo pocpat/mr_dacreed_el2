@@ -207,7 +207,6 @@ const Input = () => {
         <Header />
 
         <main className="z-2 flex flex-col items-center justify-center">
-          {/* <h1 className="font-extrabold tracking-tight text-white drop-shadow-md sm:text-[5rem]"> */}
 
           <div>
             <div className="my-6 flex flex-row ">
@@ -282,7 +281,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accenttext ">
                   <Link
                     className="m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4 text-accenttext ring-2 ring-tertiary  drop-shadow-lg  "
-                    href="/input/waiting/editing/editing"
+                    href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
                   </Link>
@@ -301,7 +300,6 @@ const Input = () => {
             <section className="flex items-center justify-center ">
               <div
                 className=" my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm"
-                // className="my-4"
               >
                 <span
                   className="larger-font  pl-4 text-[#21292D] underline "
@@ -325,11 +323,10 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      {" "}
                       <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         D
                       </button>
-                      <p className="mx-2">Dacreed Course (test)</p>{" "}
+                      <p className="mx-2">Dacreed Course (test)</p>
                       <button className=" mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
                         Edit
                       </button>
@@ -338,7 +335,7 @@ const Input = () => {
                       <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         C
                       </button>
-                      <p className="mx-2">Manual Funds</p>{" "}
+                      <p className="mx-2">Manual Funds</p>
                       <button className=" mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
                         Edit
                       </button>
@@ -347,7 +344,7 @@ const Input = () => {
                       <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         O
                       </button>
-                      <p className="mx-2">Dacreed Course (test)</p>{" "}
+                      <p className="mx-2">Dacreed Course (test)</p>
                       <button className=" mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
                         Edit
                       </button>
@@ -356,7 +353,7 @@ const Input = () => {
                       <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         M
                       </button>
-                      <p className="mx-2">Manual Funds</p>{" "}
+                      <p className="mx-2">Manual Funds</p>
                       <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
                         Edit
                       </button>
@@ -364,8 +361,8 @@ const Input = () => {
                     <li className="flex flex-row justify-between py-2">
                       <button className="w-6 h-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         D
-                      </button>{" "}
-                      <p className="mx-2">Dacreed Course (test)</p>{" "}
+                      </button>
+                      <p className="mx-2">Dacreed Course (test)</p>
                       <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
                         Edit
                       </button>
