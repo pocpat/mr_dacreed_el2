@@ -3,7 +3,7 @@ import React from "react";
 
 const FooterBird = () => {
   return (
-    <div className="z-10 mr-2 flex flex-row text-gray-800">
+    <div className="z-10 mr-2  pt-5 flex flex-row text-gray-800  shadow-inner-top w-full content-center justify-center">
       <h1>Continuous learning</h1>
       <h1
         className="// text-shadow: -1px 

@@ -1,3 +1,4 @@
+
 import React from "react";
 
 interface InputAnswerProps {
@@ -8,30 +9,117 @@ interface InputAnswerProps {
   value: string | number |  undefined;
   text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  charsLeft: number;
 }
 const InputAnswer: React.FC<InputAnswerProps> = ({
   type,
   placeholder,
   onChange,
   name,
+  charsLeft,
 }) => {
   return (
     <div>
-      <div className="flex flex-row items-center  ">
+      <div className="flex flex-col ">
+      <span className="ml-3 mt-0 font-bold text-accenttext">Answer</span>
+      <div className="flex flex-row items-center stretch flex-start ">
+       
         <input
           type={type}
           placeholder={placeholder}
-          className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner shadow-md "
+          className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner  "
           name={name}
           onChange={onChange}
         />
         <input
           type="checkbox"
-          className="form-control checkbox h-12 w-12 rounded-sm shadow-inner shadow-md "
+          className="form-control checkbox h-12 w-12 rounded-sm shadow-inner "
         />
+        </div>
+         <span className="ml-3 mt-0">Characters left: {charsLeft}</span>
       </div>
     </div>
   );
 };
 
 export default InputAnswer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React from "react";
+
+// interface InputAnswerProps {
+//   placeholder: string;
+//   name?: string;
+//   id?: string;
+//   type: string;
+//   value: string | number |  undefined;
+//   text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined;
+//   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+// }
+// const InputAnswer: React.FC<InputAnswerProps> = ({
+//   type,
+//   placeholder,
+//   onChange,
+//   name,
+// }) => {
+//   return (
+//     <div>
+//       <div className="flex flex-row items-center  ">
+//         <input
+//           type={type}
+//           placeholder={placeholder}
+//           className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner shadow-md "
+//           name={name}
+//           onChange={onChange}
+//         />
+//         <input
+//           type="checkbox"
+//           className="form-control checkbox h-12 w-12 rounded-sm shadow-inner shadow-md "
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default InputAnswer;

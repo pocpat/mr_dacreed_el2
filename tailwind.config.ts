@@ -4,7 +4,17 @@
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
+    colors: {
+      'accenttext': '#1E425C',
+      'tertiary': '#0F5475',
+      'secondary': '#B9CCC8',
+      'secondarylight': '#F0F6F5',
+      'primarytext': '#FAFAFA',
+    },
     extend: {
+      boxShadow: {
+        'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+      },
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
         'header-image' : "url(/BackgroundImage2.png)",
