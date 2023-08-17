@@ -7,6 +7,9 @@ import {
 import HeaderBody from "./HeaderBody";
 import Question1 from "./Question1";
 
+import { set } from "zod";
+import HeaderBody2 from "./HeaderBody2";
+
 function Icon({ id, open }: { id: number; open: number }) {
   return (
     <svg
@@ -38,17 +41,19 @@ const AccordionMiddle2 = () => {
     <div  >
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl  content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
+          className="rounded-5xl content-center justify-center border-4 bg-header-image bg-cover bg-left-bottom bg-no-repeat font-bold text-[#1A3A50]"
           onClick={() => handleOpen(1)}
         >
-          Header
+          Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl  content-center justify-center bg-[#F0F2F3]  ">
-          <HeaderBody />
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4 border-slate-200 bg-slate-50">
+          {/* <HeaderBody /> */}
+          <HeaderBody2 />
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
+
           className="rounded-5xl m-0 content-center justify-center border-8  border-[#B9CCC8] bg-[#B9CCC8] "
           onClick={() => handleOpen(2)}
         >
