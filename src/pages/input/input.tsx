@@ -254,7 +254,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accenttext ">
                   <a
                     aria-current="page"
-                    className="m-0 flex  h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4 text-accenttext ring-2 ring-tertiary  drop-shadow-lg  "
+                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -268,7 +268,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accenttext ">
                   <a
                     aria-current="page"
-                    className="m-0 flex h-[100px] w-48 justify-center rounded-3xl  border-solid border-accenttext  bg-primarytext p-4 text-accenttext ring-2 ring-tertiary  drop-shadow-lg  "
+                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
