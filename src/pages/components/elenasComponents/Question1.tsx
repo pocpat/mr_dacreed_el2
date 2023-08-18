@@ -7,7 +7,7 @@ import InputAnswer from "./InputAnswer";
 // import { type } from "os";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
-
+import Commentary from "~/componentsRoot/Commentary";
 
 
 type questionSection = {
@@ -25,6 +25,7 @@ const Question1: React.FC = () => {
   return (
     <div style={{ backgroundColor: "#B9CCC8" }} >
       <QAForm />
+     
     </div>
   );
 };
@@ -36,10 +37,13 @@ const QAForm: React.FC = () => {
   const [question, setQuestion] = useState("");
   const [answerValues, setAnswerValues] = useState<string[]>(["", ""]);
 const [isModal4Open, setIsModal4Open] = useState(false);
-
+const [commentary, setCommentary] = useState("");
 
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
+  // const { mutate: createCommentary } = api.courseQuestion.create.useMutation({});
+
+
 
   const handleSubmit =  (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -144,46 +148,15 @@ const [isModal4Open, setIsModal4Open] = useState(false);
       </div>
     ))}
 </div>
- 
-          {/* <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
-            {answerValues.map((value, i) => (
-              <div key={i} className="flex">
-                <div>
-                <InputAnswer
-                  placeholder={`answer ${i + 1}`}
-                  type="text"
-                  onChange={(e) => {
-                    const newAnswerValues = [...answerValues];
-                    newAnswerValues[i] = e.target.value;
-                    setAnswerValues(newAnswerValues);
-                  }}
-                  value={value}
-                  text={`answer ${i + 1}`}
-                  charsLeft={150 - value.length}
-                />
-                 <button
-                  type="button"
-                  onClick={() => removeAnswer(i)}
-                  className="ml-2 text-black-500 "
-                >
-                  Delete
-                </button>
-                </div>
-              </div>
-            ))}
-          </div> */}
+<Commentary 
+ placeholder=""
+ type="text"
+ value={commentary}
+ onChange={(e) => setCommentary(e.target.value)}
+ charsLeft={150 - commentary.length}
+/>
+        
         </div>
-        {/* <ButtonAdd onClick={addNewAnswer} text="Add a new answer" /> */}
-        {/* labels delete , re-generate*/}
-        {/* <div>
-          <label className="label">
-            <span className="label-text pl-2 font-semibold">Delete</span>
-          </label>
-          <label className="label">
-            <span className="label-text-alt"></span>
-            <span className="label-text-alt font-semibold">Re-generate</span>
-          </label>
-        </div> */}
         <input
           className="mt-4 w-1/3 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
           type="submit"
@@ -193,11 +166,11 @@ const [isModal4Open, setIsModal4Open] = useState(false);
       <div className="dropdown dropdown-top w-82 flex content-center justify-center rounded-sm">
   <label tabIndex={0} className="btn m-1 rounded-sm">ADD</label>
   <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100  ">
-    <li><a onClick={addNewAnswer}> new answer </a></li>
+    <li><a onClick={addNewAnswer}>  Answers Add more answer boxes </a></li>
     <li> 
-    <a onClick={() => setIsModal4Open(true)}>media</a> {/* Open modal on media click */}       </li>
-    <li><a>commentary</a></li>
-    <li><a>guidance</a></li>
+    <a onClick={() => setIsModal4Open(true)}>Media  Upload or embed with a link</a> {/* Open modal on media click */}       </li>
+    <li><a>Commentary  Add commentary for course</a></li>
+    <li><a>Guidance  Add guidance for course</a></li>
   </ul>
 </div>
 {isModal4Open && (
