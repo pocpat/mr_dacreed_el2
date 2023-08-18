@@ -96,7 +96,7 @@ const [guidance, setGuidance] = useState("");
   }
 
   return (
-    <form onSubmit={handleSubmit} className="m-0">
+    <form onSubmit={handleSubmit} className="m-0 bg-lightsecondaryd:">
       <span className="ml-3  font-bold text-accentd">Question 1</span>
       <div>
         {/* question */}
