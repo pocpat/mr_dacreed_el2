@@ -39,7 +39,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ content }) => {
   };
   return (
     <div>
-      <h2 className="bg-primary-content font-bold text-neutral-500">
+      <h2 className="bg-primaryd-content font-bold text-neutral-500">
         text edditor
       </h2>
       <ReactQuill modules={editorModule} theme="snow" value={value} />

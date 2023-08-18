@@ -27,7 +27,10 @@ const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, na
       </div>
       <div className="flex justify-between">
       <span className="ml-3 mt-0">Characters left: {charsLeft}</span>
-      <span className="ml-3 mt-0 pr-2">Delete</span>
+      {/*     delete icon    */}
+      <span className="ml-3 mt-0 pr-2 flex items-center ">Delete
+        <img src="/icons/delete.png" alt="delete" className="w-6 h-6 inline-block" />
+         </span>
       </div>
     </div>
   );

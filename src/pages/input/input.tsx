@@ -182,7 +182,7 @@ const Input = () => {
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   <button
                     type="button"
-                    className="bg-primary-100 text-primary-700 hover:bg-primary-accent-100 focus:bg-primary-accent-100 active:bg-primary-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+                    className="bg-primaryd-100 text-primaryd-700 hover:bg-primaryd-accent-100 focus:bg-primaryd-accent-100 active:bg-primaryd-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
                     data-te-modal-dismiss
                     data-te-ripple-init
                     data-te-ripple-color="light"
@@ -192,7 +192,7 @@ const Input = () => {
                   </button>
                   <button
                     type="button"
-                    className="hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-700 ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    className="hover:bg-primaryd-600 focus:bg-primaryd-600 active:bg-primaryd-700 ml-1 inline-block rounded bg-primaryd px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                     data-te-ripple-init
                     data-te-ripple-color="light"
                   >
@@ -245,7 +245,7 @@ const Input = () => {
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={handleModal}
                   >
@@ -256,10 +256,10 @@ const Input = () => {
               </div>
 
               <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl ">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -270,10 +270,10 @@ const Input = () => {
               </div>
 
               <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -284,9 +284,9 @@ const Input = () => {
               </div>
 
               <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
-                    className="m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4 text-accenttext ring-2 ring-tertiary  drop-shadow-lg  "
+                    className="m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
                     href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
@@ -484,7 +484,7 @@ const DraftCourses: React.FC = () => {
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-          className="w-7/8 m-2 flex flex-row items-center rounded border-solid p-4 text-tertiary"
+          className="w-7/8 m-2 flex flex-row items-center rounded border-solid p-4 text-tertiaryd"
         >
           <p>{course.title}</p>
           <p>{course.description}</p>

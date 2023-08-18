@@ -3,7 +3,7 @@ import React from 'react'
 const Buttons1 = () => {
   return (
     <>
-    <h2 className='bg-primary-content font-bold text-neutral-500'>Buttons1</h2>
+    <h2 className='bg-primaryd-content font-bold text-neutral-500'>Buttons1</h2>
     <div className="flex flex-row space-x-2 items-center justify-center min-h-screen min-w-screen">
 <section className="flex flex-col items-center justify-center gap-12 px-4 py-16 ">
 <div className="flex flex-col space-y-4">

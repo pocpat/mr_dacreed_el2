@@ -11,17 +11,17 @@ interface InputCommentary {
     charsLeft?: number;
 }
 
-const Commentary: React.FC<InputCommentary> = ({type, placeholder, onChange, name, charsLeft }) => {
+const Commentary: React.FC<InputCommentary> = ({type, onChange, name, charsLeft }) => {
   return (
     <div>
       <div className="mt-4 flex flex-col">
         <label className="ml-3 mt-0">
-          <span className="  font-bold text-accenttext">Commentary</span>
+          <span className="  font-bold text-accentd">Commentary</span>
         </label>
         <input
           type={type}
           placeholder="add a commentary"
-          className="m-2  mt-1 w-full rounded-sm p-2 shadow-inner-top"
+          className="m-2  mt-1  rounded-sm p-2 shadow-inner-top border-none"
            name={name}
           onChange={onChange}
         />
@@ -31,7 +31,10 @@ const Commentary: React.FC<InputCommentary> = ({type, placeholder, onChange, nam
           Characters left:
            {charsLeft} 
         </span>
-        <span className="ml-3 mt-0 pr-2">Delete</span>
+{/*     delete icon    */}
+<span className="ml-3 mt-0 pr-2 flex items-center ">Delete
+        <img src="/icons/delete.png" alt="delete" className="w-5 h-5 inline-block" />
+         </span>
       </div>
     </div>
   );

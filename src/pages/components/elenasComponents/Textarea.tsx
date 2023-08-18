@@ -3,7 +3,7 @@ import React from "react";
 const Textarea = () => {
   return (
     <>
-      <h2 className="bg-primary-content font-bold text-neutral-500">
+      <h2 className="bg-primaryd-content font-bold text-neutral-500">
         Textarea
       </h2>
 
@@ -41,12 +41,12 @@ const Textarea = () => {
       ></textarea>
       {/* pink */}
       <textarea
-        className="textarea-secondary textarea"
+        className="textarea-secondaryd textarea"
         placeholder="Bio"
       ></textarea>
       {/* purple */}
       <textarea
-        className="textarea-primary textarea"
+        className="textarea-primaryd textarea"
         placeholder="Bio"
       ></textarea>
       {/* With form control and labels */}

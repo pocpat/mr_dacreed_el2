@@ -5,11 +5,12 @@ const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
     colors: {
-      'accenttext': '#1E425C',
-      'tertiary': '#0F5475',
-      'secondary': '#B9CCC8',
-      'secondarylight': '#F0F6F5',
-      'primarytext': '#FAFAFA',
+      'accentd': '#1E425C',
+      'tertiaryd': '#0F5475',
+      'secondaryd': '#B9CCC8',
+      'midsecondaryd': '#F0F6F5',
+      'lightsecondaryd:': '#F1F4F3 ',
+      'primaryd': '#FAFAFA',
     },
     extend: {
       boxShadow: {
