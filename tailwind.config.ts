@@ -15,12 +15,7 @@ const config: Config = {
       boxShadow: {
         'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
       },
-      backgroundImage: {
-        'image': "url('/bg_1.jpg')",
-        'header-image' : "url(/BackgroundImage2.png)",
-        'header-image3' : "url(/BackgroundImage3.png)",
-
-      },
+      
       keyframes: {
         customBounce: {
           "0%": { transform: "translateY(50px)" },
