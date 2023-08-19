@@ -13,16 +13,34 @@ const config: Config = {
       'primaryd': '#FAFAFA',
     },
     extend: {
+
+      customWave: {
+        'position': 'relative',
+        'width': '100% relative',
+        'height': '100% relative',
+        'background':' #4973ff relative',
+        'border-radius': '50% relative',
+        'box-shadow': 'inset 0 0 50px rgba(0, 0, 0, 0.5) relative',
+      },
+     
       boxShadow: {
         'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+        'custom': '0 0 0 5px #4973ff',
       },
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
         'header-image' : "url(/BackgroundImage2.png)",
         'header-image3' : "url(/BackgroundImage3.png)",
-
       },
       keyframes: {
+        wave1: {
+          '0%': { transform: 'translate(-50%, -75%) rotate(0deg)' },
+          '100%': { transform: 'translate(-50%, -75%) rotate(360deg)' },
+        },
+        wave2: {
+          '0%': { transform: 'translate(-50%, -75%) rotate(0deg)' },
+          '100%': { transform: 'translate(-50%, -75%) rotate(360deg)' },
+        },
         customBounce: {
           "0%": { transform: "translateY(50px)" },
           "50%": { transform: "translateY(-70px)" },
@@ -36,18 +54,21 @@ const config: Config = {
           "0%": { transform: "translateX(-700px)" },
           "100%": { transform: "translateX(-80px)" },
         },
+
       },
       animation: {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
+        "wave1": "wave1 5s linear infinite",
+        'wave2': 'wave2 10s linear infinite',
       },
 
     },
     darkMode: 'class',
   },
 
-  plugins: [require('daisyui'),require('flowbite/plugin'),],
+  plugins: [ require('daisyui'),require('flowbite/plugin'),],
 };
 
 export default config;

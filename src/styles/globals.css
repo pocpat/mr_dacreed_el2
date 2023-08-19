@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.customCircle {
+    @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-4 border-white shadow-custom box-border w-48 h-48 rounded-full overflow-hidden;
+  }
+  .customWaveBefore {
+    @apply absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-3/4 transition-all duration-500 ease-in-out rounded-full bg-white animate-wave1;
+  }
+  .customWaveAfter {
+    @apply animate-wave2;
+    @apply absolute w-full h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-3/4 transition-all duration-500 ease-in-out rounded-lg bg-white bg-opacity-50 animate-wave2;
+  }
+  .customCircle {
+    @apply shadow-custom;
+  }

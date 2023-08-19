@@ -3,7 +3,11 @@ import React from "react";
 // import Loading1 from "~/pages/components/elenasComponents/Loading1";
 import { Header } from "~/componentsRoot/Header";
 import FooterBird from "~/componentsRoot/FooterBird";
-const waiting = () => {
+import LoadingCircle from "~/pages/components/elenasComponents/LoadingCircle";
+
+
+
+const waiting:React.FC = () => {
   return (
     <>
         {/* <Header /> */}
@@ -15,7 +19,9 @@ const waiting = () => {
         bg-red-700
         h-700
         ">   
-
+  <div className="flex justify-center items-center min-h-screen">
+      <LoadingCircle percentage={100} />
+    </div>
            </div>  
            </>
   );
