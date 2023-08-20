@@ -41,7 +41,7 @@ const AccordionMiddle2 = () => {
     <div  >
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl content-center justify-center border-4 bg-header-image bg-cover bg-left-bottom bg-no-repeat font-bold text-[#1A3A50]"
+          className="rounded-5xl content-center justify-center border-4 bg-header-image bg-accentd bg-left-bottom bg-no-repeat font-bold text-primaryd"
           onClick={() => handleOpen(1)}
         >
           Course Description
@@ -54,8 +54,8 @@ const AccordionMiddle2 = () => {
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
 
-          className="rounded-5xl m-0 content-center justify-center border-8  border-[#B9CCC8]  "
-          onClick={() => handleOpen(2)}
+className="rounded-5xl content-center justify-center border-4 bg-header-image bg-accentd bg-left-bottom bg-no-repeat font-bold text-primaryd"
+onClick={() => handleOpen(2)}
         >
           Question
         </AccordionHeader>

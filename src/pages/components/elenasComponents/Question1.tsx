@@ -103,7 +103,12 @@ const QAForm: React.FC = () => {
     setIsModal4Open(false);
   };
   return (
-    <form onSubmit={handleSubmit} className="bg-lightsecondaryd: m-0">
+    <form onSubmit={handleSubmit} 
+    className="
+    // bg-lightsecondaryd 
+    bg-purplesoft
+    m-0"
+    >
       <span className="ml-3  font-bold text-accentd">Question 1</span>
       <div>
         {/* question */}
@@ -173,10 +178,10 @@ const QAForm: React.FC = () => {
           />
         </div>
         <button
-          className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
+          className="bg-blue-500/75 hover:bg-green-800 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
           type="submit"
           value="Create Q&A"
-        ></button>
+        >Create Q&A (temporary place button)</button>
       </div>
       {/* add uploaded image here  */}
       <div className="flex  items-center justify-center ">
@@ -242,7 +247,7 @@ const QAForm: React.FC = () => {
             {/* onClick => to add Commentary component */}
             <section
               className="flex flex-row"
-              onClick={() => setIsModal4Open(true)}
+              // onClick={() => setIsModal4Open(true)}
             >
               <img
                 src="/icons/commentary.png"
@@ -260,7 +265,7 @@ const QAForm: React.FC = () => {
             {/* onClick => to add Guidance component */}
             <section
               className="flex flex-row"
-              onClick={() => setIsModal4Open(true)}
+              // onClick={() => setIsModal4Open(true)}
             >
               <img
                 src="/icons/guidance.png"
