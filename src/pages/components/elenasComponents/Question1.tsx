@@ -23,7 +23,7 @@ type questionSection = {
 
 const Question1: React.FC = () => {
   return (
-    <div style={{ backgroundColor: "#B9CCC8" }}>
+    <div className="bg-lightsecondaryd">
       <QAForm />
     </div>
   );

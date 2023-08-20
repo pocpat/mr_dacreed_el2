@@ -46,7 +46,7 @@ const AccordionMiddle2 = () => {
         >
           Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl  content-center justify-center border-4 border-slate-200 bg-slate-50">
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd">
           {/* <HeaderBody /> */}
           <HeaderBody2 />
         </AccordionBody>
@@ -61,7 +61,7 @@ onClick={() => handleOpen(2)}
         </AccordionHeader>
 
         <br />
-        <AccordionBody className="rounded-5xl  content-center justify-center bg-bg-lightsecondaryd  ">
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd" >
           <Question1 />
         </AccordionBody>
       </Accordion>
