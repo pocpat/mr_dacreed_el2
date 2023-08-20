@@ -28,7 +28,7 @@ const Input = () => {
                 <div className="flex w-3/4 flex-col items-start justify-between">
                   <Link
                     href="/input/waiting/editing/common"
-                    className="mt-4 w-auto rounded-md bg-sky-500/75 px-2 py-2 text-white hover:bg-sky-400/50"
+                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-auto rounded-md px-2 py-2 text-white"
                   >
                     CONT TO COURSE:
                   </Link>
@@ -213,7 +213,6 @@ const Input = () => {
         <Header />
 
         <main className="z-2 flex flex-col items-center justify-center">
-
           <div>
             <div className="my-6 flex flex-row ">
               <a href="../" className=" absolute left-20 ">
@@ -295,32 +294,29 @@ const Input = () => {
               </div>
             </div>
             <div className=" flex items-center justify-center">
-
               <input
                 type="text"
                 className=" file-input-bordered mt-4 w-2/4 rounded-full shadow-inner-top "
-              //  search input //
+                //  search input //
                 placeholder=" ⨀  Search existing course by name or keywords"
               />
             </div>
             <section className="flex items-center justify-center ">
-              <div
-                className=" my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm"
-              >
+              <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm">
                 <span
-                  className="larger-font  pl-4 text-[#21292D] underline "
+                  className="larger-font pl-4 leading-loose text-[#21292D] underline underline-offset-8"
                   style={{ fontSize: "30px" }}
                 >
-                  Drafts (recents)
+                  Drafts (recent):
                 </span>
 
-                <div className="from-cyan-900 to-cyan-500 h-auto w-3/4 rounded-lg bg-gradient-to-r p-4 text-white">
+                <div className="h-auto w-full">
                   <DraftCourses />
                 </div>
-                <section className="mx-2 ">
+                {/* <section className="mx-2 ">
                   <ul>
-                    <li className="flex flex-row justify-between items-center py-2">
-                      <button className=" w-6 h-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                    <li className="flex flex-row items-center justify-between py-2">
+                      <button className=" h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         M
                       </button>
                       <p className="mx-2 ">Manual Funds</p>
@@ -329,7 +325,7 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                      <button className="h-6 w-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         D
                       </button>
                       <p className="mx-2">Dacreed Course (test)</p>
@@ -338,7 +334,7 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                      <button className="h-6 w-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         C
                       </button>
                       <p className="mx-2">Manual Funds</p>
@@ -347,7 +343,7 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                      <button className="h-6 w-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         O
                       </button>
                       <p className="mx-2">Dacreed Course (test)</p>
@@ -356,7 +352,7 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      <button className="w-6 h-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                      <button className="h-6 w-6  rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         M
                       </button>
                       <p className="mx-2">Manual Funds</p>
@@ -365,7 +361,7 @@ const Input = () => {
                       </button>
                     </li>
                     <li className="flex flex-row justify-between py-2">
-                      <button className="w-6 h-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+                      <button className="h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
                         D
                       </button>
                       <p className="mx-2">Dacreed Course (test)</p>
@@ -374,7 +370,7 @@ const Input = () => {
                       </button>
                     </li>
                   </ul>
-                </section>
+                </section> */}
               </div>
             </section>
           </section>
@@ -440,7 +436,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Title:</span>
         <br />
         <input
-          className="input input-bordered input-sm w-2/3 shadow-xl"
+          className="input-bordered input input-sm w-2/3 shadow-xl"
           type="text"
           value={courseTitle}
           onChange={(e) => setCourseTitle(e.target.value)}
@@ -450,7 +446,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Description:</span>
         <br />
         <input
-          className="input input-bordered input-sm w-2/3 shadow-xl"
+          className="input-bordered input input-sm w-2/3 shadow-xl"
           type="text"
           value={courseDescription}
           onChange={(e) => setCourseDescription(e.target.value)}
@@ -480,14 +476,19 @@ const DraftCourses: React.FC = () => {
     });
 
   return (
-    <div className="flex flex-row">
+    <div className="flex w-full flex-col">
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-          className="w-7/8 m-2 flex flex-row items-center rounded border-solid p-4 text-tertiaryd"
+
+          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
+
         >
+          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+            D
+          </button>
           <p>{course.title}</p>
-          <p>{course.description}</p>
+          {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
           <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
             Edit
           </button>

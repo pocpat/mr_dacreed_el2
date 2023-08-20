@@ -27,11 +27,13 @@ const config: Config = {
         'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
         'custom': '0 0 0 5px #4973ff',
       },
+
       backgroundImage: {
         'image': "url('/bg_1.jpg')",
         'header-image' : "url(/BackgroundImage2.png)",
         'header-image3' : "url(/BackgroundImage3.png)",
       },
+
       keyframes: {
         wave: {
           '0%': { transform: 'rotate(0deg)' },
