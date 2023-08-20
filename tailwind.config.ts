@@ -24,8 +24,8 @@ const config: Config = {
       },
      
       boxShadow: {
-        'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-        'custom': '0 0 0 5px #4973ff',
+        'inner-top': 'inset 0 4px 6px -1px rgba(0, 0, 0, 0.1)',       
+         'custom': '0 0 0 5px #4973ff',
       },
 
       backgroundImage: {

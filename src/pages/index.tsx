@@ -47,14 +47,14 @@ const Home: NextPage = () => {
 
               {/* <Link*/}
 
-            <Link    // LIBRARY BUTTON
+            {/* <Link    // LIBRARY BUTTON
 
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
 
-            </Link>  
+            </Link>   */}
               {/* </div> */}
               <div className="flex flex-col items-center gap-2 ">
                 <div

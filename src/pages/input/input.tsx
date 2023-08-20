@@ -20,10 +20,10 @@ const Input = () => {
   const CourseCreationModal = () => {
     return (
       <div className="inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
-            <div className="p-41 flex flex-row items-center justify-items-center">
-              <div className="w-3/5">
+      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+        <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
+          <div className="p-41 flex flex-row items-center justify-items-center">
+            <div className="w-3/5">
                 <CourseForm />
                 <div className="flex w-3/4 flex-col items-start justify-between">
                   <Link
@@ -209,7 +209,7 @@ const Input = () => {
 
   return (
     <div className="min-h-screen ">
-      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_40%] bg-no-repeat ">
+      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_140%] bg-no-repeat ">
         <Header />
 
         <main className="z-2 flex flex-col items-center justify-center">
@@ -304,7 +304,7 @@ const Input = () => {
             <section className="flex items-center justify-center ">
               <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm">
                 <span
-                  className="larger-font pl-4 leading-loose text-[#21292D] underline underline-offset-8"
+                  className="larger-font pl-4 leading-loose text-[#21292D]  "
                   style={{ fontSize: "30px" }}
                 >
                   Drafts (recent):
@@ -454,7 +454,7 @@ const CourseForm: React.FC = () => {
         />
       </label>
       <input
-        className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
+        className="bg-blue hover:bg-red mt-4 w-1/3 rounded-md px-4 py-2 text-white"
         type="submit"
         value="SAVE DRAFT"
       />
@@ -488,9 +488,13 @@ const DraftCourses: React.FC = () => {
           </button>
           <p>{course.title}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
-          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
+
+          <Link href={`/courses/${course.id}`}>
+          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl"
+          >
             Edit
           </button>
+          </Link>
         </div>
       ))}
     </div>
