@@ -240,11 +240,11 @@ const Input = () => {
             <h1 className="left-0 mb-10  text-5xl">Create Courses</h1>
             <div className=" flex flex-row  items-center  justify-center ">
               {/*  new buttons setup */}
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={handleModal}
                   >
@@ -254,11 +254,11 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -268,11 +268,11 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
+              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -282,10 +282,10 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
+              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
-                    className="bg-primarydtext m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
+                    className="bg-primaryd text m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
                     href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
