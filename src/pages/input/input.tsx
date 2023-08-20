@@ -20,10 +20,10 @@ const Input = () => {
   const CourseCreationModal = () => {
     return (
       <div className="inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
-            <div className="p-41 flex flex-row items-center justify-items-center">
-              <div className="w-3/5">
+      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+        <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
+          <div className="p-41 flex flex-row items-center justify-items-center">
+            <div className="w-3/5">
                 <CourseForm />
                 <div className="flex w-3/4 flex-col items-start justify-between">
                   <Link
@@ -182,7 +182,7 @@ const Input = () => {
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   <button
                     type="button"
-                    className="bg-primary-100 text-primary-700 hover:bg-primary-accent-100 focus:bg-primary-accent-100 active:bg-primary-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
+                    className="bg-primaryd-100 text-primaryd-700 hover:bg-primaryd-accent-100 focus:bg-primaryd-accent-100 active:bg-primaryd-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
                     data-te-modal-dismiss
                     data-te-ripple-init
                     data-te-ripple-color="light"
@@ -192,7 +192,7 @@ const Input = () => {
                   </button>
                   <button
                     type="button"
-                    className="hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-700 ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                    className="hover:bg-primaryd-600 focus:bg-primaryd-600 active:bg-primaryd-700 ml-1 inline-block rounded bg-primaryd px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                     data-te-ripple-init
                     data-te-ripple-color="light"
                   >
@@ -209,7 +209,7 @@ const Input = () => {
 
   return (
     <div className="min-h-screen ">
-      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_40%] bg-no-repeat ">
+      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_140%] bg-no-repeat ">
         <Header />
 
         <main className="z-2 flex flex-col items-center justify-center">
@@ -240,11 +240,11 @@ const Input = () => {
             <h1 className="left-0 mb-10  text-5xl">Create Courses</h1>
             <div className=" flex flex-row  items-center  justify-center ">
               {/*  new buttons setup */}
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={handleModal}
                   >
@@ -254,11 +254,11 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl ">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -268,11 +268,11 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4  text-accenttext ring-2  ring-tertiary  "
+                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -282,10 +282,10 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
-                <div className="   rounded-3xl border-solid border-accenttext ">
+              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
+                <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
-                    className="m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accenttext bg-primarytext p-4 text-accenttext ring-2 ring-tertiary  drop-shadow-lg  "
+                    className="bg-primaryd text m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
                     href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
@@ -302,9 +302,9 @@ const Input = () => {
               />
             </div>
             <section className="flex items-center justify-center ">
-              <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm">
+              <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-secondaryd bg-primaryd p-4 shadow-sm">
                 <span
-                  className="larger-font pl-4 leading-loose text-[#21292D] underline underline-offset-8"
+                  className="larger-font pl-4 leading-loose text-accentd  "
                   style={{ fontSize: "30px" }}
                 >
                   Drafts (recent):
@@ -389,14 +389,14 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl font-bold text-white">
+      <div className="text-2xl font-bold text-primaryd">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
   return (
     <div>
-      <p className="text-2xl font-bold text-white">
+      <p className="text-2xl font-bold text-primaryd">
         There are no current users signed in.
       </p>
     </div>
@@ -422,6 +422,7 @@ const CourseForm: React.FC = () => {
       //   `This should be posting to the db with course title: ${courseTitle}`
       // );
       // void refetchTopics();
+  
     },
   });
 
@@ -436,7 +437,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Title:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseTitle}
           onChange={(e) => setCourseTitle(e.target.value)}
@@ -446,14 +447,14 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Description:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseDescription}
           onChange={(e) => setCourseDescription(e.target.value)}
         />
       </label>
       <input
-        className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
+        className="bg-blue hover:bg-red mt-4 w-1/3 rounded-md px-4 py-2 text-white"
         type="submit"
         value="SAVE DRAFT"
       />
@@ -480,16 +481,20 @@ const DraftCourses: React.FC = () => {
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiary"
+          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
         >
-          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd secondaryd text-white drop-shadow-xl">
             D
           </button>
           <p>{course.title}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
-          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl">
+
+          <Link href={`/input/waiting/editing/common/${course.id}`}>
+          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl"
+          >
             Edit
           </button>
+          </Link>
         </div>
       ))}
     </div>

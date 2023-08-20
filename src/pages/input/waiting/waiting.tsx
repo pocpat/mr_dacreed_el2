@@ -1,23 +1,24 @@
 import React from "react";
-// import Link from "next/link";
-// import Loading1 from "~/pages/components/elenasComponents/Loading1";
-import { Header } from "~/componentsRoot/Header";
-import FooterBird from "~/componentsRoot/FooterBird";
-const waiting = () => {
+import WaterWave from "~/pages/components/elenasComponents/WaterWave";
+
+const waiting: React.FC = () => {
   return (
     <>
-        {/* <Header /> */}
-        {/*  < bg */}
-        <div className=" middleOne
-        // bg-[url('/bg_loading.png')]  
-        // bg-cover  
-        // bg-no-repeat
-        bg-red-700
-        h-700
-        ">   
-
-           </div>  
-           </>
+      {/* <Header /> */}
+      {/*  < bg */}
+      <div
+        className=" middleOne
+        // h-700  
+        bg-red-700 bg-[url('/bg_loading.png')]
+        bg-cover
+        bg-no-repeat
+        "
+      >
+        <div className="flex min-h-screen items-center justify-center">
+<WaterWave/>  
+        </div>
+      </div>
+    </>
   );
 };
 

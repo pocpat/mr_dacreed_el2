@@ -21,7 +21,7 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   return (
     <div>
       <div className="flex flex-col ">
-      <span className="ml-3 mt-0 font-bold text-accenttext">Answer</span>
+      <span className="ml-3 mt-0 font-bold text-accentd">Answer</span>
       <div className="flex flex-row items-center stretch flex-start ">
        
         <input

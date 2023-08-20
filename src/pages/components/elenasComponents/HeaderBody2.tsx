@@ -5,7 +5,7 @@ const HeaderBody2 = () => {
   return (
     <>
       <div
-        className="border-box flex flex-col bg-gradient-to-b from-[#FAFAFA] to-[#b7ccd6] p-4 "
+        className="border-box flex flex-col bg-primaryd p-4 "
         style={{ width: "100%", height: "auto" }}
       >
         <CourseHeaderInput2 />
@@ -63,7 +63,7 @@ const CourseHeaderInput2: React.FC = () => {
       <div className="m-4 flex h-auto flex-col p-4">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="flex flex-col">
-            <span className="ml-3 font-extrabold">Title:</span>
+            <span className="ml-3 font-bold">Title:</span>
             <input
               placeholder="Title goes here"
               className="input-bordered input input-sm m-2 h-12 w-auto"
@@ -73,17 +73,19 @@ const CourseHeaderInput2: React.FC = () => {
             />
           </label>
           <label className="flex flex-col">
-            <span className="ml-3 font-extrabold">Sub-heading:</span>
+            <span className="ml-3 font-bold">Sub-heading:</span>
             <input
               placeholder="Sub-heading goes here"
               className="input-bordered input input-sm m-2 h-12 w-auto"
               type="text"
               value={subHeading}
               onChange={(e) => setSubheading(e.target.value)}
+              // charsLeft={150 - subHeading.length}
             />
+                   {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
           </label>
           <label className="flex flex-col">
-            <span className="ml-3 font-extrabold">Description:</span>
+            <span className="ml-3 font-bold">Description:</span>
             <input
               placeholder="Description goes here"
               className="input-bordered input input-sm m-2 h-12 w-auto"

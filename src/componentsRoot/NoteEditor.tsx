@@ -19,7 +19,7 @@ export const NoteEditor = ({
           <input
             type="text"
             placeholder="Note title"
-            className="input-primary input input-lg w-full font-bold"
+            className="input-primaryd input input-lg w-full font-bold"
             value={title}
             onChange={(e) => setTitle(e.currentTarget.value)}
           />
@@ -47,7 +47,7 @@ export const NoteEditor = ({
             setCode("");
             setTitle("");
           }}
-          className="btn-primary btn"
+          className="btn-primaryd btn"
           disabled={title.trim().length === 0 || code.trim().length === 0}
         >
           Save

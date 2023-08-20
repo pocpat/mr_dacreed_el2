@@ -6,7 +6,6 @@ import { Header } from "../componentsRoot/Header";
 import Bird from "~/componentsRoot/Bird";
 import Image from "next/image";
 import FooterMain from "~/componentsRoot/FooterMain";
-
 const Home: NextPage = () => {
   console.log("Rendering Home component");
   const user = useUser();
@@ -55,7 +54,7 @@ const Home: NextPage = () => {
             >
               <h3 className="text-2xl font-bold">LIBRARY</h3>
 
-            </Link>  */}
+            </Link>   */}
               {/* </div> */}
               <div className="flex flex-col items-center gap-2 ">
                 <div

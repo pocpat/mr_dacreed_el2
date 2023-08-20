@@ -1,6 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
-const UploadImgs = () => {
+interface UploadImgsProps {
+  onMediaUpload: (media: string) => void;
+}
+
+const UploadImgs: React.FC<UploadImgsProps> = ({ onMediaUpload }) => {
+  const [selectedMedia, setSelectedMedia] = useState<string | null>(null);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const mediaDataUrl = reader.result as string;
+        setSelectedMedia(mediaDataUrl);
+        onMediaUpload(mediaDataUrl);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  //  const handleClearMedia = () => {               //to clear the selected media when a new file is uploaded  doesn't work yet
+  //   setSelectedMedia(null);
+  // };
   return (
     <div>
       <div className="flex w-full items-center justify-center">
@@ -32,7 +52,14 @@ const UploadImgs = () => {
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" className="hidden" />
+          <input id="dropzone-file" type="file" className="hidden" onChange={handleFileChange} />
+          {/* <button
+            type="button"
+            onClick={handleClearMedia}
+            className="text-black-500 mt-2 pr-20"
+          >
+            Clear Media
+          </button> */}
         </label>
       </div>
     </div>

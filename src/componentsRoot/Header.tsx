@@ -5,8 +5,8 @@ export const Header = () => {
   const { user } = useUser();
 
   return (
-    <div className="relative  flex h-250 w-full px-2 py-4 items-center justify-between bg-accenttext">
-      <div className="flex h-20 w-3/4 items-center justify-start pl-5 text-3xl font-bold text-primarytext">
+    <div className="relative  flex h-250 w-full px-2 py-4 items-center justify-between bg-accentd">
+      <div className="flex h-20 w-3/4 items-center justify-start pl-5 text-3xl font-bold text-primarydtext">
         {user?.firstName ? `Hi ${user.firstName}, welcome back.` : ""}
       </div>
       <div className="mr-3 flex h-20 w-20">

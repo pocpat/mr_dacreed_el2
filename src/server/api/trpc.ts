@@ -43,6 +43,7 @@ const createInnerTRPCContext = ({ auth }: AuthContext  ) => {
   return {
     auth,
     prisma,
+    courseId: "",
   };
 };
 
