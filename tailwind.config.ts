@@ -33,13 +33,14 @@ const config: Config = {
         'header-image3' : "url(/BackgroundImage3.png)",
       },
       keyframes: {
-        wave1: {
-          '0%': { transform: 'translate(-50%, -75%) rotate(0deg)' },
-          '100%': { transform: 'translate(-50%, -75%) rotate(360deg)' },
+        wave: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
-        wave2: {
-          '0%': { transform: 'translate(-50%, -75%) rotate(0deg)' },
-          '100%': { transform: 'translate(-50%, -75%) rotate(360deg)' },
+
+        riseUp: {
+          '0%': { top: '-220%' },
+          '100%': { top: '-220%' },
         },
         customBounce: {
           "0%": { transform: "translateY(50px)" },
@@ -60,8 +61,8 @@ const config: Config = {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
-        "wave1": "wave1 5s linear infinite",
-        'wave2': 'wave2 10s linear infinite',
+        "wave": "wave 4s linear infinite",
+        "riseUp": "riseUp 4s forwards",
       },
 
     },
@@ -72,3 +73,5 @@ const config: Config = {
 };
 
 export default config;
+
+

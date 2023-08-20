@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Accordion,
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import HeaderBody from "./HeaderBody";
+// import HeaderBody from "./HeaderBody";
 import Question1 from "./Question1";
 
-import { set } from "zod";
+// import { set } from "zod";
 import HeaderBody2 from "./HeaderBody2";
 
 function Icon({ id, open }: { id: number; open: number }) {

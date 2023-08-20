@@ -6,7 +6,6 @@ import { Header } from "../componentsRoot/Header";
 import Bird from "~/componentsRoot/Bird";
 import Image from "next/image";
 import FooterMain from "~/componentsRoot/FooterMain";
-
 const Home: NextPage = () => {
   console.log("Rendering Home component");
   const user = useUser();
