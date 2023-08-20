@@ -36,6 +36,10 @@ export const courseQuestionRouter = createTRPCRouter({
         answer4: z.string(),
         answer5: z.string(),
         answer6: z.string(),
+        commentary: z.string(),
+        guidance: z.string(),
+        courseId: z.string(),
+
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -48,7 +52,10 @@ export const courseQuestionRouter = createTRPCRouter({
           answer4: input.answer4,
           answer5: input.answer5,
           answer6: input.answer6,
+          commentary: input.commentary,
+          guidance: input.guidance,
           userId: ctx.auth.userId,
+          courseId: input.courseId,
         },
       });
     }),

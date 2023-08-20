@@ -39,7 +39,7 @@ const config: Config = {
         },
 
         riseUp: {
-          '0%': { top: '-220%' },
+          '0%': { top: '-90%' },
           '100%': { top: '-220%' },
         },
         customBounce: {
@@ -61,8 +61,9 @@ const config: Config = {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
-        "wave": "wave 4s linear infinite",
-        "riseUp": "riseUp 4s forwards",
+        "waveBefore": "wave 6s linear infinite",
+        "riseUpBefore": "riseUp 13s forwards",
+        'delayedRiseUpAfter': 'riseUp 0.35s forwards',
       },
 
     },

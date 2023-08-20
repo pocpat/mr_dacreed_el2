@@ -49,10 +49,13 @@ model CourseQuestion {
     answer4   String?
     answer5   String?
     answer6   String?
+    commentary   String?
+    guidance  String?
     userId    String
+    courseId  String
     user      User     @relation(fields: [userId], references: [id])
     course    Course   @relation(fields: [courseId], references: [id])
-    courseId  String
+   
 }
 model QuestionSection {
     id        String   @id @default(cuid())
