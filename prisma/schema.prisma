@@ -52,9 +52,8 @@ model CourseQuestion {
     commentary   String?
     guidance  String?
     userId    String
-    courseId  String
     user      User     @relation(fields: [userId], references: [id])
-    course    Course   @relation(fields: [courseId], references: [id])
+    course    Course   @relation(fields: [id], references: [id])
    
 }
 // TODO: to remove

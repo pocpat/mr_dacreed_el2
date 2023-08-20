@@ -80,7 +80,9 @@ const CourseHeaderInput2: React.FC = () => {
               type="text"
               value={subHeading}
               onChange={(e) => setSubheading(e.target.value)}
+              // charsLeft={150 - subHeading.length}
             />
+                   {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
           </label>
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Description:</span>

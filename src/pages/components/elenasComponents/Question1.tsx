@@ -54,7 +54,7 @@ const QAForm: React.FC = () => {
       commentary: commentary,
       guidance: guidance,
       // uploadedImgs: uploadedImgs?? "",
-      courrseIds: "",
+      courseId: "",
     };
 
     e.preventDefault();
@@ -105,8 +105,8 @@ const QAForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} 
     className="
-    // bg-lightsecondaryd 
-    bg-purplesoft
+  bg-lightsecondaryd 
+
     m-0"
     >
       <span className="ml-3  font-bold text-accentd">Question 1</span>
