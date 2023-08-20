@@ -37,7 +37,7 @@ const QAForm: React.FC = () => {
   const [isModal4Open, setIsModal4Open] = useState(false);
   const [commentary, setCommentary] = useState("");
 const [guidance, setGuidance] = useState("");
-
+const [ uploadedImgs, setUploadedImgs ] = useState<string | null>(null);
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
   // const { mutate: createCommentary } = api.courseQuestion.create.useMutation({});
@@ -51,6 +51,10 @@ const [guidance, setGuidance] = useState("");
       answer4: answerValues[3] ?? "",
       answer5: answerValues[4] ?? "",
       answer6: answerValues[5] ?? "",
+      commentary: commentary,
+      guidance: guidance,
+      // uploadedImgs: uploadedImgs?? "",
+      courrseIds: "",
     };
 
     e.preventDefault();
@@ -94,7 +98,11 @@ const [guidance, setGuidance] = useState("");
     newComponentNames.push(`answer ${componentNames.length + 1}`);
     setComponentNames(newComponentNames);
   }
+  const handleMediaUpload = (media: string) => {
+    setUploadedImgs(media);
+    setIsModal4Open(false);
 
+  };
   return (
     <form onSubmit={handleSubmit} className="m-0 bg-lightsecondaryd:">
       <span className="ml-3  font-bold text-accentd">Question 1</span>
@@ -172,6 +180,14 @@ const [guidance, setGuidance] = useState("");
           value="Create Q&A"
         ></button>
       </div>
+{/* add uploaded image here  */}
+      <div className="flex flex-row justify-between">
+      {uploadedImgs && <img src={uploadedImgs} alt="Uploaded" />}
+</div>
+
+
+
+
       <div className="w-82 dropdown dropdown-top flex content-center justify-center rounded-sm ">
         <label tabIndex={0} className=" m-1 flex flex-row items-center ">
          <p className="mr-2">Add </p>   
@@ -248,9 +264,11 @@ const [guidance, setGuidance] = useState("");
       </div>
       {isModal4Open && (
         <Modal4 onClose={() => setIsModal4Open(false)} isVisible={true}>
-          <UploadImgs />
+           <UploadImgs onMediaUpload={handleMediaUpload} />
         </Modal4>
       )}
+  
+
     </form>
   );
 };

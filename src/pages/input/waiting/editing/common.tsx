@@ -21,3 +21,6 @@ const Common = () => {
 };
 
 export default Common;
+
+
+// input/waiting/editing/common

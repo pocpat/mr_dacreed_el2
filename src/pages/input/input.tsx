@@ -302,9 +302,9 @@ const Input = () => {
               />
             </div>
             <section className="flex items-center justify-center ">
-              <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-[#B9CCC8] bg-[#FAFAFA] p-4 shadow-sm">
+              <div className="my-10 w-3/4 items-center rounded-3xl border-2 border-solid border-secondaryd bg-primaryd p-4 shadow-sm">
                 <span
-                  className="larger-font pl-4 leading-loose text-[#21292D]  "
+                  className="larger-font pl-4 leading-loose text-accentd  "
                   style={{ fontSize: "30px" }}
                 >
                   Drafts (recent):
@@ -389,14 +389,14 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl font-bold text-white">
+      <div className="text-2xl font-bold text-primaryd">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
   }
   return (
     <div>
-      <p className="text-2xl font-bold text-white">
+      <p className="text-2xl font-bold text-primaryd">
         There are no current users signed in.
       </p>
     </div>
@@ -483,14 +483,14 @@ const DraftCourses: React.FC = () => {
           key={course.id}
           className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
         >
-          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
+          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd secondaryd text-white drop-shadow-xl">
             D
           </button>
           <p>{course.title}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
 
-          <Link href={`/courses/${course.id}`}>
-          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-[#0f5475] p-1 text-white drop-shadow-xl"
+          <Link href={`/input/waiting/editing/common/${course.id}`}>
+          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl"
           >
             Edit
           </button>

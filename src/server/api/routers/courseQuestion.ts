@@ -39,6 +39,7 @@ export const courseQuestionRouter = createTRPCRouter({
         commentary: z.string(),
         guidance: z.string(),
         courseId: z.string(),
+        courseIds: z.array(z.string()),
 
       })
     )
