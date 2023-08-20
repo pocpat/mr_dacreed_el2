@@ -57,6 +57,7 @@ model CourseQuestion {
     course    Course   @relation(fields: [courseId], references: [id])
    
 }
+// TODO: to remove
 model QuestionSection {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -71,6 +72,7 @@ model QuestionSection {
     userId    String
     user      User     @relation(fields: [userId], references: [id])
 }
+// TODO: to remove
 model TestString {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -129,6 +131,7 @@ model VerificationToken {
     expires    DateTime
     @@unique([identifier, token])
 }
+// TODO: to remove
 model Topic {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())
@@ -138,6 +141,7 @@ model Topic {
     userId    String
     notes     Note[]
 }
+// TODO: to remove
 model Note {
     id        String   @id @default(cuid())
     createdAt DateTime @default(now())

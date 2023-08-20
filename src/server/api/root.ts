@@ -7,7 +7,11 @@ import { exampleRouter } from "./routers/example";
 import { courseHeaderRouter } from "./routers/courseHeader";
 import { newCourseRouter } from "./routers/newCourse";
 import { courseQuestionRouter } from "./routers/courseQuestion";
+// import { newUserRouter } from "./routers/newUser";
 // import { questionSectionRouter } from "./routers/questionSection";
+
+
+
 
 export const appRouter = createTRPCRouter({
   courseHeader: courseHeaderRouter,
@@ -18,6 +22,7 @@ export const appRouter = createTRPCRouter({
   newCourse: newCourseRouter,
   courseQuestion: courseQuestionRouter,
   // questionSection: questionSectionRouter,
+  // newUser:newUserRouter
 });
 
 export type AppRouter = typeof appRouter;

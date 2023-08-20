@@ -244,7 +244,7 @@ const Input = () => {
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={handleModal}
                   >
@@ -258,7 +258,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -272,7 +272,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="bg-primarydtext  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -285,7 +285,7 @@ const Input = () => {
               <div className="m-5 rounded-3xl bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
-                    className="m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primarydtext p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
+                    className="bg-primarydtext m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
                     href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
@@ -422,6 +422,7 @@ const CourseForm: React.FC = () => {
       //   `This should be posting to the db with course title: ${courseTitle}`
       // );
       // void refetchTopics();
+  
     },
   });
 
@@ -436,7 +437,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Title:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseTitle}
           onChange={(e) => setCourseTitle(e.target.value)}
@@ -446,7 +447,7 @@ const CourseForm: React.FC = () => {
         <span className="ml-1">Description:</span>
         <br />
         <input
-          className="input-bordered input input-sm w-2/3 shadow-xl"
+          className="input input-bordered input-sm w-2/3 shadow-xl"
           type="text"
           value={courseDescription}
           onChange={(e) => setCourseDescription(e.target.value)}
@@ -480,9 +481,7 @@ const DraftCourses: React.FC = () => {
       {courses?.map((course: Course) => (
         <div
           key={course.id}
-
           className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
-
         >
           <button className="h-6 w-6 rounded-md bg-gradient-to-t from-[#0F5475] to-[#B9CCC8] text-white drop-shadow-xl">
             D
