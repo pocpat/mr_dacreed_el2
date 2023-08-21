@@ -489,7 +489,10 @@ const DraftCourses: React.FC = () => {
           <p>{course.title}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
 
-          <Link href={`/input/waiting/editing/common/${course.id}`}>
+          <Link href={
+            {pathname: `/input/waiting/editing/common`,
+            query: {editCourseId: course.id}}
+            }>
           <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl"
           >
             Edit
