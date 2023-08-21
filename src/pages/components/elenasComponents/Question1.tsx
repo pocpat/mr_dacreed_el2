@@ -10,6 +10,21 @@ import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
 import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
+interface CourseQuestionInput2Props {
+  courseId: string;
+ 
+}
+
+
+const Question1: React.FC <CourseQuestionInput2Props>= ({ courseId }) => {
+  return (
+    <div className="bg-lightsecondaryd">
+      <QAForm courseId={courseId}/>
+    </div>
+  );
+};
+
+export default Question1;
 
 type questionSection = {
   question: string;
@@ -19,19 +34,11 @@ type questionSection = {
   answer4: string;
   answer5: string;
   answer6: string;
+  courseId: string;
+  
 };
 
-const Question1: React.FC = () => {
-  return (
-    <div className="bg-lightsecondaryd">
-      <QAForm />
-    </div>
-  );
-};
-
-export default Question1;
-
-const QAForm: React.FC = () => {
+const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
   const [answerValues, setAnswerValues] = useState<string[]>(["", ""]);
   const [isModal4Open, setIsModal4Open] = useState(false);
@@ -41,8 +48,25 @@ const QAForm: React.FC = () => {
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
   // const { mutate: createCommentary } = api.courseQuestion.create.useMutation({});
+  api.courseQuestion.getByCourseId.useQuery(
+    {
+      courseId, // this is the courseId we looked up in the URL
+    },
+    {
+      onSuccess: (data) => {
+        if (data.length === 1) {
+          const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
+          setQuestion(data[0]?.question ?? "");
+          setAnswerValues(answerValues);
+          setCommentary(data[0]?.commentary ?? "");
+          setGuidance(data[0]?.guidance ?? "");
+        }
+      },
+    }
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
     const newQuestionToCreate = {
       question: question,
       answer1: answerValues[0] ?? "",

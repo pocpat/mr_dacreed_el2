@@ -30,13 +30,17 @@ function Icon({ id, open }: { id: number; open: number }) {
     </svg>
   );
 }
+interface AccordionMiddle2Props {
+  courseId: string;
+}
 
-const AccordionMiddle2 = () => {
+const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({courseId}) => {
   const [open, setOpen] = React.useState(0);
 
   const handleOpen = (value: React.SetStateAction<number>) =>
     setOpen(open === value ? 0 : value);
 
+  console.log("AccodrionMiddle2 courseId: ", courseId);
   return (
     <div  >
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
@@ -48,7 +52,7 @@ const AccordionMiddle2 = () => {
         </AccordionHeader>
         <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd">
           {/* <HeaderBody /> */}
-          <HeaderBody2 />
+          <HeaderBody2 courseId={courseId} />
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>

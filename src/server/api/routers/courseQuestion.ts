@@ -39,8 +39,6 @@ export const courseQuestionRouter = createTRPCRouter({
         commentary: z.string(),
         guidance: z.string(),
         courseId: z.string(),
-        courseIds: z.array(z.string()),
-
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -94,4 +92,22 @@ export const courseQuestionRouter = createTRPCRouter({
         where: { id: input.id },
       });
     }),
+     // GET by ID 
+ getByCourseId: protectedProcedure
+ .input(z.object({ courseId: z.string()}))
+ .query(({ ctx, input }) => {
+   console.log(`courseQuestionRouter.getByCourseId: courseId=${input.courseId}`);
+   if (ctx.auth?.userId) {
+       return ctx.prisma.courseQuestion.findMany({
+         where: {
+           userId: ctx.auth.userId,
+           courseId: input?.courseId,
+         },
+       });
+     } else {
+       console.log("User not authenticated. => ctx.auth.userId is null <=");
+       return [];
+     }
+   }),
+
 });
