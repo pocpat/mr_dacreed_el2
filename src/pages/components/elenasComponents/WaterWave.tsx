@@ -13,7 +13,7 @@ const WaterWave: React.FC = () => {
       if (!start) start = timestamp;
       const progress = timestamp - start;
 
-      if (progress >= 12000) {
+      if (progress >= 12000 && waterContainer) {
         waterContainer.style.animationPlayState = 'paused';
       } else {
         window.requestAnimationFrame(step);

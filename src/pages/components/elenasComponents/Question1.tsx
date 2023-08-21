@@ -19,6 +19,7 @@ type questionSection = {
   answer4: string;
   answer5: string;
   answer6: string;
+  courseId: string;
 };
 
 const Question1: React.FC = () => {

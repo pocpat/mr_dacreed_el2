@@ -14,11 +14,6 @@ export const newUserRouter = createTRPCRouter({
       };
     }),
 
-    // how to connect to Prisma . findMany on example table
-  getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.newUser.findMany();
-  }),
-
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),

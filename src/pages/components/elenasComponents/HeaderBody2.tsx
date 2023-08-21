@@ -75,6 +75,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
         title: title,
         subHeading: subHeading,
         description: description,
+        courseId: courseId,
       });
       resetForm();
     }

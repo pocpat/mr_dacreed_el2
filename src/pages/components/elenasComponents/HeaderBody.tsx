@@ -55,10 +55,13 @@ const CourseHeaderInput: React.FC = () => {
           className="input-bordered input input-sm m-2 h-12 w-auto"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
+              // TODO: call api.course.create() to get the course id
+              // then unse the course ID for courseHeader update
               createCourseHeader.mutate({
                 title: e.currentTarget.value,
                 subHeading: "",
                 description: "",
+                courseId: "",
               });
               e.currentTarget.value = "";
             }
@@ -75,6 +78,7 @@ const CourseHeaderInput: React.FC = () => {
                 title: "",
                 subHeading: e.currentTarget.value,
                 description: "",
+                courseId: "",
               });
               e.currentTarget.value = "";
             }
@@ -91,6 +95,7 @@ const CourseHeaderInput: React.FC = () => {
                 title: "",
                 subHeading: "",
                 description: e.currentTarget.value,
+                courseId: "",
               });
               e.currentTarget.value = "";
             }

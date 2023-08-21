@@ -10,7 +10,7 @@ import { useSearchParams } from "next/navigation"
 
 const Common = () => {
   const params = useSearchParams();
-  const courseId = params.get('editCourseId');
+  const courseId = params.get('editCourseId')?? "";
   console.log("common.tsx courseId: ", courseId);
   return (
     <div className="relative">
