@@ -20,6 +20,24 @@ export const courseHeaderRouter = createTRPCRouter({
           }
         }),
     
+    // GET by ID 
+    getByCourseId: protectedProcedure
+      .input(z.object({ courseId: z.string()}))
+      .query(({ ctx, input }) => {
+        console.log(`courseHeaderRouter.getByCourseId: courseId=${input.courseId}`);
+        if (ctx.auth?.userId) {
+            return ctx.prisma.courseHeader.findMany({
+              where: {
+                userId: ctx.auth.userId,
+                courseId: input?.courseId,
+              },
+            });
+          } else {
+            console.log("User not authenticated. => ctx.auth.userId is null <=");
+            return [];
+          }
+        }),
+
     // CREATE
     create: protectedProcedure  
       .input(z.object({ title: z.string(), subHeading: z.string(), description: z.string() }))

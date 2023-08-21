@@ -1,14 +1,19 @@
 import React, { useState } from "react";
+import { set } from "zod";
 import { api } from "~/utils/api";
 
-const HeaderBody2 = () => {
+interface CourseHeaderInput2Props {
+  courseId: string;
+}
+
+const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId }) => {
   return (
     <>
       <div
         className="border-box flex flex-col bg-primaryd p-4 "
         style={{ width: "100%", height: "auto" }}
       >
-        <CourseHeaderInput2 />
+        <CourseHeaderInput2 courseId={courseId} />
       </div>
     </>
   );
@@ -23,12 +28,29 @@ type CourseHeader2 = {
   description: string;
 };
 
-const CourseHeaderInput2: React.FC = () => {
+const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
+  courseId,
+}) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
   const [description, setDescription] = useState("");
   const { mutate: createCourseHeader2 } = api.courseHeader.create.useMutation(
     {}
+  );
+
+  api.courseHeader.getByCourseId.useQuery(
+    {
+      courseId, // this is the courseId we looked up in the URL
+    },
+    {
+      onSuccess: (data) => {
+        if (data.length === 1) {
+          setTitle(data[0]?.title ?? "");
+          setSubheading(data[0]?.subHeading ?? "");
+          setDescription(data[0]?.description ?? "");
+        }
+      },
+    }
   );
 
   const resetForm = () => {
@@ -66,7 +88,7 @@ const CourseHeaderInput2: React.FC = () => {
             <span className="ml-3 font-bold">Title:</span>
             <input
               placeholder="Title goes here"
-              className="input-bordered input input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -76,19 +98,19 @@ const CourseHeaderInput2: React.FC = () => {
             <span className="ml-3 font-bold">Sub-heading:</span>
             <input
               placeholder="Sub-heading goes here"
-              className="input-bordered input input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto"
               type="text"
               value={subHeading}
               onChange={(e) => setSubheading(e.target.value)}
               // charsLeft={150 - subHeading.length}
             />
-                   {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
+            {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
           </label>
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Description:</span>
             <input
               placeholder="Description goes here"
-              className="input-bordered input input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
