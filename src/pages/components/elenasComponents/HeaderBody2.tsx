@@ -34,9 +34,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
   const [description, setDescription] = useState("");
-  const { mutate: createCourseHeader2 } = api.courseHeader.create.useMutation(
-    {}
-  );
+  const { mutate: createCourseHeader2 } = api.courseHeader.create.useMutation({});
 
   api.courseHeader.getByCourseId.useQuery(
     {
