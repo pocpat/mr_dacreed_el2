@@ -20,8 +20,6 @@ model Example {
 }
 model Course {
     id          String   @id @default(cuid())
-    title       String
-    description String
     userId      String
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
