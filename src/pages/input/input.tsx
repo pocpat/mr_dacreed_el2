@@ -404,7 +404,7 @@ const AuthShowcase: React.FC = () => {
 };
 export { AuthShowcase };
 
-type Course = {
+type CourseHeader = {
   id: string;
   title: string;
   description: string;
@@ -464,7 +464,7 @@ const CourseForm: React.FC = () => {
 
 const DraftCourses: React.FC = () => {
   const { user } = useUser();
-  const [courses, setCourses] = useState<Course[]>([]);
+  const [courses, setCourses] = useState<CourseHeader[]>([]);
   const { data: newCourses, refetch: refetchTopics } =
     api.newCourse.getCourses.useQuery(undefined, {
       onSuccess: (data) => {
@@ -478,7 +478,7 @@ const DraftCourses: React.FC = () => {
 
   return (
     <div className="flex w-full flex-col">
-      {courses?.map((course: Course) => (
+      {courses?.map((course: CourseHeader) => (
         <div
           key={course.id}
           className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
