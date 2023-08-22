@@ -66,7 +66,7 @@ onClick={() => handleOpen(2)}
 
         <br />
         <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd" >
-          <Question1 />
+          <Question1 courseId={courseId}/>
         </AccordionBody>
       </Accordion>
     </div>
