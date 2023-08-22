@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
@@ -55,20 +55,21 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const[questionId, setQuestionId] = useState<string>("");
 
   // TODO: to be called onSubmit of 'update' button
-  function updateQuestion() {
-    api.courseQuestion.update.useMutation({
-      id: questionId,
-      question: question,
-      answer1: answerValues[0] ?? "",
-      answer2: answerValues[1] ?? "",
-      answer3: answerValues[2] ?? "",
-      answer4: answerValues[3] ?? "",
-      answer5: answerValues[4] ?? "",
-      answer6: answerValues[5] ?? "",
-      commentary: commentary,
-      guidance: guidance,
-    } );
-  }
+  const { mutate: updateQuestionMutation } = api.courseQuestion.update.useMutation();
+  // function updateQuestion() {
+  //   api.courseQuestion.update.useMutation({
+  //     id: questionId,
+  //     question: question,
+  //     answer1: answerValues[0] ?? "",
+  //     answer2: answerValues[1] ?? "",
+  //     answer3: answerValues[2] ?? "",
+  //     answer4: answerValues[3] ?? "",
+  //     answer5: answerValues[4] ?? "",
+  //     answer6: answerValues[5] ?? "",
+  //     commentary: commentary,
+  //     guidance: guidance,
+  //   } );
+  // }
 
   api.courseQuestion.getByCourseId.useQuery(
     {
@@ -95,6 +96,23 @@ console.log(data[1])
       },
     }
   );
+
+
+    function updateQuestion() {
+      updateQuestionMutation({
+      id: questionId,
+      question: question,
+      answer1: answerValues[0] ?? "",
+      answer2: answerValues[1] ?? "",
+      answer3: answerValues[2] ?? "",
+      answer4: answerValues[3] ?? "",
+      answer5: answerValues[4] ?? "",
+      answer6: answerValues[5] ?? "",
+      commentary: commentary,
+      guidance: guidance,
+    } );
+  }
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -154,7 +172,7 @@ console.log(data[1])
     setComponentNames(newComponentNames);
   }
   const handleMediaUpload = (media: string) => {
-    setUploadedImgs(media);
+    setUploadedImgs(media);api
     setIsModal4Open(false);
   };
   return (
@@ -235,8 +253,9 @@ console.log(data[1])
         <button
           className="bg-blue-500/75 hover:bg-green-800 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
           type="submit"
-          value="Create Q&A"
-        >Create Q&A (temporary place button)</button>
+          value="update"
+          onClick={updateQuestion}
+        >Update</button>
       </div>
       {/* add uploaded image here  */}
       <div className="flex  items-center justify-center ">
