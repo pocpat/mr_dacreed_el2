@@ -1,32 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 // import ButtonAdd from "./ButtonAdd";
 // import e from "express";
 // import { type } from "os";
+import { set } from "zod";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
 import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
+
+
 interface CourseQuestionInput2Props {
   courseId: string;
  
 }
 
 
-const Question1: React.FC <CourseQuestionInput2Props>= ({ courseId }) => {
+const Question1: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   return (
+    <>
     <div className="bg-lightsecondaryd">
       <QAForm courseId={courseId}/>
     </div>
+    </>
   );
 };
 
 export default Question1;
 
 type questionSection = {
+  id: string;
   question: string;
   answer1: string;
   answer2: string;
@@ -35,8 +41,9 @@ type questionSection = {
   answer5: string;
   answer6: string;
   courseId: string;
-  
+  // answerValues: string[];
 };
+
 
 const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
@@ -47,19 +54,19 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [uploadedImgs, setUploadedImgs] = useState<string | null>(null);
 
   const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
-  // const { mutate: createCommentary } = api.courseQuestion.create.useMutation({});
   api.courseQuestion.getByCourseId.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
     },
     {
       onSuccess: (data) => {
-        if (data.length === 1) {
-          const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
-          setQuestion(data[0]?.question ?? "");
-          setAnswerValues(answerValues);
-          setCommentary(data[0]?.commentary ?? "");
-          setGuidance(data[0]?.guidance ?? "");
+        if (data.length === 2) {
+
+          // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
+          setQuestion(data[1]?.question ?? "");
+          // setAnswerValues(answerValues);
+          setCommentary(data[1]?.commentary ?? "");
+          setGuidance(data[1]?.guidance ?? "");
         }
       },
     }
