@@ -40,7 +40,12 @@ export const courseHeaderRouter = createTRPCRouter({
 
     // CREATE
     create: protectedProcedure  
-      .input(z.object({ title: z.string(), subHeading: z.string(), description: z.string(), courseId: z.string() }))
+      .input(z.object({ 
+        title: z.string(), 
+        subHeading: z.string(), 
+        description: z.string(), 
+        courseId: z.string() 
+      }))
       .mutation(({ ctx, input }) => {
         // console.log(ctx.auth); 
         return ctx.prisma.courseHeader.create({

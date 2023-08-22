@@ -13,7 +13,7 @@ interface InputGuidance {
     charsLeft?: number;
 }
 
-const Guidance: React.FC<InputGuidance> = ({type, onChange, name, charsLeft }) => {
+const Guidance: React.FC<InputGuidance> = ({type, onChange, name, charsLeft,value }) => {
   return (
     <div>
       <div className="mt-4 flex flex-col">
@@ -26,6 +26,7 @@ const Guidance: React.FC<InputGuidance> = ({type, onChange, name, charsLeft }) =
           className="m-2  mt-1  rounded-sm p-2 shadow-inner-top border-none"
            name={name}
           onChange={onChange}
+          value={value}
         />
       </div>
       <div className="flex justify-between">

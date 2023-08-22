@@ -1,32 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
 // import ButtonAdd from "./ButtonAdd";
 // import e from "express";
 // import { type } from "os";
+import { set } from "zod";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
 import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
+
+
 interface CourseQuestionInput2Props {
   courseId: string;
  
 }
 
 
-const Question1: React.FC <CourseQuestionInput2Props>= ({ courseId }) => {
+const Question1: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   return (
+    <>
     <div className="bg-lightsecondaryd">
       <QAForm courseId={courseId}/>
     </div>
+    </>
   );
 };
 
 export default Question1;
 
 type questionSection = {
+  id: string;
   question: string;
   answer1: string;
   answer2: string;
@@ -35,8 +41,9 @@ type questionSection = {
   answer5: string;
   answer6: string;
   courseId: string;
-  
+  // answerValues: string[];
 };
+
 
 const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
@@ -45,9 +52,24 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [commentary, setCommentary] = useState("");
   const [guidance, setGuidance] = useState("");
   const [uploadedImgs, setUploadedImgs] = useState<string | null>(null);
+  const[questionId, setQuestionId] = useState<string>("");
 
-  const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
-  // const { mutate: createCommentary } = api.courseQuestion.create.useMutation({});
+  // TODO: to be called onSubmit of 'update' button
+  function updateQuestion() {
+    api.courseQuestion.update.useMutation({
+      id: questionId,
+      question: question,
+      answer1: answerValues[0] ?? "",
+      answer2: answerValues[1] ?? "",
+      answer3: answerValues[2] ?? "",
+      answer4: answerValues[3] ?? "",
+      answer5: answerValues[4] ?? "",
+      answer6: answerValues[5] ?? "",
+      commentary: commentary,
+      guidance: guidance,
+    } );
+  }
+
   api.courseQuestion.getByCourseId.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
@@ -55,9 +77,18 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     {
       onSuccess: (data) => {
         if (data.length === 1) {
-          const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
+console.log(data[1])
+          setQuestionId(data[0]?.id ?? "");
+          // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
           setQuestion(data[0]?.question ?? "");
-          setAnswerValues(answerValues);
+          setAnswerValues([
+            data[0]?.answer1 ?? "",
+            data[0]?.answer2 ?? "",
+            data[0]?.answer3 ?? "",
+            data[0]?.answer4 ?? "",
+            data[0]?.answer5 ?? "",
+            data[0]?.answer6 ?? "",
+          ]);
           setCommentary(data[0]?.commentary ?? "");
           setGuidance(data[0]?.guidance ?? "");
         }

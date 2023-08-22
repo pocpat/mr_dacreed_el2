@@ -17,7 +17,7 @@ export const courseQuestionRouter = createTRPCRouter({
       console.log("User not authenticated. => ctx.auth.userId is null <=");
     }
   }),
-  getOneQuestion: publicProcedure.query(({ ctx }) => {
+  getOneQuestion: protectedProcedure.query(({ ctx }) => {
     if (ctx.auth?.userId) {
       return ctx.prisma.courseQuestion.findFirst({
         where: { userId: ctx.auth.userId },
@@ -26,38 +26,38 @@ export const courseQuestionRouter = createTRPCRouter({
       console.log("User not authenticated. => ctx.auth.userId is null <=");
     }
   }),
-  create: protectedProcedure
-    .input(
-      z.object({
-        question: z.string(),
-        answer1: z.string(),
-        answer2: z.string(),
-        answer3: z.string(),
-        answer4: z.string(),
-        answer5: z.string(),
-        answer6: z.string(),
-        commentary: z.string(),
-        guidance: z.string(),
-        courseId: z.string(),
-      })
-    )
-    .mutation(async ({ ctx, input }) => {
-      return await ctx.prisma.courseQuestion.create({
-        data: {
-          question: input.question,
-          answer1: input.answer1,
-          answer2: input.answer2,
-          answer3: input.answer3,
-          answer4: input.answer4,
-          answer5: input.answer5,
-          answer6: input.answer6,
-          commentary: input.commentary,
-          guidance: input.guidance,
-          userId: ctx.auth.userId,
-          courseId: input.courseId,
-        },
-      });
-    }),
+
+
+  // create: protectedProcedure
+  //   .input(
+  //     z.object({
+  //       question: z.string(),
+  //       answer1: z.string(),
+  //       answer2: z.string(),
+  //       answer3: z.string(),
+  //       answer4: z.string(),
+  //       answer5: z.string(),
+  //       answer6: z.string(),
+  //       commentary: z.string(),
+  //       guidance: z.string(),
+  //     })
+  //   )
+  //   .mutation(async ({ ctx, input }) => {
+  //     return await ctx.prisma.courseQuestion.create({
+  //       data: {
+  //         question: input.question,
+  //         answer1: input.answer1,
+  //         answer2: input.answer2,
+  //         answer3: input.answer3,
+  //         answer4: input.answer4,
+  //         answer5: input.answer5,
+  //         answer6: input.answer6,
+  //         commentary: input.commentary,
+  //         guidance: input.guidance,
+  //         userId: ctx.auth.userId,
+  //       },
+  //     });
+  //   }),
   update: protectedProcedure
     .input(
       z.object({
@@ -69,6 +69,8 @@ export const courseQuestionRouter = createTRPCRouter({
         answer4: z.string(),
         answer5: z.string(),
         answer6: z.string(),
+        commentary: z.string(),
+        guidance: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -82,6 +84,9 @@ export const courseQuestionRouter = createTRPCRouter({
           answer4: input.answer4,
           answer5: input.answer5,
           answer6: input.answer6,
+          commentary: input.commentary,
+          guidance: input.guidance,
+          userId: ctx.auth.userId,
         },
       });
     }),
@@ -109,5 +114,44 @@ export const courseQuestionRouter = createTRPCRouter({
        return [];
      }
    }),
-
-});
+    // CREATE
+    create: protectedProcedure  
+      .input(z.object({ 
+        // id: z.string(),
+        question: z.string(), 
+        answer1: z.string(), 
+        answer2: z.string(), 
+        answer3: z.string(), 
+        answer4: z.string(), 
+        answer5: z.string(), 
+        answer6: z.string(), 
+        commentary: z.string(), 
+        guidance: z.string(), 
+        courseId: z.string(),
+       }))
+      .mutation(({ ctx, input }) => {
+        // console.log(ctx.auth); 
+        return ctx.prisma.courseQuestion.create({
+          // where: {
+          //   userId: ctx.auth.userId,
+          //   courseId: input?.courseId,
+          // },
+          data: {
+            userId: ctx.auth.userId,
+            courseId: input.courseId, //"clkswcf8j0000dg1km8pz49zq",                 
+            question: input.question,
+            answer1: input.answer1,
+            answer2: input.answer2,
+            answer3: input.answer3,
+            answer4: input.answer4,
+            answer5: input.answer5,
+            answer6: input.answer6,
+            commentary: input.commentary,
+            guidance: input.guidance,
+          },
+        });
+      })
+    
+    
+    
+    });

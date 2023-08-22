@@ -17,6 +17,7 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   onChange,
   name,
   charsLeft,
+  value,
 }) => {
   return (
     <div>
@@ -30,6 +31,7 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
           className="newAnswer input-bordered input m-2 w-full max-w-xl rounded-sm shadow-inner  "
           name={name}
           onChange={onChange}
+          value={value}
         />
         <input
           type="checkbox"
