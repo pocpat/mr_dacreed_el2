@@ -20,10 +20,10 @@ const Input = () => {
   const CourseCreationModal = () => {
     return (
       <div className="inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-        <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
-          <div className="p-41 flex flex-row items-center justify-items-center">
-            <div className="w-3/5">
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
+          <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
+            <div className="p-41 flex flex-row items-center justify-items-center">
+              <div className="w-3/5">
                 <CourseForm />
                 <div className="flex w-3/4 flex-col items-start justify-between">
                   <Link
@@ -244,7 +244,7 @@ const Input = () => {
                 <div className="   rounded-3xl ">
                   <a
                     aria-current="page"
-                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={handleModal}
                   >
@@ -258,7 +258,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -272,7 +272,7 @@ const Input = () => {
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <a
                     aria-current="page"
-                    className="bg-primaryd text  m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4  text-accentd ring-2  ring-tertiaryd  "
+                    className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
@@ -285,7 +285,7 @@ const Input = () => {
               <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
-                    className="bg-primaryd text m-0 flex h-[100px] w-48 items-center  justify-center rounded-3xl  border-solid border-accentd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
+                    className="text m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
                     href="/input/waiting/waiting"
                   >
                     <h3 className="text-2xl font-bold">Cont...</h3>
@@ -422,7 +422,6 @@ const CourseForm: React.FC = () => {
       //   `This should be posting to the db with course title: ${courseTitle}`
       // );
       // void refetchTopics();
-  
     },
   });
 
@@ -483,20 +482,22 @@ const DraftCourses: React.FC = () => {
           key={course.id}
           className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
         >
-          <button className="h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd secondaryd text-white drop-shadow-xl">
+          <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
             D
           </button>
           <p>{course.title}</p>
+          <p>{course.description}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
 
-          <Link href={
-            {pathname: `/input/waiting/editing/common`,
-            query: {editCourseId: course.id}}
-            }>
-          <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl"
+          <Link
+            href={{
+              pathname: `/input/waiting/editing/common`,
+              query: { editCourseId: course.id },
+            }}
           >
-            Edit
-          </button>
+            <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
+              Edit
+            </button>
           </Link>
         </div>
       ))}
