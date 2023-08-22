@@ -77,7 +77,6 @@ export const courseQuestionRouter = createTRPCRouter({
       return await ctx.prisma.courseQuestion.update({
         where: { id: input.id },
         data: {
-          id: input.id,
           question: input.question,
           answer1: input.answer1,
           answer2: input.answer2,

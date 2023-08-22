@@ -60,20 +60,20 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     },
     {
       onSuccess: (data) => {
-        if (data.length === 2) {
-
+        if (data.length === 1) {
+console.log(data[1])
           // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
-          setQuestion(data[1]?.question ?? "");
+          setQuestion(data[0]?.question ?? "");
           setAnswerValues([
-            data[1]?.answer1 ?? "",
-            data[1]?.answer2 ?? "",
-            data[1]?.answer3 ?? "",
-            data[1]?.answer4 ?? "",
-            data[1]?.answer5 ?? "",
-            data[1]?.answer6 ?? "",
+            data[0]?.answer1 ?? "",
+            data[0]?.answer2 ?? "",
+            data[0]?.answer3 ?? "",
+            data[0]?.answer4 ?? "",
+            data[0]?.answer5 ?? "",
+            data[0]?.answer6 ?? "",
           ]);
-          setCommentary(data[1]?.commentary ?? "");
-          setGuidance(data[1]?.guidance ?? "");
+          setCommentary(data[0]?.commentary ?? "");
+          setGuidance(data[0]?.guidance ?? "");
         }
       },
     }

@@ -11,7 +11,7 @@ interface InputCommentary {
     charsLeft?: number;
 }
 
-const Commentary: React.FC<InputCommentary> = ({type, onChange, name, charsLeft }) => {
+const Commentary: React.FC<InputCommentary> = ({type, onChange, name, charsLeft,value }) => {
   return (
     <div>
       <div className="mt-4 flex flex-col">
@@ -24,6 +24,7 @@ const Commentary: React.FC<InputCommentary> = ({type, onChange, name, charsLeft 
           className="m-2  mt-1  rounded-sm p-2 shadow-inner-top border-none"
            name={name}
           onChange={onChange}
+          value={value}
         />
       </div>
       <div className="flex justify-between">

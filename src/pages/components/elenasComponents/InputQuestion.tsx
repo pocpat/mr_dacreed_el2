@@ -11,7 +11,7 @@ interface InputQuestion {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     charsLeft?: number;
 }
-const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, name, charsLeft }) => {
+const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, name, charsLeft,value }) => {
   return (
     <div>
        <div className="flex flex-row">
@@ -23,6 +23,7 @@ const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, na
 
         name={name}
         onChange={onChange}
+        value={value}
       /> 
       </div>
       <div className="flex justify-between">
