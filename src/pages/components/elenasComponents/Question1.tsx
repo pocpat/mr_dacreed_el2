@@ -172,7 +172,7 @@ console.log(data[1])
     setComponentNames(newComponentNames);
   }
   const handleMediaUpload = (media: string) => {
-    setUploadedImgs(media);
+    setUploadedImgs(media);api
     setIsModal4Open(false);
   };
   return (

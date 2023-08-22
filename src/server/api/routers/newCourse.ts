@@ -6,7 +6,7 @@ import {
 export const newCourseRouter = createTRPCRouter({
     getCourses: publicProcedure.query(({ ctx }) => {
         if (ctx.auth?.userId) {
-            return ctx.prisma.course.findMany({
+            return ctx.prisma.courseHeader.findMany({
               where: {
                 userId: ctx.auth.userId,
               },
@@ -27,8 +27,8 @@ export const newCourseRouter = createTRPCRouter({
           data: {
             title: input.title,
             description: input.description,
-            userId: ctx.auth.userId,                    
-           
+            userId: ctx.auth.userId,    
+                       
           },
           
         });
