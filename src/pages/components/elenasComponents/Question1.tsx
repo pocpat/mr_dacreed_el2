@@ -52,8 +52,24 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [commentary, setCommentary] = useState("");
   const [guidance, setGuidance] = useState("");
   const [uploadedImgs, setUploadedImgs] = useState<string | null>(null);
+  const[questionId, setQuestionId] = useState<string>("");
 
-  const { mutate: createQuestion } = api.courseQuestion.create.useMutation({});
+  // TODO: to be called onSubmit of 'update' button
+  function updateQuestion() {
+    api.courseQuestion.update.useMutation({
+      id: questionId,
+      question: question,
+      answer1: answerValues[0] ?? "",
+      answer2: answerValues[1] ?? "",
+      answer3: answerValues[2] ?? "",
+      answer4: answerValues[3] ?? "",
+      answer5: answerValues[4] ?? "",
+      answer6: answerValues[5] ?? "",
+      commentary: commentary,
+      guidance: guidance,
+    } );
+  }
+
   api.courseQuestion.getByCourseId.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
@@ -62,6 +78,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
       onSuccess: (data) => {
         if (data.length === 1) {
 console.log(data[1])
+          setQuestionId(data[0]?.id ?? "");
           // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
           setQuestion(data[0]?.question ?? "");
           setAnswerValues([

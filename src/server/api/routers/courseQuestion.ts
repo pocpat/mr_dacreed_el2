@@ -86,8 +86,7 @@ export const courseQuestionRouter = createTRPCRouter({
           answer6: input.answer6,
           commentary: input.commentary,
           guidance: input.guidance,
-
-
+          userId: ctx.auth.userId,
         },
       });
     }),
