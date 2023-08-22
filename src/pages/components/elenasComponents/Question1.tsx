@@ -64,7 +64,14 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
 
           // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
           setQuestion(data[1]?.question ?? "");
-          // setAnswerValues(answerValues);
+          setAnswerValues([
+            data[1]?.answer1 ?? "",
+            data[1]?.answer2 ?? "",
+            data[1]?.answer3 ?? "",
+            data[1]?.answer4 ?? "",
+            data[1]?.answer5 ?? "",
+            data[1]?.answer6 ?? "",
+          ]);
           setCommentary(data[1]?.commentary ?? "");
           setGuidance(data[1]?.guidance ?? "");
         }
