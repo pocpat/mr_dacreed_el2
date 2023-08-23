@@ -3,7 +3,7 @@ import TopNav from "~/pages/components/jpComponents/TopNav";
 import StickyFooter from "~/pages/components/jpComponents/StickyFooter";
 import { useUser } from "@clerk/nextjs";
 import { useState } from "react";
-import { api, type RouterOutputs } from "~/utils/api";
+// import { api, type RouterOutputs } from "~/utils/api";
 import JPButtonRender from "~/pages/components/jpComponents/JPButtonRender";
 
 const Jono2 = () => {

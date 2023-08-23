@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
-// import ButtonAdd from "./ButtonAdd";
-// import e from "express";
-// import { type } from "os";
-import { set } from "zod";
+// import { set } from "zod";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
-import { IconButton } from "@material-tailwind/react";
+// import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
 
 

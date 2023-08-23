@@ -26,7 +26,7 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   name,
   charsLeft,
   value,
-  courseId,
+  courseId, //id
 }) => {
   return (
     <div>

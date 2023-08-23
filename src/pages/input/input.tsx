@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
-import TopNav from "../components/jpComponents/TopNav";
+// import TopNav from "../components/jpComponents/TopNav";
 import { useUser } from "@clerk/nextjs";
-import { useState, useEffect, Fragment } from "react";
+import { useState,  Fragment } from "react";
 import { api } from "~/utils/api";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";

@@ -1,6 +1,6 @@
 import React from "react";
-import { ZodErrorMap, string } from "zod";
-import input from "~/pages/input/input";
+// import { ZodErrorMap, string } from "zod";
+// import input from "~/pages/input/input";
 
 interface InputQuestion {
     placeholder: string;
