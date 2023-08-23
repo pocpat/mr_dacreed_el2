@@ -29,7 +29,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
   const [description, setDescription] = useState("");
-  const { mutate: createCourseHeader2 } = api.course.create.useMutation({});
+  const { mutate: createCourse } = api.course.create.useMutation({});
   api.course.getCourseById.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
@@ -60,11 +60,10 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
         `Sorry, all fields need to be filled so that we can save this to the database for you.`
       );
     } else {
-      createCourseHeader2({
+      createCourse({
         title: title,
         subHeading: subHeading,
         description: description,
-        courseId: courseId,
       });
       resetForm();
     }

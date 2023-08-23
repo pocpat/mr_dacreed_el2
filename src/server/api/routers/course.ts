@@ -17,7 +17,7 @@ export const courseRouter = createTRPCRouter({
             return [];
           }
         }),
-         // GET by ID
+    // GET by ID
     getCourseById: protectedProcedure
     .input(z.object({ courseId: z.string()}))
     .query(({ ctx, input }) => {
@@ -33,7 +33,31 @@ export const courseRouter = createTRPCRouter({
           console.log("User not authenticated. => ctx.auth.userId is null <=");
           return [];
         }
-      }),});
+      }),
+    
+        // CREATE
+        create: protectedProcedure
+        .input(z.object({
+          title: z.string(),
+          subHeading: z.string(),
+          description: z.string(),
+        }))
+        .mutation(({ ctx, input }) => {
+          // console.log(ctx.auth);
+          return ctx.prisma.course.create({
+            data: {
+              title: input.title,
+              userId: ctx.auth.userId,
+              subHeading: input.subHeading,
+              description: input.description,
+              },
+          });
+        })});
+    
+    
+    
+    
+
 
 
       export const exampleRouter = createTRPCRouter({
@@ -54,3 +78,4 @@ export const courseRouter = createTRPCRouter({
           return "you can now see this secret message!";
         }),
       });
+

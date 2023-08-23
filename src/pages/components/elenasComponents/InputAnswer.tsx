@@ -17,7 +17,6 @@ interface InputAnswerProps {
     | undefined;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   charsLeft: number;
-  courseId: string;
 }
 const InputAnswer: React.FC<InputAnswerProps> = ({
   type,
@@ -26,7 +25,6 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   name,
   charsLeft,
   value,
-  courseId, //id
 }) => {
   return (
     <div>
