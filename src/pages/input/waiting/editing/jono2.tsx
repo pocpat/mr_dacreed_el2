@@ -150,18 +150,18 @@ type Course = {
 const CourseForm: React.FC = () => {
   const [courseTitle, setCourseTitle] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
-  const { mutate: createCourse } = api.newCourse.create.useMutation({
-    onSuccess: () => {
-      console.log(
-        `This should be posting to the db with course title: ${courseTitle}`
-      );
-      // void refetchTopics();
-    },
-  });
+  // const { mutate: createCourse } = api.newCourse.create.useMutation({
+  //   onSuccess: () => {
+  //     console.log(
+  //       `This should be posting to the db with course title: ${courseTitle}`
+  //     );
+  //     // void refetchTopics();
+  //   },
+  // });
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    createCourse({ title: courseTitle, description: courseDescription });
+    // createCourse({ title: courseTitle, description: courseDescription });
   };
 
   return (

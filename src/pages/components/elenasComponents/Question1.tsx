@@ -132,10 +132,10 @@ console.log(data[1])
 
     e.preventDefault();
 
-    try {
-      // TODO: validate the response from `createQuestion()` call and show error message if needed
-      createQuestion(newQuestionToCreate);
-    } catch (error) {}
+    // try {
+    //   // TODO: validate the response from `createQuestion()` call and show error message if needed
+    //   createQuestion(newQuestionToCreate);
+    // } catch (error) {}
   };
 
   const [components, setComponents] = useState<string[]>([]);

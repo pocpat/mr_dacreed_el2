@@ -16,21 +16,21 @@ export const newCourseRouter = createTRPCRouter({
           }
         }),
 
-    create: protectedProcedure  
-      .input(z.object({ title: z.string(), description: z.string() }))
-      .mutation(({ ctx, input }) => {
+    // create: protectedProcedure  
+    //   .input(z.object({ title: z.string(), description: z.string() }))
+    //   .mutation(({ ctx, input }) => {
       
-        console.log("title: "+ input.title + ", description: "+ input.description + ", userId: "+  ctx.auth.userId);
+    //     console.log("title: "+ input.title + ", description: "+ input.description + ", userId: "+  ctx.auth.userId);
 
 
-        return ctx.prisma.course.create({
-          data: {
-            title: input.title,
-            description: input.description,
-            userId: ctx.auth.userId,    
+    //     return ctx.prisma.course.create({
+    //       data: {
+    //         title: input.title,
+    //         description: input.description,
+    //         userId: ctx.auth.userId,    
                        
-          },
+          // },
           
-        });
-      }),
+        // });
+      // }),
     });

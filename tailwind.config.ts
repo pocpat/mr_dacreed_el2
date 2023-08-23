@@ -4,6 +4,9 @@
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
+    fontFamily: {
+      'nunito': ['Cambria']
+    },
     colors: {
       'accentd': '#1E425C',
       'tertiaryd': '#0F5475',
