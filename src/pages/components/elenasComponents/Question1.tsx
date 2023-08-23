@@ -88,7 +88,11 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { mutate: createQuestionMutation } = api.courseQuestion.create.useMutation();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  
     const newQuestionToCreate = {
       question: question,
       answer1: answerValues[0] ?? "",
@@ -99,17 +103,46 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
       answer6: answerValues[5] ?? "",
       commentary: commentary,
       guidance: guidance,
-      // uploadedImgs: uploadedImgs?? "",
-      courseId: "",
+      courseId: courseId,
     };
-
-    e.preventDefault();
-
-    // try {
-    //   // TODO: validate the response from `createQuestion()` call and show error message if needed
-    //   createQuestion(newQuestionToCreate);
-    // } catch (error) {}
+  
+    try {
+      const createdQuestion = await createQuestionMutation(newQuestionToCreate);
+      // You can handle success and further logic here
+      console.log("Created question:", createdQuestion);
+    } catch (error) {
+      // Handle error here
+      console.error("Error creating question:", error);
+    }
   };
+  
+
+
+
+
+
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   const newQuestionToCreate = {
+  //     question: question,
+  //     answer1: answerValues[0] ?? "",
+  //     answer2: answerValues[1] ?? "",
+  //     answer3: answerValues[2] ?? "",
+  //     answer4: answerValues[3] ?? "",
+  //     answer5: answerValues[4] ?? "",
+  //     answer6: answerValues[5] ?? "",
+  //     commentary: commentary,
+  //     guidance: guidance,
+  //     // uploadedImgs: uploadedImgs?? "",
+  //     courseId: courseId,
+  //   };
+
+  //   e.preventDefault();
+
+  //   // try {
+  //   //   // TODO: validate the response from `createQuestion()` call and show error message if needed
+  //   //   createQuestion(newQuestionToCreate);
+  //   // } catch (error) {}
+  // };
 
   const [components, setComponents] = useState<string[]>([]);
   const [componentNames, setComponentNames] = useState<string[]>([
