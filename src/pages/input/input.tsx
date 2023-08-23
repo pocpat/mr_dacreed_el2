@@ -8,6 +8,7 @@ import { api } from "~/utils/api";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";
 import FooterBird from "~/componentsRoot/FooterBird";
+import { Course } from "@prisma/client";
 
 const Input = () => {
   const { user } = useUser();
@@ -389,7 +390,7 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl font-bold text-primaryd">
+      <div className="text-2xl  text-primaryd font-normal">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
@@ -462,22 +463,25 @@ const CourseForm: React.FC = () => {
 };
 
 const DraftCourses: React.FC = () => {
-  const { user } = useUser();
-  const [courses, setCourses] = useState<CourseHeader[]>([]);
-  const { data: newCourses, refetch: refetchTopics } =
-    api.newCourse.getCourses.useQuery(undefined, {
-      onSuccess: (data) => {
-        if (data && data.length > 0) {
-          setCourses(data);
-        } else {
-          setCourses([]);
-        }
-      },
-    });
+  //const { user } = useUser();
+  const [courses, setCourses] = useState<Course[]>([]);
 
+  api.course.getAll.useQuery( undefined, {
+    onSuccess: (data) => {
+      if (data && data.length > 0) {
+        setCourses(data);
+      }
+      else {
+        setCourses([]);
+      }
+    },
+  });
+
+ 
   return (
     <div className="flex w-full flex-col">
-      {courses?.map((course: CourseHeader) => (
+      {courses?.map(( course) => (
+      
         <div
           key={course.id}
           className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
@@ -485,6 +489,7 @@ const DraftCourses: React.FC = () => {
           <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
             D
           </button>
+         
           <p>{course.title}</p>
           <p>{course.description}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
