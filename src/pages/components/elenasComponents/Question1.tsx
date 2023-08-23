@@ -54,20 +54,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   // TODO: to be called onSubmit of 'update' button
   const { mutate: updateQuestionMutation } =
     api.courseQuestion.update.useMutation();
-  // function updateQuestion() {
-  //   api.courseQuestion.update.useMutation({
-  //     id: questionId,
-  //     question: question,
-  //     answer1: answerValues[0] ?? "",
-  //     answer2: answerValues[1] ?? "",
-  //     answer3: answerValues[2] ?? "",
-  //     answer4: answerValues[3] ?? "",
-  //     answer5: answerValues[4] ?? "",
-  //     answer6: answerValues[5] ?? "",
-  //     commentary: commentary,
-  //     guidance: guidance,
-  //   } );
-  // }
+
 
   api.courseQuestion.getByCourseId.useQuery(
     {
