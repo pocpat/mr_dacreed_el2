@@ -1,5 +1,5 @@
 import { useUser } from "@clerk/nextjs";
-import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 
 export const Header = () => {
   const { user } = useUser();
@@ -33,9 +33,4 @@ export const Header = () => {
   );
 };
 
-{
-  /* <div className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20">
-{!user.isSignedIn && <SignInButton mode="modal" />}
-{user.isSignedIn && <SignOutButton />}
-</div> */
-}
+export default Header;

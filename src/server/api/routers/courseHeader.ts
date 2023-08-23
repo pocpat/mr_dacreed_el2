@@ -2,14 +2,12 @@ import { z } from "zod";
 import {
   createTRPCRouter,protectedProcedure, publicProcedure,
 } from "~/server/api/trpc";
-
 // API END POINTS
-
 export const courseHeaderRouter = createTRPCRouter({
-    // GET ALL 
+    // GET ALL
     getAll: publicProcedure.query(({ ctx }) => {
         if (ctx.auth?.userId) {
-            return ctx.prisma.courseHeader.findMany({
+            return ctx.prisma.course.findMany({
               where: {
                 userId: ctx.auth.userId,
               },
@@ -19,9 +17,8 @@ export const courseHeaderRouter = createTRPCRouter({
             return [];
           }
         }),
-    
-    // GET by ID 
-    getByCourseId: protectedProcedure
+    // GET by ID
+    getCourseById: protectedProcedure
       .input(z.object({ courseId: z.string()}))
       .query(({ ctx, input }) => {
         console.log(`courseHeaderRouter.getByCourseId: courseId=${input.courseId}`);
@@ -37,24 +34,23 @@ export const courseHeaderRouter = createTRPCRouter({
             return [];
           }
         }),
-
     // CREATE
-    create: protectedProcedure  
-      .input(z.object({ 
-        title: z.string(), 
-        subHeading: z.string(), 
-        description: z.string(), 
-        courseId: z.string() 
+    create: protectedProcedure
+      .input(z.object({
+        title: z.string(),
+        subHeading: z.string(),
+        description: z.string(),
+        courseId: z.string()
       }))
       .mutation(({ ctx, input }) => {
-        // console.log(ctx.auth); 
+        // console.log(ctx.auth);
         return ctx.prisma.courseHeader.create({
           data: {
             title: input.title,
             userId: ctx.auth.userId,
             subHeading: input.subHeading,
             description: input.description,
-            courseId: input.courseId, //"clkswcf8j0000dg1km8pz49zq",                 
+            courseId: input.courseId, //"clkswcf8j0000dg1km8pz49zq",
           },
         });
       })});

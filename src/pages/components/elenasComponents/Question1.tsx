@@ -2,74 +2,59 @@ import React, { useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
-// import ButtonAdd from "./ButtonAdd";
-// import e from "express";
-// import { type } from "os";
-import { set } from "zod";
+// import { set } from "zod";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
-import { IconButton } from "@material-tailwind/react";
+// import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
-
+import { set } from "zod";
+import { CourseQuestion } from "@prisma/client";
 
 interface CourseQuestionInput2Props {
   courseId: string;
- 
 }
-
 
 const Question1: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   return (
     <>
-    <div className="bg-lightsecondaryd">
-      <QAForm courseId={courseId}/>
-    </div>
+      <div className="bg-lightsecondaryd">
+        <QAForm courseId={courseId} />
+      </div>
     </>
   );
 };
 
 export default Question1;
 
-type questionSection = {
-  id: string;
-  question: string;
-  answer1: string;
-  answer2: string;
-  answer3: string;
-  answer4: string;
-  answer5: string;
-  answer6: string;
-  courseId: string;
-  // answerValues: string[];
-};
-
+// type questionSection = {
+//   id: string;
+//   question: string;
+//   answer1: string;
+//   answer2: string;
+//   answer3: string;
+//   answer4: string;
+//   answer5: string;
+//   answer6: string;
+//   // answerValues: string[];
+// };
 
 const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
   const [answerValues, setAnswerValues] = useState<string[]>(["", ""]);
+  const [fetchedQuestions, setFetchedQuestions] = useState<CourseQuestion[]>(
+    []
+  );
   const [isModal4Open, setIsModal4Open] = useState(false);
   const [commentary, setCommentary] = useState("");
   const [guidance, setGuidance] = useState("");
   const [uploadedImgs, setUploadedImgs] = useState<string | null>(null);
-  const[questionId, setQuestionId] = useState<string>("");
+  const [questionId, setQuestionId] = useState<string>("");
 
   // TODO: to be called onSubmit of 'update' button
-  const { mutate: updateQuestionMutation } = api.courseQuestion.update.useMutation();
-  // function updateQuestion() {
-  //   api.courseQuestion.update.useMutation({
-  //     id: questionId,
-  //     question: question,
-  //     answer1: answerValues[0] ?? "",
-  //     answer2: answerValues[1] ?? "",
-  //     answer3: answerValues[2] ?? "",
-  //     answer4: answerValues[3] ?? "",
-  //     answer5: answerValues[4] ?? "",
-  //     answer6: answerValues[5] ?? "",
-  //     commentary: commentary,
-  //     guidance: guidance,
-  //   } );
-  // }
+  const { mutate: updateQuestionMutation } =
+    api.courseQuestion.update.useMutation();
+
 
   api.courseQuestion.getByCourseId.useQuery(
     {
@@ -77,45 +62,33 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     },
     {
       onSuccess: (data) => {
-        if (data.length === 1) {
-console.log(data[1])
-          setQuestionId(data[0]?.id ?? "");
-          // const answerValues = data[0]?.answerValues || []; // Default to an empty array if answerValues is null
-          setQuestion(data[0]?.question ?? "");
-          setAnswerValues([
-            data[0]?.answer1 ?? "",
-            data[0]?.answer2 ?? "",
-            data[0]?.answer3 ?? "",
-            data[0]?.answer4 ?? "",
-            data[0]?.answer5 ?? "",
-            data[0]?.answer6 ?? "",
-          ]);
-          setCommentary(data[0]?.commentary ?? "");
-          setGuidance(data[0]?.guidance ?? "");
+        if (data.length > 0) {
+          setFetchedQuestions(data);
+        } else {
+          setFetchedQuestions([]);
         }
       },
     }
   );
 
-
-    function updateQuestion() {
+  function updateQuestion(idx: number) {
+    if (fetchedQuestions.length > 0 && fetchedQuestions[idx]) {
       updateQuestionMutation({
-      id: questionId,
-      question: question,
-      answer1: answerValues[0] ?? "",
-      answer2: answerValues[1] ?? "",
-      answer3: answerValues[2] ?? "",
-      answer4: answerValues[3] ?? "",
-      answer5: answerValues[4] ?? "",
-      answer6: answerValues[5] ?? "",
-      commentary: commentary,
-      guidance: guidance,
-    } );
+        id: fetchedQuestions[idx].id ?? "",
+        question: fetchedQuestions[idx].question ?? "",
+        answer1: fetchedQuestions[idx].answer1 ?? "",
+        answer2: fetchedQuestions[idx].answer2 ?? "",
+        answer3: fetchedQuestions[idx].answer3 ?? "",
+        answer4: fetchedQuestions[idx].answer4 ?? "",
+        answer5: fetchedQuestions[idx].answer5 ?? "",
+        answer6: fetchedQuestions[idx].answer6 ?? "",
+        commentary: commentary,
+        guidance: guidance,
+      });
+    }
   }
 
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-
     const newQuestionToCreate = {
       question: question,
       answer1: answerValues[0] ?? "",
@@ -132,10 +105,10 @@ console.log(data[1])
 
     e.preventDefault();
 
-    try {
-      // TODO: validate the response from `createQuestion()` call and show error message if needed
-      createQuestion(newQuestionToCreate);
-    } catch (error) {}
+    // try {
+    //   // TODO: validate the response from `createQuestion()` call and show error message if needed
+    //   createQuestion(newQuestionToCreate);
+    // } catch (error) {}
   };
 
   const [components, setComponents] = useState<string[]>([]);
@@ -172,91 +145,141 @@ console.log(data[1])
     setComponentNames(newComponentNames);
   }
   const handleMediaUpload = (media: string) => {
-    setUploadedImgs(media);api
+    setUploadedImgs(media);
+    api;
     setIsModal4Open(false);
   };
   return (
-    <form onSubmit={handleSubmit} 
-    className="
+    <form
+      onSubmit={handleSubmit}
+      className="
   bg-lightsecondaryd 
 
     m-0"
     >
       <span className="ml-3  font-bold text-accentd">Question 1</span>
-      <div>
-        {/* question */}
-        <div>
-          <InputQuestion
-            placeholder="question"
-            type="text"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            charsLeft={150 - question.length}
-          />
-        </div>
+      {fetchedQuestions?.map((q, j) => (
+        <div key={q.id} className="flex flex-col ">
+          <div>
+            {/* question */}
+            <div>
+              <InputQuestion
+                placeholder="question"
+                type="text"
+                value={q.question}
+                onChange={(e) => {
+                  const data = [...fetchedQuestions];
+                  data[j].question = e.target.value;
+                  setFetchedQuestions(data);
+                }}
+                charsLeft={150 - question.length}
+              />
+            </div>
 
-        {/* answers */}
-        <div>
-          <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
-            {answerValues.map((value, i) => (
-              <div key={i} className="flex w-full flex-col">
-                <div className="relative">
-                  <div>
-                    <InputAnswer
-                      placeholder={`answer ${i + 1}`}
-                      type="text"
-                      onChange={(e) => {
-                        const newAnswerValues = [...answerValues];
-                        newAnswerValues[i] = e.target.value;
-                        setAnswerValues(newAnswerValues);
-                      }}
-                      value={value}
-                      text={`answer ${i + 1}`}
-                      charsLeft={150 - value.length}
-                    />
+            {/* answers */}
+            <div>
+              <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
+                {[
+                  q.answer1,
+                  q.answer2,
+                  q.answer3,
+                  q.answer4,
+                  q.answer5,
+                  q.answer6,
+                ].map((value, i) => (
+                  <div key={i} className="flex w-full flex-col">
+                    <div className="relative">
+                      <div>
+                        <InputAnswer
+                          placeholder={`answer ${i + 1}`}
+                          type="text"
+                          onChange={(e) => {
+                            const data = [...fetchedQuestions];
+                            switch (i) {
+                              case 0:
+                                {
+                                  data[j].answer1 = e.target.value;
+                                }
+                                break;
+                              case 1:
+                                {
+                                  data[j].answer2 = e.target.value;
+                                }
+                                break;
+                              case 2:
+                                {
+                                  data[j].answer3 = e.target.value;
+                                }
+                                break;
+                              case 3:
+                                {
+                                  data[j].answer4 = e.target.value;
+                                }
+                                break;
+                              case 4:
+                                {
+                                  data[j].answer5 = e.target.value;
+                                }
+                                break;
+                              case 5:
+                                {
+                                  data[j].answer6 = e.target.value;
+                                }
+                                break;
+                            }
+                            setFetchedQuestions(data);
+                          }}
+                          value={value}
+                          text={`answer ${i + 1}`}
+                          charsLeft={150 - value.length}
+                        />
+                      </div>
+                      <div className="absolute bottom-0 right-0">
+                        <button
+                          type="button"
+                          onClick={() => removeAnswer(i)}
+                          className="text-black-500 mt-2 flex items-center pr-20"
+                        >
+                          Delete
+                          <img
+                            src="/icons/delete.png"
+                            alt="delete"
+                            className="inline-block h-5 w-5"
+                          />
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute bottom-0 right-0">
-                    <button
-                      type="button"
-                      onClick={() => removeAnswer(i)}
-                      className="text-black-500 mt-2 flex items-center pr-20"
-                    >
-                      Delete
-                      <img
-                        src="/icons/delete.png"
-                        alt="delete"
-                        className="inline-block h-5 w-5"
-                      />
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
-            ))}
+
+              <Commentary
+                placeholder=""
+                type="text"
+                value={commentary}
+                onChange={(e) => setCommentary(e.target.value)}
+                charsLeft={150 - commentary.length}
+              />
+
+              <Guidance
+                placeholder=""
+                type=""
+                onChange={(e) => setGuidance(e.target.value)}
+                value={guidance}
+                charsLeft={150 - guidance.length}
+              />
+            </div>
+            <button
+              className="mt-4 w-1/3 rounded-md bg-blue-500/75 px-4 py-2 text-white hover:bg-green-800"
+              type="submit"
+              value="update"
+              onClick={() => updateQuestion(j)}
+            >
+              Update
+            </button>
           </div>
-
-          <Commentary
-            placeholder=""
-            type="text"
-            value={commentary}
-            onChange={(e) => setCommentary(e.target.value)}
-            charsLeft={150 - commentary.length}
-          />
-
-          <Guidance
-            placeholder=""
-            type=""
-            onChange={(e) => setGuidance(e.target.value)}
-            value={guidance}
-            charsLeft={150 - guidance.length}
-          />
         </div>
-        <button
-          className="bg-blue-500/75 hover:bg-green-800 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
-          type="submit"
-          value="update"
-          onClick={updateQuestion}
-        >Update</button>
-      </div>
+      ))}
       {/* add uploaded image here  */}
       <div className="flex  items-center justify-center ">
         {uploadedImgs && (

@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { set } from "zod";
 import { api } from "~/utils/api";
-
 interface CourseHeaderInput2Props {
   courseId: string;
 }
-
 const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId }) => {
   return (
     <>
@@ -18,25 +16,21 @@ const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId }) => {
     </>
   );
 };
-
 export default HeaderBody2;
-
 type CourseHeader2 = {
   id: string;
   title: string;
   subHeading: string;
   description: string;
 };
-
 const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   courseId,
 }) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
   const [description, setDescription] = useState("");
-  const { mutate: createCourseHeader2 } = api.courseHeader.create.useMutation({});
-
-  api.courseHeader.getByCourseId.useQuery(
+  const { mutate: createCourse } = api.course.create.useMutation({});
+  api.course.getCourseById.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
     },
@@ -50,16 +44,13 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
       },
     }
   );
-
   const resetForm = () => {
     setTitle("");
     setSubheading("");
     setDescription("");
   };
-
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-
     if (
       title.trim() === "" ||
       subHeading.trim() === "" ||
@@ -69,16 +60,14 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
         `Sorry, all fields need to be filled so that we can save this to the database for you.`
       );
     } else {
-      createCourseHeader2({
+      createCourse({
         title: title,
         subHeading: subHeading,
         description: description,
-        courseId: courseId,
       });
       resetForm();
     }
   };
-
   return (
     <div className="flex h-auto w-full flex-col">
       <div className="m-4 flex h-auto flex-col p-4">
@@ -116,7 +105,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
             />
           </label>
           <button
-            className="ml-2 mt-4 h-12 w-28 rounded-md bg-[#b9cdd7] px-4 py-2 text-lg font-bold text-white hover:bg-[#105475]"
+            className="ml-2 mt-4 h-12 w-28 rounded-md bg-[#B9CDD7] px-4 py-2 text-lg font-bold text-white hover:bg-[#105475]"
             type="submit"
             value="Create header"
           >
