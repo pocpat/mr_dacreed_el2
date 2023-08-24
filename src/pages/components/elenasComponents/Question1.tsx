@@ -169,11 +169,13 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                 type="text"
                 value={q.question}
                 onChange={(e) => {
-                  const data = [...fetchedQuestions];
-                  data[j].question = e.target.value;
-                  setFetchedQuestions(data);
+                  const data = [...(fetchedQuestions || [])];
+                  if (data[j]) {
+                    data[j].question = e.target.value;
+                    setFetchedQuestions(data);
+                  }
                 }}
-                charsLeft={150 - question.length}
+                charsLeft={150 - (q.question || '').length}
               />
             </div>
 
@@ -190,7 +192,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                 ].map((value, i) => (
                   <div key={i} className="flex w-full flex-col">
                     <div className="relative">
-                      <div>
+                      {/* <div>
                         <InputAnswer
                           placeholder={`answer ${i + 1}`}
                           type="text"
@@ -234,7 +236,8 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                           text={`answer ${i + 1}`}
                           charsLeft={150 - value.length}
                         />
-                      </div>
+                      </div> */}
+                      
                       <div className="absolute bottom-0 right-0">
                         <button
                           type="button"
