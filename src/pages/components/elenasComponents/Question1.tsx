@@ -121,12 +121,12 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     }
   }
 
-  function removeAnswer(index: number) {
+  function removeAnswer(questionIndex: number, answerIndex: number) {
     const newComponents = [...components];
-    newComponents.splice(index, 1);
+    newComponents.splice(answerIndex, 1);
 
     const newAnswerValues = [...answerValues];
-    newAnswerValues.splice(index, 1);
+    newAnswerValues.splice(answerIndex, 1);
 
     setComponents(newComponents);
     setAnswerValues(newAnswerValues);
@@ -141,13 +141,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     setIsModal4Open(false);
   };
   return (
-    <form
-      // onSubmit={handleSubmit}
-      className="
-  bg-lightsecondaryd 
-
-    m-0"
-    >
+   <>
       <span className="ml-3  font-bold text-accentd">Question 1</span>
       {fetchedQuestions?.map((q, j) => (
         <div key={q.id} className="flex flex-col ">
@@ -228,7 +222,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                       <div className="absolute bottom-0 right-0">
                         <button
                           type="button"
-                          onClick={() => removeAnswer(i)}
+                          onClick={() => removeAnswer(j, i)}
                           className="text-black-500 mt-2 flex items-center pr-20"
                         >
                           Delete
@@ -373,6 +367,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
           <UploadImgs onMediaUpload={handleMediaUpload} />
         </Modal4>
       )}
-    </form>
+    </>
   );
 };
+
