@@ -6,12 +6,19 @@ import { Header } from "../componentsRoot/Header";
 import Bird from "~/componentsRoot/Bird";
 import Image from "next/image";
 import FooterMain from "~/componentsRoot/FooterMain";
+
+import Component from "~/pages/components/elenasComponents/Component";
+
+
+
+
+
 const Home: NextPage = () => {
   console.log("Rendering Home component");
   const user = useUser();
   return (
     <>
-      <Image src="/bg_1.jpg" alt="bg" layout="fill" objectFit="cover" />
+      <Image src="/bg_1.jpg" alt="bg" layout="fill" objectFit="cover" className="z-[-2]"/>
       <Head>
         <Link
           rel="stylesheet"
@@ -31,7 +38,7 @@ const Home: NextPage = () => {
             <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
           </div>
 
-
+<Component/>  
           {/*     buttons   */}
           <div className="flex  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
             <div className="flex flex-row items-center justify-center gap-2 ">
