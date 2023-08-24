@@ -312,7 +312,7 @@ const Input = () => {
                 </span>
 
                 <div className="h-auto w-full">
-                  <DraftCourses courseId={courseId} />
+                  <DraftCourses />
                 </div>
 
               </div>
@@ -397,14 +397,10 @@ const CourseForm: React.FC = () => {
   );
 };
 
-interface CourseIdProp {
-    courseId: string;
-  }
-
-  const DraftCourses: React.FC<CourseIdProp> = ({ courseId }) => {
+  const DraftCourses = () => {
     const [courses, setCourses] = useState<Course[]>([]);
   
-    const query = api.course.getCourseById.useQuery({ courseId });
+    const query = api.course.getAll.useQuery();
     
     useEffect(() => {
       if (query.data && query.data.length > 0) {
