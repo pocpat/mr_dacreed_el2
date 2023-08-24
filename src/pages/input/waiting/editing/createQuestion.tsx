@@ -4,7 +4,7 @@ import CreateQuestionForm from '~/pages/components/elenasComponents/CreateQuesti
 const createQuestion = () => {
   return (
     <div>
-        <CreateQuestionForm courseId= 'cllox94ed0005dgd4c0zjkvpc' />   
+        <CreateQuestionForm courseId= 'clloxd7wf0007dgd4nk0hb1gr' />   
     </div>
   )
 }
