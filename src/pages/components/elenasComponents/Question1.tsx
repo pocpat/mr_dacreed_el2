@@ -85,18 +85,34 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   );
 
   function updateQuestion(idx: number) {
-    if (fetchedQuestions.length > 0 && fetchedQuestions[idx]) {
+    if (fetchedQuestions.length > idx && fetchedQuestions[idx]) {
+      const {
+        id = "",
+        question = "",
+        answer1 = "",
+        answer2 = "",
+        answer3 = "",
+        answer4 = "",
+        answer5 = "",
+        answer6 = "",
+      } = fetchedQuestions[idx] ?? {}; // Use {} as a fallback for undefined
+
+      const sanitizedAnswer3 = answer3 ?? "";
+      const sanitizedAnswer4 = answer4 ?? "";
+      const sanitizedAnswer5 = answer5 ?? "";
+      const sanitizedAnswer6 = answer6 ?? "";
+
       updateQuestionMutation({
-        id: fetchedQuestions[idx].id ?? "",
-        question: fetchedQuestions[idx].question ?? "",
-        answer1: fetchedQuestions[idx].answer1 ?? "",
-        answer2: fetchedQuestions[idx].answer2 ?? "",
-        answer3: fetchedQuestions[idx].answer3 ?? "",
-        answer4: fetchedQuestions[idx].answer4 ?? "",
-        answer5: fetchedQuestions[idx].answer5 ?? "",
-        answer6: fetchedQuestions[idx].answer6 ?? "",
-        commentary: commentary,
-        guidance: guidance,
+        id,
+        question,
+        answer1,
+        answer2,
+        answer3: sanitizedAnswer3,
+        answer4: sanitizedAnswer4,
+        answer5: sanitizedAnswer5,
+        answer6: sanitizedAnswer6,
+        commentary,
+        guidance,
       });
     }
   }
