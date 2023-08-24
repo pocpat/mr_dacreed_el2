@@ -42,9 +42,7 @@ export default Question1;
 const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
   const [answerValues, setAnswerValues] = useState<string[]>(["", ""]);
-  const [fetchedQuestions, setFetchedQuestions] = useState<CourseQuestion[]>(
-    []
-  );
+  const [fetchedQuestions, setFetchedQuestions] = useState<CourseQuestion[]>([]);
   const [isModal4Open, setIsModal4Open] = useState(false);
   const [commentary, setCommentary] = useState("");
   const [guidance, setGuidance] = useState("");
@@ -72,25 +70,30 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   );
 
   function updateQuestion(idx: number) {
-    if (fetchedQuestions.length > 0 && fetchedQuestions[idx]) {
-      updateQuestionMutation({
-        id: fetchedQuestions[idx].id ?? "",
-        question: fetchedQuestions[idx].question ?? "",
-        answer1: fetchedQuestions[idx].answer1 ?? "",
-        answer2: fetchedQuestions[idx].answer2 ?? "",
-        answer3: fetchedQuestions[idx].answer3 ?? "",
-        answer4: fetchedQuestions[idx].answer4 ?? "",
-        answer5: fetchedQuestions[idx].answer5 ?? "",
-        answer6: fetchedQuestions[idx].answer6 ?? "",
-        commentary: commentary,
-        guidance: guidance,
-      });
+    if (fetchedQuestions.length > 0 && idx >= 0 && idx < fetchedQuestions.length) {
+      const questionToUpdate = fetchedQuestions[idx] as CourseQuestion;
+      if (questionToUpdate) {
+        updateQuestionMutation({
+          id: questionToUpdate.id,
+          question: questionToUpdate.question || "",
+          answer1: questionToUpdate.answer1 || "",
+          answer2: questionToUpdate.answer2 || "",
+          answer3: questionToUpdate.answer3 || "",
+          answer4: questionToUpdate.answer4 || "",
+          answer5: questionToUpdate.answer5 || "",
+          answer6: questionToUpdate.answer6 || "",
+          commentary: commentary,
+          guidance: guidance,
+        });
+      }
     }
   }
+  
+
 
   const { mutate: createQuestionMutation } = api.courseQuestion.create.useMutation();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
   
     const newQuestionToCreate = {
@@ -107,7 +110,8 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     };
   
     try {
-      const createdQuestion = await createQuestionMutation(newQuestionToCreate);
+      const createdQuestion = 
+      createQuestionMutation(newQuestionToCreate);
       // You can handle success and further logic here
       console.log("Created question:", createdQuestion);
     } catch (error) {
@@ -116,33 +120,6 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     }
   };
   
-
-
-
-
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   const newQuestionToCreate = {
-  //     question: question,
-  //     answer1: answerValues[0] ?? "",
-  //     answer2: answerValues[1] ?? "",
-  //     answer3: answerValues[2] ?? "",
-  //     answer4: answerValues[3] ?? "",
-  //     answer5: answerValues[4] ?? "",
-  //     answer6: answerValues[5] ?? "",
-  //     commentary: commentary,
-  //     guidance: guidance,
-  //     // uploadedImgs: uploadedImgs?? "",
-  //     courseId: courseId,
-  //   };
-
-  //   e.preventDefault();
-
-  //   // try {
-  //   //   // TODO: validate the response from `createQuestion()` call and show error message if needed
-  //   //   createQuestion(newQuestionToCreate);
-  //   // } catch (error) {}
-  // };
 
   const [components, setComponents] = useState<string[]>([]);
   const [componentNames, setComponentNames] = useState<string[]>([
@@ -185,11 +162,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="
-  bg-lightsecondaryd 
-
-    m-0"
-    >
+      className="bg-lightsecondaryd  m-0" >
       <span className="ml-3  font-bold text-accentd">Question 1</span>
       {fetchedQuestions?.map((q, j) => (
         <div key={q.id} className="flex flex-col ">
