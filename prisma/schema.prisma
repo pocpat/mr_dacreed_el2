@@ -46,7 +46,7 @@ model CourseQuestion {
     userId     String
     user       User     @relation(fields: [userId], references: [id])
     courseId   String
-    course     Course   @relation(fields: [id], references: [id])
+    course     Course   @relation(fields: [courseId], references: [id])
 }
 
 // Necessary for Next auth

@@ -43,7 +43,7 @@ export const courseRouter = createTRPCRouter({
           description: z.string(),
         }))
         .mutation(({ ctx, input }) => {
-          // console.log(ctx.auth);
+          console.log(ctx.auth.userId);
           return ctx.prisma.course.create({
             data: {
               title: input.title,
@@ -78,4 +78,6 @@ export const courseRouter = createTRPCRouter({
           return "you can now see this secret message!";
         }),
       });
-
+    
+    
+    
