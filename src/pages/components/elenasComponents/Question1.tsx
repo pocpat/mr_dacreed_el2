@@ -55,7 +55,6 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const { mutate: updateQuestionMutation } =
     api.courseQuestion.update.useMutation();
 
-
   api.courseQuestion.getByCourseId.useQuery(
     {
       courseId, // this is the courseId we looked up in the URL
@@ -289,7 +288,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
         )}
       </div>
 
-      <div className="w-82 dropdown dropdown-top flex content-center justify-center rounded-sm ">
+      <div className="w-82 dropdown-top dropdown flex content-center justify-center rounded-sm ">
         <label tabIndex={0} className=" m-1 flex flex-row items-center ">
           <p className="mr-2">Add </p>
           <svg
