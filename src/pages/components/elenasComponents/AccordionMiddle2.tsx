@@ -9,6 +9,7 @@ import Question1 from "./Question1";
 
 // import { set } from "zod";
 import HeaderBody2 from "./HeaderBody2";
+import QuestionsList from "~/componentsRoot/QuestionsList";
 
 function Icon({ id, open }: { id: number; open: number }) {
   return (
@@ -66,7 +67,7 @@ onClick={() => handleOpen(2)}
 
         <br />
         <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd" >
-          <Question1 courseId={courseId}/>
+          <QuestionsList courseId={courseId}/>
         </AccordionBody>
       </Accordion>
     </div>
