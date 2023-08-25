@@ -1,9 +1,12 @@
- import { type Config } from "tailwindcss";
+import { type Config } from "tailwindcss";
 
 
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
+    fontFamily: {
+      'nunito': ['Cambria']
+    },
     colors: {
       'accentd': '#1E425C',
       'tertiaryd': '#0F5475',
@@ -76,5 +79,3 @@ const config: Config = {
 };
 
 export default config;
-
-

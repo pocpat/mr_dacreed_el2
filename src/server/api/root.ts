@@ -1,31 +1,18 @@
 
-import { libraryRouter } from "~/server/api/routers/library";
 import { createTRPCRouter } from "~/server/api/trpc";
-import { topicRouter } from "./routers/topic";
-// import { testStringRouter } from "./routers/testString";
 import { exampleRouter } from "./routers/example";
-import { courseHeaderRouter } from "./routers/courseHeader";
-import { newCourseRouter } from "./routers/newCourse";
+// import { courseHeaderRouter } from "./routers/courseHeader";
+import { courseRouter } from "./routers/course";
 import { courseQuestionRouter } from "./routers/courseQuestion";
-// import { newUserRouter } from "./routers/newUser";
-// import { questionSectionRouter } from "./routers/questionSection";
 
 
 
 
 export const appRouter = createTRPCRouter({
-  courseHeader: courseHeaderRouter,
-  // testString: testStringRouter,
+  // courseHeader: courseHeaderRouter,
   example: exampleRouter,
-  library: libraryRouter,
-  topic: topicRouter,
-  newCourse: newCourseRouter,
+  course: courseRouter,
   courseQuestion: courseQuestionRouter,
-  // questionSection: questionSectionRouter,
-  // newUser:newUserRouter
 });
 
 export type AppRouter = typeof appRouter;
-
-
-

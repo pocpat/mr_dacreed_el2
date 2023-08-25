@@ -5,7 +5,7 @@ import {
   protectedProcedure,
   publicProcedure,
 } from "~/server/api/trpc";
-import { CourseQuestion } from "@prisma/client";
+// import { CourseQuestion } from "@prisma/client";
 
 export const courseQuestionRouter = createTRPCRouter({
   getCourses: publicProcedure.query(({ ctx }) => {
@@ -117,7 +117,6 @@ export const courseQuestionRouter = createTRPCRouter({
     // CREATE
     create: protectedProcedure  
       .input(z.object({ 
-        // id: z.string(),
         question: z.string(), 
         answer1: z.string(), 
         answer2: z.string(), 
@@ -132,10 +131,6 @@ export const courseQuestionRouter = createTRPCRouter({
       .mutation(({ ctx, input }) => {
         // console.log(ctx.auth); 
         return ctx.prisma.courseQuestion.create({
-          // where: {
-          //   userId: ctx.auth.userId,
-          //   courseId: input?.courseId,
-          // },
           data: {
             userId: ctx.auth.userId,
             courseId: input.courseId, //"clkswcf8j0000dg1km8pz49zq",                 
