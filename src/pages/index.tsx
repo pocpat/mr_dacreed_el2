@@ -74,9 +74,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="z-0 m-8">
-              <FooterMain />
-            </div>
+ 
           </div>
         </div>
 

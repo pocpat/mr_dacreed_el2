@@ -4,7 +4,7 @@ interface InputAnswerProps {
   name?: string;
   id?: string;
   type: string;
-  value: string | number | undefined;
+  value?: string | number | undefined;
   text:
     | string
     | number
@@ -26,6 +26,8 @@ const InputAnswer: React.FC<InputAnswerProps> = ({
   charsLeft,
   value,
 }) => {
+  // const sanitizedValue = value !== null ? value : '';
+
   return (
     <div>
       <div className="flex flex-col ">

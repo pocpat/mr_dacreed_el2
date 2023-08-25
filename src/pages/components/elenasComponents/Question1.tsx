@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
-// import { set } from "zod";
 import UploadImgs from "~/componentsRoot/UploadImgs";
 import Modal4 from "~/componentsRoot/Modal4";
 import Commentary from "~/componentsRoot/Commentary";
-// import { IconButton } from "@material-tailwind/react";
 import Guidance from "~/componentsRoot/Guidance";
-import { set } from "zod";
-import { CourseQuestion } from "@prisma/client";
+import { type CourseQuestion } from "@prisma/client";
+import Image from "next/image";
 
 interface CourseQuestionInput2Props {
   courseId: string;
@@ -27,17 +25,6 @@ const Question1: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
 
 export default Question1;
 
-// type questionSection = {
-//   id: string;
-//   question: string;
-//   answer1: string;
-//   answer2: string;
-//   answer3: string;
-//   answer4: string;
-//   answer5: string;
-//   answer6: string;
-//   // answerValues: string[];
-// };
 
 const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   const [question, setQuestion] = useState("");
@@ -54,20 +41,6 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   // TODO: to be called onSubmit of 'update' button
   const { mutate: updateQuestionMutation } =
     api.courseQuestion.update.useMutation();
-  // function updateQuestion() {
-  //   api.courseQuestion.update.useMutation({
-  //     id: questionId,
-  //     question: question,
-  //     answer1: answerValues[0] ?? "",
-  //     answer2: answerValues[1] ?? "",
-  //     answer3: answerValues[2] ?? "",
-  //     answer4: answerValues[3] ?? "",
-  //     answer5: answerValues[4] ?? "",
-  //     answer6: answerValues[5] ?? "",
-  //     commentary: commentary,
-  //     guidance: guidance,
-  //   } );
-  // }
 
   api.courseQuestion.getByCourseId.useQuery(
     {
@@ -157,10 +130,13 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     setIsModal4Open(false);
   };
   return (
-   <>
-      <span className="ml-3  font-bold text-accentd">Question 1</span>
-      {fetchedQuestions?.map((q, j) => (
+   <div>
+ 
+      {/* <span className="ml-3  font-bold text-accentd">Question 1</span> */}
+      {fetchedQuestions?.map((q, j) => ( 
+       
         <div key={q.id} className="flex flex-col ">
+           <span className="ml-3  font-bold text-accentd">Question 1</span>
           <div>
             {/* question */}
             <div>
@@ -177,8 +153,8 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
               />
             </div>
 
-            {/* answers */}
-            <div>
+            {/* answers  guidanse, commentary*/}
+            <div> 
               <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
                 {[
                   q.answer1,
@@ -188,9 +164,8 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                   q.answer5,
                   q.answer6,
                 ].map((value, i) => (
-                  <div key={i} className="flex w-full flex-col">
-                    <div className="relative">
-                      <div>
+                  <div key={i} className="flex w-full flex-col"> 
+                     <div>
                         <InputAnswer
                           placeholder={`answer ${i + 1}`}
                           type="text"
@@ -235,6 +210,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                           charsLeft={150 - value.length}
                         />
                       </div>
+                      {/* DELETE ANSWER buttons */}
                       <div className="absolute bottom-0 right-0">
                         <button
                           type="button"
@@ -242,15 +218,16 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                           className="text-black-500 mt-2 flex items-center pr-20"
                         >
                           Delete
-                          <img
+                          <Image
                             src="/icons/delete.png"
                             alt="delete"
                             className="inline-block h-5 w-5"
+                            width={20}
+                            height={20}
                           />
                         </button>
                       </div>
-                    </div>
-                  </div>
+                 </div>
                 ))}
               </div>
 
@@ -279,17 +256,20 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
               Update
             </button>
           </div>
-        </div>
-      ))}
-      {/* add uploaded image here  */}
+
+
+
+      {/* add uploaded image here */}
       <div className="flex  items-center justify-center ">
         {uploadedImgs && (
           <div className="max-w-screen-2xl px-[20%]">
-            <img src={uploadedImgs} alt="Uploaded" />
+            {/* <img src={uploadedImgs} alt="Uploaded" /> */}
+            <Image src={uploadedImgs} alt="Uploaded"  width={20} height={20}/>
+
           </div>
         )}
       </div>
-
+       {/* Add button */}
       <div className="w-82 dropdown dropdown-top flex content-center justify-center rounded-sm ">
         <label tabIndex={0} className=" m-1 flex flex-row items-center ">
           <p className="mr-2">Add </p>
@@ -312,7 +292,9 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
         >
           <li>
             <section className="flex flex-row" onClick={addNewAnswer}>
-              <img
+              <Image
+              width={20}
+              height={20}
                 src="/icons/answers.png"
                 alt="answer"
                 className="mr-2 inline-block h-8 w-8"
@@ -329,8 +311,9 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
               className="flex flex-row"
               onClick={() => setIsModal4Open(true)}
             >
-              <img
-                src="/icons/media.png"
+              <Image
+              width={20}
+              height={20}                src="/icons/media.png"
                 alt="answer"
                 className="mr-2 inline-block h-8 w-8"
               />
@@ -347,8 +330,9 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
               className="flex flex-row"
               // onClick={() => setIsModal4Open(true)}
             >
-              <img
-                src="/icons/commentary.png"
+              <Image
+              width={20}
+              height={20}                src="/icons/commentary.png"
                 alt="answer"
                 className="mr-2 inline-block h-8 w-8"
               />
@@ -365,8 +349,9 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
               className="flex flex-row"
               // onClick={() => setIsModal4Open(true)}
             >
-              <img
-                src="/icons/guidance.png"
+              <Image
+              width={20}
+              height={20}                src="/icons/guidance.png"
                 alt="answer"
                 className="mr-2 inline-block h-8 w-8"
               />
@@ -382,8 +367,12 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
         <Modal4 onClose={() => setIsModal4Open(false)} isVisible={true}>
           <UploadImgs onMediaUpload={handleMediaUpload} />
         </Modal4>
-      )}
-    </>
-  );
-};
+            )} 
+        </div>
+      ))}
+      
 
+            </div>
+          );
+        };
+    
