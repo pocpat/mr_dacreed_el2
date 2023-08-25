@@ -4,7 +4,7 @@ interface InputAnswerProps {
   name?: string;
   id?: string;
   type: string;
-  value: string | number | undefined;
+  value: string | number | undefined | null;
   text:
     | string
     | number
@@ -85,45 +85,6 @@ export default InputAnswer;
 //   );
 // };
 // export default InputAnswer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 

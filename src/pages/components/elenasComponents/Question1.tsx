@@ -54,7 +54,20 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   // TODO: to be called onSubmit of 'update' button
   const { mutate: updateQuestionMutation } =
     api.courseQuestion.update.useMutation();
-
+  // function updateQuestion() {
+  //   api.courseQuestion.update.useMutation({
+  //     id: questionId,
+  //     question: question,
+  //     answer1: answerValues[0] ?? "",
+  //     answer2: answerValues[1] ?? "",
+  //     answer3: answerValues[2] ?? "",
+  //     answer4: answerValues[3] ?? "",
+  //     answer5: answerValues[4] ?? "",
+  //     answer6: answerValues[5] ?? "",
+  //     commentary: commentary,
+  //     guidance: guidance,
+  //   } );
+  // }
 
   api.courseQuestion.getByCourseId.useQuery(
     {
@@ -72,44 +85,37 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   );
 
   function updateQuestion(idx: number) {
-    if (fetchedQuestions.length > 0 && fetchedQuestions[idx]) {
+    if (fetchedQuestions.length > idx && fetchedQuestions[idx]) {
+      const {
+        id = "",
+        question = "",
+        answer1 = "",
+        answer2 = "",
+        answer3 = "",
+        answer4 = "",
+        answer5 = "",
+        answer6 = "",
+      } = fetchedQuestions[idx] ?? {}; // Use {} as a fallback for undefined
+
+      const sanitizedAnswer3 = answer3 ?? "";
+      const sanitizedAnswer4 = answer4 ?? "";
+      const sanitizedAnswer5 = answer5 ?? "";
+      const sanitizedAnswer6 = answer6 ?? "";
+
       updateQuestionMutation({
-        id: fetchedQuestions[idx].id ?? "",
-        question: fetchedQuestions[idx].question ?? "",
-        answer1: fetchedQuestions[idx].answer1 ?? "",
-        answer2: fetchedQuestions[idx].answer2 ?? "",
-        answer3: fetchedQuestions[idx].answer3 ?? "",
-        answer4: fetchedQuestions[idx].answer4 ?? "",
-        answer5: fetchedQuestions[idx].answer5 ?? "",
-        answer6: fetchedQuestions[idx].answer6 ?? "",
-        commentary: commentary,
-        guidance: guidance,
+        id,
+        question,
+        answer1,
+        answer2,
+        answer3: sanitizedAnswer3,
+        answer4: sanitizedAnswer4,
+        answer5: sanitizedAnswer5,
+        answer6: sanitizedAnswer6,
+        commentary,
+        guidance,
       });
     }
   }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const newQuestionToCreate = {
-      question: question,
-      answer1: answerValues[0] ?? "",
-      answer2: answerValues[1] ?? "",
-      answer3: answerValues[2] ?? "",
-      answer4: answerValues[3] ?? "",
-      answer5: answerValues[4] ?? "",
-      answer6: answerValues[5] ?? "",
-      commentary: commentary,
-      guidance: guidance,
-      // uploadedImgs: uploadedImgs?? "",
-      courseId: "",
-    };
-
-    e.preventDefault();
-
-    // try {
-    //   // TODO: validate the response from `createQuestion()` call and show error message if needed
-    //   createQuestion(newQuestionToCreate);
-    // } catch (error) {}
-  };
 
   const [components, setComponents] = useState<string[]>([]);
   const [componentNames, setComponentNames] = useState<string[]>([
@@ -130,12 +136,12 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     }
   }
 
-  function removeAnswer(index: number) {
+  function removeAnswer(questionIndex: number, answerIndex: number) {
     const newComponents = [...components];
-    newComponents.splice(index, 1);
+    newComponents.splice(answerIndex, 1);
 
     const newAnswerValues = [...answerValues];
-    newAnswerValues.splice(index, 1);
+    newAnswerValues.splice(answerIndex, 1);
 
     setComponents(newComponents);
     setAnswerValues(newAnswerValues);
@@ -150,14 +156,8 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
     setIsModal4Open(false);
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="
-  bg-lightsecondaryd 
-
-    m-0"
-    >
-      <span className="ml-3  font-bold text-accentd">Question 1</span>
+    <>
+      <span className="ml-3 font-bold text-accentd">Question 1</span>
       {fetchedQuestions?.map((q, j) => (
         <div key={q.id} className="flex flex-col ">
           <div>
@@ -237,7 +237,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
                       <div className="absolute bottom-0 right-0">
                         <button
                           type="button"
-                          onClick={() => removeAnswer(i)}
+                          onClick={() => removeAnswer(j, i)}
                           className="text-black-500 mt-2 flex items-center pr-20"
                         >
                           Delete
@@ -289,7 +289,7 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
         )}
       </div>
 
-      <div className="w-82 dropdown dropdown-top flex content-center justify-center rounded-sm ">
+      <div className="w-82 dropdown-top dropdown flex content-center justify-center rounded-sm ">
         <label tabIndex={0} className=" m-1 flex flex-row items-center ">
           <p className="mr-2">Add </p>
           <svg
@@ -382,6 +382,6 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
           <UploadImgs onMediaUpload={handleMediaUpload} />
         </Modal4>
       )}
-    </form>
+    </>
   );
 };

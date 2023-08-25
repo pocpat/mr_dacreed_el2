@@ -45,26 +45,26 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
     <div>
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl content-center justify-center border-4 bg-accentd bg-header-image bg-left-bottom bg-no-repeat font-bold text-primaryd"
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
           onClick={() => handleOpen(1)}
         >
           Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
+        <AccordionBody className="rounded-5xl bg-lightsecondaryd content-center justify-center border-4">
           {/* <HeaderBody /> */}
           <HeaderBody2 courseId={courseId} />
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl content-center justify-center border-4 bg-accentd bg-header-image bg-left-bottom bg-no-repeat font-bold text-primaryd"
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
           onClick={() => handleOpen(2)}
         >
           Question
         </AccordionHeader>
 
         <br />
-        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
+        <AccordionBody className="rounded-5xl bg-lightsecondaryd content-center justify-center border-4">
           <Question1 courseId={courseId} />
         </AccordionBody>
       </Accordion>
