@@ -157,7 +157,9 @@ const QAForm: React.FC<CourseQuestionInput2Props> = ({ courseId }) => {
   };
   return (
     <>
+
       <span className="ml-3  font-bold text-accentd">Question 1</span>
+
       {fetchedQuestions?.map((q, j) => (
         <div key={q.id} className="flex flex-col ">
           <div>
