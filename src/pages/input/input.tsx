@@ -311,7 +311,7 @@ const Input = () => {
                   Drafts (recent):
                 </span>
 
-                <div className="h-auto w-full">
+                <div className="h-auto w-full flex-col">
                   <DraftCourses />
                 </div>
               </div>
@@ -409,28 +409,36 @@ const DraftCourses = () => {
     }
   }, [query.data]);
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex h-auto w-full flex-col">
       {courses?.map((course) => (
         <div
           key={course.id}
-          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
+          className="mt-2 flex w-full flex-row items-center justify-start gap-12 px-2 py-2 text-tertiaryd"
         >
-          <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
-            D
-          </button>
-          <p>{course.title}</p>
-          <p>{course.description}</p>
-          {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
-          <Link
-            href={{
-              pathname: `/input/waiting/editing/common`,
-              query: { editCourseId: course.id },
-            }}
-          >
-            <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
-              Edit
+          <div className="w-6">
+            <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
+              D
             </button>
-          </Link>
+          </div>
+          <div className="w-48">
+            <p className="">{course.title}</p>
+          </div>
+          <div className="w-64">
+            <p className="">{course.description}</p>
+          </div>
+          {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
+          <div className="ml-28">
+            <Link
+              href={{
+                pathname: `/input/waiting/editing/common`,
+                query: { editCourseId: course.id },
+              }}
+            >
+              <button className="hover:bg-cyan-600/50 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
+                Edit
+              </button>
+            </Link>
+          </div>
         </div>
       ))}
     </div>
