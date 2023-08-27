@@ -3,6 +3,7 @@ import {
   createTRPCRouter,protectedProcedure, publicProcedure,
 } from "~/server/api/trpc";
 // API END POINTS
+// TODO: courseHeaderRouter is unused now.  Delete it.
 export const courseHeaderRouter = createTRPCRouter({
     // GET ALL
     getAll: publicProcedure.query(({ ctx }) => {
@@ -23,10 +24,10 @@ export const courseHeaderRouter = createTRPCRouter({
       .query(({ ctx, input }) => {
         console.log(`courseHeaderRouter.getByCourseId: courseId=${input.courseId}`);
         if (ctx.auth?.userId) {
-            return ctx.prisma.courseHeader.findMany({
+            return ctx.prisma.course.findMany({
               where: {
                 userId: ctx.auth.userId,
-                courseId: input?.courseId,
+                id: input?.courseId,
               },
             });
           } else {
@@ -44,13 +45,11 @@ export const courseHeaderRouter = createTRPCRouter({
       }))
       .mutation(({ ctx, input }) => {
         // console.log(ctx.auth);
-        return ctx.prisma.courseHeader.create({
+        return ctx.prisma.course.create({
           data: {
             title: input.title,
             userId: ctx.auth.userId,
             subHeading: input.subHeading,
-            description: input.description,
-            courseId: input.courseId, //"clkswcf8j0000dg1km8pz49zq",
-          },
+            description: input.description,          },
         });
       })});

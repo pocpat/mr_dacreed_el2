@@ -146,7 +146,6 @@ type Course = {
   updatedAt: Date;
 };
 
-
 const CourseForm: React.FC = () => {
   const [courseTitle, setCourseTitle] = useState("");
   const [courseDescription, setCourseDescription] = useState("");
@@ -185,7 +184,7 @@ const CourseForm: React.FC = () => {
         />
       </label>
       <input
-        className="w-1/4 rounded border bg-cyan-600"
+        className="bg-cyan-600 w-1/4 rounded border"
         type="submit"
         value="Submit"
       />

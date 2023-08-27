@@ -1,15 +1,17 @@
-
-
-
 import React from "react";
 const TextWave = (): JSX.Element => {
   const maintext = "TEST WAVY WORDS TO SEE IT WIGGLES PROPERLY";
   const chars = maintext.split("");
   return (
     <div>
-      <h2 className='bg-primaryd-content font-bold text-neutral-500'>text wave for front page</h2>
-      <h4 className="text-pink-500"> need to figure out how to start and to end with the wavy shape</h4>
-      <h2 className="flex items-center justify-center bg-transparent min-w-100vh relative tracking-widest animate-text-in">
+      <h2 className="bg-primaryd-content font-bold text-neutral-500">
+        text wave for front page
+      </h2>
+      <h4 className="text-pink-500">
+        {" "}
+        need to figure out how to start and to end with the wavy shape
+      </h4>
+      <h2 className="min-w-100vh relative flex animate-text-in items-center justify-center bg-transparent tracking-widest">
         {chars.map((char, i) => (
           <span
             key={i}

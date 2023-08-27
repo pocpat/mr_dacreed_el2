@@ -15,7 +15,7 @@ const waiting: React.FC = () => {
         "
       >
         <div className="flex min-h-screen items-center justify-center">
-<WaterWave/>  
+          <WaterWave />
         </div>
       </div>
     </>
