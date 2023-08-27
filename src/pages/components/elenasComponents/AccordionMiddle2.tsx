@@ -5,7 +5,7 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 // import HeaderBody from "./HeaderBody";
-import Question1 from "./Question1";
+// import Question1 from "./Question1";
 
 // import { set } from "zod";
 import HeaderBody2 from "./HeaderBody2";

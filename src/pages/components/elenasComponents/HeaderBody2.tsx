@@ -69,14 +69,14 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
     }
   };
   return (
-    <div className="flex h-auto w-full flex-col">
-      <div className="m-4 flex h-auto flex-col p-4">
+    <div className="flex h-auto w-full flex-col ">
+      <div className="m-4 flex h-auto flex-col p-4 ">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Title:</span>
             <input
               placeholder="Title goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -86,7 +86,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
             <span className="ml-3 font-bold">Sub-heading:</span>
             <input
               placeholder="Sub-heading goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={subHeading}
               onChange={(e) => setSubheading(e.target.value)}
@@ -98,7 +98,7 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
             <span className="ml-3 font-bold">Description:</span>
             <input
               placeholder="Description goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
