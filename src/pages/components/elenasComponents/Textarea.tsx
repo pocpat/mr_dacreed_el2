@@ -6,7 +6,6 @@ const Textarea = () => {
       <h2 className="bg-primaryd-content font-bold text-neutral-500">
         Textarea
       </h2>
-
       {/* xs */}
       <textarea
         placeholder="Bio"
