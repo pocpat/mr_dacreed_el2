@@ -35,7 +35,7 @@ interface AccordionMiddle2Props {
   courseId: string;
 }
 
-const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({courseId}) => {
+const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
   const [open, setOpen] = React.useState(0);
 
   const handleOpen = (value: React.SetStateAction<number>) =>
@@ -43,24 +43,23 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({courseId}) => {
 
   console.log("AccodrionMiddle2 courseId: ", courseId);
   return (
-    <div  >
+    <div>
       <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
         <AccordionHeader
-          className="rounded-5xl content-center justify-center border-4 bg-header-image bg-accentd bg-left-bottom bg-no-repeat font-bold text-primaryd"
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
           onClick={() => handleOpen(1)}
         >
           Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd">
+        <AccordionBody className="rounded-5xl bg-lightsecondaryd content-center justify-center border-4">
           {/* <HeaderBody /> */}
           <HeaderBody2 courseId={courseId} />
         </AccordionBody>
       </Accordion>
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
-
-className="rounded-5xl content-center justify-center border-4 bg-header-image bg-accentd bg-left-bottom bg-no-repeat font-bold text-primaryd"
-onClick={() => handleOpen(2)}
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
+          onClick={() => handleOpen(2)}
         >
           Question
         </AccordionHeader>

@@ -6,15 +6,15 @@ import {
 } from "~/server/api/trpc";
 
 export const newUserRouter = createTRPCRouter({
-  hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
 
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
-  }),
-});
+  create: protectedProcedure
+        .input(z.object({}))
+        .mutation(({ ctx, input }) => {
+          console.log(ctx.auth.userId);
+          return ctx.prisma.user.create({
+            data: {
+              id: ctx.auth.userId,
+              name: ctx.auth.user?.firstName,
+              },
+          });
+        })})

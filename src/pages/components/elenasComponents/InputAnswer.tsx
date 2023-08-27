@@ -88,45 +88,6 @@ export default InputAnswer;
 // };
 // export default InputAnswer;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React from "react";
 
 // interface InputAnswerProps {

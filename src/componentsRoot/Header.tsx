@@ -5,8 +5,8 @@ export const Header = () => {
   const { user } = useUser();
 
   return (
-    <div className="relative  flex h-250 w-full px-2 py-4 items-center justify-between bg-accentd">
-      <div className="flex h-20 w-3/4 items-center justify-start pl-5 text-3xl font-bold text-primarydtext">
+    <div className="h-250  relative flex w-full items-center justify-between bg-accentd px-2 py-4">
+      <div className="text-primarydtext flex h-20 w-3/4 items-center justify-start pl-5 text-3xl font-bold">
         {user?.firstName ? `Hi ${user.firstName}, welcome back.` : ""}
       </div>
       <div className="mr-3 flex h-20 w-20">
@@ -20,12 +20,7 @@ export const Header = () => {
               />
             </div>
           ) : (
-            <button
-              className="btn-ghost rounded-btn btn-sm btn"
-              onClick={() => void SignInButton}
-            >
-              Sign In
-            </button>
+            <div></div>
           )}
         </div>
       </div>

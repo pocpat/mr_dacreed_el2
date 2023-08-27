@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
 // import TopNav from "../components/jpComponents/TopNav";
 import { useUser } from "@clerk/nextjs";
-import { useState,  Fragment } from "react";
+import { useState, Fragment } from "react";
 import { api } from "~/utils/api";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";
@@ -311,10 +311,9 @@ const Input = () => {
                   Drafts (recent):
                 </span>
 
-                <div className="h-auto w-full">
+                <div className="h-auto w-full flex-col">
                   <DraftCourses />
                 </div>
-
               </div>
             </section>
           </section>
@@ -333,7 +332,7 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl  text-primaryd font-normal">
+      <div className="text-2xl  font-normal text-primaryd">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
@@ -397,52 +396,56 @@ const CourseForm: React.FC = () => {
   );
 };
 
-  const DraftCourses = () => {
-    const [courses, setCourses] = useState<Course[]>([]);
   
-    const query = api.course.getAll.useQuery();
+  
+    const DraftCourses = () => {
+      const [courses, setCourses] = useState<Course[]>([]);
     
-    useEffect(() => {
-      if (query.data && query.data.length > 0) {
-        setCourses(query.data);
-      } else {
-        setCourses([]);
-      }
-    }, [query.data]);
-  return (
-    <div className="flex w-full flex-col">
-      {courses?.map((course) => (
-        <div
-          key={course.id}
-          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
-        >
-          <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
-            D
-          </button>
-          <p>{course.title}</p>
-          <p>{course.description}</p>
-          {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
-          <Link
-            href={{
-              pathname: `/input/waiting/editing/common`,
-              query: { editCourseId: course.id },
-            }}
+      const query = api.course.getAll.useQuery();
+      
+      useEffect(() => {
+        if (query.data && query.data.length > 0) {
+          setCourses(query.data);
+        } else {
+          setCourses([]);
+        }
+      }, [query.data]);
+    return (
+      <div className="flex w-full flex-col">
+        {courses?.map((course) => (
+          <div
+            key={course.id}
+            className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
           >
-            <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
-              Edit
+            <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
+              D
             </button>
-          </Link>
-        </div>
-      ))}
-    </div>
-  );
-};
+            <p>{course.title}</p>
+            <p>{course.description}</p>
+            {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
+            <Link
+              href={{
+                pathname: `/input/waiting/editing/common`,
+                query: { editCourseId: course.id },
+              }}
+            >
+              <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
+                Edit
+              </button>
+            </Link>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  
+  
+  
+  function createCourse(arg0: { title: string; description: string; }) {
+    throw new Error("Function not implemented.");
+  }
 
 
-
-function createCourse(arg0: { title: string; description: string; }) {
-  throw new Error("Function not implemented.");
-}
 // import React from "react";
 // import Link from "next/link";
 // import { Header } from "~/componentsRoot/Header";
@@ -864,3 +867,8 @@ function createCourse(arg0: { title: string; description: string; }) {
 //     </div>
 //   );
 // };
+=======
+function createCourse(arg0: { title: string; description: string }) {
+  throw new Error("Function not implemented.");
+}
+>>>>>>> 5d261dc4ceb33cdb7c91ce486726eeb0890d7857
