@@ -1,5 +1,6 @@
 import { useUser } from "@clerk/nextjs";
 import { SignInButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 export const Header = () => {
   const { user } = useUser();
@@ -13,7 +14,7 @@ export const Header = () => {
         <div className="flex h-20 w-20 items-center justify-center">
           {user?.firstName ? (
             <div className="w-full">
-              <img
+              <Image
                 className="rounded-full border-solid"
                 src={user.profileImageUrl ?? ""}
                 alt={user?.firstName ?? ""}

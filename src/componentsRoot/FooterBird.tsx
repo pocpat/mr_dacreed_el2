@@ -1,5 +1,5 @@
 import React from "react";
-
+import Image from "next/image";
 
 const FooterBird = () => {
   return (
@@ -17,7 +17,7 @@ const FooterBird = () => {
       >
         solutions for people
       </h1>
-      <img src="/birdM_1.png" className="ml-2 h-8 w-8" />
+      <Image src="/birdM_1.png" className="ml-2 " width={8} height={8} alt={"bird"}/>
 
     </div>
   );
