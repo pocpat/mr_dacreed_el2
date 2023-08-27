@@ -10,57 +10,126 @@ import { Transition } from "@headlessui/react";
 import FooterBird from "~/componentsRoot/FooterBird";
 import { type Course } from "@prisma/client";
 import Image from "next/image";
+import CreateCourseForm from "../components/elenasComponents/CreateCourseForm";
+
+interface CourseCreationModalProps {
+  charsLeft: number;
+}
 const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
-  const handleModal = () => {
-    setModalOpen(true);
-  };
   const [showModal, setShowModal] = useState(false);
+const [showModal2, setShowModal2] = useState(false);
 
-  const CourseCreationModal = () => {
-    return (
-      <div className="inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
-            <div className="p-41 flex flex-row items-center justify-items-center">
-              <div className="w-3/5">
-                <CourseForm />
-                <div className="flex w-3/4 flex-col items-start justify-between">
-                  <Link
-                    href="/input/waiting/editing/common"
-                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-auto rounded-md px-2 py-2 text-white"
+// ====================================================
+const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
+
+  charsLeft
+}) => {
+  return (
+    <div>
+      <Transition
+        show={showModal2}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <Fragment>
+          <Modal4
+            isVisible={showModal2}
+            onClose={() => setShowModal2(false)}
+            // children={undefined}
+          >
+            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+              <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50  ">
+                {/* <!--Modal title--> */}
+                <h5
+                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
+                  id="exampleModalLabel"
+                >
+                 Create New Course 
+                </h5>
+                {/* <!--Close button--> */}
+                <button
+                  type="button"
+                  className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none text-primaryd"
+                  data-te-modal-dismiss
+                  aria-label="Close"
+                  onClick={() => setShowModal2(false)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="h-6 w-6"
                   >
-                    CONT TO COURSE:
-                  </Link>
-                  <button
-                    onClick={() => {
-                      setModalOpen(false);
-                    }}
-                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
-                  >
-                    BACK
-                  </button>
-                  <button className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white">
-                    CONT TO COURSE
-                  </button>
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
               </div>
-              <div className="flex h-auto w-2/5 items-center justify-center">
-                <Image
-                  src="/birdFP.png"
-                  alt="Bird-logo"
-                  width={200}
-                  height={200}
-                />
+
+              {/* <!--Modal body--> */}
+              <div
+                className="relative flex items-center justify-center first-line:flex-row bg-lightsecondaryd p-0"
+                data-te-modal-body-ref
+              >
+{/* Create new course */}
+<CreateCourseForm charsLeft={charsLeft} />
+
+
+              </div>
+              {/* <!--Modal footer--> */}
+              <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                <button
+                  type="button"
+                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-modal-dismiss
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  onClick={() => setShowModal2(false)}
+                >
+                 &lt; Back
+                </button>
+
+
+                <Link
+            href={{
+              pathname: `/input/waiting/editing/common`,
+              // query: { editCourseId: course.id },
+            }}
+          >
+
+                <button
+                  type="button"
+                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                >
+                  Next &gt;
+                </button>
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+          </Modal4>
+        </Fragment>
+      </Transition>
+    </div>
+  );
+};
 
+  
+  
+  // ===============================================
+  
   const CourseInputModal = () => {
     return (
       <div>
@@ -79,19 +148,19 @@ const Input = () => {
               onClose={() => setShowModal(false)}
               // children={undefined}
             >
-              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
                 <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   {/* <!--Modal title--> */}
                   <h5
-                    className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                    id="exampleModalLabel"
+                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
+                  id="exampleModalLabel"
                   >
                     Upload Doc
                   </h5>
                   {/* <!--Close button--> */}
                   <button
                     type="button"
-                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none  text-primaryd"
                     data-te-modal-dismiss
                     aria-label="Close"
                     onClick={() => setShowModal(false)}
@@ -115,10 +184,11 @@ const Input = () => {
 
                 {/* <!--Modal body--> */}
                 <div
-                  className="relative flex items-center justify-center p-4 first-line:flex-row "
+                  className="relative flex items-center justify-center p-4 first-line:flex-row  "
                   data-te-modal-body-ref
+                  style={{ backgroundColor: 'white' }}
                 >
-                  <div className="container mx-auto flex  flex-col items-center justify-center">
+                  <div className="container mx-auto flex  flex-col items-center justify-center ">
                     {/* upload files */}
                     <label
                       className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -175,30 +245,30 @@ const Input = () => {
                   </div>
 
                   <div className="container mx-auto flex items-center justify-center">
-                    <img src="/courseTone_1.jpg" alt="choose tone" />
+                    <Image src="/courseTone_1.jpg" alt="choose tone" width={300} height={300}/>
                   </div>
                 </div>
 
                 {/* <!--Modal footer--> */}
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                  <button
-                    type="button"
-                    className="bg-primaryd-100 text-primaryd-700 hover:bg-primaryd-accent-100 focus:bg-primaryd-accent-100 active:bg-primaryd-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
-                    data-te-modal-dismiss
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="hover:bg-primaryd-600 focus:bg-primaryd-600 active:bg-primaryd-700 ml-1 inline-block rounded bg-primaryd px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                  >
-                    Save changes
-                  </button>
+                <button
+                  type="button"
+                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-modal-dismiss
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  onClick={() => setShowModal(false)}
+                >
+                 &lt; Back
+                </button>
+                <button
+                  type="button"
+                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                >
+                  Next &gt;
+                </button>
                 </div>
               </div>
             </Modal4>
@@ -247,11 +317,11 @@ const Input = () => {
                     aria-current="page"
                     className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
-                    onClick={handleModal}
+                    onClick={() => setShowModal2(true)}
                   >
                     <h3 className="text-2xl font-bold">New Course</h3>
                   </a>
-                  {modalOpen && <CourseCreationModal />}
+                  {showModal2 && <CourseCreationModal charsLeft={0} />}
                 </div>
               </div>
 

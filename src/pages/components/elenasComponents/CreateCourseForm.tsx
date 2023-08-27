@@ -1,13 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { api } from "~/utils/api";
+interface CourseHeaderInput2Props {
+ 
+  charsLeft: number;
+}
 
-const CreateCourseForm = () => {
+
+const CreateCourseForm : React.FC<CourseHeaderInput2Props> = ({
+
+  charsLeft
+}) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubHeading] = useState("");
   const [description, setDescription] = useState("");
+  // const [charsLeftState, setCharsLeftState] = useState(charsLeft);
+  const [titleCharsLeft, setTitleCharsLeft] = useState(charsLeft);
+  const [subHeadingCharsLeft, setSubHeadingCharsLeft] = useState(charsLeft);
+  const [descriptionCharsLeft, setDescriptionCharsLeft] = useState(charsLeft);
+
 
   const { mutate: createCourse } = api.course.create.useMutation();
+  useEffect(() => {
+    setTitleCharsLeft(150 - title.length);
+  }, [title]);
 
+  // Update the state of subHeadingCharsLeft in the useEffect hook
+  useEffect(() => {
+    setSubHeadingCharsLeft(150 - subHeading.length);
+  }, [subHeading]);
+
+  // Update the state of descriptionCharsLeft in the useEffect hook
+  useEffect(() => {
+    setDescriptionCharsLeft(150 - description.length);
+  }, [description]);
+  
+  
   const handleSubmit = () => {
     try {
       createCourse({
@@ -21,94 +48,61 @@ const CreateCourseForm = () => {
   };
 
   return (
-    <div>
-  
-      <input
-        className="z-30 m-2 bg-blue-200"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Title"
-      />
-      <input
-        className="z-30 m-2 bg-blue-200"
-        value={subHeading}
-        onChange={ (e) => setSubHeading(e.target.value)}
-        placeholder="subHeading"
-      />
+    <div
+      className="border-box flex flex-col bg-primaryd p-4 "
+      style={{ width: "100%", height: "auto" }}
+    >
+      {/* Title */}
+      <label className="flex flex-col">
+        <span className="ml-3 font-bold">Course Title ❔</span>
+        <input
+          className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
+          value={title}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setTitle(e.target.value);
+          }}
+      placeholder=" 🖋️ Type course title here"
+        />
+                  <span className="ml-3 mt-0">
+            Characters left: {titleCharsLeft}
+          </span>
 
-      <input
-        className="z-30 m-2 bg-blue-200"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        placeholder="description"
-      />
+      </label>
 
-      <button className="z-30 m-2 bg-blue-500" onClick={ handleSubmit } >Submit</button>
-      {/* <input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='question'
-/>
+      {/* Sub-heading */}
+      <label className="flex flex-col">
+        <span className="ml-3 font-bold">Sub-heading❔</span>
+        <input
+          className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
+          value={subHeading}
+          onChange={(e) => setSubHeading(e.target.value)}
+          placeholder=" 🖋️ Type subHeading here "
+          
+        />
+      <span className="ml-3 mt-0">Characters left: {subHeadingCharsLeft}</span> 
+      </label>
 
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer1'
-/>
+      {/* Description */}
 
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer2'
-/>
+      <label className="flex flex-col">
+        <span className="ml-3 font-bold">Description❔</span>
+        <input
+          className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          placeholder=" 🖋️ Type description here "
+          
+        />
 
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer3'
-/>
-
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer4'
-/>
-
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer5'
-/>
+<span className="ml-3 mt-0">Characters left: {descriptionCharsLeft}</span> 
 
 
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer6'
-/>
 
 
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='answer5'
-/>
-
-
-<input
-className='bg-blue-200 z-30 m-2'
-value={input}
-onChange={(e) => setInput(e.target.value)}
-placeholder='guidance'
-/> */}
+      </label>
+      <button className="z-30 m-2 bg-tertiaryd text-primaryd " onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 };

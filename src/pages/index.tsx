@@ -7,26 +7,27 @@ import Bird from "~/componentsRoot/Bird";
 import Image from "next/image";
 import FooterMain from "~/componentsRoot/FooterMain";
 
-
-
-
-
-
-
 const Home: NextPage = () => {
   console.log("Rendering Home component");
   const user = useUser();
   return (
     <>
-      <Image src="/bg_1.jpg" alt="bg" layout="fill" objectFit="cover" className="z-[-2]"/>
-      <Head>
-        <Link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      <main className="flex min-h-screen flex-col items-center justify-center p-0 m-o">
+        <Image
+          src="/bg_1.jpg"
+          alt="bg"
+          layout="fill"
+          objectFit="cover"
+          className="z-[-2] "
         />
-      </Head>
-      <Header />
-      <main className="flex min-h-screen flex-col items-center justify-center  ">
+        <Head >
+          <Link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+          />
+        </Head>
+        <Header />
+
         <div className="m-0 flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
           {/* logo */}
           <div
@@ -37,7 +38,6 @@ const Home: NextPage = () => {
             <Bird />
             <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
           </div>
-
 
           {/*     buttons   */}
           <div className="flex  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
@@ -54,7 +54,7 @@ const Home: NextPage = () => {
 
               {/* <Link*/}
 
-            {/* <Link    // LIBRARY BUTTON
+              {/* <Link    // LIBRARY BUTTON
 
               className="bg- flex max-w-xs flex-col gap-4 rounded-xl bg-[#7ebfb3] p-4 text-white drop-shadow-md hover:bg-white/50"
               href="/namedLibrary/namedLibrary"
@@ -74,10 +74,9 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
- 
           </div>
         </div>
-
+        <FooterMain />
       </main>
     </>
   );
