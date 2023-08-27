@@ -3,15 +3,17 @@ import { set } from "zod";
 import { api } from "~/utils/api";
 interface CourseHeaderInput2Props {
   courseId: string;
+  charsLeft?: number;
+  
 }
-const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId }) => {
+const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId, charsLeft   }) => {
   return (
     <>
       <div
         className="border-box flex flex-col bg-primaryd p-4 "
         style={{ width: "100%", height: "auto" }}
       >
-        <CourseHeaderInput2 courseId={courseId} />
+        <CourseHeaderInput2 courseId={courseId} charsLeft={charsLeft}   />
       </div>
     </>
   );
@@ -22,9 +24,10 @@ type CourseHeader2 = {
   title: string;
   subHeading: string;
   description: string;
+  charsLeft: number;
 };
 const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
-  courseId,
+  courseId, charsLeft
 }) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
@@ -79,9 +82,17 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
               className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTitle(e.target.value);
+              console.log(`title is : ` , e.target.value);
+              } }           // charsLeft={title? 150 - title.length: 150}
             />
           </label>
+          <span className="ml-3 mt-0">Characters left: {charsLeft ? charsLeft  - title.length : 150}</span>
+
+
+
+
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Sub-heading:</span>
             <input
@@ -111,6 +122,10 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
           >
             Save
           </button>
+
+
+
+
         </form>
       </div>
     </div>
