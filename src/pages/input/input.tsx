@@ -103,6 +103,15 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
                 >
                  &lt; Back
                 </button>
+
+
+                <Link
+            href={{
+              pathname: `/input/waiting/editing/common`,
+              // query: { editCourseId: course.id },
+            }}
+          >
+
                 <button
                   type="button"
                   className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -111,6 +120,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
                 >
                   Next &gt;
                 </button>
+                </Link>
               </div>
             </div>
           </Modal4>
@@ -142,19 +152,19 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
               onClose={() => setShowModal(false)}
               // children={undefined}
             >
-              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
                 <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   {/* <!--Modal title--> */}
                   <h5
-                    className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                    id="exampleModalLabel"
+                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
+                  id="exampleModalLabel"
                   >
                     Upload Doc
                   </h5>
                   {/* <!--Close button--> */}
                   <button
                     type="button"
-                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none  text-primaryd"
                     data-te-modal-dismiss
                     aria-label="Close"
                     onClick={() => setShowModal(false)}
@@ -178,10 +188,11 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
 
                 {/* <!--Modal body--> */}
                 <div
-                  className="relative flex items-center justify-center p-4 first-line:flex-row "
+                  className="relative flex items-center justify-center p-4 first-line:flex-row  "
                   data-te-modal-body-ref
+                  style={{ backgroundColor: 'white' }}
                 >
-                  <div className="container mx-auto flex  flex-col items-center justify-center">
+                  <div className="container mx-auto flex  flex-col items-center justify-center ">
                     {/* upload files */}
                     <label
                       className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -244,24 +255,24 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
 
                 {/* <!--Modal footer--> */}
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                  <button
-                    type="button"
-                    className="bg-primaryd-100 text-primaryd-700 hover:bg-primaryd-accent-100 focus:bg-primaryd-accent-100 active:bg-primaryd-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
-                    data-te-modal-dismiss
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="hover:bg-primaryd-600 focus:bg-primaryd-600 active:bg-primaryd-700 ml-1 inline-block rounded bg-primaryd px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                  >
-                    Save changes
-                  </button>
+                <button
+                  type="button"
+                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-modal-dismiss
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  onClick={() => setShowModal(false)}
+                >
+                 &lt; Back
+                </button>
+                <button
+                  type="button"
+                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                >
+                  Next &gt;
+                </button>
                 </div>
               </div>
             </Modal4>
