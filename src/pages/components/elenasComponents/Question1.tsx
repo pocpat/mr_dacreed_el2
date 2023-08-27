@@ -142,10 +142,12 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
                         className="text-black-500 mt-2 flex items-center pr-20"
                       >
                         Delete
-                        <img
+                        <Image
                           src="/icons/delete.png"
                           alt="delete"
-                          className="inline-block h-5 w-5"
+                          className="inline-block "
+                          width={5}
+                          height={5}
                         />
                       </button>
                     </div>

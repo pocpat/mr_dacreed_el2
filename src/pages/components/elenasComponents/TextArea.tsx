@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextAreaFrorAdmin = () => {
+const TextArea = () => {
   return (
     <textarea
     placeholder="Bio"
@@ -9,4 +9,4 @@ const TextAreaFrorAdmin = () => {
   )
 }
 
-export default TextAreaFrorAdmin;
+export default TextArea;

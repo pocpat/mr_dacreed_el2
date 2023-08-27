@@ -1,7 +1,7 @@
 // import { Content } from 'next/font/google'
 import React from 'react'
 import { Header } from '~/componentsRoot/Header'
-import TextAreaForAdmin from '../components/elenasComponents/TextAreaForAdmin'
+import TextAreaForAdmin from '../components/elenasComponents/TextArea'
 
 const admin = () => {
   return (
