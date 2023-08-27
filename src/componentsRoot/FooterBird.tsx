@@ -17,7 +17,7 @@ const FooterBird = () => {
       >
         solutions for people
       </h1>
-      <Image src="/birdM_1.png" className="ml-2 " width={8} height={8} alt={"bird"}/>
+      <Image src="/birdM_1.png" className="ml-2 " width={30} height={30} alt={"bird"}/>
 
     </div>
   );
