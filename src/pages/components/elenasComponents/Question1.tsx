@@ -46,7 +46,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
   function updateQuestion() {
     updateQuestionMutation({
       id: courseQA.id,
-      question,
+      question: question ?? "",
       answer1: answerValues[0] ?? "",
       answer2: answerValues[1] ?? "",
       answer3: answerValues[2] ?? "",
@@ -109,7 +109,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
             <InputQuestion
               placeholder="question"
               type="text"
-              value={courseQA.question}
+              value={question}
               onChange={(e) => setQuestion(e.target.value)}
               charsLeft={question ? 150 - question.length : 150}
             />
@@ -142,10 +142,12 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
                         className="text-black-500 mt-2 flex items-center pr-20"
                       >
                         Delete
-                        <img
+                        <Image
                           src="/icons/delete.png"
                           alt="delete"
-                          className="inline-block h-5 w-5"
+                          className="inline-block "
+                          width={20}
+                          height={20}
                         />
                       </button>
                     </div>
@@ -157,7 +159,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
             <Commentary
               placeholder=""
               type="text"
-              value={courseQA.commentary ?? ""}
+              value={commentary ?? ""}
               onChange={(e) => setCommentary(e.target.value)}
               charsLeft={commentary ? 150 - commentary.length : 150}
             />
@@ -166,7 +168,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
               placeholder=""
               type=""
               onChange={(e) => setGuidance(e.target.value)}
-              value={courseQA.guidance ?? ""}
+              value={guidance ?? ""}
               charsLeft={guidance ? 150 - guidance.length : 150}
             />
           </div>
