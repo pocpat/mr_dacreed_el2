@@ -325,7 +325,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
                   >
                     <h3 className="text-2xl font-bold">New Course</h3>
                   </a>
-                  {showModal2 && <CourseCreationModal />}
+                  {showModal2 && <CourseCreationModal charsLeft={0} />}
                 </div>
               </div>
 

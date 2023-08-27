@@ -1,11 +1,21 @@
     import React from 'react'
 import CreateCourseForm from '~/pages/components/elenasComponents/CreateCourseForm'
     
-    const createCourse = () => {
+
+
+interface createCourseProps {
+  charsLeft: number;
+}
+
+
+    const createCourse : React.FC<createCourseProps> = ({
+
+      charsLeft
+    }) => {
       return (
         <div>
 
-<CreateCourseForm/> 
+<CreateCourseForm charsLeft={charsLeft}/> 
 
 
         </div>
