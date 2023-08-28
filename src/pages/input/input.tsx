@@ -357,7 +357,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
+              {/* <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
                     className="text m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
@@ -366,7 +366,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
                     <h3 className="text-2xl font-bold">Cont...</h3>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className=" flex items-center justify-center">
               <input
