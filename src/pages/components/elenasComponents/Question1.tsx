@@ -33,7 +33,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
       courseQA.answer6,
     ]
     .filter((answer): answer is string => answer !== null)
-    // .slice(0, 2)
+      // .slice(0, 2)
   );
 
   const [isModal4Open, setIsModal4Open] = useState(false);
