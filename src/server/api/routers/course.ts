@@ -54,6 +54,12 @@ export const courseRouter = createTRPCRouter({
           });
         })});
     
+    
+    
+    
+
+
+
       export const exampleRouter = createTRPCRouter({
         hello: publicProcedure
           .input(z.object({ text: z.string() }))

@@ -46,7 +46,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen1(false)}
             >
               Close
@@ -70,7 +70,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen2(false)}
             >
               Close
@@ -94,7 +94,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen3(false)}
             >
               Close
@@ -118,7 +118,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen4(false)}
             >
               Close
@@ -142,7 +142,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen5(false)}
             >
               Close
@@ -166,7 +166,7 @@ const FirstButtons = () => {
               />
             </div>
             <button
-              className="mt-4 rounded-md bg-sky-500/75 px-4 py-2 text-white hover:bg-sky-400/50"
+              className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white"
               onClick={() => setModalOpen6(false)}
             >
               Close

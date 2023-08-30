@@ -151,22 +151,3 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
-// const AuthShowcase: React.FC = () => {
-//   const { user } = useUser();
-//   if (user) {
-//     return (
-//       <div className="text-2xl font-bold text-white">
-//         <h1>Hi {user.fullName}, welcome back...boooiiiiii.</h1>
-//       </div>
-//     );
-//   }
-//   return (
-//     <div>
-//       <p className="text-2xl font-bold text-white">
-//         There are no current users signed in.
-//       </p>
-//     </div>
-//   );
-// };
-// export { AuthShowcase };
