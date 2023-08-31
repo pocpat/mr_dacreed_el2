@@ -1,5 +1,5 @@
 import React from "react";
-import WaterWave from "~/pages/components/elenasComponents/WaterWave";
+import WaterWave2 from "~/pages/components/elenasComponents/WaterWave2";
 
 const waiting: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ const waiting: React.FC = () => {
         "
       >
         <div className="flex min-h-screen items-center justify-center">
-<WaterWave/>  
+<WaterWave2/>  
         </div>
       </div>
     </>

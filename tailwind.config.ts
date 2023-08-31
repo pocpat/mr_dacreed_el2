@@ -38,7 +38,7 @@ const config: Config = {
       },
 
       keyframes: {
-        wave: {
+        wave1: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
@@ -47,7 +47,12 @@ const config: Config = {
           '0%': { top: '-90%' },
           '100%': { top: '-220%' },
         },
-        customBounce: {
+        riseUpWave1: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
+          
+          customBounce: {
           "0%": { transform: "translateY(50px)" },
           "50%": { transform: "translateY(-70px)" },
           "100%": { transform: "translateY(20px)" },
@@ -66,7 +71,9 @@ const config: Config = {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
-        "waveBefore": "wave 6s linear infinite",
+        "wave1": "wave1 5s linear infinite",
+        "wave2": "wave1 7s linear infinite",
+        "riseUpWave1": "riseUpWave1 13s forwards",
         "riseUpBefore": "riseUp 13s forwards",
         'delayedRiseUpAfter': 'riseUp 0.35s forwards',
       },
