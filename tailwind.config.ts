@@ -38,10 +38,6 @@ const config: Config = {
       },
 
       keyframes: {
-        wave1: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
 
         riseUp: {
           '0%': { top: '-90%' },
@@ -49,7 +45,7 @@ const config: Config = {
         },
         riseUpWave1: {
           '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(-300px)' },
         },
           
           customBounce: {
@@ -65,16 +61,23 @@ const config: Config = {
           "0%": { transform: "translateX(-700px)" },
           "100%": { transform: "translateX(-80px)" },
         },
+        wave1: {
+          '0%': { transform: 'translateY(3%) rotate(-1350deg) scale(1)' }, // Initial position
+          '50%': { transform: 'translateY(-43%) rotate(10deg) scale(1)' }, // Initial position
+          '100%': { transform: 'translateY(-105%) rotate(1350deg) scale(1)' }, // Final position
+        },
+        wave2: {
+          '0%': { transform: 'translateY(5%) rotate(-1900deg)   scale(1)' }, // Initial position
+          '100%': { transform: 'translateY(-100%) rotate(1200deg) scale(1.1)' }, // Final position
+        },
 
       },
       animation: {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
-        "wave1": "wave1 5s linear infinite",
-        "wave2": "wave1 7s linear infinite",
-        "riseUpWave1": "riseUpWave1 13s forwards",
-        "riseUpBefore": "riseUp 13s forwards",
+        "wave1": "wave1 10s linear forwards",
+        "wave2": "wave2 10s linear forwards",
         'delayedRiseUpAfter': 'riseUp 0.35s forwards',
       },
 

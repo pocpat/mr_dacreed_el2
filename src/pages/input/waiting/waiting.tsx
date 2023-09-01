@@ -7,12 +7,14 @@ const waiting: React.FC = () => {
       {/* <Header /> */}
       {/*  < bg */}
       <div
-        className=" middleOne
-        // h-700  
-        bg-red-700 bg-[url('/bg_loading.png')]
-        bg-cover
-        bg-no-repeat
-        "
+        // className=" middleOne
+        // // h-700  
+        // bg-gray-700 
+        // // bg-[url('/bg_loading.png')]
+        // // bg-cover
+        // // bg-no-repeat
+        // "
+        className="bg-[#331c1c]"
       >
         <div className="flex min-h-screen items-center justify-center">
 <WaterWave2/>  
