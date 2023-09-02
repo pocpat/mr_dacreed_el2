@@ -1,5 +1,5 @@
 import React from "react";
-import WaterWave2 from "~/pages/components/elenasComponents/WaterWave2";
+import WaterProgress from "~/componentsRoot/WaterProgress";
 
 const waiting: React.FC = () => {
   return (
@@ -7,18 +7,18 @@ const waiting: React.FC = () => {
       {/* <Header /> */}
       {/*  < bg */}
       <div
-        // className=" middleOne
-        // // h-700  
-        // bg-gray-700 
-        // // bg-[url('/bg_loading.png')]
-        // // bg-cover
-        // // bg-no-repeat
-        // "
-        className="bg-[#331c1c]"
+        className=" middleOne
+        bg-[url('/bg_loading.png')]
+        bg-cover
+         bg-no-repeat
+         h-screen
+        "
+        
       >
-        <div className="flex min-h-screen items-center justify-center">
-<WaterWave2/>  
-        </div>
+       
+<WaterProgress/>
+          
+     
       </div>
     </>
   );

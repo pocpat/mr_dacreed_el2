@@ -3,15 +3,10 @@ import React from "react";
 const WaterWave2 = () => {
   return (
 
-
-
-
-
-
-
-
-    <div className="flex items-center justify-center h-screen">
-      <div className="circle absolute flex h-[90px] w-[90px] rounded-full bg-blue-300">
+    <div className="flex items-center justify-center h-screen bg-green-800">
+      <div className="circle absolute flex h-[90px] w-[90px] rounded-full bg-gradient-to-t from-accentd via-[#367592] to-[#5d93a3]
+         overflow-hidden
+      ">
        
       </div>
       <div
@@ -20,14 +15,8 @@ const WaterWave2 = () => {
         animate-wave1 
         animate-delay-2000
         bg-white rounded-[40%]
-    
+    // overflow-hidden
       "
-      style={{
-        maskImage: 'radial-gradient(circle, transparent 0%, white 100%)',
-        maskPosition: 'center bottom',
-        maskSize: '100% 100%',
-        WebkitMaskImage: 'radial-gradient(circle, transparent 0%, white 100%)', // For webkit browsers
-      }}      
       >
        
       </div>
@@ -39,13 +28,9 @@ const WaterWave2 = () => {
         animate-delay-2000
    opacity-50
         bg-white rounded-[40%]
+      //  overflow-hidden
      "
-     style={{
-      WebkitMaskImage: 'radial-gradient(circle, transparent 0%, white 100%)',
-      maskImage: 'radial-gradient(circle, transparent 0%, white 100%)',
-      maskPosition: 'center bottom',
-      maskSize: '100% 100%',
-    }}    >
+    >
        
       </div>
     </div>
@@ -53,4 +38,3 @@ const WaterWave2 = () => {
 };
 
 export default WaterWave2;
-
