@@ -78,6 +78,12 @@ const config: Config = {
         "text-in": "textin 6s forwards",
         "wave1": "wave1 10s linear forwards",
         "wave2": "wave2 10s linear forwards",
+        "wave1-5s": "wave1 5s linear forwards",
+        "wave1-10s": "wave1 10s linear forwards",
+        "wave1-15s": "wave1 15s linear forwards",
+        "wave2-5s": "wave2 5s linear forwards",
+        "wave2-10s": "wave2 10s linear forwards",
+        "wave2-15s": "wave2 15s linear forwards",
         'delayedRiseUpAfter': 'riseUp 0.35s forwards',
       },
 

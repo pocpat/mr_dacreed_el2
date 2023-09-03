@@ -1,5 +1,6 @@
 import React from "react";
-import WaterProgress from "~/componentsRoot/WaterProgress";
+// import CircularProgressBar from "~/componentsRoot/CircularProgressBar";
+import WaterProgress3 from "~/componentsRoot/WaterProgress3";
 
 const waiting: React.FC = () => {
   return (
@@ -16,8 +17,8 @@ const waiting: React.FC = () => {
         
       >
        
-<WaterProgress/>
-          
+ <WaterProgress3/> 
+    {/* <CircularProgressBar />      */}
      
       </div>
     </>
