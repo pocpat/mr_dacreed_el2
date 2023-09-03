@@ -14,21 +14,19 @@ declare module "react" {
   }
 }
 
-const WaterProgress = () => {
-  const radialSize = "110px";
-  const radialThickness = "2px";
+const WaterProgress: React.FC = () => {
+  const radialSize = "145px";
+  const radialThickness = "6px";                                                         {/*  thickness of the circle bar   */}
+         
 
-  // Initialize progressValue state and set it to 0 initially
   const [progressValue, setProgressValue] = useState(0);
 
   useEffect(() => {
-    // Create a timer to increment progressValue every 1000ms (1 second)
     const timer = setInterval(() => {
-      // Increase progressValue by 1 (adjust the increment as needed)
       setProgressValue((prevValue) =>
         prevValue < 100 ? prevValue + 1 : prevValue
       );
-    }, 1000);
+    }, 100);                                                                              {/*  speed of the circle bar   */}
 
     // Clear the timer when the component unmounts
     return () => {
@@ -61,10 +59,16 @@ const WaterProgress = () => {
   const animationDurationClass = calculateAnimationDuration(prevValue);
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="
+    flex 
+    items-center 
+    justify-center
+    relative
+    
+    ">
       <div
         className={`wpBase  
-        flex h-[130px] w-[130px]   
+        flex h-[150px] w-[150px]                                                          {/*  size of the outer bg white circle   */}  
         items-center justify-center rounded-full bg-white ${animationDurationClass}`}
         style={{
           "--size": radialSize,
@@ -72,13 +76,13 @@ const WaterProgress = () => {
           "--progress-line-color": style["--progress-line-color"],
         }}
       >
-        <div className="z-2 absolute inset-0 flex items-center justify-center">
+        <div className=" absolute inset-0 flex items-center justify-center">
           <WaterWave2
             prevValue={prevValue}
             animationDurationClass={animationDurationClass}
           />
         </div>
-        <div className="radial-progress text-accentd font-bold" style={style}>
+        <div className="radial-progress text-accentd  text-4xl font-bold" style={style}>
           {progressValue}%
         </div>
       </div>

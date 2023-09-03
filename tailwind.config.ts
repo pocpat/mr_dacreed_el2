@@ -12,7 +12,7 @@ const config: Config = {
       'tertiaryd': '#0F5475',
       'secondaryd': '#B9CCC8',
       'midsecondaryd': '#F0F6F5',
-      'lightsecondaryd:': '#F1F4F3 ',
+      'lightsecondaryd': '#F1F4F3 ',
       'primaryd': '#FAFAFA',
     },
     extend: {
