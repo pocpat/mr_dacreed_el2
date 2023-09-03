@@ -12,13 +12,14 @@ const Home: NextPage = () => {
   const user = useUser();
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-center p-0 m-o">
+      <main className="flex  flex-col min-h-screen items-center justify-center p-0 m-o">
+      <Header />
         <Image
           src="/bg_1.jpg"
           alt="bg"
           layout="fill"
           objectFit="cover"
-          className="z-[-2] "
+          className=" z-[-2] "
         />
         <Head >
           <Link
@@ -26,7 +27,7 @@ const Home: NextPage = () => {
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
           />
         </Head>
-        <Header />
+        
 
         <div className="m-0 flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
           {/* logo */}
