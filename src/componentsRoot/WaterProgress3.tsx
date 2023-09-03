@@ -11,7 +11,8 @@ const WaterProgress = () => {
           {/* <CircularProgressBar /> */}
         </div>
         <div style={{ marginLeft: "-85px" }}>
-         <WaterContainer/>
+         {/* <WaterContainer/> */}
+         <WaterWave2 prevValue={0} animationDurationClass={""}/>      
         </div>
       </div>
     </div>

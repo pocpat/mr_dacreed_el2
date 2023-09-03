@@ -62,13 +62,13 @@ const config: Config = {
           "100%": { transform: "translateX(-80px)" },
         },
         wave1: {
-          '0%': { transform: 'translateY(3%) rotate(-1350deg) scale(1)' }, // Initial position
-          '50%': { transform: 'translateY(-43%) rotate(10deg) scale(1)' }, // Initial position
-          '100%': { transform: 'translateY(-105%) rotate(1350deg) scale(1)' }, // Final position
+          '0%': { transform: 'translateY(0%) rotate(-1350deg) scale(1.4)' }, // Initial position
+          '50%': { transform: 'translateY(-44%) rotate(10deg) scale(1.2)' }, // Initial position
+          '100%': { transform: 'translateY(-125%) rotate(1350deg) scale(1.2)' }, // Final position
         },
         wave2: {
-          '0%': { transform: 'translateY(5%) rotate(-1900deg)   scale(1)' }, // Initial position
-          '100%': { transform: 'translateY(-100%) rotate(1200deg) scale(1.1)' }, // Final position
+          '0%': { transform: 'translateY(2%) rotate(-1900deg)   scale(1.4)' }, // Initial position
+          '100%': { transform: 'translateY(-135%) rotate(1200deg) scale(1.5)' }, // Final position
         },
 
       },
