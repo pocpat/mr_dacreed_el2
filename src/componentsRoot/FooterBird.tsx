@@ -29,9 +29,9 @@ const FooterBird = ({ height }: FooterBirdProps) => {
       </h1>
       <Image
         src="/birdM_1.png"
-        className="ml-2 "
-        width={30}
-        height={30}
+        className="ml-1 pb-2 "
+        width={20}
+        height={20}
         alt={"bird"}
       />
 
