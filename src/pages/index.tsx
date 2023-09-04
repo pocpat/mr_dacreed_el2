@@ -90,15 +90,13 @@ const Home: NextPage = () => {
           className="z-[-2] "
         />
 
-        <div className="flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
+<div className="flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
           {/* logo */}
           <div
             className="birdBG left-0   w-screen    bg-white/20 py-16 "
             style={{ width: "100%" }}
           >
-            <div className="flex h-20 flex-col items-center justify-center gap-4"></div>
             <Bird />
-            <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
           </div>
 
           {/*     buttons   */}
@@ -131,8 +129,6 @@ const Home: NextPage = () => {
              bg-[#0F5475] p-4 normal-case text-white drop-shadow-md file:gap-4
               hover:bg-white/20"
                 >
-                  {/* {!user.isSignedIn && <SignInButton mode="modal" />}
-                  {user.isSignedIn && <SignOutButton />} */}
                   <SignedIn>
                     <SignOutButton />
                   </SignedIn>
@@ -182,16 +178,3 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
-
-//===========
-{
-  /* logo */
-}
-// <div
-//   className="birdBG left-0 top-1/3 z-10 w-screen    bg-white/20 py-15 "
-//   style={{ width: "100%" }}
-// >
-//   <div className="flex h-20 flex-col items-center justify-center gap-4"></div>
-//   <Bird />
-//   <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
-// </div>
