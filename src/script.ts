@@ -3,8 +3,10 @@
 
 // const prisma = new PrismaClient()
 
+
 // async function main() {
 // //   ... you will write your Prisma Client queries here
+
 // //   =====> new user with unique email <==========//
 //   const user = await prisma.user.create({
 //     data: {
@@ -13,10 +15,12 @@
 //     },
 //   })
 //   console.log(user)
+
 //   //================================================//
 // //   const users = await prisma.user.findMany()
 // //   console.log(users)
 // }
+
 
 // main()
 //   .then(async () => {

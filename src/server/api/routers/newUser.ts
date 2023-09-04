@@ -8,7 +8,7 @@ export const newUserRouter = createTRPCRouter({
 
   create: protectedProcedure
         .input(z.object({}))
-        .mutation(({ ctx, input }) => {
+        .mutation(({ ctx }) => {
           console.log(ctx.auth.userId);
           return ctx.prisma.user.create({
             data: {
