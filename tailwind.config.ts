@@ -16,7 +16,10 @@ const config: Config = {
       'primaryd': '#FAFAFA',
     },
     extend: {
-
+      fontFamily: {
+        sans: ["Helvetica Neue", "sans-serif"],
+        display: ["Lexend Deca", "sans-serif"],
+      },
       customWave: {
         'position': 'relative',
         'width': '100% relative',

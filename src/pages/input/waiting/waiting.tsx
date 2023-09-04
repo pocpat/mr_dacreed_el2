@@ -15,16 +15,20 @@ const waiting: React.FC = () => {
             {/* You can add content for the top section here */}
           </div>
     
+
           {/* Middle third with WaterProgress centered */}
           <div className="flex-1 flex  flex-col justify-center text-center bg-white ">
             <h2 className="mb-5 mt-0 font-bold">While you wait, we invite you to enjoy our Trivia Quiz</h2>
             <WaterProgress />
           </div>
     
+
           {/* Bottom third with FooterBird */}
           <div className="flex-1  bg-white">
             <FooterBird height={50} />
           </div>
+
+          
         </div>
       );
     };

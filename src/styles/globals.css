@@ -2,22 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-
-{/*
-
- .waterContainer::before {
-    @apply absolute block w-full h-full bg-gray-200 top-0 left-0 rounded-full animate-waveBefore animate-riseUpBefore;
-    width: 200%;
-    height: 200%;
-    top: 0%;
-    left: -50%;} 
-  
-  .waterContainer::after {
-    @apply absolute block w-full h-full bg-gray-200 top-0 left-0 rounded-full animate-waveBefore animate-delayedRiseUpAfter;
-    width: 204%;
-    height: 204%;
-    top: -150%;
-    left: -52%;
-    /* animation-delay: 0.35s; } 
-
-   */}

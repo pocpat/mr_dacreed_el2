@@ -5,34 +5,27 @@ import { type NextPage } from "next";
 import { Header } from "../componentsRoot/Header";
 import Bird from "~/componentsRoot/Bird";
 import Image from "next/image";
-import FooterMain from "~/componentsRoot/FooterMain";
+import FooterBird from "~/componentsRoot/FooterBird";
 
 const Home: NextPage = () => {
   console.log("Rendering Home component");
   const user = useUser();
   return (
     <>
-      <main className="flex  flex-col min-h-screen items-center justify-center p-0 m-o">
-      <Header />
+      <main className="flex flex-col min-h-screen items-center p-0 m-o">
+        <Header  />
         <Image
           src="/bg_1.jpg"
           alt="bg"
           layout="fill"
           objectFit="cover"
-          className=" z-[-2] "
+          className="z-[-2] "
         />
-        <Head >
-          <Link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-          />
-        </Head>
-        
 
-        <div className="m-0 flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
+        <div className="flex flex-col items-center justify-center w-screen  gap-12 pb-4 pt-40">
           {/* logo */}
           <div
-            className="birdBG left-0 top-1/3 z-10 w-screen items-center justify-center   bg-white/20 py-20 "
+            className="birdBG left-0   w-screen    bg-white/20 py-16 "
             style={{ width: "100%" }}
           >
             <div className="flex h-20 flex-col items-center justify-center gap-4"></div>
@@ -41,7 +34,7 @@ const Home: NextPage = () => {
           </div>
 
           {/*     buttons   */}
-          <div className="flex  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
+          <div className="flex-1 flex  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
             <div className="flex flex-row items-center justify-center gap-2 ">
               {/* <Link */}
               <a
@@ -76,8 +69,12 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </div>
-        <FooterMain />
+         
+        
+        <div>
+          <FooterBird height={30} />
+          </div>
+          </div>
       </main>
     </>
   );
@@ -103,3 +100,17 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
+
+
+
+
+//===========
+          {/* logo */}
+          // <div
+          //   className="birdBG left-0 top-1/3 z-10 w-screen    bg-white/20 py-15 "
+          //   style={{ width: "100%" }}
+          // >
+          //   <div className="flex h-20 flex-col items-center justify-center gap-4"></div>
+          //   <Bird />
+          //   <div className="flex h-10 flex-col items-center justify-center gap-4"></div>
+          // </div>

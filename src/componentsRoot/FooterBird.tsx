@@ -13,7 +13,7 @@ const FooterBird = ({ height }: FooterBirdProps) => {
 
 <div   className=" absolute bottom-0 left-0 right-0 text-center flex flex-row justify-center">
 
-      <h1>Continuous learning</h1>
+      <h1 className="text-accentd font-bold">Continuous learning</h1>
       <h1
         className="
         -1px 0 #000,
