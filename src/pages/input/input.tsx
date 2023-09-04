@@ -10,6 +10,8 @@ import FooterBird from "~/componentsRoot/FooterBird";
 import { type Course } from "@prisma/client";
 import Image from "next/image";
 import CreateCourseForm from "../components/elenasComponents/CreateCourseForm";
+import ButtonBack from "~/componentsRoot/ButtonBack";
+import ButtonNext from "~/componentsRoot/ButtonNext";
 
 interface CourseCreationModalProps {
   charsLeft: number;
@@ -20,8 +22,11 @@ const Input = () => {
   const [showModal, setShowModal] = useState(false);
 const [showModal2, setShowModal2] = useState(false);
 
-// ======================> Course Creation Modal <============================== //
+// ======================>  Create New Course Modal <============================== //
 const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft }) => {
+  const handleBackButtonClick = () => {
+    setShowModal2(false); // Close the modal when the "Back" button is clicked
+  };
   return (
     <div>
       <Transition
@@ -85,34 +90,11 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft })
               </div>
               {/* <!--Modal footer--> */}
               <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                <button
-                  type="button"
-                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-modal-dismiss
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                  onClick={() => setShowModal2(false)}
-                >
-                 &lt; Back
-                </button>
 
+           
+<ButtonBack  onClick={handleBackButtonClick} />
+<ButtonNext href="/input/waiting/editing/common" />  
 
-                <Link
-            href={{
-              pathname: `/input/waiting/editing/common`,
-              // query: { editCourseId: course.id },
-            }}
-          >
-
-                <button
-                  type="button"
-                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init
-                  data-te-ripple-color="light"
-                >
-                  Next &gt;
-                </button>
-                </Link>
               </div>
             </div>
           </Modal4>
