@@ -2,15 +2,8 @@ import React from "react";
 
 const Rpannel = () => {
   return (
-    <div className="container mx-4  flex flex-col bg-white items-center">
-    
-
-      <button className="rounded-lg bg-white   my-2  w-[135px]  w-[135px]">
-      </button>
-
-
-
-
+    <div className="container mx-4  flex flex-col items-center bg-white">
+      <button className="my-2 w-[135px]   w-[135px]  rounded-lg  bg-white"></button>
     </div>
   );
 };

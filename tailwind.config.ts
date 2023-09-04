@@ -37,6 +37,8 @@ const config: Config = {
         'image': "url('/bg_1.jpg')",
         'header-image' : "url(/BackgroundImage2.png)",
         'header-image3' : "url(/BackgroundImage3.png)",
+        'bg1': "url(/mnt1.png)",
+        'bg2': "url(/mnt2.png)"
       },
 
       keyframes: {

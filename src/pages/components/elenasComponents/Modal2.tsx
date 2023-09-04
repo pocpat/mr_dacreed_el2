@@ -30,14 +30,20 @@ const Modal2 = () => {
         });
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const modalOptions: ModalOptions = useMemo(() => ({
-    placement: "top-right",
-  }), []);
+  const modalOptions: ModalOptions = useMemo(
+    () => ({
+      placement: "top-right",
+    }),
+    []
+  );
 
-  const modal: ModalInterface = useMemo(() => new Modal($modalElement.current, modalOptions), [modalOptions]);
+  const modal: ModalInterface = useMemo(
+    () => new Modal($modalElement.current, modalOptions),
+    [modalOptions]
+  );
 
   // Show the modal inside the useEffect hook as well
   useEffect(() => {
@@ -50,24 +56,6 @@ const Modal2 = () => {
 };
 
 export default Modal2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { useEffect } from "react";
 // import { Modal } from "flowbite";
@@ -119,35 +107,6 @@ export default Modal2;
 // };
 
 // export default Modal2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React from "react";
 // import { Modal } from "flowbite";

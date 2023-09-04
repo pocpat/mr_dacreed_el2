@@ -6,7 +6,7 @@ import ButtonsQ from "../../../components/elenasComponents/ButtonsQ";
 import Qtemplate from "../../../components/elenasComponents/Qtemplate";
 
 const Elena2 = () => {
-  const [qStrings, setQStrings] = useState({ 
+  const [qStrings, setQStrings] = useState({
     title: "",
     subheading: "",
     description: "",
@@ -21,11 +21,11 @@ const Elena2 = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedButtonContent, setSelectedButtonContent] = useState("");
-  const [isQtemplateVisible, setIsQtemplateVisible] = useState(false); 
+  const [isQtemplateVisible, setIsQtemplateVisible] = useState(false);
   const handleButtonSelection = (content: string) => {
     setSelectedButtonContent(content);
     setIsQtemplateVisible(true);
-  }; 
+  };
   const closeModal = () => {
     setIsOpen(false);
   };
@@ -112,7 +112,7 @@ const Elena2 = () => {
               }}
             />
             <button
-              className="btn-outline btn-circle btn my-10"
+              className="btn btn-circle btn-outline my-10"
               onClick={() => setIsQtemplateVisible(false)} // A Add this to close Qtemplate on click
             >
               <svg
@@ -134,21 +134,28 @@ const Elena2 = () => {
           </section>
           {/* Middle part */}
           <section className="col-span-2 flex grid-cols-1 flex-col items-center justify-center rounded-md bg-gray-100 p-4">
-            {isQtemplateVisible && <Qtemplate qStrings={qStrings} onInputChange={handleInputChange}
-           />}
-        
+            {isQtemplateVisible && (
+              <Qtemplate
+                qStrings={qStrings}
+                onInputChange={handleInputChange}
+              />
+            )}
           </section>
 
           <section className="col-span-1 flex flex-col items-center   justify-center rounded-md bg-gray-100 p-4 px-1 ">
             <ButtonGroup
               onSelect={(content) => {
                 handleButtonSelection(content);
-                fillQtemplateInputs(`Title ${content}`, `Sub-heading ${content}`, `Description ${content}`);
+                fillQtemplateInputs(
+                  `Title ${content}`,
+                  `Sub-heading ${content}`,
+                  `Description ${content}`
+                );
               }}
             />
             <button
-              className="btn-outline btn-circle btn my-10"
-              onClick={() => setIsQtemplateVisible(false)} 
+              className="btn btn-circle btn-outline my-10"
+              onClick={() => setIsQtemplateVisible(false)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
+
 import React, { useEffect, useState } from 'react'
 import styles from '~/styles/loading1.module.css';
-
 
 const Loading1 = () => {
   const [percent, setPercent] = useState(0);
@@ -20,29 +20,39 @@ const Loading1 = () => {
   }, [percent]);
 
   return (
-   <div >
-
-    <div className={styles.box}>
-      <div className={styles.percent}>
-        <div className={styles.percentNum} id="count">
-          {percent}
+    <div>
+      <div className={styles.box}>
+        <div className={styles.percent}>
+          <div className={styles.percentNum} id="count">
+            {percent}
+          </div>
+          <div className={styles.percentB}>%</div>
         </div>
-        <div className={styles.percentB}>%</div>
-      </div>
-      <div id="water" className={styles.water}>
-        <svg viewBox="0 0 560 20" className={`${styles.water_wave ?? ''} ${styles.water_wave_back  ?? ''}`}>
-          <use xlinkHref="#wave"></use>
-        </svg>
-        <svg viewBox="0 0 560 20" className={`${styles.water_wave  ?? ''} ${styles.water_wave_front  ?? ''}`}>
-          <use xlinkHref="#wave"></use>
-        </svg>
+        <div id="water" className={styles.water}>
+          <svg
+            viewBox="0 0 560 20"
+            className={`${styles.water_wave ?? ""} ${
+              styles.water_wave_back ?? ""
+            }`}
+          >
+            <use xlinkHref="#wave"></use>
+          </svg>
+          <svg
+            viewBox="0 0 560 20"
+            className={`${styles.water_wave ?? ""} ${
+              styles.water_wave_front ?? ""
+            }`}
+          >
+            <use xlinkHref="#wave"></use>
+          </svg>
+        </div>
       </div>
     </div>
-   </div>
   );
 };
 
 export default Loading1;
 
-
-   {/* className={`${styles['loading1-container']}   ${styles['loading1-body']}`}> */}
+{
+  /* className={`${styles['loading1-container']}   ${styles['loading1-body']}`}> */
+}

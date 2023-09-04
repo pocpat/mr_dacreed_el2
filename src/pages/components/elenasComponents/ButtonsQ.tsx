@@ -6,7 +6,7 @@ interface ButtonGroupProps {
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col items-center justify-center ">
         <p>Sections</p>
         <button
           className="btn m-2 w-40 drop-shadow-md"
@@ -44,7 +44,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
             onSelect(content);
           }}
         >
-            Q 3
+          Q 3
         </button>
         <button
           className="btn m-2 w-40 drop-shadow-md"
@@ -53,7 +53,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
             onSelect(content);
           }}
         >
-            Q 4
+          Q 4
         </button>
         <button
           className="btn m-2 w-40 drop-shadow-md"
@@ -62,7 +62,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ onSelect }) => {
             onSelect(content);
           }}
         >
-            Footer
+          Footer
         </button>
       </div>
     </>

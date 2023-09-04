@@ -1,4 +1,5 @@
 import React from "react";
+
 import WaterProgress from "~/componentsRoot/WaterProgress";
 import Header from "~/componentsRoot/Header";
 import FooterBird from "~/componentsRoot/FooterBird";
@@ -27,9 +28,8 @@ const waiting: React.FC = () => {
           <div className="flex-1  bg-white">
             <FooterBird height={50} />
           </div>
-
           
-        </div>
+       </div>
       );
     };
     

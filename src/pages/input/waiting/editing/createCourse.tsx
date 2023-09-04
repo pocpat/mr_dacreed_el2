@@ -1,13 +1,10 @@
+
     import React from 'react'
 import CreateCourseForm from '~/pages/components/elenasComponents/CreateCourseForm'
-    
-
 
 interface createCourseProps {
   charsLeft: number;
 }
-
-
     const createCourse : React.FC<createCourseProps> = ({
 
       charsLeft
@@ -23,3 +20,4 @@ interface createCourseProps {
     }
     
     export default createCourse
+

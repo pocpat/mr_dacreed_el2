@@ -26,7 +26,6 @@ const Admin = () => {
         </button>
       </div>
 
-
       <div className="p-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-8">
           <section
@@ -36,7 +35,7 @@ const Admin = () => {
           >
             <ButtonsQ onSelect={handleButtonSelection} />
 
-            <button className="btn-outline btn-circle btn my-10">
+            <button className="btn btn-circle btn-outline my-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -69,7 +68,7 @@ const Admin = () => {
     justify-center rounded-md bg-gray-100 p-4 px-1 "
           >
             <ButtonGroup onSelect={handleButtonSelection} />
-            <button className="btn-outline btn-circle btn my-10">
+            <button className="btn btn-circle btn-outline my-10">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"

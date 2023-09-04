@@ -52,7 +52,7 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
         >
           Course Description
         </AccordionHeader>
-        <AccordionBody className="rounded-5xl bg-lightsecondaryd content-center justify-center border-4">
+        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
           {/* <HeaderBody /> */}
           <HeaderBody2 courseId={courseId} charsLeft={charsLeft} />
         </AccordionBody>
@@ -66,8 +66,9 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
         </AccordionHeader>
 
         <br />
-        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd" >
-          <QuestionsList courseId={courseId}/>
+        <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
+          <QuestionsList courseId={courseId} />
+
         </AccordionBody>
       </Accordion>
     </div>
