@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
-// import TopNav from "../components/jpComponents/TopNav";
 import { useUser } from "@clerk/nextjs";
 import { useState,  Fragment } from "react";
 import { api } from "~/utils/api";
@@ -24,11 +23,8 @@ const Input = () => {
   const [showModal, setShowModal] = useState(false);
 const [showModal2, setShowModal2] = useState(false);
 
-// ====================================================
-const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
-
-  charsLeft
-}) => {
+// ======================> Course Creation Modal <============================== //
+const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft }) => {
   return (
     <div>
       <Transition
@@ -131,8 +127,7 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
 };
 
   
-  
-  // ===============================================
+// ======================> Course Input Modal <============================== //
   
   const CourseInputModal = () => {
     return (
@@ -284,13 +279,14 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
 
   return (
     <div className="min-h-screen ">
-      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_140%] bg-no-repeat ">
+      <div >
         <Header />
+      
 
-        <main className="z-2 flex flex-col items-center justify-center">
-          <div>
-            <div className="my-6 flex flex-row ">
-              <a href="../" className=" absolute left-20 ">
+        <main className="flex flex-col items-center justify-center  bg-[#EEEEEE] bg-opacity-60">
+          <div >
+            <div className="my-6 flex flex-row bg-[#D9E5E2] ">
+              <a href="../" className=" absolute left-20  ">
                 <svg
                   className="inline-block w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -311,8 +307,8 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
             </div>
           </div>
 
-          <section className="   w-3/4 ">
-            <h1 className="left-0 mb-10  text-5xl">Create Courses</h1>
+          <section className=" mt-3  w-3/4 ">
+            <h1 className="left-0 mb-10  text-3xl font-bold">Create Courses</h1>
             <div className=" flex flex-row  items-center  justify-center ">
               {/*  new buttons setup */}
               <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
@@ -391,12 +387,14 @@ const CourseCreationModal : React.FC<CourseCreationModalProps> = ({
 
               </div>
             </section>
+         
+         
           </section>
+          <FooterBird height={40} />
         </main>
       </div>
-      <div className="mt-4 flex justify-center">
-        <FooterBird />
-      </div>
+
+
     </div>
   );
 };
