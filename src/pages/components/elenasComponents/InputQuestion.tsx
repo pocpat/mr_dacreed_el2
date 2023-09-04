@@ -1,6 +1,5 @@
 import React from "react";
-// import { ZodErrorMap, string } from "zod";
-// import input from "~/pages/input/input";
+import Image from "next/image";
 
 interface InputQuestion {
     placeholder: string;
@@ -30,7 +29,7 @@ const InputQuestion: React.FC<InputQuestion> = ({type, placeholder, onChange, na
       <span className="ml-3 mt-0">Characters left: {charsLeft}</span>
       {/*     delete icon    */}
       <span className="ml-3 mt-0 pr-2 flex items-center ">Delete
-        <img src="/icons/delete.png" alt="delete" className="w-6 h-6 inline-block" />
+        <Image src="/icons/delete.png" alt="delete" className=" inline-block" width={6}  height={6}/>
          </span>
       </div>
     </div>

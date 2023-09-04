@@ -54,7 +54,7 @@ const CreateCourseForm : React.FC<CourseHeaderInput2Props> = ({
     >
       {/* Title */}
       <label className="flex flex-col">
-        <span className="ml-3 font-bold">Course Title ❔</span>
+        <span className="ml-3 font-bold">Course Title </span>
         <input
           className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
           value={title}
@@ -71,7 +71,7 @@ const CreateCourseForm : React.FC<CourseHeaderInput2Props> = ({
 
       {/* Sub-heading */}
       <label className="flex flex-col">
-        <span className="ml-3 font-bold">Sub-heading❔</span>
+        <span className="ml-3 font-bold">Sub-heading</span>
         <input
           className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
           value={subHeading}
@@ -85,7 +85,7 @@ const CreateCourseForm : React.FC<CourseHeaderInput2Props> = ({
       {/* Description */}
 
       <label className="flex flex-col">
-        <span className="ml-3 font-bold">Description❔</span>
+        <span className="ml-3 font-bold">Description</span>
         <input
           className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
           value={description}

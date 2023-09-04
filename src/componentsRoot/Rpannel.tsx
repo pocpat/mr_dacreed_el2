@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const Rpannel = () => {
   return (
@@ -7,7 +8,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px]  w-[135px]">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/cs.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/cs.svg" className="mr-2 " width={20} height={20} alt={"csIcon"}/>
           <div className="flex flex-col text-left">
             <p>Content</p>
             <p>Section</p>
@@ -18,7 +19,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/cp.svg" className="mr-2 h-6 w-6" />
+        <Image src="/rPannelIcons/cp.svg" className="mr-2"  width={20} height={20} alt={"cpIcon"}/>
           <div className="flex flex-col text-left">
             <p>Content</p>
             <p>Page</p>
@@ -29,7 +30,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/ts.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/ts.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left">
             <p>Test</p>
             <p>Section</p>
@@ -40,7 +41,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/mc.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/mc.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left">
             <p>Multi</p>
             <p>choice</p>
@@ -51,7 +52,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/fiq.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/fiq.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left">
             <p>Fill in </p>
             <p>Question</p>
@@ -62,7 +63,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/lf.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/lf.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left ">
             <p>Long</p>
             <p>form</p>
@@ -74,7 +75,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/au.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/au.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left">
             <p>Assessment</p>
             <p>Upload</p>
@@ -85,7 +86,7 @@ const Rpannel = () => {
 
       <button className="rounded-lg bg-tertiaryd opacity-25 p-2 text-white hover:opacity-100  my-2  w-[135px] ">
         <section className="flex flex-row items-center">
-          <img src="/rPannelIcons/tsp.svg" className="mr-2 h-6 w-6" />
+          <Image src="/rPannelIcons/tsp.svg" className="mr-2 "width={20} height={20} alt="icon" />
           <div className="flex flex-col text-left">
             <p>Test Submit</p>
             <p>page</p>
@@ -93,7 +94,7 @@ const Rpannel = () => {
         </section>
       </button>
 
-<img src="/rPannelIcons/3dots.svg" className="mr-2 h-6 w-6" />
+<Image src="/rPannelIcons/3dots.svg" className="mr-2 "width={20} height={20} alt="icon" />
 
 
     </div>

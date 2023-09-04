@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { api } from "~/utils/api";
 import InputQuestion from "./InputQuestion";
 import InputAnswer from "./InputAnswer";
@@ -31,13 +31,23 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
       courseQA.answer4,
       courseQA.answer5,
       courseQA.answer6,
-    ].filter((answer): answer is string => answer !== null)
+    ]
+    .filter((answer): answer is string => answer !== null)
+     .slice(0, 2)
   );
 
   const [isModal4Open, setIsModal4Open] = useState(false);
   const [commentary, setCommentary] = useState(courseQA.commentary);
   const [guidance, setGuidance] = useState(courseQA.guidance);
   const [uploadedImgs, setUploadedImgs] = useState<string | null>(null);
+
+  const [showCommentary, setShowCommentary] = useState(false);
+  const [showGuidance, setShowGuidance] = useState(false);
+
+  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
 
   // TODO: to be called onSubmit of 'update' button
   const { mutate: updateQuestionMutation } =
@@ -97,6 +107,21 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
     setIsModal4Open(false);
   };
 
+  // close the Dropdown menu from ADD button
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+  const handleCommentaryClick = () => {
+    setShowCommentary(true);
+    closeDropdown();
+  };
+
+  const handleGuidanceClick = () => {
+    setShowGuidance(true);
+    closeDropdown();
+  };
+
+
   return (
     <div>
       {/* <span className="ml-3  font-bold text-accentd">Question 1</span> */}
@@ -118,8 +143,8 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
           {/* answers */}
           <div>
             <div className="newAnswersPlaceholder grid grid-cols-2 gap-4">
-              {answerValues.map((value, i) => (
-                <div key={i} className="flex w-full flex-col">
+            {answerValues.map((value, i) => (               
+               <div key={i} className="flex w-full flex-col">
                   <div className="relative">
                     <div>
                       <InputAnswer
@@ -158,21 +183,39 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
               ))}
             </div>
 
-            <Commentary
+            {/* <Commentary
               placeholder=""
               type="text"
               value={commentary ?? ""}
               onChange={(e) => setCommentary(e.target.value)}
               charsLeft={commentary ? 150 - commentary.length : 150}
-            />
+            /> */}
+            <div>  {showCommentary && (
+        <Commentary
+          placeholder=""
+          type="text"
+          value={commentary ?? ""}
+          onChange={(e) => setCommentary(e.target.value)}
+          charsLeft={commentary ? 150 - commentary.length : 150}
+        />
+      )}</div>
 
-            <Guidance
+            {/* <Guidance
               placeholder=""
               type=""
               onChange={(e) => setGuidance(e.target.value)}
               value={guidance ?? ""}
               charsLeft={guidance ? 150 - guidance.length : 150}
-            />
+            /> */}
+              {showGuidance && (
+        <Guidance
+          placeholder=""
+          type=""
+          onChange={(e) => setGuidance(e.target.value)}
+          value={guidance ?? ""}
+          charsLeft={guidance ? 150 - guidance.length : 150}
+        />
+      )}
           </div>
           <button
             className="mt-4 w-1/3 rounded-md bg-blue-500/75 px-4 py-2 text-white hover:bg-green-800"
@@ -189,13 +232,14 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
           {uploadedImgs && (
             <div className="max-w-screen-2xl px-[20%]">
               {/* <img src={uploadedImgs} alt="Uploaded" /> */}
-              <Image src={uploadedImgs} alt="Uploaded" width={20} height={20} />
+              <Image src={uploadedImgs} alt="Uploaded" width={200} height={400} />
             </div>
           )}
         </div>
         {/* Add button */}
-        <div className="w-82 dropdown-top dropdown flex content-center justify-center rounded-sm ">
-          <label tabIndex={0} className=" m-1 flex flex-row items-center ">
+        <div className="w-82 dropdown-top dropdown flex content-center justify-center rounded-sm "
+         >
+          <label tabIndex={0} className=" m-1 flex flex-row items-center " onClick={() => setIsDropdownOpen(prevState => !prevState)} >
             <p className="mr-2">Add </p>
             <svg
               width="14"
@@ -212,8 +256,9 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
           </label>
           <ul
             tabIndex={0}
-            className="menu dropdown-content z-[1] bg-base-100 p-2 shadow  "
-          >
+            className={`menu dropdown-content z-[1] bg-base-100 p-2 shadow ${
+              isDropdownOpen ? "dropdown-open" : ""
+            }`}          >
             <li>
               <section className="flex flex-row" onClick={addNewAnswer}>
                 <Image
@@ -254,6 +299,10 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
               <section
                 className="flex flex-row"
                 // onClick={() => setIsModal4Open(true)}
+                onClick={() => {
+                  setShowCommentary(true);
+                  closeDropdown(); // Close the dropdown after clicking
+                }}
               >
                 <Image
                   width={20}
@@ -274,6 +323,10 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
               <section
                 className="flex flex-row"
                 // onClick={() => setIsModal4Open(true)}
+                onClick={() => {
+                  setShowGuidance(true);
+                  closeDropdown(); // Close the dropdown after clicking
+                }}
               >
                 <Image
                   width={20}
@@ -290,6 +343,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
             </li>
           </ul>
         </div>
+        
         {isModal4Open && (
           <Modal4 onClose={() => setIsModal4Open(false)} isVisible={true}>
             <UploadImgs onMediaUpload={handleMediaUpload} />

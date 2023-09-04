@@ -4,19 +4,21 @@ import { type Config } from "tailwindcss";
 const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}",  "./**/*.html"],
   theme: {
-    fontFamily: {
-      'nunito': ['Cambria']
-    },
     colors: {
       'accentd': '#1E425C',
       'tertiaryd': '#0F5475',
       'secondaryd': '#B9CCC8',
       'midsecondaryd': '#F0F6F5',
-      'lightsecondaryd:': '#F1F4F3 ',
+      'lightsecondaryd': '#F1F4F3 ',
       'primaryd': '#FAFAFA',
+      'lighttertiaryd': '#E6EDEF',
+      
     },
     extend: {
-
+      fontFamily: {
+        sans: ["Helvetica Neue", "sans-serif"],
+        display: ["Lexend Deca", "sans-serif"],
+      },
       customWave: {
         'position': 'relative',
         'width': '100% relative',
@@ -38,16 +40,17 @@ const config: Config = {
       },
 
       keyframes: {
-        wave: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
 
         riseUp: {
           '0%': { top: '-90%' },
           '100%': { top: '-220%' },
         },
-        customBounce: {
+        riseUpWave1: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-300px)' },
+        },
+          
+          customBounce: {
           "0%": { transform: "translateY(50px)" },
           "50%": { transform: "translateY(-70px)" },
           "100%": { transform: "translateY(20px)" },
@@ -60,14 +63,29 @@ const config: Config = {
           "0%": { transform: "translateX(-700px)" },
           "100%": { transform: "translateX(-80px)" },
         },
+        wave1: {
+          '0%': { transform: 'translateY(0%) rotate(-1350deg) scale(1.4)' }, // Initial position
+          '50%': { transform: 'translateY(-44%) rotate(10deg) scale(1.2)' }, // Initial position
+          '100%': { transform: 'translateY(-125%) rotate(1350deg) scale(1.2)' }, // Final position
+        },
+        wave2: {
+          '0%': { transform: 'translateY(2%) rotate(-1900deg)   scale(1.4)' }, // Initial position
+          '100%': { transform: 'translateY(-135%) rotate(1200deg) scale(1.5)' }, // Final position
+        },
 
       },
       animation: {
         "custom-bounce": "customBounce 2s  forwards ",
         "bird-in": "birdin 6s forwards",
         "text-in": "textin 6s forwards",
-        "waveBefore": "wave 6s linear infinite",
-        "riseUpBefore": "riseUp 13s forwards",
+        "wave1": "wave1 10s linear forwards",
+        "wave2": "wave2 10s linear forwards",
+        "wave1-5s": "wave1 5s linear forwards",
+        "wave1-10s": "wave1 10s linear forwards",
+        "wave1-15s": "wave1 15s linear forwards",
+        "wave2-5s": "wave2 5s linear forwards",
+        "wave2-10s": "wave2 10s linear forwards",
+        "wave2-15s": "wave2 15s linear forwards",
         'delayedRiseUpAfter': 'riseUp 0.35s forwards',
       },
 
