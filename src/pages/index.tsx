@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Link from "next/link";
 import {
   useUser,
   SignInButton,
@@ -90,7 +88,7 @@ const Home: NextPage = () => {
           className="z-[-2] "
         />
 
-<div className="flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
+        <div className="flex w-screen flex-col items-center justify-center  gap-12 pb-4 pt-40">
           {/* logo */}
           <div
             className="birdBG left-0   w-screen    bg-white/20 py-16 "
@@ -160,7 +158,6 @@ const Home: NextPage = () => {
 
 export default Home;
 
-
 const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
@@ -179,4 +176,3 @@ const AuthShowcase: React.FC = () => {
   );
 };
 export { AuthShowcase };
-
