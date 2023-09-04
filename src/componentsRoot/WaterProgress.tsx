@@ -16,8 +16,10 @@ declare module "react" {
 
 const WaterProgress: React.FC = () => {
   const radialSize = "145px";
-  const radialThickness = "6px";                                                         {/*  thickness of the circle bar   */}
-         
+  const radialThickness = "6px";
+  {
+    /*  thickness of the circle bar   */
+  }
 
   const [progressValue, setProgressValue] = useState(0);
 
@@ -26,7 +28,10 @@ const WaterProgress: React.FC = () => {
       setProgressValue((prevValue) =>
         prevValue < 100 ? prevValue + 1 : prevValue
       );
-    }, 100);                                                                              {/*  speed of the circle bar   */}
+    }, 100);
+    {
+      /*  speed of the circle bar   */
+    }
 
     // Clear the timer when the component unmounts
     return () => {
@@ -59,16 +64,18 @@ const WaterProgress: React.FC = () => {
   const animationDurationClass = calculateAnimationDuration(prevValue);
 
   return (
-    <div className="
+    <div
+      className="
+    relative 
     flex 
-    items-center 
+    items-center
     justify-center
-    relative
     
-    ">
+    "
+    >
       <div
         className={`wpBase  
-        flex h-[150px] w-[150px]                                                          {/*  size of the outer bg white circle   */}  
+        {/* size of                                                          the  outer bg white circle */} flex h-[150px]  w-[150px]  
         items-center justify-center rounded-full bg-white ${animationDurationClass}`}
         style={{
           "--size": radialSize,
@@ -82,7 +89,10 @@ const WaterProgress: React.FC = () => {
             animationDurationClass={animationDurationClass}
           />
         </div>
-        <div className="radial-progress text-accentd  text-4xl font-bold" style={style}>
+        <div
+          className="radial-progress text-4xl  font-bold text-accentd"
+          style={style}
+        >
           {progressValue}%
         </div>
       </div>
@@ -92,30 +102,7 @@ const WaterProgress: React.FC = () => {
 
 export default WaterProgress;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { useState, useEffect } from "react";
-
 
 // import WaterWave2 from "~/pages/components/elenasComponents/WaterWave2";
 // interface WaterWave2Props {
@@ -154,11 +141,11 @@ export default WaterProgress;
 
 //   // Calculate borderOffset based on progressValue
 //   const borderOffset = (progressValue / 100) * 360; // Adjust as needed
-//   const style = { 
-//     "--value": progressValue , 
+//   const style = {
+//     "--value": progressValue ,
 //   "--size": radialSize,
 //   "--thickness": radialThickness,
-//   "--progress-line-color": "#FF5733", 
+//   "--progress-line-color": "#FF5733",
 //  } as unknown as React.CSSProperties;
 //  const calculateAnimationDuration = (prevValue: number) => {
 //   if (prevValue < 25) {
@@ -174,12 +161,11 @@ export default WaterProgress;
 
 // const animationDurationClass = calculateAnimationDuration(prevValue);
 
-
 //   return (
 //     <div className="flex h-screen items-center justify-center">
 //         <div
-//         className={`wpBase  
-//         flex h-[130px] w-[130px]   
+//         className={`wpBase
+//         flex h-[130px] w-[130px]
 //         items-center justify-center rounded-full bg-white ${animationDurationClass}`}
 //         style={{
 //           "--size": radialSize,
@@ -188,8 +174,8 @@ export default WaterProgress;
 //         }}
 //       >
 //         <div className="z-2 absolute inset-0 flex items-center justify-center">
-//           <WaterWave2 
-//           prevValue={prevValue} 
+//           <WaterWave2
+//           prevValue={prevValue}
 //           animationDurationClass={animationDurationClass} />
 //         </div>
 
@@ -202,5 +188,3 @@ export default WaterProgress;
 // };
 
 // export default WaterProgress;
-
-

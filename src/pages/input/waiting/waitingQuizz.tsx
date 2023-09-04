@@ -67,9 +67,8 @@ export default function WaitingQuizz() {
   };
 
   return (
-    // <div className=" flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#0284c7] to-[#042f2e]">
     <div className="flex h-screen w-screen items-center justify-center">
-      <div className="h-5/6 w-4/6 items-center justify-center rounded-xl bg-bg1 p-20">
+      <div className="p-15 h-5/6 w-4/6 items-center justify-center rounded-xl bg-bg1">
         <div className="fixed right-3 top-3">
           <Link
             className="rounded-lg bg-[#000925] p-2 font-semibold text-white"
@@ -147,7 +146,7 @@ export default function WaitingQuizz() {
                   Total Score: <span>{result.score} out of 25.</span>
                 </p>
                 <button
-                  className="mt-4 w-1/2 rounded-lg bg-gradient-to-r from-red-300 to-blue-800 p-2 text-lg text-white"
+                  className="mt-5 w-1/2 rounded-lg bg-gradient-to-b from-red-300 to-blue-800 p-2 text-lg font-bold text-black opacity-80"
                   onClick={() => window.location.reload()}
                 >
                   Reload Quiz
