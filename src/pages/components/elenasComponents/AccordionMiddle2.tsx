@@ -62,12 +62,13 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
           onClick={() => handleOpen(2)}
         >
-          Question
+          Course Test
         </AccordionHeader>
 
         <br />
         <AccordionBody className="rounded-5xl  bg-lightsecondaryd content-center justify-center  border-4">
           <QuestionsList courseId={courseId} />
+
         </AccordionBody>
       </Accordion>
     </div>

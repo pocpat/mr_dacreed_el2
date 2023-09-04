@@ -16,7 +16,7 @@ const ButtonAdd = (props: {
   return (
     <div>
       <button
-        className="AddButton btn ml-2 w-40 rounded-sm shadow-inner shadow-md"
+        className="AddButton btn ml-2 w-40 rounded-sm shadow-inner"
         onClick={props.onClick}
       >
         {props.text}

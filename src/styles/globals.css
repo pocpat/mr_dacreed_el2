@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 li {
     list-style-type: none;
     cursor: pointer;
@@ -24,8 +25,6 @@ li {
     background-color: #000925;
   }
 
-
-
 .waterContainer::before {
     @apply absolute block w-full h-full bg-gray-200 top-0 left-0 rounded-full animate-waveBefore animate-riseUpBefore;
     width: 200%;
@@ -42,3 +41,4 @@ li {
     left: -52%;
     /* animation-delay: 0.35s; */
   }
+

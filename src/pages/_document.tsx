@@ -2,8 +2,10 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document () {
     return (
-        <Html data-theme="garden">
-            <Head />
+        <Html 
+        data-theme="winter" 
+        className="p-0" >
+            <Head className="m-0"/>
             <body className="antialiased text-gray-900">
                 <Main />
                 <NextScript />

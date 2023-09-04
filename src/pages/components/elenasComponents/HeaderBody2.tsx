@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { set } from "zod";
+// import { set } from "zod";
 import { api } from "~/utils/api";
 interface CourseHeaderInput2Props {
   courseId: string;
@@ -21,13 +21,15 @@ const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({
   );
 };
 export default HeaderBody2;
-type CourseHeader2 = {
-  id: string;
-  title: string;
-  subHeading: string;
-  description: string;
-  charsLeft: number;
-};
+
+// type CourseHeader2 = {
+//   id: string;
+//   title: string;
+//   subHeading: string;
+//   description: string;
+//   charsLeft: number;
+// };
+
 const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   courseId,
   charsLeft,
