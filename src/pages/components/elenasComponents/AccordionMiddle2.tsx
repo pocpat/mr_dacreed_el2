@@ -10,6 +10,7 @@ import {
 // import { set } from "zod";
 import HeaderBody2 from "./HeaderBody2";
 import QuestionsList from "~/componentsRoot/QuestionsList";
+import CourseSectionPlaceholder from "~/componentsRoot/CourseSectionPlaceholder";
 
 function Icon({ id, open }: { id: number; open: number }) {
   return (
@@ -57,6 +58,31 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
           <HeaderBody2 courseId={courseId} charsLeft={charsLeft} />
         </AccordionBody>
       </Accordion>
+
+
+
+      {/* =======================================> Course Sections <================================================== */}
+
+      <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
+        <AccordionHeader
+          className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
+          onClick={() => handleOpen(2)}
+        >
+          Course Sections
+        </AccordionHeader>
+
+        <br />
+        <AccordionBody className="rounded-5xl  content-center justify-center border-4  bg-lightsecondaryd" >
+
+          <CourseSectionPlaceholder/>
+
+        </AccordionBody>
+      </Accordion>
+{/* ========================================================================================================== */}
+
+
+
+
       <Accordion open={open === 2} icon={<Icon id={2} open={open} />}>
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
@@ -70,6 +96,10 @@ const AccordionMiddle2: React.FC<AccordionMiddle2Props> = ({ courseId }) => {
           <QuestionsList courseId={courseId}/>
         </AccordionBody>
       </Accordion>
+
+
+
+
     </div>
   );
 };
