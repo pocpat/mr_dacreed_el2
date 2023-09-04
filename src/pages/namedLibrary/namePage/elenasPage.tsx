@@ -4,7 +4,7 @@ import TextWave from "./../../components/elenasComponents/TextWave";
 import Bird from "../../../componentsRoot/Bird";
 import Link from "next/link";
 import Buttons1 from "./../../components/elenasComponents/Buttons1";
-import Textarea from "~/pages/components/elenasComponents/Textarea";
+import Textarea from "../../components/elenasComponents/Textrea";
 import SmallStaff from "~/pages/components/elenasComponents/smallStaff";
  import AccordionMiddle2 from "~/pages/components/elenasComponents/AccordionMiddle2";
 

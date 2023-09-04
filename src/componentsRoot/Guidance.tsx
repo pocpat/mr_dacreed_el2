@@ -1,6 +1,5 @@
-
-
 import React from "react";
+import Image from "next/image";
 // import { ZodErrorMap, string } from "zod";
 
 interface InputGuidance {
@@ -36,7 +35,7 @@ const Guidance: React.FC<InputGuidance> = ({type, onChange, name, charsLeft,valu
         </span>
 {/*     delete icon    */}
         <span className="ml-3 mt-0 pr-2 flex items-center ">Delete
-        <img src="/icons/delete.png" alt="delete" className="w-5 h-5 inline-block" />
+        <Image src="/icons/delete.png" alt="delete" className="w-5 h-5 inline-block" width={5} height={5}/>
          </span>
        
       </div>

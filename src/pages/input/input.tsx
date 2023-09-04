@@ -1,66 +1,130 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { Header } from "~/componentsRoot/Header";
-// import TopNav from "../components/jpComponents/TopNav";
 import { useUser } from "@clerk/nextjs";
-import { useState, Fragment } from "react";
+import { useState,  Fragment } from "react";
 import { api } from "~/utils/api";
 import Modal4 from "../../componentsRoot/Modal4";
 import { Transition } from "@headlessui/react";
 import FooterBird from "~/componentsRoot/FooterBird";
 import { type Course } from "@prisma/client";
+import Image from "next/image";
+import CreateCourseForm from "../components/elenasComponents/CreateCourseForm";
 
+interface CourseCreationModalProps {
+  charsLeft: number;
+}
 const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);
-  const handleModal = () => {
-    setModalOpen(true);
-  };
   const [showModal, setShowModal] = useState(false);
+const [showModal2, setShowModal2] = useState(false);
 
-  const CourseCreationModal = () => {
-    return (
-      <div className="inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-          <div className="mt-38 m-40 w-2/5 rounded-xl bg-white p-8">
-            <div className="p-41 flex flex-row items-center justify-items-center">
-              <div className="w-3/5">
-                <CourseForm />
-                <div className="flex w-3/4 flex-col items-start justify-between">
-                  <Link
-                    href="/input/waiting/editing/common"
-                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-auto rounded-md px-2 py-2 text-white"
+// ======================> Course Creation Modal <============================== //
+const CourseCreationModal : React.FC<CourseCreationModalProps> = ({ charsLeft }) => {
+  return (
+    <div>
+      <Transition
+        show={showModal2}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <Fragment>
+          <Modal4
+            isVisible={showModal2}
+            onClose={() => setShowModal2(false)}
+            // children={undefined}
+          >
+            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+              <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50  ">
+                {/* <!--Modal title--> */}
+                <h5
+                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
+                  id="exampleModalLabel"
+                >
+                 Create New Course 
+                </h5>
+                {/* <!--Close button--> */}
+                <button
+                  type="button"
+                  className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none text-primaryd"
+                  data-te-modal-dismiss
+                  aria-label="Close"
+                  onClick={() => setShowModal2(false)}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="h-6 w-6"
                   >
-                    CONT TO COURSE:
-                  </Link>
-                  <button
-                    onClick={() => {
-                      setModalOpen(false);
-                    }}
-                    className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 w-1/3 rounded-md px-4 py-2 text-white"
-                  >
-                    BACK
-                  </button>
-                  <button className="bg-sky-500/75 hover:bg-sky-400/50 mt-4 rounded-md px-4 py-2 text-white">
-                    CONT TO COURSE
-                  </button>
-                </div>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
               </div>
-              <div className="flex h-auto w-2/5 items-center justify-center">
-                <img
-                  src="/birdFP.png"
-                  alt="Bird-logo"
-                  width="200px"
-                  height="200px"
-                />
+
+              {/* <!--Modal body--> */}
+              <div
+                className="relative flex items-center justify-center first-line:flex-row bg-lightsecondaryd p-0"
+                data-te-modal-body-ref
+              >
+{/* Create new course */}
+<CreateCourseForm charsLeft={charsLeft} />
+
+
+              </div>
+              {/* <!--Modal footer--> */}
+              <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                <button
+                  type="button"
+                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-modal-dismiss
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  onClick={() => setShowModal2(false)}
+                >
+                 &lt; Back
+                </button>
+
+
+                <Link
+            href={{
+              pathname: `/input/waiting/editing/common`,
+              // query: { editCourseId: course.id },
+            }}
+          >
+
+                <button
+                  type="button"
+                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                >
+                  Next &gt;
+                </button>
+                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
+          </Modal4>
+        </Fragment>
+      </Transition>
+    </div>
+  );
+};
 
+  
+// ======================> Course Input Modal <============================== //
+  
   const CourseInputModal = () => {
     return (
       <div>
@@ -79,19 +143,19 @@ const Input = () => {
               onClose={() => setShowModal(false)}
               // children={undefined}
             >
-              <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
+            <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
                 <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
                   {/* <!--Modal title--> */}
                   <h5
-                    className="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                    id="exampleModalLabel"
+                  className="flex-1 text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200 items-center"
+                  id="exampleModalLabel"
                   >
                     Upload Doc
                   </h5>
                   {/* <!--Close button--> */}
                   <button
                     type="button"
-                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                    className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none  text-primaryd"
                     data-te-modal-dismiss
                     aria-label="Close"
                     onClick={() => setShowModal(false)}
@@ -115,10 +179,11 @@ const Input = () => {
 
                 {/* <!--Modal body--> */}
                 <div
-                  className="relative flex items-center justify-center p-4 first-line:flex-row "
+                  className="relative flex items-center justify-center p-4 first-line:flex-row  "
                   data-te-modal-body-ref
+                  style={{ backgroundColor: 'white' }}
                 >
-                  <div className="container mx-auto flex  flex-col items-center justify-center">
+                  <div className="container mx-auto flex  flex-col items-center justify-center ">
                     {/* upload files */}
                     <label
                       className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
@@ -175,30 +240,30 @@ const Input = () => {
                   </div>
 
                   <div className="container mx-auto flex items-center justify-center">
-                    <img src="/courseTone_1.jpg" alt="choose tone" />
+                    <Image src="/courseTone_1.jpg" alt="choose tone" width={300} height={300}/>
                   </div>
                 </div>
 
                 {/* <!--Modal footer--> */}
                 <div className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                  <button
-                    type="button"
-                    className="bg-primaryd-100 text-primaryd-700 hover:bg-primaryd-accent-100 focus:bg-primaryd-accent-100 active:bg-primaryd-accent-200 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out focus:outline-none focus:ring-0"
-                    data-te-modal-dismiss
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                    onClick={() => setShowModal(false)}
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="hover:bg-primaryd-600 focus:bg-primaryd-600 active:bg-primaryd-700 ml-1 inline-block rounded bg-primaryd px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    data-te-ripple-init
-                    data-te-ripple-color="light"
-                  >
-                    Save changes
-                  </button>
+                <button
+                  type="button"
+                  className=" border border-primaryd hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-modal-dismiss
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                  onClick={() => setShowModal(false)}
+                >
+                 &lt; Back
+                </button>
+                <button
+                  type="button"
+                  className="border border-primaryd  hover:bg-primaryd-600 focus:bg-FFC96B active:bg-FFC96B ml-1 inline-block rounded  px-6 pb-2 pt-2.5 text-xs font-medium  leading-normal text-primaryd shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init
+                  data-te-ripple-color="light"
+                >
+                  Next &gt;
+                </button>
                 </div>
               </div>
             </Modal4>
@@ -210,13 +275,14 @@ const Input = () => {
 
   return (
     <div className="min-h-screen ">
-      <div className="bg-opacity-20  bg-[url('/bg_loading.png')]  bg-auto bg-[50%_140%] bg-no-repeat ">
+      <div >
         <Header />
+      
 
-        <main className="z-2 flex flex-col items-center justify-center">
-          <div>
-            <div className="my-6 flex flex-row ">
-              <a href="../" className=" absolute left-20 ">
+        <main className="flex flex-col items-center justify-center  bg-[#EEEEEE] bg-opacity-60">
+          <div >
+            <div className="my-6 flex flex-row bg-[#D9E5E2] ">
+              <a href="../" className=" absolute left-20  ">
                 <svg
                   className="inline-block w-5"
                   xmlns="http://www.w3.org/2000/svg"
@@ -237,8 +303,8 @@ const Input = () => {
             </div>
           </div>
 
-          <section className="   w-3/4 ">
-            <h1 className="left-0 mb-10  text-5xl">Create Courses</h1>
+          <section className=" mt-3  w-3/4 ">
+            <h1 className="left-0 mb-10  text-3xl font-bold">Create Courses</h1>
             <div className=" flex flex-row  items-center  justify-center ">
               {/*  new buttons setup */}
               <div className="m-5 rounded-3xl bg-gradient-to-t from-tertiaryd to-secondaryd p-1 shadow-xl ">
@@ -247,11 +313,11 @@ const Input = () => {
                     aria-current="page"
                     className="text m-0  flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4  text-accentd ring-2  ring-tertiaryd  "
                     href="#"
-                    onClick={handleModal}
+                    onClick={() => setShowModal2(true)}
                   >
                     <h3 className="text-2xl font-bold">New Course</h3>
                   </a>
-                  {modalOpen && <CourseCreationModal />}
+                  {showModal2 && <CourseCreationModal charsLeft={0} />}
                 </div>
               </div>
 
@@ -283,7 +349,7 @@ const Input = () => {
                 </div>
               </div>
 
-              <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
+              {/* <div className="m-5 rounded-3xl bg-gradient-to-t  from-tertiaryd to-secondaryd p-1 shadow-xl">
                 <div className="   rounded-3xl border-solid border-accentd ">
                   <Link
                     className="text m-0 flex h-[100px] w-48 items-center justify-center  rounded-3xl border-solid  border-accentd bg-primaryd p-4 text-accentd ring-2 ring-tertiaryd  drop-shadow-lg  "
@@ -292,7 +358,7 @@ const Input = () => {
                     <h3 className="text-2xl font-bold">Cont...</h3>
                   </Link>
                 </div>
-              </div>
+              </div> */}
             </div>
             <div className=" flex items-center justify-center">
               <input
@@ -311,17 +377,20 @@ const Input = () => {
                   Drafts (recent):
                 </span>
 
-                <div className="h-auto w-full flex-col">
+                <div className="h-auto w-full">
                   <DraftCourses />
                 </div>
+
               </div>
             </section>
+         
+         
           </section>
+          <FooterBird height={40} />
         </main>
       </div>
-      <div className="mt-4 flex justify-center">
-        <FooterBird />
-      </div>
+
+
     </div>
   );
 };
@@ -332,7 +401,7 @@ const AuthShowcase: React.FC = () => {
   const { user } = useUser();
   if (user) {
     return (
-      <div className="text-2xl  font-normal text-primaryd">
+      <div className="text-2xl  text-primaryd font-normal">
         <h1>Hi {user.fullName}, welcome back.</h1>
       </div>
     );
@@ -396,55 +465,49 @@ const CourseForm: React.FC = () => {
   );
 };
 
-const DraftCourses = () => {
-  const [courses, setCourses] = useState<Course[]>([]);
-
-  const query = api.course.getAll.useQuery();
-
-  useEffect(() => {
-    if (query.data && query.data.length > 0) {
-      setCourses(query.data);
-    } else {
-      setCourses([]);
-    }
-  }, [query.data]);
+  const DraftCourses = () => {
+    const [courses, setCourses] = useState<Course[]>([]);
+  
+    const query = api.course.getAll.useQuery();
+    
+    useEffect(() => {
+      if (query.data && query.data.length > 0) {
+        setCourses(query.data);
+      } else {
+        setCourses([]);
+      }
+    }, [query.data]);
   return (
-    <div className="flex h-auto w-full flex-col">
+    <div className="flex w-full flex-col">
       {courses?.map((course) => (
         <div
           key={course.id}
-          className="mt-2 flex w-full flex-row items-center justify-start gap-12 px-2 py-2 text-tertiaryd"
+          className="flex w-full flex-row items-center justify-between px-2 py-2 text-tertiaryd"
         >
-          <div className="w-6">
-            <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
-              D
-            </button>
-          </div>
-          <div className="w-48">
-            <p className="">{course.title}</p>
-          </div>
-          <div className="w-64">
-            <p className="">{course.description}</p>
-          </div>
+          <button className="secondaryd h-6 w-6 rounded-md bg-gradient-to-t from-tertiaryd text-white drop-shadow-xl">
+            D
+          </button>
+          <p>{course.title}</p>
+          <p>{course.description}</p>
           {/* <p>{course.description}</p> If you want the description as well you can have both title and description in one <span> */}
-          <div className="ml-28">
-            <Link
-              href={{
-                pathname: `/input/waiting/editing/common`,
-                query: { editCourseId: course.id },
-              }}
-            >
-              <button className="hover:bg-cyan-600/50 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
-                Edit
-              </button>
-            </Link>
-          </div>
+          <Link
+            href={{
+              pathname: `/input/waiting/editing/common`,
+              query: { editCourseId: course.id },
+            }}
+          >
+            <button className="hover:bg-cyan-600/50 mt-4 flex w-20 justify-center rounded-full bg-tertiaryd p-1 text-primaryd drop-shadow-xl">
+              Edit
+            </button>
+          </Link>
         </div>
       ))}
     </div>
   );
 };
 
-function createCourse(arg0: { title: string; description: string }) {
+
+
+function createCourse(arg0: { title: string; description: string; }) {
   throw new Error("Function not implemented.");
 }

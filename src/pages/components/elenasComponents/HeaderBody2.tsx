@@ -1,30 +1,36 @@
 import React, { useState } from "react";
-import { set } from "zod";
+// import { set } from "zod";
 import { api } from "~/utils/api";
 interface CourseHeaderInput2Props {
   courseId: string;
+  charsLeft?: number;
 }
-const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({ courseId }) => {
+const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({
+  courseId,
+  charsLeft,
+}) => {
   return (
     <>
       <div
         className="border-box flex flex-col bg-primaryd p-4 "
         style={{ width: "100%", height: "auto" }}
       >
-        <CourseHeaderInput2 courseId={courseId} />
+        <CourseHeaderInput2 courseId={courseId} charsLeft={charsLeft} />
       </div>
     </>
   );
 };
 export default HeaderBody2;
-type CourseHeader2 = {
-  id: string;
-  title: string;
-  subHeading: string;
-  description: string;
-};
+// type CourseHeader2 = {
+//   id: string;
+//   title: string;
+//   subHeading: string;
+//   description: string;
+//   charsLeft: number;
+// };
 const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   courseId,
+  charsLeft,
 }) => {
   const [title, setTitle] = useState("");
   const [subHeading, setSubheading] = useState("");
@@ -69,40 +75,53 @@ const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
     }
   };
   return (
-    <div className="flex h-auto w-full flex-col">
-      <div className="m-4 flex h-auto flex-col p-4">
+    <div className="flex h-auto w-full flex-col ">
+      <div className="m-4 flex h-auto flex-col p-4 ">
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Title:</span>
             <input
               placeholder="Title goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTitle(e.target.value);
+              }}
             />
           </label>
+          <span className="ml-3 mt-0">
+            Characters left: {charsLeft ? charsLeft - title.length : 150}
+          </span>
+
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Sub-heading:</span>
             <input
               placeholder="Sub-heading goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={subHeading}
               onChange={(e) => setSubheading(e.target.value)}
-              // charsLeft={150 - subHeading.length}
             />
+            <span className="ml-3 mt-0">
+              Characters left: {charsLeft ? charsLeft - subHeading.length : 150}
+            </span>
+
             {/* <span className="ml-3 mt-0">Characters left: {charsLeft}</span> */}
           </label>
           <label className="flex flex-col">
             <span className="ml-3 font-bold">Description:</span>
             <input
               placeholder="Description goes here"
-              className="input input-bordered input-sm m-2 h-12 w-auto"
+              className="input input-bordered input-sm m-2 h-12 w-auto rounded-sm"
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+            <span className="ml-3 mt-0">
+              Characters left:{" "}
+              {charsLeft ? charsLeft - description.length : 150}
+            </span>
           </label>
           <button
             className="ml-2 mt-4 h-12 w-28 rounded-md bg-[#B9CDD7] px-4 py-2 text-lg font-bold text-white hover:bg-[#105475]"

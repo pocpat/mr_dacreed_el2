@@ -1,5 +1,6 @@
 import React from "react";
 // import { ZodErrorMap, string } from "zod";
+import Image from "next/image";
 
 interface InputCommentary {
   placeholder: string;
@@ -34,7 +35,7 @@ const Commentary: React.FC<InputCommentary> = ({type, onChange, name, charsLeft,
         </span>
 {/*     delete icon    */}
 <span className="ml-3 mt-0 pr-2 flex items-center ">Delete
-        <img src="/icons/delete.png" alt="delete" className="w-5 h-5 inline-block" />
+        <Image src="/icons/delete.png" alt="delete" className=" inline-block" width={5} height={5}/>
          </span>
       </div>
     </div>
