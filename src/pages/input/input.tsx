@@ -16,6 +16,10 @@ import ButtonNext from "~/componentsRoot/ButtonNext";
 interface CourseCreationModalProps {
   charsLeft: number;
 }
+
+interface CourseCreationModalProps {
+  charsLeft: number;
+}
 const Input = () => {
   const { user } = useUser();
   const [modalOpen, setModalOpen] = useState(false);

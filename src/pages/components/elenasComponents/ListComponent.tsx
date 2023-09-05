@@ -1,6 +1,17 @@
 import React from "react";
 
-const ListComponent = (props: { text: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; }) => {
+const ListComponent = (props: {
+  text:
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | Iterable<React.ReactNode>
+    | React.ReactPortal
+    | React.PromiseLikeOfReactNode
+    | null
+    | undefined;
+}) => {
   return (
     <div className="Component">
       <h1>{props.text}</h1>
@@ -9,8 +20,3 @@ const ListComponent = (props: { text: string | number | boolean | React.ReactEle
 };
 
 export default ListComponent;
-
-
-
-
-

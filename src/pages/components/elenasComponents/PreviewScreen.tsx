@@ -1,21 +1,23 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 
 const PreviewScreen = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    function modalClose(key: string) {
-        setIsOpen(true);
-        const modalElement = document.getElementById(key) as HTMLDialogElement | null;
-        if (modalElement) {
-          const dialogContent = modalElement.children[0] as HTMLElement;
-          dialogContent.classList.remove("opacity-100");
-          dialogContent.classList.add("opacity-0");
-          setTimeout(function () {
-            modalElement.close();
-            document.body.removeAttribute("style");
-          }, 100);
-        }
-      }
+  function modalClose(key: string) {
+    setIsOpen(true);
+    const modalElement = document.getElementById(
+      key
+    ) as HTMLDialogElement | null;
+    if (modalElement) {
+      const dialogContent = modalElement.children[0] as HTMLElement;
+      dialogContent.classList.remove("opacity-100");
+      dialogContent.classList.add("opacity-0");
+      setTimeout(function () {
+        modalElement.close();
+        document.body.removeAttribute("style");
+      }, 100);
+    }
+  }
   return (
     <div>
       PreviewScreen

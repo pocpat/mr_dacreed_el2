@@ -21,6 +21,7 @@ const HeaderBody2: React.FC<CourseHeaderInput2Props> = ({
   );
 };
 export default HeaderBody2;
+
 // type CourseHeader2 = {
 //   id: string;
 //   title: string;
@@ -28,6 +29,7 @@ export default HeaderBody2;
 //   description: string;
 //   charsLeft: number;
 // };
+
 const CourseHeaderInput2: React.FC<CourseHeaderInput2Props> = ({
   courseId,
   charsLeft,

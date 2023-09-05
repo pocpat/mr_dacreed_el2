@@ -56,22 +56,6 @@ const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
     }
   };
 
-  // const handleOpen = (section: string) => {
-  //   if (section === "description") {
-  //     setOpenDescription(true);
-  //     setOpenSections(false);
-  //     setOpenTest(false);
-  //   } else if (section === "sections") {
-  //     setOpenDescription(false);
-  //     setOpenSections(true);
-  //     setOpenTest(false);
-  //   } else if (section === "test") {
-  //     setOpenDescription(false);
-  //     setOpenSections(false);
-  //     setOpenTest(true);
-  //   }
-  // };
-
   console.log("AccodrionMiddle2 courseId: ", courseId);
   const charsLeft = 150;
   return (

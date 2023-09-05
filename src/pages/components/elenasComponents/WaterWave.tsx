@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const WaterWave: React.FC = () => {
   const waterContainerRef = useRef<HTMLDivElement>(null);
@@ -14,7 +14,7 @@ const WaterWave: React.FC = () => {
       const progress = timestamp - start;
 
       if (progress >= 12000 && waterContainer) {
-        waterContainer.style.animationPlayState = 'paused';
+        waterContainer.style.animationPlayState = "paused";
       } else {
         window.requestAnimationFrame(step);
       }
@@ -26,14 +26,13 @@ const WaterWave: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex justify-center items-center w-full h-screen">
+    <section className="flex h-screen w-full items-center justify-center">
       <div
         ref={waterContainerRef}
-        className="w-48 h-48 bg-blue-300 rounded-full shadow-inner relative overflow-hidden"
+        className="relative h-48 w-48 overflow-hidden rounded-full bg-blue-300 shadow-inner"
       />
     </section>
   );
 };
 
 export default WaterWave;
-
