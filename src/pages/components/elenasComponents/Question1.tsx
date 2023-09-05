@@ -126,7 +126,7 @@ const QAForm: React.FC<CourseQuestion> = (courseQA) => {
       {/* <span className="ml-3  font-bold text-accentd">Question 1</span> */}
 
       <div className="flex flex-col ">
-        <span className="ml-3  font-bold text-accentd">Question 1</span>
+        <span className="ml-3  font-bold text-accentd"> ⁝⁝ Question 1</span>
         <div>
           {/* question */}
           <div>

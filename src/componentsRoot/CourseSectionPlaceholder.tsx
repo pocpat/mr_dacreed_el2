@@ -1,6 +1,10 @@
 import React, { useState, type ChangeEvent } from "react";
 import Image from "next/image";
 
+
+
+// ===============>  NOT CONNECTED TO DB <==================== //
+
 const CourseSectionPlaceholder = () => {
   const [courseSections, setCourseSections] = useState([
     <CourseSectionComponent key={0} onRemove={() => handleRemoveSection(0)} />,
