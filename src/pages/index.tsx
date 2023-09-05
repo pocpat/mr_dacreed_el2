@@ -1,3 +1,4 @@
+// import Head from "next/head";
 import {
   useUser,
   SignInButton,
@@ -12,6 +13,7 @@ import Image from "next/image";
 import FooterBird from "~/componentsRoot/FooterBird";
 import { useState } from "react";
 import { api } from "~/utils/api";
+import ButtonNext from "~/componentsRoot/ButtonNext";
 
 const Home: NextPage = () => {
   const { user } = useUser();
@@ -100,14 +102,7 @@ const Home: NextPage = () => {
           {/*     buttons   */}
           <div className="flex flex-1  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
             <div className="flex flex-row items-center justify-center gap-2 ">
-              {/* <Link */}
-              <a
-                // className="bg flex w-48 max-w-xs flex-col items-center rounded-full bg-[#0F5475] p-4 normal-case text-white drop-shadow-md file:gap-2 hover:bg-white/50"
-                className="bg flex h-10 w-48 max-w-xs flex-col items-center justify-center rounded-full  bg-[#0F5475] p-7 normal-case text-white drop-shadow-md  hover:bg-white/20"
-                href="input/input"
-              >
-                <h3 className="text-xl ">Next</h3>
-              </a>
+              <ButtonNext href={"input/input"}/> 
               {showModal && <NewUserModal />}
 
               {/* =============================================================== */}
