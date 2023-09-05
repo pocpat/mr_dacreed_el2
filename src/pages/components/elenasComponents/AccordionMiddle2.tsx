@@ -32,26 +32,45 @@ interface AccordionMiddle2Props {
   courseId: string;
 }
 
+
+
+
 const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
   const [openDescription, setOpenDescription] = useState<boolean>(false);
   const [openSections, setOpenSections] = useState<boolean>(false);
   const [openTest, setOpenTest] = useState<boolean>(false);
 
-  const handleOpen = (section: string) => {
-    if (section === "description") {
-      setOpenDescription(true);
-      setOpenSections(false);
-      setOpenTest(false);
-    } else if (section === "sections") {
-      setOpenDescription(false);
-      setOpenSections(true);
-      setOpenTest(false);
-    } else if (section === "test") {
-      setOpenDescription(false);
-      setOpenSections(false);
-      setOpenTest(true);
+  const toggleSection = (section: string) => {
+    switch (section) {
+      case "description":
+        setOpenDescription(!openDescription);
+        break;
+      case "sections":
+        setOpenSections(!openSections);
+        break;
+      case "test":
+        setOpenTest(!openTest);
+        break;
+      default:
+        break;
     }
   };
+
+  // const handleOpen = (section: string) => {
+  //   if (section === "description") {
+  //     setOpenDescription(true);
+  //     setOpenSections(false);
+  //     setOpenTest(false);
+  //   } else if (section === "sections") {
+  //     setOpenDescription(false);
+  //     setOpenSections(true);
+  //     setOpenTest(false);
+  //   } else if (section === "test") {
+  //     setOpenDescription(false);
+  //     setOpenSections(false);
+  //     setOpenTest(true);
+  //   }
+  // };
 
   console.log("AccodrionMiddle2 courseId: ", courseId);
   const charsLeft = 150;
@@ -63,7 +82,7 @@ const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
       >
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
-          onClick={() => handleOpen("description")}
+          onClick={() => toggleSection("description")}
         >
           Course Description
         </AccordionHeader>
@@ -81,7 +100,7 @@ const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
       >
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
-          onClick={() => handleOpen("sections")}
+          onClick={() => toggleSection("sections")}
         >
           Course Sections
         </AccordionHeader>
@@ -97,7 +116,7 @@ const AccordionMiddle2 : React.FC<AccordionMiddle2Props> = ({ courseId }) => {
       <Accordion open={openTest} icon={<Icon id={3} open={openTest ? 3 : 0} />}>
         <AccordionHeader
           className="rounded-5xl content-center justify-center border-4 bg-accentd font-bold text-primaryd"
-          onClick={() => handleOpen("test")}
+          onClick={() => toggleSection("test")}
         >
           Course Test
         </AccordionHeader>
