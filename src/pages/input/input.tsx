@@ -126,7 +126,6 @@ const Input = () => {
             <Modal4
               isVisible={showModal}
               onClose={() => setShowModal(false)}
-              // children={undefined}
             >
               <div className="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-accentd bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600 ">
                 <div className="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
@@ -267,7 +266,6 @@ const Input = () => {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  // class="h-6 w-6"
                 >
                   
                   <path
