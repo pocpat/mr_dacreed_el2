@@ -71,6 +71,12 @@ const Home: NextPage = () => {
                   </button>
                   {showButton && <ShowButton />}
                 </div>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="mt-4 rounded-md bg-[#0F5475] px-4 py-1 text-white"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
@@ -103,7 +109,7 @@ const Home: NextPage = () => {
           {/*     buttons   */}
           <div className="flex flex-1  flex-col items-center justify-center gap-4 sm:grid-cols-2 md:gap-8 ">
             <div className="flex flex-row items-center justify-center gap-2 ">
-              <ButtonNext href={"input/input"}/> 
+              <ButtonNext href={"input/input"} />
               {showModal && <NewUserModal />}
 
               {/* =============================================================== */}
