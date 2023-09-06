@@ -93,11 +93,11 @@ export default function WaitingQuizz() {
                   {questions?.[activeQuestion]?.question}
                 </h3>
                 {answers.map((answer: string, idx: number) => (
-                  <li
+                  <li 
                     key={idx}
                     onClick={() => onAnswerSelected(answer, idx)}
-                    className={
-                      selectedAnswerIndex === idx ? "li-selected" : "li-hover"
+                    className={ 
+                      `li-quizz-class ${selectedAnswerIndex === idx ? "li-quizz-class-selected" : "li-quizz-class-hover"}`
                     }
                   >
                     <span>{answer}</span>
