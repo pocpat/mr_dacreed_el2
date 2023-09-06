@@ -22,7 +22,6 @@ interface CourseCreationModalProps {
 }
 const Input = () => {
   const { user } = useUser();
-  const [modalOpen, setModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
@@ -136,7 +135,7 @@ const Input = () => {
                     className="flex-1 items-center text-center text-xl font-medium leading-normal text-primaryd dark:text-neutral-200"
                     id="exampleModalLabel"
                   >
-                    Upload Doc
+                    Create from Existing Content
                   </h5>
                   {/* <!--Close button--> */}
                   <button
@@ -309,7 +308,7 @@ const Input = () => {
                     href="#"
                     onClick={() => setShowModal(true)}
                   >
-                    <h3 className="text-2xl font-bold">Create  from Existing Content</h3>
+                    <h3 className="text-2xl font-bold">Create from Existing Content</h3>
                   </a>
                   {showModal && <CourseInputModal />}
                 </div>

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import WaterWave2 from "~/pages/components/elenasComponents/WaterWave2";
 
-// interface WaterWave2Props {
-//   prevValue: number;
-// }
-
 declare module "react" {
   interface CSSProperties {
     "--value"?: string;
@@ -39,7 +35,7 @@ const WaterProgress: React.FC = () => {
     };
   }, []);
 
-  // Calculate borderOffset based on progressValue
+  // CalculateS borderOffset based on progressValue
   // const borderOffset = (progressValue / 100) * 360; // Adjust as needed
   const style = {
     "--value": progressValue,
@@ -101,4 +97,3 @@ const WaterProgress: React.FC = () => {
 };
 
 export default WaterProgress;
-
